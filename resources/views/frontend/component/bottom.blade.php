@@ -1,17 +1,17 @@
 
-<script type="text/javascript" src="{{ asset('/templates/moban2030/assets/js/base.js') }}"></script>
-<script type="text/javascript">
-    $(function () {
-        //初始化发表评论表单
-        AjaxInitForm('feedback_form', 'btnSubmit', 1);
-    });
-</script>
-<script type="text/javascript">
-    $(function () {
-        //初始化发表评论表单
-        AjaxInitForm('feedback_form2', 'btnSubmit2', 1);
-    });
-</script>
+{{--<script type="text/javascript" src="{{ asset('/templates/moban2030/assets/js/base.js') }}"></script>--}}
+{{--<script type="text/javascript">--}}
+    {{--$(function () {--}}
+        {{--//初始化发表评论表单--}}
+        {{--AjaxInitForm('feedback_form', 'btnSubmit', 1);--}}
+    {{--});--}}
+{{--</script>--}}
+{{--<script type="text/javascript">--}}
+    {{--$(function () {--}}
+        {{--//初始化发表评论表单--}}
+        {{--AjaxInitForm('feedback_form2', 'btnSubmit2', 1);--}}
+    {{--});--}}
+{{--</script>--}}
 
 <div class="act_nav">
     <div class="s_w">
@@ -21,7 +21,7 @@
             <span class="div_tel" style="font-size:19px">400-699-6769</span>
             <div style="clear:both"></div>
             <div>
-                <script charset="utf-8"></script>
+                {{--<script charset="utf-8"></script>--}}
                 <style type="text/css">
                     <!--
                     .unnamed1 {
@@ -228,28 +228,28 @@
                     window.onerror = ignoreError;
                 </script>
 
-                <script language="javascript">
+                {{--<script language="javascript">--}}
 
 
-                    function checkform1(){
-                        if(form1.names.value=="")
-                        {
-                            alert("名字不能为空");
-                            form1.name.focus();
-                            return false;
-                        }
-                        var filter=/^1[3|4|5|8][0-9]\d{ 4,8}$/;
-                        if(!filter.test(document.form1.tels.value))
-                        {
-                            alert("请输入正确的手机号!");
-                            document.form1.tels.focus();
-                            form1.dianhua.value="";
-                            return false;
-                        }
-                        form1.submit();
-                        return true;
-                    }
-                </script>
+                    {{--function checkform1(){--}}
+                        {{--if(form1.names.value=="")--}}
+                        {{--{--}}
+                            {{--alert("名字不能为空");--}}
+                            {{--form1.name.focus();--}}
+                            {{--return false;--}}
+                        {{--}--}}
+                        {{--var filter=/^1[3|4|5|8][0-9]\d{ 4,8}$/;--}}
+                        {{--if(!filter.test(document.form1.tels.value))--}}
+                        {{--{--}}
+                            {{--alert("请输入正确的手机号!");--}}
+                            {{--document.form1.tels.focus();--}}
+                            {{--form1.dianhua.value="";--}}
+                            {{--return false;--}}
+                        {{--}--}}
+                        {{--form1.submit();--}}
+                        {{--return true;--}}
+                    {{--}--}}
+                {{--</script>--}}
                 <style type="text/css">
                     <!--
                     .style1 {color: #FF0000}
@@ -259,15 +259,15 @@
                     <tbody>
                         <tr>
 
-                            <form id="feedback_form" id="form-book-appointment">
+                            <form id="form-book-appointment">
 
-                                <input type="hidden" value="南浔孔雀城预约报名" name="txtTitle" id="txtTitle">
+                                {{csrf_field()}}
 
                                 <td class="menu4" width="43" valign="middle" height="35" align="center">姓名：</td>
 
                                 <td class="menu4" width="s145" valign="middle">
                                     <div align="left">
-                                        <input name="name" class="input" size="18" maxlength="18" type="text">
+                                        <input type="text" name="name" class="input" id="book-name" size="18" maxlength="18">
                                     </div>
                                 </td>
 
@@ -275,7 +275,7 @@
 
                                 <td class="menu4" width="210" valign="middle">
                                     <div align="left">
-                                        <input name="mobile" class="input" size="28" maxlength="28" type="text">
+                                        <input type="text" name="mobile" class="input" id="book-mobile" size="28" maxlength="28">
                                     </div>
                                 </td>
 
@@ -367,56 +367,3 @@
     </div>
 </div>
 
-
-<script>
-    $(function() {
-
-        // 添加or编辑
-        $("#btnSubmit").on('click', function() {
-
-            var form = $("#form-book-appointment");
-            var name = form.find('input[name=name]');
-            var name_val = name.val();
-            var mobile = form.find('input[name=mobile]');
-            var mobile_val = mobile.val();
-
-            console.log(name);
-            console.log(mobile_val);
-
-
-            if(name_val == "")
-            {
-                layer.msg("名字不能为空");
-                name.focus();
-                return false;
-            }
-
-            var filter=/^1[3|4|5|7|8][0-9]\d{4,8}$/;
-            if(!filter.test(mobile.val()))
-            {
-//                layer.msg("请输入正确的手机号!");
-                mobile.focus();
-                mobile.value="";
-                return false;
-            }
-
-            var options = {
-                url: "{{url('/book/appointment')}}",
-                type: "post",
-                dataType: "json",
-                // target: "#div2",
-                success: function (data) {
-                    if(!data.success) layer.msg(data.msg);
-                    else
-                    {
-                        layer.msg(data.msg);
-                        {{--location.href = "{{url('/admin/item/list')}}";--}}
-                        return true;
-                    }
-                }
-            };
-            $("#form-book-appointment").ajaxSubmit(options);
-        });
-
-    });
-</script>

@@ -40,4 +40,12 @@ class IndexController extends Controller
 
 
 
+    //
+    public function book_appointment()
+    {
+        return $this->repo->book_appointment(request()->all());
+    }
+
+
+
 }

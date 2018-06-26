@@ -50,6 +50,9 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('house/{id?}', $controller.'@view_house');
 
 
+    Route::post('book/appointment', $controller.'@book_appointment');
+
+
 });
 
 

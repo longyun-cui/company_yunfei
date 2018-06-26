@@ -102,8 +102,14 @@
 
 
 
-            {{--浏览管理--}}
-            <li class="header">浏览管理</li>
+            {{--留言管理--}}
+            <li class="header">留言管理</li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/message/list?category=all') }}">
+                    <i class="fa fa-circle-o text-aqua"></i> <span>全部</span>
+                </a>
+            </li>
 
             <li class="treeview">
                 <a href="{{ url('/admin/message/list?category=book') }}">

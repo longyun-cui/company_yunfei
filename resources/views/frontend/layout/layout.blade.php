@@ -52,12 +52,16 @@
         @yield('component-footer')
 
 
+        {{--bottom--}}
+        @include('frontend.component.bottom')
+
+
         <a href="{{ url('/') }}#top" id="scroll-top"><i class="fa fa-angle-up"></i></a>
 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="{{ asset('/templates/moban2030/assets/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('/templates/moban2030/assets/js/jquery.migrate.js') }}"></script>
+        {{--<script src="{{ asset('/templates/moban2030/assets/js/jquery.migrate.js') }}"></script>--}}
         <script src="{{ asset('/templates/moban2030/assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/plugins/slick-nav/jquery.slicknav.min.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/plugins/slick/slick.min.js') }}"></script>
@@ -75,8 +79,64 @@
         <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
 
 
-        {{--bottom--}}
-        @include('frontend.component.bottom')
+        <script>
+            $(function() {
+
+                // 添加or编辑
+                $("#btnSubmit").on('click', function() {
+
+                    var form = $("#form-book-appointment");
+                    var name = $("#book-name");
+                    var name_val = name.val();
+                    var mobile = $("#book-mobile");
+                    var mobile_val = mobile.val();
+
+                    console.log(form);
+                    console.log(name);
+                    console.log(name_val);
+                    console.log(mobile);
+                    console.log(mobile_val);
+
+
+                    if($("#book-name").val() == "")
+                    {
+                        layer.msg("名字不能为空");
+                        name.focus();
+                        return false;
+                    }
+
+                    var filter=/^1[3|4|5|7|8][0-9]\d{4,8}$/;
+                    if(!filter.test(mobile.val()))
+                    {
+                        layer.msg("请输入正确的手机号!");
+                        mobile.focus();
+                        mobile.value="";
+                        return false;
+                    }
+
+                    var options = {
+                        url: "{{url('/book/appointment')}}",
+                        type: "post",
+                        dataType: "json",
+                        // target: "#div2",
+                        success: function (data) {
+                            if(!data.success) layer.msg(data.msg);
+                            else
+                            {
+                                layer.msg(data.msg);
+                                name.val('');
+                                mobile.val('');
+                                {{--location.href = "{{url('/admin/item/list')}}";--}}
+                                    return true;
+                            }
+                        }
+                    };
+                    $("#form-book-appointment").ajaxSubmit(options);
+                });
+
+            });
+        </script>
+
 
 
     </body>
