@@ -51,6 +51,7 @@ Route::group(['namespace' => 'Front'], function () {
 
 
     Route::post('book/appointment', $controller.'@book_appointment');
+    Route::post('grab/ticket', $controller.'@grab_ticket');
 
 
 });

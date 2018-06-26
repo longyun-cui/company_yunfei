@@ -52,7 +52,7 @@
                             </div>
                             <div class="car-bottom">
                                 <a class="ticket grab-ticket" href="javascript:void(0);" data-toggle="modal" data-target="#grab-modal">抢专车券</a> &nbsp; &nbsp;
-                                <span class="num">759人</span>已抢
+                                <span class="num">{{ $ticket_total or 257 }}人</span>已抢
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
 
                 <section class="property-video common _none">
                     <h4 class="entry-title">Video Tour</h4>
-                    <iframe src="" allowfullscreen></iframe>
+                    {{--<iframe src="" allowfullscreen></iframe>--}}
                 </section>
 
                 <section class="property-nearby-places common _none">
@@ -709,7 +709,7 @@
 
 <style>
 
-
+    .modal-open .modal { display: block; }
 
     .dialog{position:relative;width:500px;border-radius:15px;background-color:#fff;overflow:hidden}
     .dialog .dialog-close{position:absolute;top:10px;right:12px}
@@ -766,51 +766,56 @@
     .dialog-zckf .consultant-brand{padding:26px 40px 30px 40px}
     .dialog-zckf .dialog-close .icon-close{color:#fff}
 
-
-
     .dialog-cons-wrap{padding:30px 50px 36px}
+
+    .dialog .dialog-close{position: absolute;top: 10px;right: 12px;z-index:1000}
+    .dialog-zckf .dialog-close .icon-close{color:#fff}
 
 </style>
 
 
 
-<div class="modal fade" id="grab-modal">
-    <div class="col-md-8 col-md-offset-2" id="edit-ctn" style="margin-top:64px;margin-bottom:64px;padding-top:32px;background:#fff;">
+<div class="modal fade in" id="grab-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-dismiss="modal" aria-hidden="true" data-keyboard="false">
+    <div style="margin-top:64px;margin-bottom:64px;padding-top:32px;">
 
+        <div class="modal-dialog">
 
-
-    </div>
-</div>
-
-
-{{--clone--}}
-<div class="clone-container" style="display: none">
-
-
-    <div class="dialog dialog-zckf grab-clone-body">
-        <a class="dialog-close ly-close" data-sub-status="2" href="javascript:void(0)"><span class="icon icon-close"></span></a>
-        <div class="dialog-bd">
-            <div class="consultant-brand">
-                <h3>时间地点行程您做主、把关提醒服务我来帮</h3>
-                <div class="zc">
-                    <img src="{{ asset('/templates/moban2030/assets/others/zckf.gif') }}" alt="专车看房">
-                </div>
-            </div>
-            <div class="dialog-cons-wrap form-box">
-                <p class="con-txt">预约居理专车看房，楼下接您，随时出发，不花一分钱</p>
-                <div class="ipt-area">
-                    <div>
-                        <input type="text" class="ipt mobile-ipt" placeholder="输入预约手机号" value="">
-                        <div class="error-msg"><span>请输入正确格式的手机号</span></div>
+            <div class="dialog dialog-zckf grab-clone-body">
+                <a class="dialog-close ly-close" href="javascript:void(0)">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <span class="icon icon-close fa fa-close"></span>
+                    </button>
+                </a>
+                <div class="dialog-bd">
+                    <div class="consultant-brand">
+                        <h3>时间地点行程您做主、把关提醒服务我来帮</h3>
+                        <div class="zc">
+                            <img src="{{ asset('/templates/moban2030/assets/others/zckf.gif') }}" alt="专车看房">
+                        </div>
+                    </div>
+                    <div class="dialog-cons-wrap form-box">
+                        <p class="con-txt">预约居理专车看房，楼下接您，随时出发，不花一分钱</p>
+                        <div class="ipt-area">
+                            <div>
+                                <form id="form-grab-ticket">
+                                    {{csrf_field()}}
+                                    <input type="text" name="mobile" class="ipt mobile-ipt" id="grab-mobile" placeholder="输入预约手机号" value="">
+                                </form>
+                                <div class="error-msg"><span>请输入正确格式的手机号</span></div>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <button class="btn btn3 new_common_free_submit" id="grab-submit">抢专车券</button>
+                        </div>
                     </div>
                 </div>
-                <div class="btn-area">
-                    <button class="btn btn3 new_common_free_submit">抢专车券</button>
-                </div>
             </div>
-        </div>
-    </div>
 
+        </div>
+
+    </div>
 </div>
+
+
 
 

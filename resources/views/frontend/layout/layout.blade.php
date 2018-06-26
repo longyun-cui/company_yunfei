@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="zh">
     <head>
         <meta charset="utf-8">
@@ -19,7 +19,7 @@
         <link rel="shortcut icon" href="assets/images/favicon.png.html" >
 
         <!-- Bootstrap -->
-{{--        <link href="{{ asset('/templates/moban2030/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">--}}
+        <link href="{{ asset('/templates/moban2030/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/plugins/slick/slick.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/plugins/slick-nav/slicknav.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/plugins/wow/animate.css') }}" rel="stylesheet">
@@ -75,12 +75,12 @@
         {{--<script src="{{ asset('/templates/moban2030/plugins/tweetie/tweetie.js') }}"></script>--}}
         <script src="{{ asset('/templates/moban2030/plugins/forms/jquery.form.min.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/plugins/forms/jquery.validate.min.js') }}"></script>
-        <script src="{{ asset('/templates/moban2030/plugins/modernizr/modernizr.custom.js') }}"></script>
+{{--        <script src="{{ asset('/templates/moban2030/plugins/modernizr/modernizr.custom.js') }}"></script>--}}
         <script src="{{ asset('/templates/moban2030/plugins/wow/wow.min.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/plugins/zoom/zoom.js') }}"></script>
-        <script src="{{ asset('/templates/moban2030/plugins/mixitup/mixitup.min.js') }}"></script>
+{{--        <script src="{{ asset('/templates/moban2030/plugins/mixitup/mixitup.min.js') }}"></script>--}}
         <!---<script src="http://ditu.google.cn/maps/api/js?key=AIzaSyD2MtZynhsvwI2B40juK6SifR_OSyj4aBA&libraries=places"></script>--->
-        <script src="{{ asset('/templates/moban2030/plugins/whats-nearby/source/WhatsNearby.js') }}"></script>
+{{--        <script src="{{ asset('/templates/moban2030/plugins/whats-nearby/source/WhatsNearby.js') }}"></script>--}}
         <script src="{{ asset('/templates/moban2030/assets/js/theme.js') }}"></script>
         <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
         {{--<script src="https://cdn.bootcss.com/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>--}}
@@ -139,6 +139,55 @@
                         }
                     };
                     $("#form-book-appointment").ajaxSubmit(options);
+                });
+
+
+                // 添加or编辑
+                $("#grab-submit").on('click', function() {
+
+                    var form = $("#form-grab-ticket");
+                    var mobile = $("#grab-mobile");
+                    var mobile_val = mobile.val();
+
+                    console.log(mobile);
+                    console.log(mobile_val);
+
+                    var filter=/^1[3|4|5|7|8][0-9]\d{4,8}$/;
+                    if(!filter.test(mobile_val))
+                    {
+                        layer.msg("请输入正确的手机号!");
+                        mobile.focus();
+                        mobile.val('');
+                        return false;
+                    }
+
+                    var options = {
+                        url: "{{url('/grab/ticket')}}",
+                        type: "post",
+                        dataType: "json",
+                        // target: "#div2",
+                        success: function (data) {
+                            if(!data.success) layer.msg(data.msg);
+                            else
+                            {
+                                layer.msg(data.msg);
+                                mobile.val('');
+                                {{--location.href = "{{url('/admin/item/list')}}";--}}
+                                $('#grab-modal').modal('hide');
+                                $('.modal-backdrop').hide();
+                                return true;
+                            }
+                        }
+                    };
+                    form.ajaxSubmit(options);
+                });
+
+
+
+                $("#grab-modal").on('click', '.icon-close', function () {
+                    $('#grab-modal').hide();
+                    $('#grab-modal').modal('hide');
+                    $('.modal-backdrop').hide();
                 });
 
             });

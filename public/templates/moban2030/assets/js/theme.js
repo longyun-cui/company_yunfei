@@ -25,9 +25,9 @@ $(function () {
     function sliderContents() {
         var targetContainer = $('#slider-contents .jumbotron'),
             mainSliderContentsHeight = $(targetContainer).outerHeight();
-        console.log(mainSliderContentsHeight);
+        // console.log(mainSliderContentsHeight);
         $(targetContainer).css('margin-top', -( mainSliderContentsHeight/2 ));
-        console.log(mainSliderContentsHeight);
+        // console.log(mainSliderContentsHeight);
     }
     sliderContents();
     $( window ).on("load", function() {
@@ -180,7 +180,7 @@ $(function () {
     /*****************************************************
      * Tabs
      *****************************************************/
-    $( "#tabs, #widget-tabs" ).tabs();
+    // $( "#tabs, #widget-tabs" ).tabs();
 
 
 

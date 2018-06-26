@@ -224,7 +224,7 @@ class MessageRepository {
         if(intval($id) !== 0 && !$id) return response_error([],"该内容不存在，刷新页面试试");
 
         $mine = RootMessage::find($id);
-        if($mine->admin_id != $admin->id) return response_error([],"你没有操作权限");
+//        if($mine->admin_id != $admin->id) return response_error([],"你没有操作权限");
 
         // 启动数据库事务
         DB::beginTransaction();

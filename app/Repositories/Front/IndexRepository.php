@@ -72,13 +72,15 @@ class IndexRepository {
         else $house = RootItem::orderby('id', 'desc')->first();
         $house->custom = json_decode($house->custom);
 
+        $ticket_total = RootMessage::where('category', 12)->count();
+
         $houses = RootItem::where(['category'=>11, 'active'=>1])->where('id', '<>', $id)->orderby('id', 'desc')->get();
         foreach($houses as $item)
         {
             $item->custom = json_decode($item->custom);
         }
 
-        $html = view('frontend.entrance.house')->with(['houses'=>$houses, 'house'=>$house])->__toString();
+        $html = view('frontend.entrance.house')->with(['houses'=>$houses, 'house'=>$house, 'ticket_total'=>$ticket_total])->__toString();
         return $html;
     }
 
@@ -86,7 +88,7 @@ class IndexRepository {
 
 
 
-    // service_seo
+    //
     public function book_appointment($post_data)
     {
         $messages = [
@@ -120,6 +122,48 @@ class IndexRepository {
         {
             DB::rollback();
             $msg = '预约失败，请重试！';
+//            $msg = $e->getMessage();
+//            exit($e->getMessage());
+            return response_fail([],$msg);
+        }
+
+
+
+    }
+
+
+    //
+    public function grab_ticket($post_data)
+    {
+        $messages = [
+            'mobile.required' => '请输入电话',
+        ];
+        $v = Validator::make($post_data, [
+            'mobile' => 'required'
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        // 启动数据库事务
+        DB::beginTransaction();
+        try
+        {
+            $post_data['category'] = 12;
+            $mine = new RootMessage;
+            $bool = $mine->fill($post_data)->save();
+            if(!$bool) throw new Exception("insert--message--fail");
+
+            DB::commit();
+            $msg = '抢专车券成功成功！';
+            return response_success([],$msg);
+        }
+        catch (Exception $e)
+        {
+            DB::rollback();
+            $msg = '抢专车券成功失败，请重试！';
 //            $msg = $e->getMessage();
 //            exit($e->getMessage());
             return response_fail([],$msg);

@@ -29,7 +29,7 @@
                 <table class='table table-striped table-bordered' id='datatable_ajax'>
                     <thead>
                     <tr role='row' class='heading'>
-                        <th>标题</th>
+                        <th>#ID</th>
                         <th>所属类别</th>
                         <th>姓名</th>
                         <th>手机</th>
@@ -117,10 +117,10 @@
                 "orderCellsTop": true,
                 "columns": [
                     {
-                        "data": "encode_id",
+                        "data": "id",
                         'orderable': false,
                         render: function(data, type, row, meta) {
-                            return '<a target="_blank" href="/message/'+data+'">'+row.title+'</a>';
+                            return data;
                         }
                     },
                     {
@@ -266,7 +266,7 @@
         // 【删除】
         $("#message-main-body").on('click', ".message-delete-submit", function() {
             var that = $(this);
-            layer.msg('确定要删除该"产品"么', {
+            layer.msg('确定要删除该"留言"么', {
                 time: 0
                 ,btn: ['确定', '取消']
                 ,yes: function(index){
@@ -289,7 +289,7 @@
         // 【启用】
         $("#message-main-body").on('click', ".message-enable-submit", function() {
             var that = $(this);
-            layer.msg('确定启用该"产品"？', {
+            layer.msg('确定启用该"留言"？', {
                 time: 0
                 ,btn: ['确定', '取消']
                 ,yes: function(index){
@@ -312,7 +312,7 @@
         // 【禁用】
         $("#message-main-body").on('click', ".message-disable-submit", function() {
             var that = $(this);
-            layer.msg('确定禁用该"产品"？', {
+            layer.msg('确定禁用该"留言"？', {
                 time: 0
                 ,btn: ['确定', '取消']
                 ,yes: function(index){
