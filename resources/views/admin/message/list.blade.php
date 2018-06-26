@@ -31,12 +31,14 @@
                     <tr role='row' class='heading'>
                         <th>标题</th>
                         <th>所属类别</th>
+                        <th>姓名</th>
                         <th>手机</th>
                         <th>邮箱</th>
                         <th>创建时间</th>
                         <th>操作</th>
                     </tr>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -125,15 +127,22 @@
                         'data': 'category',
                         'orderable': false,
                         render: function(data, type, row, meta) {
-                            if(data == 0) return '自定义内容';
+                            if(data == 0) return '<small class="label bg-blue">自定义内容</small>';
                             else if(data == 1) return '企业介绍模块';
                             else if(data == 9) return '合作加盟模块';
-                            else if(data == 11) return '预约看房';
-                            else if(data == 12) return '抢车券';
+                            else if(data == 11) return '<small class="label bg-teal">预约看房</small>';
+                            else if(data == 12) return '<small class="label bg-green">抢车券</small>';
                             else if(data == 19) return '礼服模块';
                             else if(data == 21) return '活动模块';
                             else if(data == 31) return '分享模块';
                             else return '未知模块';
+                        }
+                    },
+                    {
+                        "data": "name",
+                        'orderable': false,
+                        render: function(data, type, row, meta) {
+                            return data;
                         }
                     },
                     {
