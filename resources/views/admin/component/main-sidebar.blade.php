@@ -99,15 +99,21 @@
                 </a>
             </li>
 
+
+
+
+            {{--浏览管理--}}
+            <li class="header">浏览管理</li>
+
             <li class="treeview">
                 <a href="{{ url('/admin/message/list?category=book') }}">
-                    <i class="fa fa-circle-o text-yellow"></i> <span>预约列表</span>
+                    <i class="fa fa-circle-o text-aqua"></i> <span>预约列表</span>
                 </a>
             </li>
 
             <li class="treeview">
                 <a href="{{ url('/admin/message/list?category=grab') }}">
-                    <i class="fa fa-circle-o text-yellow"></i> <span>专车券列表</span>
+                    <i class="fa fa-circle-o text-aqua"></i> <span>专车券列表</span>
                 </a>
             </li>
 

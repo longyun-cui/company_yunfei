@@ -5,7 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Home</title>
+        <title>@yield('head_title')</title>
+
+        <meta name="author" content="@yield('meta_author')" />
+        <meta name="description" content="@yield('meta_description')" />
+        <meta name="keywords" content="@yield('meta_keywords')" />
 
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CPoppins:400,600" rel="stylesheet">
@@ -21,6 +25,7 @@
         <link href="{{ asset('/templates/moban2030/plugins/wow/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/assets/css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/assets/css/theme.css') }}" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/layer/3.0.3/skin/default/layer.min.css" rel="stylesheet">
 
         <link href="{{ asset('/common/css/common.css') }}" rel="stylesheet">
 
@@ -47,10 +52,6 @@
         @yield('component-footer')
 
 
-        {{--bottom--}}
-        @include('frontend.component.bottom')
-
-
         <a href="{{ url('/') }}#top" id="scroll-top"><i class="fa fa-angle-up"></i></a>
 
 
@@ -71,6 +72,11 @@
         <!---<script src="http://ditu.google.cn/maps/api/js?key=AIzaSyD2MtZynhsvwI2B40juK6SifR_OSyj4aBA&libraries=places"></script>--->
         <script src="{{ asset('/templates/moban2030/plugins/whats-nearby/source/WhatsNearby.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/assets/js/theme.js') }}"></script>
+        <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+
+
+        {{--bottom--}}
+        @include('frontend.component.bottom')
 
 
     </body>

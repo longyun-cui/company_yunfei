@@ -1,3 +1,18 @@
+
+<script type="text/javascript" src="{{ asset('/templates/moban2030/assets/js/base.js') }}"></script>
+<script type="text/javascript">
+    $(function () {
+        //初始化发表评论表单
+        AjaxInitForm('feedback_form', 'btnSubmit', 1);
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        //初始化发表评论表单
+        AjaxInitForm('feedback_form2', 'btnSubmit2', 1);
+    });
+</script>
+
 <div class="act_nav">
     <div class="s_w">
         <div class="s_w_left">
@@ -214,6 +229,8 @@
                 </script>
 
                 <script language="javascript">
+
+
                     function checkform1(){
                         if(form1.names.value=="")
                         {
@@ -239,32 +256,44 @@
                     -->
                 </style>
                 <table class="txt_12_black" width="700" border="0" align="left" cellspacing="0" cellpadding="5">
-                    <form id="feedback_form" name="feedback_form" url="/book/appointment"></form>
-                    <input type="hidden" value="南浔孔雀城预约报名" name="txtTitle" id="txtTitle">
                     <tbody>
-                    <tr>
-                        <td class="menu4" width="43" valign="middle" height="35" align="center">姓名：</td>
-                        <td class="menu4" width="s145" valign="middle"><div align="left">
-                                <input name="txtUserName" id="txtUserName" class="input" size="18" maxlength="18" type="text">
-                            </div></td>
-                        <td class="menu4" width="43">手机：</td>
-                        <td class="menu4" width="210" valign="middle"><div align="left">
-                                <input name="txtUserTel" id="txtUserTel" class="input" size="28" maxlength="28" type="text">
-                            </div>
-                        </td>
-                        <td colspan="2" width="223" valign="middle" height="40" align="left">
-                            <input name="btnSubmit" class="submit" id="btnSubmit" value="立即预约" type="submit">
-                            &nbsp;
-                            <input name="Submit2" value="取消" class="submit_quxiao _none" type="reset">
-                            &nbsp;
-                        </td>
-                    </tr>
-                    </tbody>
+                        <tr>
 
+                            <form id="feedback_form" id="form-book-appointment">
+
+                                <input type="hidden" value="南浔孔雀城预约报名" name="txtTitle" id="txtTitle">
+
+                                <td class="menu4" width="43" valign="middle" height="35" align="center">姓名：</td>
+
+                                <td class="menu4" width="s145" valign="middle">
+                                    <div align="left">
+                                        <input name="name" class="input" size="18" maxlength="18" type="text">
+                                    </div>
+                                </td>
+
+                                <td class="menu4" width="43">手机：</td>
+
+                                <td class="menu4" width="210" valign="middle">
+                                    <div align="left">
+                                        <input name="mobile" class="input" size="28" maxlength="28" type="text">
+                                    </div>
+                                </td>
+
+                            </form>
+
+                            <td colspan="2" width="223" valign="middle" height="40" align="left">
+                                <input name="btnSubmit" class="submit" id="btnSubmit" value="立即预约" type="submit"> &nbsp;
+                                <input name="Submit2" value="清空" class="submit_quxiao" type="reset"> &nbsp;
+                            </td>
+
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
-        <div class="s_w_right"><!-- 滚动文字 -->
+
+        {{--<!-- 滚动文字 -->--}}
+        <div class="s_w_right">
             <div class="breakNewsblock">
                 <div id="breakNews">
                     <ul id="breakNewsList" class="list6">
@@ -334,5 +363,60 @@
                 var scroll2 = new ScrollText("breakNewsList","pre2","next2",true,50,true);
                 scroll2.LineHeight = 22;
             </script><!-- 滚动文字结束--></div>
+
     </div>
 </div>
+
+
+<script>
+    $(function() {
+
+        // 添加or编辑
+        $("#btnSubmit").on('click', function() {
+
+            var form = $("#form-book-appointment");
+            var name = form.find('input[name=name]');
+            var name_val = name.val();
+            var mobile = form.find('input[name=mobile]');
+            var mobile_val = mobile.val();
+
+            console.log(name);
+            console.log(mobile_val);
+
+
+            if(name_val == "")
+            {
+                layer.msg("名字不能为空");
+                name.focus();
+                return false;
+            }
+
+            var filter=/^1[3|4|5|7|8][0-9]\d{4,8}$/;
+            if(!filter.test(mobile.val()))
+            {
+//                layer.msg("请输入正确的手机号!");
+                mobile.focus();
+                mobile.value="";
+                return false;
+            }
+
+            var options = {
+                url: "{{url('/book/appointment')}}",
+                type: "post",
+                dataType: "json",
+                // target: "#div2",
+                success: function (data) {
+                    if(!data.success) layer.msg(data.msg);
+                    else
+                    {
+                        layer.msg(data.msg);
+                        {{--location.href = "{{url('/admin/item/list')}}";--}}
+                        return true;
+                    }
+                }
+            };
+            $("#form-book-appointment").ajaxSubmit(options);
+        });
+
+    });
+</script>

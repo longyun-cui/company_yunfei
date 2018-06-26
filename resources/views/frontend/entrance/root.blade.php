@@ -2,7 +2,7 @@
 
 
 {{--html.head--}}
-@section('head_title'){{$info->name or ''}}@endsection
+@section('head_title')盛贝地产 - 寻觅e家@endsection
 @section('meta_author')@endsection
 @section('meta_title')@endsection
 @section('meta_description')@endsection
@@ -205,7 +205,7 @@
                             <div class="property-contents clearfix">
                                 <header class="property-header clearfix">
                                     <div class="pull-left">
-                                        <h6 class="entry-title"><a href="{{ url('/house') }}">{{ $v->title or '' }}</a></h6>
+                                        <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
                                         <span class="property-location"><i class="fa fa-map-marker"></i> {{ $v->custom->position or '' }} </span>
                                     </div>
                                     <a target="_blank" href="{{ url('/house/'.$v->id) }}">

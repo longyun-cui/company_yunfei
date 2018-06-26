@@ -2,7 +2,7 @@
 
 
 {{--html.head--}}
-@section('head_title'){{$info->name or ''}}@endsection
+@section('head_title'){{$house->title or ''}}@endsection
 @section('meta_author')@endsection
 @section('meta_title')@endsection
 @section('meta_description')@endsection
