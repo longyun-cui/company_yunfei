@@ -18,7 +18,7 @@
         <div class="s_w_left">
             <span class="bm_icon"></span>
             <span class="tel_icon"></span>
-            <span class="div_tel" style="font-size:19px">400-699-6769</span>
+            <span class="div_tel" style="font-size:19px">177-1750-6956</span>
             <div style="clear:both"></div>
             <div>
                 {{--<script charset="utf-8"></script>--}}
@@ -82,7 +82,7 @@
                         width: 13px; display: block; margin-bottom: 6px; float: left; height: 10px
                     }
 
-                    .act_nav { left:0px; width:100%;height:115px;bottom:0; position:fixed;z-index:10000; background:url("/templates/moban2030/assets/images/bottom.png") repeat; }
+                    .act_nav { left:0px; width:100%;height:140px; bottom:0; padding: 16px 0; position:fixed; z-index:10000; background:url("/templates/moban2030/assets/images/bottom.png") repeat; }
                     .act_nav .s_w { width:1000px; margin:10px auto;}
                     .act_nav .s_w .s_w_left { float:left; width:670px;}
                     .act_nav .s_w .s_w_right { float:left; width:310px; margin-left:20px;}
