@@ -12,22 +12,28 @@
         <meta name="keywords" content="@yield('meta_keywords')" />
 
         <!-- Styles -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CPoppins:400,600" rel="stylesheet">
+        {{--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CPoppins:400,600" rel="stylesheet">--}}
 
 
         <!-- favicon and touch icons -->
         <link rel="shortcut icon" href="assets/images/favicon.png.html" >
 
         <!-- Bootstrap -->
-        <link href="{{ asset('/templates/moban2030/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+{{--        <link href="{{ asset('/templates/moban2030/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">--}}
         <link href="{{ asset('/templates/moban2030/plugins/slick/slick.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/plugins/slick-nav/slicknav.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/plugins/wow/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/assets/css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('/templates/moban2030/assets/css/theme.css') }}" rel="stylesheet">
         <link href="https://cdn.bootcss.com/layer/3.0.3/skin/default/layer.min.css" rel="stylesheet">
+        {{--<link href="https://cdn.bootcss.com/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css" rel="stylesheet">--}}
 
+{{--        <link href="{{ asset('/templates/moban2030/assets/others/common.css') }}" rel="stylesheet">--}}
         <link href="{{ asset('/common/css/common.css') }}" rel="stylesheet">
+
+
+        @yield('custom-css')
+        @yield('custom-style')
 
     </head>
     <body class="">
@@ -66,7 +72,7 @@
         <script src="{{ asset('/templates/moban2030/plugins/slick-nav/jquery.slicknav.min.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/plugins/slick/slick.min.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-        <script src="{{ asset('/templates/moban2030/plugins/tweetie/tweetie.js') }}"></script>
+        {{--<script src="{{ asset('/templates/moban2030/plugins/tweetie/tweetie.js') }}"></script>--}}
         <script src="{{ asset('/templates/moban2030/plugins/forms/jquery.form.min.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/plugins/forms/jquery.validate.min.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/plugins/modernizr/modernizr.custom.js') }}"></script>
@@ -77,6 +83,7 @@
         <script src="{{ asset('/templates/moban2030/plugins/whats-nearby/source/WhatsNearby.js') }}"></script>
         <script src="{{ asset('/templates/moban2030/assets/js/theme.js') }}"></script>
         <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+        {{--<script src="https://cdn.bootcss.com/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>--}}
 
 
         <script>
@@ -136,6 +143,10 @@
 
             });
         </script>
+
+
+        @yield('custom-js')
+        @yield('custom-script')
 
 
 

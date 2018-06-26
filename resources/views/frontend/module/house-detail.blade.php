@@ -33,8 +33,34 @@
                             </div>
                         </div>
                     </div>
+
+                    <style>
+                        .free-car { width:100%; border: 1px solid #eee; padding: 16px; margin-top: 16px; border-radius: 4px; }
+                        .free-car .car-top { width:auto; padding: 8px 0; border-bottom: 1px solid #f4f4f4; }
+                        .free-car .car-bottom { width:auto; padding: 8px 0; margin: 16px 0 8px; }
+                        .free-car .num { color: #ff6d6f; }
+                        .free-car .ticket { padding: 4px 16px; border-radius: 2px; color: #ff6d6f; border: 1px solid #ff6d6f; }
+                        .free-car .ticket:hover { color: #22f3ae; border: 1px solid #22f3ae; }
+                    </style>
+
+                    <!--免费专车-->
+                    <div class="row">
+                        <div class="free-car">
+                            <div class="car-top">
+                                <p class="tit"><b>免费专车</b></p>
+                                <p class="describe">全城免费专车接送看房，人均节省<span class="num">827元</span>路费</p>
+                            </div>
+                            <div class="car-bottom">
+                                <a class="ticket grab-ticket" href="javascript:void(0);" data-toggle="modal" data-target="#grab-modal">抢专车券</a> &nbsp; &nbsp;
+                                <span class="num">759人</span>已抢
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
 
+
+                {{----}}
                 <section class="property-contents common">
                     <div class="entry-title clearfix">
                         <h4 class="pull-left"> 楼盘详情 </h4>
@@ -45,6 +71,8 @@
                     </div>
                 </section>
 
+
+                {{----}}
                 <section class="property-single-features common clearfix _none">
                     <h4 class="entry-title">Property Features</h4>
                     <ul class="property-single-features-list clearfix">
@@ -83,6 +111,7 @@
                     <div id="nearby-places-map"></div>
                 </section>
 
+                {{--经纪人--}}
                 <section class="property-agent common _none">
                     <h4 class="entry-title">联系经纪人</h4>
                     <div class="row">
@@ -140,6 +169,8 @@
             <div class="col-lg-4 col-md-5">
                 <div id="property-sidebar">
 
+
+                    {{----}}
                     <section class="widget adv-search-widget clearfix _none">
                         <h5 class="title hide">Search your Place</h5>
                         <div id="advance-search-widget" class="clearfix">
@@ -618,8 +649,11 @@
                                     <button type="submit" class="btn btn-default btn-lg text-center btn-3d" data-hover="Search Property">Search Property</button>
                                 </div>
                             </form>
-                        </div>    </section>
+                        </div>
+                    </section>
 
+
+                    {{----}}
                     <section class="widget recent-properties clearfix">
                         <h5 class="title">其他楼盘</h5>
                         @foreach($houses as $v)
@@ -641,6 +675,8 @@
                         @endforeach
                     </section>
 
+
+                    {{----}}
                     <section class="widget property-taxonomies clearfix _none">
                         <h5 class="title">Recent Status</h5>
                         <ul class="clearfix">
@@ -650,6 +686,8 @@
                         </ul>
                     </section>
 
+
+                    {{----}}
                     <section class="widget property-taxonomies clearfix _none">
                         <h5 class="title">Recent Type</h5>
                         <ul class="clearfix">
@@ -660,6 +698,7 @@
                         </ul>
                     </section>
 
+
                 </div>
             </div>
 
@@ -667,3 +706,111 @@
     </div>
 
 </div>
+
+<style>
+
+
+
+    .dialog{position:relative;width:500px;border-radius:15px;background-color:#fff;overflow:hidden}
+    .dialog .dialog-close{position:absolute;top:10px;right:12px}
+    .dialog .dialog-close:hover{text-decoration:none}
+    .dialog .dialog-close .icon{font-size:22px;color:#a1a1a1}
+    .dialog .ipt-area{overflow:hidden}
+    .dialog .ipt-area .ipt{width:370px;height:32px;padding:0 14px;border:solid 1px #eaeaea}
+    .dialog .ipt-area .error-msg{clear:both;text-align:center;color:#ff6d6f;width:100%;height:30px;line-height:30px;overflow:hidden}
+    .dialog .ipt-area .error-msg span{display:none}
+    .dialog .btn3{width:250px;padding:0;border-radius:4px;background-color:#48b3e2}
+    .dialog .btn3:hover{text-decoration:none;background-color:#64c2eb}
+
+    .dialog .ipt-area input::-webkit-input-placeholder{color:#b7b7b7}
+
+    .dialog .chart-area{width:100%;height:196px;background-color:#48b3e2}
+    .dialog .chart-area #chart{width:100%;height:100%}
+    .dialog .content{text-align:center;padding:18px 50px 28px 50px;background-color:#fff}
+    .dialog .content .con-info{font-size:14px;color:#666;text-align:left;line-height:24px;margin-bottom:10px}
+    .dialog .dialog-close{z-index:1000}
+
+    .dialog .con-txt{text-align:left;font-size:14px;color:#666;margin-bottom:24px}
+    .dialog .ico-edu{width:60px;height:60px;background:url(../images/ico-edu.png) no-repeat;background-size:100% 100%}
+    .dialog .ico-train{width:60px;height:60px;background:url(../images/ico-train.png) no-repeat;background-size:100% 100%}
+    .dialog .ico-server{width:60px;height:60px;background:url(../images/ico-zan-s.png) no-repeat;background-size:100% 100%}
+
+    .dialog .dialog-cons-wrap .btn-area{text-align:center}
+    .dialog .ipt-area .ipt-text{color:#666;margin-top:20px}
+
+    .btn, .btn2, .btn3, .btn4 {
+        background: #ff6d6f none repeat scroll 0 0;
+        border: medium none;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        overflow: hidden;
+    }
+
+    .dialog .btn3{width:250px;height:34px;padding:0;border-radius:4px;background-color:#48b3e2}
+    .dialog .btn3:hover{text-decoration:none;background-color:#64c2eb}
+
+    .consultant-brand{padding:35px 10px 30px;background-color:#48b3e2;overflow:hidden}
+    .consultant-brand>li{float:left;text-align:center;width:160px;margin:0}
+    .consultant-brand>li>p{color:#fff;font-size:14px}
+    .consultant-brand>li>p.font-b{font-size:20px}
+
+    .consultant-brand ul{overflow:hidden}
+    .consultant-brand ul li{float:left;width:33.3%;text-align:center}
+    .consultant-brand ul li .ico-tick{background:url(../images/ico-ww-d.png) no-repeat;vertical-align:sub;width:15px;height:15px;border-radius:50%}
+    .consultant-brand ul li .text{font-size:14px;color:#fff}
+
+    .dialog-zckf .zc,.dialog-zckf .zc img{width:420px;height:100px}
+    .dialog-zckf h3{font-size:18px;color:#fff;margin-bottom:18px;text-align:center;font-weight:400}
+    .dialog-zckf .consultant-brand{padding:26px 40px 30px 40px}
+    .dialog-zckf .dialog-close .icon-close{color:#fff}
+
+
+
+    .dialog-cons-wrap{padding:30px 50px 36px}
+
+</style>
+
+
+
+<div class="modal fade" id="grab-modal">
+    <div class="col-md-8 col-md-offset-2" id="edit-ctn" style="margin-top:64px;margin-bottom:64px;padding-top:32px;background:#fff;">
+
+
+
+    </div>
+</div>
+
+
+{{--clone--}}
+<div class="clone-container" style="display: none">
+
+
+    <div class="dialog dialog-zckf grab-clone-body">
+        <a class="dialog-close ly-close" data-sub-status="2" href="javascript:void(0)"><span class="icon icon-close"></span></a>
+        <div class="dialog-bd">
+            <div class="consultant-brand">
+                <h3>时间地点行程您做主、把关提醒服务我来帮</h3>
+                <div class="zc">
+                    <img src="{{ asset('/templates/moban2030/assets/others/zckf.gif') }}" alt="专车看房">
+                </div>
+            </div>
+            <div class="dialog-cons-wrap form-box">
+                <p class="con-txt">预约居理专车看房，楼下接您，随时出发，不花一分钱</p>
+                <div class="ipt-area">
+                    <div>
+                        <input type="text" class="ipt mobile-ipt" placeholder="输入预约手机号" value="">
+                        <div class="error-msg"><span>请输入正确格式的手机号</span></div>
+                    </div>
+                </div>
+                <div class="btn-area">
+                    <button class="btn btn3 new_common_free_submit">抢专车券</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
