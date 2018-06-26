@@ -38,12 +38,12 @@
     </head>
     <body class="">
 
-        <div id="page-loader">
-            <div class="loaders">
-                <img src="{{ url('/templates/moban2030/assets/images/loader/3.gif') }}" alt="First Loader">
-                <img src="{{ url('/templates/moban2030/assets/images/loader/4.gif') }}" alt="First Loader">
-            </div>
-        </div>
+        {{--<div id="page-loader">--}}
+            {{--<div class="loaders">--}}
+                {{--<img src="{{ url('/templates/moban2030/assets/images/loader/3.gif') }}" alt="First Loader">--}}
+                {{--<img src="{{ url('/templates/moban2030/assets/images/loader/4.gif') }}" alt="First Loader">--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
 
         {{--header--}}

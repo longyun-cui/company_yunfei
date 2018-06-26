@@ -95,39 +95,39 @@ $(function () {
             ]
         });
 
-        $('#property-for-rent-slider').slick({
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            dots: false,
-            infinite: true,
-            autoplay: true,
-            speed: 1000,
-            autoplaySpeed: 2000,
-            prevArrow: '<i class="fa fa-angle-left"></i>',
-            nextArrow: '<i class="fa fa-angle-right"></i>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 2
-                    }
-                },
-                {
-                    breakpoint: 767,
-                    settings: {
-                        arrows: false,
-                        slidesToShow: 2
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        arrows: false,
-                        slidesToShow: 1
-                    }
-                }
-            ]
-        });
+        // $('#property-for-rent-slider').slick({
+        //     slidesToShow: 3,
+        //     slidesToScroll: 1,
+        //     dots: false,
+        //     infinite: true,
+        //     autoplay: true,
+        //     speed: 1000,
+        //     autoplaySpeed: 2000,
+        //     prevArrow: '<i class="fa fa-angle-left"></i>',
+        //     nextArrow: '<i class="fa fa-angle-right"></i>',
+        //     responsive: [
+        //         {
+        //             breakpoint: 1200,
+        //             settings: {
+        //                 slidesToShow: 2
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 767,
+        //             settings: {
+        //                 arrows: false,
+        //                 slidesToShow: 2
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 600,
+        //             settings: {
+        //                 arrows: false,
+        //                 slidesToShow: 1
+        //             }
+        //         }
+        //     ]
+        // });
     }
 
 
@@ -219,19 +219,19 @@ $(function () {
      * Whats Nearby Function
      * https://github.com/LaGrangeMtl/WhatsNearby
      *****************************************************/
-    window.onload= function () {
-        if(jQuery().whatsnearby ) {
-            $("#nearby-places-map").whatsnearby({
-                zoom: 15,
-                width: "100%",
-                address: "Montreal",
-                placesRadius: 500,
-                scrollwheel: false,
-                placesTypes: ['restaurant', 'cafe', 'gym'],
-                excludePlacesTypes: ['bar']
-            });
-        }
-    };
+    // window.onload= function () {
+    //     if(jQuery().whatsnearby ) {
+    //         $("#nearby-places-map").whatsnearby({
+    //             zoom: 15,
+    //             width: "100%",
+    //             address: "Montreal",
+    //             placesRadius: 500,
+    //             scrollwheel: false,
+    //             placesTypes: ['restaurant', 'cafe', 'gym'],
+    //             excludePlacesTypes: ['bar']
+    //         });
+    //     }
+    // };
 
 
 
@@ -311,9 +311,10 @@ $(function () {
             scrollContainer: null // optional scroll container selector, otherwise use window
         }
     );
-    $(window).on('load', function() {
-        wow.init();
-    });
+    // $(window).on('load', function() {
+    //     wow.init();
+    // });
+    wow.init();
 
 
 
