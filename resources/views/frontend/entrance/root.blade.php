@@ -50,6 +50,7 @@
         </div>
     </div>
 
+    {{----}}
     <div id="advance-search" class="main-page clearfix _none">
         <div class="container">
             <button class="btn top-btn">Find Your Place</button>
@@ -236,7 +237,8 @@
         </div>
     </section>
 
-    <section id="announcement-section _none" class="text-center">
+    {{--下载APP--}}
+    <section id="announcement-section" class="text-center">
         <div class="container ">
             <h2 class="title wow slideInLeft">下载最新APP</h2>
             <p class="wow slideInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <br>
@@ -246,6 +248,7 @@
         </div>
     </section>
 
+    {{--出租--}}
     <section id="home-property-for-rent-listing">
         <header class="section-header home-section-header text-center">
             <div class="container">
@@ -286,6 +289,7 @@
         </div>
     </section>
 
+    {{--优势--}}
     <section id="home-features-section" class="text-center">
         <header class="section-header home-section-header">
             <div class="container">
