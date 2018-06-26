@@ -32,8 +32,8 @@
         <div id="main-slider">
             <div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/1.jpg') }}" alt="Slide"></div>
             <div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/2.jpg') }}" alt="Slide"></div>
-            <div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/3.jpg') }}" alt="Slide"></div>
-            <div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/4.jpg') }}" alt="Slide"></div>
+            {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/3.jpg') }}" alt="Slide"></div>--}}
+            {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/4.jpg') }}" alt="Slide"></div>--}}
         </div>
         <div id="slider-contents">
             <div class="container text-center">
@@ -236,7 +236,7 @@
         </div>
     </section>
 
-    <section id="announcement-section" class="text-center">
+    <section id="announcement-section _none" class="text-center">
         <div class="container ">
             <h2 class="title wow slideInLeft">下载最新APP</h2>
             <p class="wow slideInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <br>
@@ -257,7 +257,7 @@
         <div class="container">
             <div class="row">
                 <div id="property-for-rent-slider">
-                    @for($i=1;$i<6;$i++)
+                    @for($i=1;$i<1;$i++)
                         <div class="col-lg-4 col-md-6">
                             <article class="property clearfix">
                                 <figure class="feature-image">
