@@ -39,7 +39,7 @@
                         .free-car .car-top { width:auto; padding: 8px 0; border-bottom: 1px solid #f4f4f4; }
                         .free-car .car-bottom { width:auto; padding: 8px 0; margin: 16px 0 8px; }
                         .free-car .num { color: #ff6d6f; }
-                        .free-car .ticket { padding: 4px 16px; border-radius: 2px; color: #ff6d6f; border: 1px solid #ff6d6f; }
+                        .free-car .ticket { padding: 8px 24px; border-radius: 2px; font-size:18px; color: #ff6d6f; border: 2px solid #ff6d6f; }
                         .free-car .ticket:hover { color: #22f3ae; border: 1px solid #22f3ae; }
                     </style>
 
@@ -51,7 +51,8 @@
                                 <p class="describe">全城免费专车接送看房，人均节省<span class="num">827元</span>路费</p>
                             </div>
                             <div class="car-bottom">
-                                <a class="ticket grab-ticket" href="javascript:void(0);" data-toggle="modal" data-target="#grab-modal">抢专车券</a> &nbsp; &nbsp;
+                                <a class="ticket grab-ticket" href="javascript:void(0);" data-toggle="modal" data-target="#grab-modal">
+                                    <b>抢专车券</b></a> &nbsp; &nbsp;
                                 <span class="num">{{ $ticket_total or 257 }}人</span>已抢
                             </div>
                         </div>
