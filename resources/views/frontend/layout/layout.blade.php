@@ -62,7 +62,7 @@
         @include('frontend.component.bottom')
 
 
-        <a href="{{ url('/') }}#top" id="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <a href="#top" id="scroll-top"><i class="fa fa-angle-up"></i></a>
 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
