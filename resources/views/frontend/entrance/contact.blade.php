@@ -30,7 +30,7 @@
 
     <div id="site-banner" class="text-center clearfix">
         <div class="container">
-            <h1 class="title wow slideInLeft">联系我们</h1>
+            <h1 class="title wow slideInLeft">联系我们 / 预约看房</h1>
             <ol class="breadcrumb wow slideInRight">
                 <li><a href="index.html">主页</a></li>
                 <li class="active">联系我们</li>
@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="contact-form-wrapper">
-                        <h3 class="entry-title">联系我们</h3>
+                        <h3 class="entry-title">联系我们 / 预约看房</h3>
                         <div class="contents">
                             <p>我们会尽快联系您！</p>
                         </div>
@@ -73,11 +73,7 @@
                                 <i class="fa fa-map-marker"></i>
                                 <div class="contents">
                                     <h6 class="title">地址</h6>
-                                    <address>
-                                        95 Amphitheatre Parkway
-                                        Mountain View CA,
-                                        United States
-                                    </address>
+                                    <address> 江苏省 昆山市 绿地大道189弄 </address>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -85,9 +81,10 @@
                                 <div class="contents">
                                     <h5 class="title">联系我们</h5>
                                     <ul>
-                                        <li>手机 : 177-1750-6956</li>
-                                        <li>邮箱 : company@domain.com</li>
-                                        <li>传真 : +84 962 216 601</li>
+                                        <li>电话 : 400-990-9092</li>
+                                        <li>联系人 : 李经理</li>
+                                        <li>手机 : 186-2151-9928</li>
+                                        <li>邮箱 : 461207859@qq.com</li>
                                     </ul>
                                 </div>
                             </div>

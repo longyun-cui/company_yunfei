@@ -44,12 +44,11 @@
         <div id="slider-contents">
             <div class="container text-center">
                 <div class="jumbotron">
-                    <h1>盛贝地产 - 寻觅e家</h1>
+                    <h1>昆山汉盟不动产投资咨询有限公司</h1>
                     <div class="contents clearfix">
-                        <p>If you dream of designing a new home that takes full advantage of <br>
-                            the unique geography and views of land that you love</p>
+                        <p class="font-24px"><b>邻里中心  领衔未来人居</b></p>
                     </div>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="我们的服务" href="javascript:void(0);" role="button">我们的服务</a>
+                    <a class="btn btn-warning btn-lg btn-3d" data-hover="预约看房" href="{{ url('/contact') }}" role="button">预约看房</a>
                     <a class="btn btn-default btn-border btn-lg" href="javascript:void(0);" role="button">Get a Quote</a>
                 </div>
             </div>

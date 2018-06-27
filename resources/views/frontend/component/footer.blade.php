@@ -28,8 +28,8 @@
                         <ul>
                             <li><i class="fa fa-map-marker"></i> 江苏省 昆山市 绿地大道189弄 </li>
                             <li><i class="fa fa-user"></i> 李经理 </li>
-                            <li><i class="fa fa-phone"></i> 18621519928 </li>
-                            <li><i class="fa fa-envelope"></i> 461207859@qq.comm </li>
+                            <li><i class="fa fa-phone"></i> 186-2151-9928 </li>
+                            <li><i class="fa fa-envelope"></i> 461207859@qq.com </li>
                             <li><i class="fa fa-clock-o"></i> 周一 - 周六: 9:00 - 18:00 </li>
                         </ul>
                     </section>
@@ -42,7 +42,7 @@
             <p class="copyright pull-left wow slideInRight">Copyright &copy; 2018.昆山汉盟不动产投资咨询有限公司 All rights reserved.</p>
             <nav class="footer-nav pull-right wow slideInLeft">
                 <ul>
-                    <li><a href="{{ url('/hourse') }}">楼盘</a></li>
+                    <li><a href="{{ url('/houses') }}">楼盘</a></li>
                     <li><a href="{{ url('/') }}">联系我们</a></li>
                 </ul>
             </nav>
