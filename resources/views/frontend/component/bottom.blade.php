@@ -83,14 +83,14 @@
 
     .act_nav .s_w .bm-bottom { margin-top: 16px; line-height:32px; }
 
-    .bm-input-item { width:50%; float:left;}
+    .bm-input-item { width:50%; margin-top:8px; float:left;}
     .bm-input-item span { width:50px; text-align: center; float:left; }
     .bm-input-item input { width:calc(100% - 50px); float:left;}
 
     .div_tel { display:block;  margin-left:15px; color:#fff; font-size:22px; float:left;}
 
     @media screen and (max-width: 768px) {
-        .act_nav { width:100%; height: 180px; padding: 8px; }
+        .act_nav { width:100%; height: 192px; padding: 8px; }
         .act_nav .row { margin: 0; }
         .act_nav .s_w { width:100%; height: auto; }
         .act_nav .s_w .s_w_left { float:left; width:100%;}
