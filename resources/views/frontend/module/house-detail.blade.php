@@ -729,7 +729,7 @@
 
     .modal-open .modal { display: block; }
 
-    .dialog{position:relative;width:500px;border-radius:15px;background-color:#fff;overflow:hidden}
+    .dialog{position:relative;width:500px;border-radius:15px;background-color:#fff;overflow:hidden; }
     .dialog .dialog-close{position:absolute;top:10px;right:12px}
     .dialog .dialog-close:hover{text-decoration:none}
     .dialog .dialog-close .icon{font-size:22px;color:#a1a1a1}
@@ -788,6 +788,11 @@
 
     .dialog .dialog-close{position: absolute;top: 10px;right: 12px;z-index:1000}
     .dialog-zckf .dialog-close .icon-close{color:#fff}
+    @media screen and (max-width: 768px) {
+        .dialog { width:100%; }
+        .dialog-zckf .zc,.dialog-zckf .zc img{width:100%;height:auto}
+        .dialog .ipt-area .ipt{width:100%;}
+    }
 
 </style>
 

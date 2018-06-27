@@ -42,6 +42,42 @@
         </div>
     </div>
 
+    <style>
+        .downlist {
+            position: absolute;
+            min-width: 160px;
+            height: auto;
+            padding: 16px 32px;
+            margin-left: -40px;
+            margin-top: 0;
+            border: 1px solid #000;
+            background:#000;
+            filter:alpha(opacity=60);
+            -khtml-opacity: 0.6;
+            -moz-opacity:0.6;
+            opacity: 0.6;
+            z-index:100;
+            overflow: hidden;
+        }
+        #site-nav .downlist a {
+            width: 100%;
+            height: auto;
+            padding: 8px 16px;
+            border-bottom: 1px solid #aaa;
+            color: #fff;
+            float:left;
+            filter:alpha(opacity=100);
+            -khtml-opacity: 1;
+            -moz-opacity:1;
+            opacity: 1;
+        }
+        #site-nav li {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+    </style>
+
     {{--header--}}
     <div class="container">
         <div class="row">
@@ -54,12 +90,23 @@
                 <nav id="site-nav" class="nav navbar-default">
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('/') }}">首页</a></li>
-                        <li><a href="{{ url('/houses') }}">楼盘</a></li>
+                        <li class="nav_nohover hlzb"  drop-down='downlist4'>
+                            <a href="{{ url('/houses') }}">楼盘</a>
+
+                            <div class="downlist downlist4 _none" style="">
+                                <div class="d_menu">
+                                    @foreach($houses as $v)
+                                    <a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </li>
                         {{--<li><a href="single-property.html">Property</a></li>--}}
                         {{--<li><a href="gallery.html">Gallery</a></li>--}}
-                        <li><a href="contact.html">联系我们</a></li>
+                        {{--<li><a href="contact.html">联系我们</a></li>--}}
                     </ul>
                 </nav>
+
             </div>
             <div class="col-md-3 col-sm-4">
                 <div class="contact-in-header clearfix">
