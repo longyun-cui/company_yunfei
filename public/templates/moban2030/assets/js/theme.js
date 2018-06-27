@@ -79,6 +79,8 @@ $(function () {
             fade: true,
             speed: 1000,
             autoplaySpeed: 3000,
+            "picWidth": 840, // 设置图片的宽度
+            "picHeihgt": 360, // 设置图片的高度
             lazyLoad: 'progressive',
             cssEase: 'linear',
             adaptiveHeight:true,

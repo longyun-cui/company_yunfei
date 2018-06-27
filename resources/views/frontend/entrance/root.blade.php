@@ -27,11 +27,17 @@
 {{--custom-content--}}
 @section('custom-content')
 
+    <style>
+        .slick-slide img { width: 100%; height: 480px; object-fit:cover; }
+    </style>
     {{--banner--}}
     <div class="main-slider-wrapper clearfix">
         <div id="main-slider">
-            <div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/1.jpg') }}" alt="Slide"></div>
-            <div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/2.jpg') }}" alt="Slide"></div>
+            <div class="slide"><img src="{{ url('/common/images/banner01.jpeg') }}" alt="Slide"></div>
+            <div class="slide"><img src="{{ url('/common/images/banner02.jpeg') }}" alt="Slide"></div>
+            <div class="slide"><img src="{{ url('/common/images/banner03.jpeg') }}" alt="Slide"></div>
+            {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/1.jpg') }}" alt="Slide"></div>--}}
+            {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/2.jpg') }}" alt="Slide"></div>--}}
             {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/3.jpg') }}" alt="Slide"></div>--}}
             {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/4.jpg') }}" alt="Slide"></div>--}}
         </div>
@@ -188,8 +194,7 @@
         <header class="section-header home-section-header text-center">
             <div class="container">
                 <h2 class="wow slideInRight">楼盘展示</h2>
-                <p class="wow slideInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <br>
-                    labore et dolore magna aliquan ut enim ad minim veniam.</p>
+                <p class="wow slideInLeft font-20px"><b>专业经纪人帮你找好房源</b></p>
             </div>
         </header>
         <div class="container">
@@ -240,16 +245,15 @@
     {{--下载APP--}}
     <section id="announcement-section" class="text-center">
         <div class="container ">
-            <h2 class="title wow slideInLeft">下载最新APP</h2>
-            <p class="wow slideInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <br>
-                labore et dolore magna aliquan ut enim ad minim veniam.</p>
-            <a class="btn" href="javascript:void(0);"><img src="{{ url('/templates/moban2030/assets/images/iso-btn.png') }}" alt="ISO Button"></a>
-            <a class="btn" href="javascript:void(0);"><img src="{{ url('/templates/moban2030/assets/images/playstore-btn.png') }}" alt="Play Store Button"></a>
+            <h2 class="title wow slideInLeft">权威发布</h2>
+            <p class="wow slideInRight font-20px">发布最新升值最快房源信息，扫码关注官方微信！</p>
+            <a class="btn" href="javascript:void(0);"><img src="{{ url('/common/images/wechat.png') }}" alt="ISO Button" style="width:128px;"></a>
+            <a class="btn _none" href="javascript:void(0);"><img src="{{ url('/templates/moban2030/assets/images/playstore-btn.png') }}" alt="Play Store Button"></a>
         </div>
     </section>
 
     {{--出租--}}
-    <section id="home-property-for-rent-listing">
+    <section id="home-property-for-rent-listing" style="display:none;">
         <header class="section-header home-section-header text-center">
             <div class="container">
                 <h2 class="wow slideInLeft">Office For Rent</h2>
@@ -294,8 +298,7 @@
         <header class="section-header home-section-header">
             <div class="container">
                 <h2 class="wow slideInRight">为什么选择我们？</h2>
-                <p class="wow slideInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <br>
-                    labore et dolore magna aliquan ut enim ad minim veniam.</p>
+                <p class="wow slideInLeft"></p>
             </div>
         </header>
         <div class="container">
@@ -303,29 +306,29 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="feature clearfix">
                         <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/1.png') }}" alt="Feature Icon"></i>
-                        <h6 class="entry-title">Paying guest</h6>
-                        <p>Dolor sit amet consectetuer sed diam nonummy euismod tincidunt laoreet dolore magna</p>
+                        <h6 class="entry-title font-20px">实力强 </h6>
+                        <p>房源实力雄厚，从市场上来说，我司选择的房源使用更好材料；从设计上来说，我司选择的房源更有能力和资金在商业配套、景观设计等方面投入开发。  </p>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6">
                     <div class="feature clearfix">
                         <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/2.png') }}" alt="Feature Icon"></i>
-                        <h6 class="entry-title">Paying guest</h6>
-                        <p>Dolor sit amet consectetuer sed diam nonummy euismod tincidunt laoreet dolore magna</p>
+                        <h6 class="entry-title font-20px">风险小  </h6>
+                        <p>买房子不是一锥子买卖，相比于其他房源，我们的选择的房源更注重口碑和声誉，房源证件齐全，收房放心。 </p>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6">
                     <div class="feature clearfix">
                         <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/3.png') }}" alt="Feature Icon"></i>
-                        <h6 class="entry-title">Paying guest</h6>
-                        <p>Dolor sit amet consectetuer sed diam nonummy euismod tincidunt laoreet dolore magna</p>
+                        <h6 class="entry-title font-20px">物业好  </h6>
+                        <p>真正的精致生活居所不仅在于硬件设施的完美与奢华，更在于提供全面的增值服务。我司房源更加注重后期管理和服务，物业质量较高。 　</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6">
                     <div class="feature clearfix">
                         <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/4.png') }}" alt="Feature Icon"></i>
-                        <h6 class="entry-title">Paying guest</h6>
-                        <p>Dolor sit amet consectetuer sed diam nonummy euismod tincidunt laoreet dolore magna</p>
+                        <h6 class="entry-title font-20px">眼光好  </h6>
+                        <p>我司选择的房源开发商往往拥有十余年甚至数十年的房产开发经历，经验丰富。也许若干年后，当初同价位的房子因为区域的不同价格早已不可同日而语，即便是同一地段的房子，我司房源的价格也会涨得比周围多的多，如果是投资的话，那就更得选择我们了。</p>
                     </div>
                 </div>
             </div>
