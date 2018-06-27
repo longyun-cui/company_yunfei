@@ -37,6 +37,7 @@
                 {{csrf_field()}}
                 <input type="hidden" name="operate" value="{{$operate or ''}}" readonly>
                 <input type="hidden" name="encode_id" value="{{$encode_id or encode(0)}}" readonly>
+                <input type="hidden" name="type" value="19" readonly>
 
                 {{--类别--}}
                 <div class="form-group form-category">

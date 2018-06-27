@@ -113,7 +113,7 @@
                     <i class="fa fa-mobile"></i>
                     <span>
                         敬请来电 <br>
-                        <strong>400-990-9092</strong>
+                        <a href="tel:4009909092"><strong>400-990-9092</strong></a>
                     </span>
                 </div>
             </div>

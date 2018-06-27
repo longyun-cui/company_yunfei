@@ -1,15 +1,15 @@
 @extends('admin.layout.layout')
 
 @section('title')
-    @if($operate == 'create') 添加关于我们 @else 编辑内容 @endif
+    @if($operate == 'create') 添加关于我们 @else 编辑关于我们 @endif
 @endsection
 
 @section('header')
-    @if($operate == 'create') 添加关于我们 @else 编辑内容 @endif
+    @if($operate == 'create') 添加关于我们 @else 编辑关于我们 @endif
 @endsection
 
 @section('description')
-    @if($operate == 'create') 添加关于我们 @else 编辑内容 @endif
+    @if($operate == 'create') 添加关于我们 @else 编辑关于我们 @endif
 @endsection
 
 @section('breadcrumb')
@@ -26,7 +26,7 @@
         <div class="box box-info form-container">
 
             <div class="box-header with-border" style="margin:16px 0;">
-                <h3 class="box-title">@if($operate == 'create') 添加关于我们 @else 编辑内容 @endif</h3>
+                <h3 class="box-title">@if($operate == 'create') 添加关于我们 @else 编辑关于我们 @endif</h3>
                 <div class="box-tools pull-right">
                 </div>
             </div>
@@ -37,43 +37,7 @@
                 {{csrf_field()}}
                 <input type="hidden" name="operate" value="{{$operate or ''}}" readonly>
                 <input type="hidden" name="encode_id" value="{{$encode_id or encode(0)}}" readonly>
-
-                {{--类别--}}
-                <div class="form-group form-category">
-                    <label class="control-label col-md-2">类别</label>
-                    <div class="col-md-8">
-                        <div class="btn-group">
-
-                            <button type="button" class="btn">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="category" value="1"
-                                           @if($operate == 'edit' && $data->category == 1) checked="checked" @endif> 企业介绍
-                                    </label>
-                                </div>
-                            </button>
-
-                            <button type="button" class="btn">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="category" value="11"
-                                           @if($operate == 'edit' && $data->category == 11) checked="checked" @endif> 楼盘
-                                    </label>
-                                </div>
-                            </button>
-
-                            <button type="button" class="btn">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="category" value="0"
-                                           @if($operate == 'create' || ($operate == 'edit' && $data->category == 0)) checked="checked" @endif> 自定义内容
-                                    </label>
-                                </div>
-                            </button>
-
-                        </div>
-                    </div>
-                </div>
+                <input type="hidden" name="type" value="1" readonly>
 
                 {{--标题--}}
                 <div class="form-group">
@@ -94,41 +58,6 @@
                     <label class="control-label col-md-2">描述</label>
                     <div class="col-md-8 ">
                         <div><input type="text" class="form-control" name="description" placeholder="描述" value="{{$data->description or ''}}"></div>
-                    </div>
-                </div>
-                {{--均价--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">均价</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[average]" placeholder="均价" value="{{$data->custom->average or ''}}"></div>
-                    </div>
-                </div>
-                {{--总价--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">总价</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[total]" placeholder="总价" value="{{$data->custom->total or ''}}"></div>
-                    </div>
-                </div>
-                {{--户型--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">户型</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[type]" placeholder="户型" value="{{$data->custom->type or ''}}"></div>
-                    </div>
-                </div>
-                {{--位置--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">位置</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[position]" placeholder="位置" value="{{$data->custom->position or ''}}"></div>
-                    </div>
-                </div>
-                {{--位置--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">开盘时间</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[start_time]" placeholder="开盘时间" value="{{$data->custom->start_time or ''}}"></div>
                     </div>
                 </div>
                 {{--说明--}}

@@ -81,10 +81,10 @@
                                 <div class="contents">
                                     <h5 class="title">联系我们</h5>
                                     <ul>
-                                        <li>电话 : 400-990-9092</li>
+                                        <li>电话 : <a href="tel:400-990-9092">400-990-9092</a></li>
                                         <li>联系人 : 李经理</li>
-                                        <li>手机 : 186-2151-9928</li>
-                                        <li>邮箱 : 461207859@qq.com</li>
+                                        <li>手机 : <a href="tel:186-2151-9928">186-2151-9928</a></li>
+                                        <li>邮箱 : <a href="mailto:461207859@qq.com">461207859@qq.com</a></li>
                                     </ul>
                                 </div>
                             </div>

@@ -18,7 +18,7 @@
         <div class="s_w_left">
             <span class="bm_icon"></span>
             <span class="tel_icon"></span>
-            <span class="div_tel" style="font-size:19px">400-990-9092</span>
+            <span class="div_tel" style="font-size:19px"><a href="tel:400-990-9092" style="color:#fff;">400-990-9092</a></span>
             <div style="clear:both"></div>
             <div>
                 {{--<script charset="utf-8"></script>--}}

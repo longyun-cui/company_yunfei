@@ -28,8 +28,8 @@
                         <ul>
                             <li><i class="fa fa-map-marker"></i> 江苏省 昆山市 绿地大道189弄 </li>
                             <li><i class="fa fa-user"></i> 李经理 </li>
-                            <li><i class="fa fa-phone"></i> 186-2151-9928 </li>
-                            <li><i class="fa fa-envelope"></i> 461207859@qq.com </li>
+                            <li><i class="fa fa-phone"></i> <a href="tel:186-2151-9928">186-2151-9928</a> </li>
+                            <li><i class="fa fa-envelope"></i> <a href="mailto:461207859@qq.com">461207859@qq.com</a> </li>
                             <li><i class="fa fa-clock-o"></i> 周一 - 周六: 9:00 - 18:00 </li>
                         </ul>
                     </section>
