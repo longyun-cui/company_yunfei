@@ -45,6 +45,21 @@ class IndexRepository {
     }
 
 
+    // root
+    public function contact()
+    {
+
+        $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
+        foreach($houses as $item)
+        {
+            $item->custom = json_decode($item->custom);
+        }
+
+        $html = view('frontend.entrance.contact')->with(['houses'=>$houses])->__toString();
+        return $html;
+    }
+
+
 
 
     // services
@@ -86,10 +101,52 @@ class IndexRepository {
 
 
 
+    //
+    public function message_contact($post_data)
+    {
+        $messages = [
+            'name.required' => '请输入姓名',
+            'mobile.required' => '请输入电话',
+        ];
+        $v = Validator::make($post_data, [
+            'name' => 'required',
+            'mobile' => 'required'
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        // 启动数据库事务
+        DB::beginTransaction();
+        try
+        {
+            $post_data['category'] = 1;
+            $mine = new RootMessage;
+            $bool = $mine->fill($post_data)->save();
+            if(!$bool) throw new Exception("insert--message--fail");
+
+            DB::commit();
+            $msg = '提交成功！';
+            return response_success([],$msg);
+        }
+        catch (Exception $e)
+        {
+            DB::rollback();
+            $msg = '提交失败，请重试！';
+//            $msg = $e->getMessage();
+//            exit($e->getMessage());
+            return response_fail([],$msg);
+        }
+
+
+
+    }
 
 
     //
-    public function book_appointment($post_data)
+    public function message_book_appointment($post_data)
     {
         $messages = [
             'name.required' => '请输入姓名',
@@ -133,7 +190,7 @@ class IndexRepository {
 
 
     //
-    public function grab_ticket($post_data)
+    public function message_grab_ticket($post_data)
     {
         $messages = [
             'mobile.required' => '请输入电话',

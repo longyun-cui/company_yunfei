@@ -26,6 +26,12 @@ class IndexController extends Controller
         return $this->repo->root();
     }
 
+    // 返回【主页】视图
+    public function view_contact()
+    {
+        return $this->repo->contact();
+    }
+
 
     // 返回【楼盘】【列表】视图
     public function view_houses()
@@ -41,14 +47,19 @@ class IndexController extends Controller
 
 
     //
-    public function book_appointment()
+    public function message_contact()
     {
-        return $this->repo->book_appointment(request()->all());
+        return $this->repo->message_contact(request()->all());
     }
     //
-    public function grab_ticket()
+    public function message_book_appointment()
     {
-        return $this->repo->grab_ticket(request()->all());
+        return $this->repo->message_book_appointment(request()->all());
+    }
+    //
+    public function message_grab_ticket()
+    {
+        return $this->repo->message_grab_ticket(request()->all());
     }
 
 

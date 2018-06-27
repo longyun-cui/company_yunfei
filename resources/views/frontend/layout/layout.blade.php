@@ -100,22 +100,16 @@
                     var mobile = $("#book-mobile");
                     var mobile_val = mobile.val();
 
-                    console.log(form);
-                    console.log(name);
-                    console.log(name_val);
-                    console.log(mobile);
-                    console.log(mobile_val);
 
-
-                    if($("#book-name").val() == "")
+                    if(name_val == "")
                     {
                         layer.msg("名字不能为空");
                         name.focus();
                         return false;
                     }
 
-                    var filter=/^1[3|4|5|7|8][0-9]\d{4,8}$/;
-                    if(!filter.test(mobile.val()))
+                    var filter=/^1[3|4|5|7|8][0-9]\d{8}$/;
+                    if(!filter.test(mobile_val))
                     {
                         layer.msg("请输入正确的手机号!");
                         mobile.focus();
@@ -124,7 +118,7 @@
                     }
 
                     var options = {
-                        url: "{{url('/book/appointment')}}",
+                        url: "{{url('/message/book/appointment')}}",
                         type: "post",
                         dataType: "json",
                         // target: "#div2",
@@ -151,10 +145,7 @@
                     var mobile = $("#grab-mobile");
                     var mobile_val = mobile.val();
 
-                    console.log(mobile);
-                    console.log(mobile_val);
-
-                    var filter=/^1[3|4|5|7|8][0-9]\d{4,8}$/;
+                    var filter=/^1[3|4|5|7|8][0-9]\d{8}$/;
                     if(!filter.test(mobile_val))
                     {
                         layer.msg("请输入正确的手机号!");
@@ -164,7 +155,7 @@
                     }
 
                     var options = {
-                        url: "{{url('/grab/ticket')}}",
+                        url: "{{url('/message/grab/ticket')}}",
                         type: "post",
                         dataType: "json",
                         // target: "#div2",

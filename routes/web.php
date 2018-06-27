@@ -45,13 +45,15 @@ Route::group(['namespace' => 'Front'], function () {
     $controller = "IndexController";
 
     Route::get('/', $controller.'@view_root');
+    Route::get('/contact', $controller.'@view_contact');
 
     Route::get('houses', $controller.'@view_houses');
     Route::get('house/{id?}', $controller.'@view_house');
 
 
-    Route::post('book/appointment', $controller.'@book_appointment');
-    Route::post('grab/ticket', $controller.'@grab_ticket');
+    Route::post('message/contact', $controller.'@message_contact');
+    Route::post('message/book/appointment', $controller.'@message_book_appointment');
+    Route::post('message/grab/ticket', $controller.'@message_grab_ticket');
 
 
 });

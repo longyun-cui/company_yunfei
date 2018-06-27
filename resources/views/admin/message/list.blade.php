@@ -33,7 +33,8 @@
                         <th>所属类别</th>
                         <th>姓名</th>
                         <th>手机</th>
-                        <th>邮箱</th>
+                        {{--<th>邮箱</th>--}}
+                        <th>留言</th>
                         <th>创建时间</th>
                         <th>操作</th>
                     </tr>
@@ -42,6 +43,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        {{--<td></td>--}}
                         <td></td>
                         <td></td>
                         <td>
@@ -128,7 +130,7 @@
                         'orderable': false,
                         render: function(data, type, row, meta) {
                             if(data == 0) return '<small class="label bg-blue">自定义内容</small>';
-                            else if(data == 1) return '企业介绍模块';
+                            else if(data == 1) return '<small class="label bg-blue">留言</small>';
                             else if(data == 9) return '合作加盟模块';
                             else if(data == 11) return '<small class="label bg-teal">预约看房</small>';
                             else if(data == 12) return '<small class="label bg-green">抢车券</small>';
@@ -153,7 +155,7 @@
                         }
                     },
                     {
-                        "data": "email",
+                        "data": "content",
                         'orderable': false,
                         render: function(data, type, row, meta) {
                             return data;

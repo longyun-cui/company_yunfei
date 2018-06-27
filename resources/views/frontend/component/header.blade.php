@@ -103,7 +103,7 @@
                         </li>
                         {{--<li><a href="single-property.html">Property</a></li>--}}
                         {{--<li><a href="gallery.html">Gallery</a></li>--}}
-                        {{--<li><a href="contact.html">联系我们</a></li>--}}
+                        <li><a href="{{ url('/contact') }}">联系我们</a></li>
                     </ul>
                 </nav>
 

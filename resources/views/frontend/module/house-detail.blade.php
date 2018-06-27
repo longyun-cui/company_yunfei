@@ -666,7 +666,8 @@
                             </a>
                             <div class="property-contents">
                                 <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
-                                <span class="btn-price">{{ $v->custom->average or '' }}</span>
+                                <span class="btn-price">单价：{{ $v->custom->average or '' }}</span>
+                                <span class="btn-price">总价：{{ $v->custom->total or '' }}</span>
                                 <div class="property-meta clearfix _none">
                                     <span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
                                     <span><i class="fa fa-bed"></i> 3 Beds</span>
