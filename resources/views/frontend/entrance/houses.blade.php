@@ -2,7 +2,7 @@
 
 
 {{--html.head--}}
-@section('head_title')楼盘展示@endsection
+@section('head_title')楼盘展示-汉盟房产@endsection
 @section('meta_author')@endsection
 @section('meta_title')@endsection
 @section('meta_description')@endsection
@@ -33,8 +33,7 @@
         <header class="section-header home-section-header text-center">
             <div class="container">
                 <h2 class="wow slideInRight">楼盘展示</h2>
-                <p class="wow slideInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <br>
-                    labore et dolore magna aliquan ut enim ad minim veniam.</p>
+                <p class="wow slideInLeft font-24px"><b>专业经纪人帮你找好房源</b></p>
             </div>
         </header>
         <div class="container">

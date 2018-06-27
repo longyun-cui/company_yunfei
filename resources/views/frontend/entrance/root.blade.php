@@ -2,7 +2,7 @@
 
 
 {{--html.head--}}
-@section('head_title')盛贝地产 - 寻觅e家@endsection
+@section('head_title')汉盟房产@endsection
 @section('meta_author')@endsection
 @section('meta_title')@endsection
 @section('meta_description')@endsection
@@ -44,7 +44,7 @@
         <div id="slider-contents">
             <div class="container text-center">
                 <div class="jumbotron">
-                    <h1>昆山汉盟不动产投资咨询有限公司</h1>
+                    <h1>汉盟房产</h1>
                     <div class="contents clearfix">
                         <p class="font-24px"><b>邻里中心  领衔未来人居</b></p>
                     </div>

@@ -2,7 +2,7 @@
 
 
 {{--html.head--}}
-@section('head_title')联系我们@endsection
+@section('head_title')联系我们-汉盟房产@endsection
 @section('meta_author')@endsection
 @section('meta_title')@endsection
 @section('meta_description')@endsection
