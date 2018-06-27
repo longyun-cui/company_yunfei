@@ -198,8 +198,8 @@
                     <div class="col-lg-4 col-sm-6 layout-item-wrap">
                         <article class="property layout-item clearfix">
                             <figure class="feature-image">
-                                <a class="clearfix" target="_blank"  href="{{ url('/house/'.$v->id) }}">
-                                    <img src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
+                                <a class="clearfix zoom-" target="_blank"  href="{{ url('/house/'.$v->id) }}">
+                                    <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
                                 </a>
                                 <span class="btn btn-warning btn-sale">热销中</span>
                             </figure>

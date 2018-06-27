@@ -39,8 +39,8 @@
                         .free-car .car-top { width:auto; padding: 8px 0; border-bottom: 1px solid #f4f4f4; }
                         .free-car .car-bottom { width:auto; padding: 8px 0; margin: 16px 0 8px; }
                         .free-car .num { color: #ff6d6f; }
-                        .free-car .ticket { padding: 8px 24px; border-radius: 2px; font-size:18px; color: #ff6d6f; border: 2px solid #ff6d6f; }
-                        .free-car .ticket:hover { color: #22f3ae; border: 1px solid #22f3ae; }
+                        .free-car .ticket { padding: 12px 24px; border-radius: 2px; font-size:20px; color: #ff6d6f; border: 2px solid #ff6d6f; }
+                        .free-car .ticket:hover { color: #22f3ae; border: 2px solid #22f3ae; }
                     </style>
 
                     <!--免费专车-->
@@ -52,7 +52,8 @@
                             </div>
                             <div class="car-bottom">
                                 <a class="ticket grab-ticket" href="javascript:void(0);" data-toggle="modal" data-target="#grab-modal">
-                                    <b>抢专车券</b></a> &nbsp; &nbsp;
+                                    <i class="fa fa-car"></i> <b>抢专车券</b>
+                                </a> &nbsp; &nbsp;
                                 <span class="num">{{ $ticket_total or 257 }}人</span>已抢
                             </div>
                         </div>
@@ -657,16 +658,16 @@
 
                     {{----}}
                     <section class="widget recent-properties clearfix">
-                        <h5 class="title">其他楼盘</h5>
+                        <h4 class="title" style="margin-bottom:32px;padding-bottom:16px;font-size:24px;line-height:24px; border-bottom:1px solid #eee;"><b>其他楼盘</b></h4>
                         @foreach($houses as $v)
                         <div class="property clearfix">
-                            <a href="{{ url('/house/'.$v->id) }}" class="feature-image zoom">
-                                <img data-action="zoom" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
+                            <a href="{{ url('/house/'.$v->id) }}" class="feature-image zoom-">
+                                <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
                             </a>
                             <div class="property-contents">
                                 <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
                                 <span class="btn-price">{{ $v->custom->average or '' }}</span>
-                                <div class="property-meta clearfix">
+                                <div class="property-meta clearfix _none">
                                     <span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
                                     <span><i class="fa fa-bed"></i> 3 Beds</span>
                                     <span><i class="fa fa-bathtub"></i> 3 Baths</span>
