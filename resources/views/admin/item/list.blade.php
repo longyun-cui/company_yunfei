@@ -127,7 +127,12 @@
                         "data": "encode_id",
                         'orderable': false,
                         render: function(data, type, row, meta) {
-                            return '<a target="_blank" href="/item/'+data+'">'+row.title+'</a>';
+                            var category;
+                            if(row.category == 0) category = 'custom';
+                            else if(row.category == 1) category = 'about';
+                            else if(row.category == 9) category = 'cooperation';
+                            else if(row.category == 11) category = 'house';
+                            return '<a target="_blank" href="/'+category+'/'+row.id+'">'+row.title+'</a>';
                         }
                     },
                     {
@@ -137,7 +142,7 @@
                             if(data == 0) return '自定义内容';
                             else if(data == 1) return '企业介绍模块';
                             else if(data == 9) return '合作加盟模块';
-                            else if(data == 11) return '门店模块';
+                            else if(data == 11) return '楼盘';
                             else if(data == 12) return '宴会模块';
                             else if(data == 19) return '礼服模块';
                             else if(data == 21) return '活动模块';
