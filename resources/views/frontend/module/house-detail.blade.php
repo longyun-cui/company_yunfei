@@ -35,7 +35,7 @@
                     </div>
 
                     <style>
-                        .free-car { width:100%; border: 1px solid #eee; padding: 16px; margin-top: 16px; border-radius: 4px; }
+                        .free-car { width:100%; border: 1px solid #eee; padding: 16px; margin-top: 16px; border-radius: 4px; z-index: 1000; }
                         .free-car .car-top { width:auto; padding: 8px 0; border-bottom: 1px solid #f4f4f4; }
                         .free-car .car-bottom { width:auto; padding: 8px 0; margin: 16px 0 8px; }
                         .free-car .num { color: #ff6d6f; }
