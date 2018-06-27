@@ -61,14 +61,14 @@
                 </section>
 
 
-                {{----}}
-                <section class="property-contents common">
+                {{--楼盘详情--}}
+                <section class="property-contents common _none">
                     <div class="entry-title clearfix">
                         <h4 class="pull-left"> 楼盘详情 </h4>
                         <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
                     </div>
                     <div>
-                        {!! $data->content or '' !!}
+                        {{--{!! $data->content or '' !!}--}}
                     </div>
                 </section>
 
@@ -165,6 +165,7 @@
                 </section>
 
             </div>
+
 
             {{--right--}}
             <div class="col-lg-4 col-md-5">
@@ -702,6 +703,22 @@
 
                 </div>
             </div>
+
+
+            {{--left--}}
+            <div class="col-lg-12 col-md-12">
+                {{--楼盘详情--}}
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h2 class="text-center"> 楼盘详情 </h2>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div>
+                        {!! $data->content or '' !!}
+                    </div>
+                </section>
+            </div>
+
 
         </div>
     </div>
