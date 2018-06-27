@@ -91,7 +91,13 @@
         <script>
             $(function() {
 
-                // 添加or编辑
+
+
+                $("#bottom-bm-close").on('click', function () {
+                    $('#bottom-bm-container').slideUp();
+                });
+
+                // 预约
                 $("#btnSubmit").on('click', function() {
 
                     var form = $("#form-book-appointment");
@@ -138,7 +144,7 @@
                 });
 
 
-                // 添加or编辑
+                // 抢券
                 $("#grab-submit").on('click', function() {
 
                     var form = $("#form-grab-ticket");
