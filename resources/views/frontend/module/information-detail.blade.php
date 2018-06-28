@@ -1,4 +1,4 @@
-{{--house-detail--}}
+{{--information-detail--}}
 <div id="property-single">
 
     <style>
@@ -18,7 +18,7 @@
         <div class="row">
 
             {{--left--}}
-            <div class="col-lg-8 col-md-7">
+            <div class="col-lg-8 col-md-7 _none">
 
                 <section class="property-meta-wrapper common">
                     <h3 class="entry-title">{{ $data->title or '' }}</h3>
@@ -175,7 +175,7 @@
 
 
             {{--right--}}
-            <div class="col-lg-4 col-md-5">
+            <div class="col-lg-4 col-md-5 _none">
                 <div id="property-sidebar">
 
 
@@ -664,14 +664,14 @@
 
                     {{----}}
                     <section class="widget recent-properties clearfix">
-                        <h4 class="title" style="margin-bottom:32px;padding-bottom:16px;font-size:24px;line-height:24px; border-bottom:1px solid #eee;"><b>其他楼盘</b></h4>
-                        @foreach($houses as $v)
+                        <h4 class="title" style="margin-bottom:32px;padding-bottom:16px;font-size:24px;line-height:24px; border-bottom:1px solid #eee;"><b>其他资讯</b></h4>
+                        @foreach($informations as $v)
                         <div class="property clearfix">
-                            <a href="{{ url('/house/'.$v->id) }}" class="feature-image zoom-">
+                            <a href="{{ url('/information/'.$v->id) }}" class="feature-image zoom-">
                                 <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
                             </a>
                             <div class="property-contents">
-                                <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
+                                <h6 class="entry-title"><a href="{{ url('/information/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
                                 <span class="btn-price">单价：{{ $v->custom->average or '' }}</span>
                                 <span class="btn-price">总价：{{ $v->custom->total or '' }}</span>
                                 <div class="property-meta clearfix _none">
@@ -718,7 +718,7 @@
                 {{--楼盘详情--}}
                 <section class="property-contents common">
                     <div class="entry-title clearfix">
-                        <h2 class="text-center"> 楼盘详情 </h2>
+                        <h2 class="text-center"> {{ $data->title or '' }} </h2>
                         <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
                     </div>
                     <div>

@@ -32,10 +32,10 @@
         <ul class="sidebar-menu">
 
             {{--机构基本信息--}}
-            <li class="header">机构(企业)管理</li>
+            <li class="header _none">机构(企业)管理</li>
             <!-- Optionally, you can add icons to the links -->
 
-            <li class="treeview">
+            <li class="treeview _none">
                 <a href="{{ url('/admin/info/index') }}">
                     <i class="fa fa-sun-o text-aqua"></i> <span>基本信息</span>
                 </a>
@@ -94,8 +94,20 @@
             </li>
 
             <li class="treeview">
+                <a href="{{ url('/admin/item/list?category=about') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>关于企业模块</span>
+                </a>
+            </li>
+
+            <li class="treeview">
                 <a href="{{ url('/admin/item/list?category=house') }}">
                     <i class="fa fa-circle-o text-yellow"></i> <span>楼盘模块</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/item/list?category=information') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>资讯模块</span>
                 </a>
             </li>
 

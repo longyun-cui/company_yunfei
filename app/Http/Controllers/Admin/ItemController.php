@@ -25,7 +25,11 @@ class ItemController extends Controller
 
     public function viewList()
     {
-        if(request()->isMethod('get')) return view('admin.item.list');
+        if(request()->isMethod('get'))
+        {
+            $category = request("category",'');
+            return view('admin.item.list')->with('category',$category);
+        }
         else if(request()->isMethod('post')) return $this->repo->get_list_datatable(request()->all());
     }
 

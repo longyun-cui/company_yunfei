@@ -37,43 +37,8 @@
                 {{csrf_field()}}
                 <input type="hidden" name="operate" value="{{$operate or ''}}" readonly>
                 <input type="hidden" name="encode_id" value="{{$encode_id or encode(0)}}" readonly>
+                <input type="hidden" name="category" value="11" readonly>
 
-                {{--类别--}}
-                <div class="form-group form-category">
-                    <label class="control-label col-md-2">类别</label>
-                    <div class="col-md-8">
-                        <div class="btn-group">
-
-                            <button type="button" class="btn">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="category" value="1"
-                                           @if($operate == 'edit' && $data->category == 1) checked="checked" @endif> 企业介绍
-                                    </label>
-                                </div>
-                            </button>
-
-                            <button type="button" class="btn">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="category" value="11"
-                                           @if($operate == 'edit' && $data->category == 11) checked="checked" @endif> 楼盘
-                                    </label>
-                                </div>
-                            </button>
-
-                            <button type="button" class="btn">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="category" value="0"
-                                           @if($operate == 'create' || ($operate == 'edit' && $data->category == 0)) checked="checked" @endif> 自定义内容
-                                    </label>
-                                </div>
-                            </button>
-
-                        </div>
-                    </div>
-                </div>
 
                 {{--标题--}}
                 <div class="form-group">
@@ -281,7 +246,7 @@
                     else
                     {
                         layer.msg(data.msg);
-                        location.href = "{{url('/admin/item/list')}}";
+                        location.href = "{{url('/admin/item/listcategory=house')}}";
                     }
                 }
             };

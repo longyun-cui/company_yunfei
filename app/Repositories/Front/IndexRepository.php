@@ -39,8 +39,9 @@ class IndexRepository {
         {
             $item->custom = json_decode($item->custom);
         }
+        $informations = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->get();
 
-        $html = view('frontend.entrance.root')->with(['houses'=>$houses])->__toString();
+        $html = view('frontend.entrance.root')->with(['houses'=>$houses,'informations'=>$informations])->__toString();
         return $html;
     }
 
@@ -96,6 +97,47 @@ class IndexRepository {
         }
 
         $html = view('frontend.entrance.house')->with(['houses'=>$houses, 'house'=>$house, 'ticket_total'=>$ticket_total])->__toString();
+        return $html;
+    }
+
+    // services
+    public function informations()
+    {
+//        $info = json_decode(json_encode(config('mitong.company.info')));
+//        $menus = RootMenu::where(['active'=>1])->orderby('order', 'asc')->get();
+
+        $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
+
+        $informations = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->get();
+        foreach($informations as $item)
+        {
+            $item->custom = json_decode($item->custom);
+        }
+
+        $html = view('frontend.entrance.informations')->with(['houses'=>$houses, 'informations'=>$informations])->__toString();
+        return $html;
+    }
+
+    // service_seo
+    public function information($id = 0)
+    {
+//        $info = json_decode(json_encode(config('mitong.company.info')));
+//        $menus = RootMenu::where(['active'=>1])->orderby('order', 'asc')->get();
+
+        $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
+
+        if($id != 0) $information = RootItem::where(['id'=>$id])->orderby('id', 'desc')->first();
+        else $information = RootItem::orderby('id', 'desc')->first();
+        $information->custom = json_decode($information->custom);
+
+
+        $informations = RootItem::where(['category'=>11, 'active'=>1])->where('id', '<>', $id)->orderby('id', 'desc')->get();
+        foreach($informations as $item)
+        {
+            $item->custom = json_decode($item->custom);
+        }
+
+        $html = view('frontend.entrance.information')->with(['houses'=>$houses, 'informations'=>$informations, 'information'=>$information,])->__toString();
         return $html;
     }
 

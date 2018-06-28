@@ -45,6 +45,18 @@ class IndexController extends Controller
     }
 
 
+    // 返回【楼盘】【列表】视图
+    public function view_informations()
+    {
+        return $this->repo->informations();
+    }
+    // 返回【楼盘】【详情】视图
+    public function view_information($id=0)
+    {
+        return $this->repo->information($id);
+    }
+
+
 
     //
     public function message_contact()

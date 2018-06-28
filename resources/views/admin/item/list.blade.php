@@ -18,12 +18,30 @@
 
             <div class="box-header with-border" style="margin:16px 0;">
                 <h3 class="box-title">
-                    {{ request()->input('category', '') }}
+                    @if($category == 'about') 关于我们
+                    @elseif($category == 'house') 楼盘列表
+                    @elseif($category == 'information') 资讯列表
+                    @else 全部内容
+                    @endif
                 </h3>
                 <div class="pull-right">
-                    <a href="{{url('/admin/item/create')}}">
-                        <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加内容</button>
-                    </a>
+                    @if($category == 'about')
+                        <a href="{{url('/admin/item/create?category=about')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加关于企业内容</button>
+                        </a>
+                    @elseif($category == 'house')
+                        <a href="{{url('/admin/item/create?category=house')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加楼盘内容</button>
+                        </a>
+                    @elseif($category == 'information')
+                        <a href="{{url('/admin/item/create?category=information')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加资讯内容</button>
+                        </a>
+                    @else
+                        {{--<a href="{{url('/admin/item/create')}}">--}}
+                            {{--<button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加内容</button>--}}
+                        {{--</a>--}}
+                    @endif
                 </div>
             </div>
 
@@ -140,13 +158,13 @@
                         'orderable': false,
                         render: function(data, type, row, meta) {
                             if(data == 0) return '自定义内容';
-                            else if(data == 1) return '企业介绍模块';
-                            else if(data == 9) return '合作加盟模块';
+                            else if(data == 1) return '关于企业';
+                            else if(data == 9) return '合作加盟';
                             else if(data == 11) return '楼盘';
                             else if(data == 12) return '宴会模块';
                             else if(data == 19) return '礼服模块';
                             else if(data == 21) return '活动模块';
-                            else if(data == 31) return '分享模块';
+                            else if(data == 31) return '资讯';
                             else return '未知模块';
                         }
                     },

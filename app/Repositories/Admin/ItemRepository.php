@@ -34,6 +34,7 @@ class ItemRepository {
         if($category == "about") $query->where('category', 1);
         else if($category == "cooperation") $query->where('category', 9);
         else if($category == "house") $query->where('category', 11);
+        else if($category == "information") $query->where('category', 31);
 
         $total = $query->count();
 
@@ -74,7 +75,13 @@ class ItemRepository {
     {
         $admin = Auth::guard('admin')->user();
         $menus = RootMenu::get();
-        return view('admin.item.edit')->with(['operate'=>'create', 'encode_id'=>encode(0), 'menus'=>$menus]);
+        $category = request("category",'');
+        if($category == 'about') $view_blade = 'admin.item.edit-about';
+        elseif($category == 'house') $view_blade = 'admin.item.edit-house';
+        elseif($category == 'information') $view_blade = 'admin.item.edit-information';
+        else $view_blade = 'admin.item.edit';
+
+        return view($view_blade)->with(['operate'=>'create', 'encode_id'=>encode(0), 'menus'=>$menus]);
     }
 
     // 返回【编辑】视图
@@ -98,7 +105,14 @@ class ItemRepository {
             {
                 unset($mine->id);
                 $mine->custom = json_decode($mine->custom);
-                return view('admin.item.edit')->with(['operate'=>'edit', 'encode_id'=>$id, 'menus'=>$menus, 'data'=>$mine]);
+                $category = $mine->category;
+
+                if($category == '1') $view_blade = 'admin.item.edit-about';
+                elseif($category == '11') $view_blade = 'admin.item.edit-house';
+                elseif($category == '31') $view_blade = 'admin.item.edit-information';
+                else $view_blade = 'admin.item.edit';
+
+                return view($view_blade)->with(['operate'=>'edit', 'encode_id'=>$id, 'menus'=>$menus, 'data'=>$mine]);
             }
             else return response("该产品不存在！", 404);
         }
@@ -146,7 +160,7 @@ class ItemRepository {
         DB::beginTransaction();
         try
         {
-            $post_data['custom'] = json_encode($post_data['custom']);
+            if(!empty($post_data['custom'])) $post_data['custom'] = json_encode($post_data['custom']);
 
             $bool = $mine->fill($post_data)->save();
             if($bool)
@@ -180,13 +194,13 @@ class ItemRepository {
                 }
 
 
-                $url = 'http://www.softorg.cn/outside/item/'.$encode_id;  // 目标URL
-                // 保存位置
-                $qrcode_path = 'resource/org/'.$admin->id.'/unique/items';
-                if(!file_exists(storage_path($qrcode_path)))
-                    mkdir(storage_path($qrcode_path), 0777, true);
-                // qrcode图片文件
-                $qrcode = $qrcode_path.'/qrcode_item_'.$encode_id.'.png';
+//                $url = 'http://www.softorg.cn/outside/item/'.$encode_id;  // 目标URL
+//                // 保存位置
+//                $qrcode_path = 'resource/org/'.$admin->id.'/unique/items';
+//                if(!file_exists(storage_path($qrcode_path)))
+//                    mkdir(storage_path($qrcode_path), 0777, true);
+//                // qrcode图片文件
+//                $qrcode = $qrcode_path.'/qrcode_item_'.$encode_id.'.png';
 //                QrCode::errorCorrection('H')->format('png')->size(160)->margin(0)->encoding('UTF-8')->generate($url,storage_path($qrcode));
 
 
@@ -207,7 +221,7 @@ class ItemRepository {
         {
             DB::rollback();
             $msg = '操作失败，请重试！';
-//            $msg = $e->getMessage();
+            $msg = $e->getMessage();
 //            exit($e->getMessage());
             return response_fail([],$msg);
         }

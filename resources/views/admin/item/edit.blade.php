@@ -48,7 +48,7 @@
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="category" value="1"
-                                           @if($operate == 'edit' && $data->category == 1) checked="checked" @endif> 企业介绍
+                                           @if($operate == 'edit' && $data->category == 1) checked="checked" @endif> 关于企业模块
                                     </label>
                                 </div>
                             </button>
@@ -57,7 +57,16 @@
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="category" value="11"
-                                           @if($operate == 'edit' && $data->category == 11) checked="checked" @endif> 楼盘
+                                           @if($operate == 'edit' && $data->category == 11) checked="checked" @endif> 楼盘模块
+                                    </label>
+                                </div>
+                            </button>
+
+                            <button type="button" class="btn">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="category" value="31"
+                                               @if($operate == 'edit' && $data->category == 31) checked="checked" @endif> 资讯模块
                                     </label>
                                 </div>
                             </button>

@@ -37,8 +37,18 @@
                                 </a>
                             </li>
                             <li class="header">
-                                <a href="{{url('/admin/item/create')}}">
-                                    <i class="fa fa-plus text-green"></i> 添加内容
+                                <a href="{{url('/admin/item/create?category=about')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加关于企业内容
+                                </a>
+                            </li>
+                            <li class="header">
+                                <a href="{{url('/admin/item/create?category=house')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加楼盘内容
+                                </a>
+                            </li>
+                            <li class="header">
+                                <a href="{{url('/admin/item/create?category=information')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加资讯内容
                                 </a>
                             </li>
 

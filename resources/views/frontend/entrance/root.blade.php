@@ -252,32 +252,33 @@
     </section>
 
     {{--出租--}}
-    <section id="home-property-for-rent-listing" style="display:none;">
+    <section id="home-property-for-rent-listing" style="display:none-;">
         <header class="section-header home-section-header text-center">
             <div class="container">
-                <h2 class="wow slideInLeft">Office For Rent</h2>
-                <p class="wow slideInRight">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut <br>
-                    labore et dolore magna aliquan ut enim ad minim veniam.</p>
+                <h2 class="wow slideInLeft">最新资讯</h2>
+                <p class="wow slideInRight">随时了解最新资讯，掌握市场动态</p>
             </div>
         </header>
         <div class="container">
             <div class="row">
                 <div id="property-for-rent-slider">
-                    @for($i=1;$i<1;$i++)
+                    @foreach($informations as $v)
                         <div class="col-lg-4 col-md-6">
                             <article class="property clearfix">
                                 <figure class="feature-image">
-                                    <a class="clearfix" href="{{ url('/house') }}"> <img src="{{ url('/templates/moban2030/assets/images/property/'.$i.'.jpg') }}" alt="Property Image"></a>
+                                    <a class="clearfix" href="{{ url('/information/'.$v->id) }}">
+                                        <img src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
+                                    </a>
                                 </figure>
                                 <div class="property-contents">
                                     <header class="property-header clearfix">
                                         <div class="pull-left">
-                                            <h6 class="entry-title"><a href="{{ url('/house') }}">Guaranteed modern home</a></h6>
-                                            <span class="property-location"><i class="fa fa-map-marker"></i> 14 Tottenham Road, London</span>
+                                            <h6 class="entry-title"><a href="{{ url('/house') }}">{{ $v->title or '' }}</a></h6>
+                                            <span class="property-location _none"><i class="fa fa-map-marker"></i> 14 Tottenham Road, London</span>
                                         </div>
-                                        <button class="btn btn-default btn-price pull-right btn-3d" data-hover="$389.000"><strong>$389.000</strong></button>
+                                        <a href="{{ url('/information/'.$v->id) }}" class="btn btn-default btn-price pull-right btn-3d" data-hover="查看详情"><strong>查看详情</strong></a>
                                     </header>
-                                    <div class="property-meta clearfix">
+                                    <div class="property-meta clearfix _none">
                                         <span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
                                         <span><i class="fa fa-bed"></i> 3 Beds</span>
                                         <span><i class="fa fa-bathtub"></i> 3 Baths</span>
@@ -286,7 +287,7 @@
                                 </div>
                             </article>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>
