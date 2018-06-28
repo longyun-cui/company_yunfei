@@ -150,6 +150,7 @@
                             else if(row.category == 1) category = 'about';
                             else if(row.category == 9) category = 'cooperation';
                             else if(row.category == 11) category = 'house';
+                            else if(row.category == 31) category = 'information';
                             return '<a target="_blank" href="/'+category+'/'+row.id+'">'+row.title+'</a>';
                         }
                     },
