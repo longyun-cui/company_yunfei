@@ -256,7 +256,7 @@
         <header class="section-header home-section-header text-center">
             <div class="container">
                 <h2 class="wow slideInLeft">最新资讯</h2>
-                <p class="wow slideInRight">随时了解最新资讯，掌握市场动态</p>
+                <p class="wow slideInRight font-20px">随时了解最新资讯，掌握市场动态</p>
             </div>
         </header>
         <div class="container">
