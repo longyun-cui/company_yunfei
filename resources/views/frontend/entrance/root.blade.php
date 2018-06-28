@@ -28,7 +28,7 @@
 @section('custom-content')
 
     <style>
-        .slick-slide img { width: 100%; height: 480px; object-fit:cover; }
+        .slide.slick-slide img { width: 100%; height: 480px; object-fit:cover; }
     </style>
     {{--banner--}}
     <div class="main-slider-wrapper clearfix">
