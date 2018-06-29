@@ -713,12 +713,101 @@
             </div>
 
 
-            {{--left--}}
+            <style>
+                .property-contents table { width:100%; }
+                .property-contents tbody { width:100%; }
+                .property-contents tr { width:100%; min-height:32px; line-height:32px; border-bottom:1px dashed #eee; }
+                .property-contents td { width:50%;float:left; }
+            </style>
+            {{--基本信息--}}
             <div class="col-lg-12 col-md-12">
-                {{--楼盘详情--}}
                 <section class="property-contents common">
                     <div class="entry-title clearfix">
-                        <h2 class="text-center"> 楼盘详情 </h2>
+                        <h3 class="text-center"> 基本信息 </h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div>
+                        <table cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <label>开盘时间：</label>
+                                    <span>{{ $data->custom->start_time or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>入住时间：</label>
+                                    <span>{{ $data->custom->live_time or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>开&nbsp;发&nbsp;商&nbsp;：</label>
+                                    <span>{{ $data->custom->developer or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;权：</label>
+                                    <span>{{ $data->custom->property_rights or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>建筑面积：</label>
+                                    <span>{{ $data->custom->acreage or '' }} m<sup>2</sup></span>
+                                </td>
+                                <td>
+                                    <label>户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</label>
+                                    <span>{{ $data->custom->households or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>容&nbsp;积&nbsp;率&nbsp;：</label>
+                                    <span>{{ $data->custom->capacity_rate or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>绿&nbsp;化&nbsp;率&nbsp;：</label>
+                                    <span>{{ $data->custom->greening_rate or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>装修状态：</label>
+                                    <span>{{ $data->custom->decoration or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>物业类型：</label>
+                                    <span>{{ $data->custom->manager_type or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>物业公司：</label>
+                                    <span>{{ $data->custom->manager_company or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>物&nbsp;业&nbsp;费&nbsp;：</label>
+                                    <span>{{ $data->custom->manager_cost or '' }}元/m<sup>2</sup>/月</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="details" style="width:100%;">
+                                    <label>楼盘详情：</label>
+                                    <span>{{ $data->custom->description or '' }}</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>&nbsp;</div>
+                </section>
+            </div>
+
+
+            {{--图文详情--}}
+            <div class="col-lg-12 col-md-12">
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center"> 图文详情 </h3>
                         <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
                     </div>
                     <div>

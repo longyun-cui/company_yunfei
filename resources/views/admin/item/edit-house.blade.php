@@ -44,68 +44,164 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">标题</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="title" placeholder="请输入标题" value="{{$data->title or ''}}"></div>
+                        <input type="text" class="form-control" name="title" placeholder="请输入标题" value="{{$data->title or ''}}">
                     </div>
                 </div>
                 {{--标题--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">副标题</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="subtitle" placeholder="请输入副标题" value="{{$data->subtitle or ''}}"></div>
+                        <input type="text" class="form-control" name="subtitle" placeholder="请输入副标题" value="{{$data->subtitle or ''}}">
                     </div>
                 </div>
                 {{--说明--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">描述</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="description" placeholder="描述" value="{{$data->description or ''}}"></div>
+                        <input type="text" class="form-control" name="description" placeholder="描述" value="{{$data->description or ''}}">
+                        {{--<textarea class="form-control" name="description" rows="3" cols="100%">{{$data->descr、iption or ''}}</textarea>--}}
                     </div>
                 </div>
                 {{--均价--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">均价</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[average]" placeholder="均价" value="{{$data->custom->average or ''}}"></div>
+                        <input type="text" class="form-control" name="custom[average]" placeholder="均价" value="{{$data->custom->average or ''}}">
                     </div>
                 </div>
                 {{--总价--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">总价</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[total]" placeholder="总价" value="{{$data->custom->total or ''}}"></div>
-                    </div>
-                </div>
-                {{--户型--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">户型</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[type]" placeholder="户型" value="{{$data->custom->type or ''}}"></div>
+                        <input type="text" class="form-control" name="custom[total]" placeholder="总价" value="{{$data->custom->total or ''}}">
                     </div>
                 </div>
                 {{--位置--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">位置</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[position]" placeholder="位置" value="{{$data->custom->position or ''}}"></div>
+                        <input type="text" class="form-control" name="custom[position]" placeholder="位置" value="{{$data->custom->position or ''}}">
                     </div>
                 </div>
-                {{--位置--}}
+                {{--开盘时间--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">开盘时间</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[start_time]" placeholder="开盘时间" value="{{$data->custom->start_time or ''}}"></div>
+                        <input type="text" class="form-control" name="custom[start_time]" placeholder="开盘时间" value="{{$data->custom->start_time or ''}}">
                     </div>
                 </div>
-                {{--说明--}}
+                {{--入住时间--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">入住时间</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[live_time]" placeholder="入住时间" value="{{$data->custom->live_time or ''}}">
+                    </div>
+                </div>
+                {{--开发商--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">开发商</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[developer]" placeholder="开发商" value="{{$data->custom->developer or ''}}">
+                    </div>
+                </div>
+                {{--产权--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">产权</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[property_rights]" placeholder="产权" value="{{$data->custom->property_rights or ''}}">
+                    </div>
+                </div>
+                {{--户数--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">户数</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[households]" placeholder="户数" value="{{$data->custom->households or ''}}">
+                    </div>
+                </div>
+                {{--建筑面积--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">建筑面积</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[acreage]" placeholder="建筑面积" value="{{$data->custom->acreage or ''}}">
+                    </div>
+                </div>
+                {{--容积率--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">容积率</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[capacity_rate]" placeholder="容积率" value="{{$data->custom->capacity_rate or ''}}">
+                    </div>
+                </div>
+                {{--绿化率--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">绿化率</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[greening_rate]" placeholder="绿化率" value="{{$data->custom->greening_rate or ''}}">
+                    </div>
+                </div>
+                {{--装修状态--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">装修状态</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[decoration]" placeholder="装修状态" value="{{$data->custom->decoration or ''}}">
+                    </div>
+                </div>
+                {{--户型--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">户型</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[type]" placeholder="户型" value="{{$data->custom->type or ''}}">
+                    </div>
+                </div>
+                {{--物业类型--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">物业类型</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[manager_type]" placeholder="物业类型" value="{{$data->custom->manager_type or ''}}">
+                    </div>
+                </div>
+                {{--物业公司--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">物业公司</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[manager_company]" placeholder="物业公司" value="{{$data->custom->property_company or ''}}">
+                    </div>
+                </div>
+                {{--物业费用--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">物业费用</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[manager_cost]" placeholder="物业费用（单价）" value="{{$data->custom->manager_cost or ''}}">
+                    </div>
+                </div>
+                {{--楼盘详情--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">楼盘详情</label>
+                    <div class="col-md-8 ">
+                        {{--<input type="text" class="form-control" name="custom[description]" placeholder="" value="{{$data->custom->manager_cost or ''}}">--}}
+                        <textarea class="form-control" name="custom[description]" rows="3" cols="100%">{{$data->custom->description or ''}}</textarea>
+                    </div>
+                </div>
+
+                {{--户型图--}}
+                <div class="form-group _none">
+                    <label class="control-label col-md-2">户型图</label>
+                    <div class="col-md-8 ">
+                        <input id="input-id" type="file" class="file" data-preview-file-type="text" >
+                    </div>
+                </div>
+
+                {{--链接地址--}}
                 <div class="form-group _none">
                     <label class="control-label col-md-2">链接地址</label>
                     <div class="col-md-8 ">
                         <div><input type="text" class="form-control" name="link_url" placeholder="链接地址" value="{{$data->link_url or ''}}"></div>
                     </div>
                 </div>
-                {{--目录--}}
+
+                {{--选择目录--}}
                 <div class="form-group _none">
-                    <label class="control-label col-md-2">目录</label>
+                    <label class="control-label col-md-2">选择目录</label>
                     <div class="col-md-8 ">
                         <select class="form-control" onchange="select_menu()">
                             <option data-id="0">未分类</option>
@@ -122,7 +218,8 @@
                         <input type="hidden" value="{{$data->menu_id or 0}}" name="menu_id" id="menu-selected">
                     </div>
                 </div>
-                {{--目录--}}
+
+                {{--添加目录--}}
                 <div class="form-group _none">
                     <label class="control-label col-md-2">添加目录</label>
                     <div class="col-md-8 ">
@@ -131,9 +228,10 @@
                         </select>
                     </div>
                 </div>
+
                 {{--内容--}}
                 <div class="form-group">
-                    <label class="control-label col-md-2">内容详情</label>
+                    <label class="control-label col-md-2">图文详情</label>
                     <div class="col-md-8 ">
                         <div>
                             @include('UEditor::head')
@@ -234,6 +332,8 @@
 <script>
     $(function() {
 
+        $("#input-id").fileinput();
+
         // 添加or编辑
         $("#edit-item-submit").on('click', function() {
             var options = {
@@ -246,7 +346,7 @@
                     else
                     {
                         layer.msg(data.msg);
-                        location.href = "{{url('/admin/item/listcategory=house')}}";
+                        location.href = "{{url('/admin/item/list?category=house')}}";
                     }
                 }
             };
