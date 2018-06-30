@@ -38,6 +38,7 @@ class IndexRepository {
         foreach($houses as $item)
         {
             $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
         }
         $informations = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->get();
 
@@ -54,6 +55,7 @@ class IndexRepository {
         foreach($houses as $item)
         {
             $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
         }
 
         $html = view('frontend.entrance.contact')->with(['houses'=>$houses])->__toString();
@@ -72,6 +74,7 @@ class IndexRepository {
         foreach($houses as $item)
         {
             $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
         }
 
         $html = view('frontend.entrance.houses')->with(['houses'=>$houses])->__toString();
@@ -87,6 +90,7 @@ class IndexRepository {
         if($id != 0) $house = RootItem::where(['id'=>$id])->orderby('id', 'desc')->first();
         else $house = RootItem::orderby('id', 'desc')->first();
         $house->custom = json_decode($house->custom);
+        $house->custom2 = json_decode($house->custom2);
 
         $ticket_total = RootMessage::where('category', 12)->count();
 
@@ -94,6 +98,7 @@ class IndexRepository {
         foreach($houses as $item)
         {
             $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
         }
 
         $html = view('frontend.entrance.house')->with(['houses'=>$houses, 'house'=>$house, 'ticket_total'=>$ticket_total])->__toString();
@@ -135,6 +140,7 @@ class IndexRepository {
         foreach($informations as $item)
         {
             $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
         }
 
         $html = view('frontend.entrance.information')->with(['houses'=>$houses, 'informations'=>$informations, 'information'=>$information,])->__toString();

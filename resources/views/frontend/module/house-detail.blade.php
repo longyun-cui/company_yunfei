@@ -18,7 +18,7 @@
         <div class="row">
 
             {{--left--}}
-            <div class="col-lg-8 col-md-7">
+            <div class="col-lg-12 col-md-12">
 
                 <section class="property-meta-wrapper common">
                     <h3 class="entry-title">{{ $data->title or '' }}</h3>
@@ -174,8 +174,156 @@
             </div>
 
 
-            {{--right--}}
-            <div class="col-lg-4 col-md-5">
+            {{--最新动态--}}
+            <div class="col-lg-12 col-md-12">
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center"> 最新动态 </h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div>
+                        {{{ $data->custom->recent_news or '' }}}
+                    </div>
+                </section>
+            </div>
+
+
+            {{--图片--}}
+            <div class="col-lg-12 col-md-12">
+                <img src="{{ url('/custom/images/box-img.jpg') }}" alt="" />
+            </div>
+
+
+            <style>
+                .property-contents table { width:100%; }
+                .property-contents tbody { width:100%; }
+                .property-contents tr { width:100%; min-height:32px; line-height:32px; border-bottom:1px dashed #eee; }
+                .property-contents td { width:50%;float:left; }
+            </style>
+            {{--基本信息--}}
+            <div class="col-lg-12 col-md-12">
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center"> 基本信息 </h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div>
+                        <table cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <label>开盘时间：</label>
+                                    <span>{{ $data->custom->start_time or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>入住时间：</label>
+                                    <span>{{ $data->custom->live_time or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>开&nbsp;发&nbsp;商&nbsp;：</label>
+                                    <span>{{ $data->custom->developer or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;权：</label>
+                                    <span>{{ $data->custom->property_rights or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>建筑面积：</label>
+                                    <span>{{ $data->custom->acreage or '' }} m<sup>2</sup></span>
+                                </td>
+                                <td>
+                                    <label>户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</label>
+                                    <span>{{ $data->custom->households or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>容&nbsp;积&nbsp;率&nbsp;：</label>
+                                    <span>{{ $data->custom->capacity_rate or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>绿&nbsp;化&nbsp;率&nbsp;：</label>
+                                    <span>{{ $data->custom->greening_rate or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>装修状态：</label>
+                                    <span>{{ $data->custom->decoration or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>物业类型：</label>
+                                    <span>{{ $data->custom->manager_type or '' }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>物业公司：</label>
+                                    <span>{{ $data->custom->manager_company or '' }}</span>
+                                </td>
+                                <td>
+                                    <label>物&nbsp;业&nbsp;费&nbsp;：</label>
+                                    <span>{{ $data->custom->manager_cost or '' }}元/m<sup>2</sup>/月</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="details" style="width:100%;">
+                                    <label>楼盘详情：</label>
+                                    <span>{{ $data->custom->description or '' }}</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>&nbsp;</div>
+                </section>
+            </div>
+
+
+            {{--户型图--}}
+            <div class="col-lg-12 col-md-12">
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center"> 户型图 </h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div id="house-type-images">
+                        @if(count($data->custom2) > 0)
+                            @foreach($data->custom2 as $img)
+                                <article class="property clearfix">
+                                    <figure class="feature-image">
+                                        <a class="zoom-" target="_blank">
+                                            <img data-action="zoom-" src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
+                                        </a>
+                                    </figure>
+                                </article>
+                            @endforeach
+                        @endif
+                    </div>
+                </section>
+            </div>
+
+
+            {{--图文详情--}}
+            <div class="col-lg-12 col-md-12">
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center"> 图文详情 </h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div>
+                        {!! $data->content or '' !!}
+                    </div>
+                </section>
+            </div>
+
+
+            {{--其他楼盘--}}
+            <div class="col-lg-12 col-md-12 ">
                 <div id="property-sidebar">
 
 
@@ -666,22 +814,24 @@
                     <section class="widget recent-properties clearfix">
                         <h4 class="title" style="margin-bottom:32px;padding-bottom:16px;font-size:24px;line-height:24px; border-bottom:1px solid #eee;"><b>其他楼盘</b></h4>
                         @foreach($houses as $v)
-                        <div class="property clearfix">
-                            <a href="{{ url('/house/'.$v->id) }}" class="feature-image zoom-">
-                                <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
-                            </a>
-                            <div class="property-contents">
-                                <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
-                                <span class="btn-price">单价：{{ $v->custom->average or '' }}</span>
-                                <span class="btn-price">总价：{{ $v->custom->total or '' }}</span>
-                                <div class="property-meta clearfix _none">
-                                    <span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
-                                    <span><i class="fa fa-bed"></i> 3 Beds</span>
-                                    <span><i class="fa fa-bathtub"></i> 3 Baths</span>
-                                    <span><i class="fa fa-cab"></i> Yes</span>
+                            <div class="col-lg-4 col-md-4 ">
+                                <div class="property clearfix">
+                                    <a href="{{ url('/house/'.$v->id) }}" class="feature-image zoom-">
+                                        <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
+                                    </a>
+                                    <div class="property-contents">
+                                        <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
+                                        <span class="btn-price">单价：{{ $v->custom->average or '' }}</span>
+                                        <span class="btn-price">总价：{{ $v->custom->total or '' }}</span>
+                                        <div class="property-meta clearfix _none">
+                                            <span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
+                                            <span><i class="fa fa-bed"></i> 3 Beds</span>
+                                            <span><i class="fa fa-bathtub"></i> 3 Baths</span>
+                                            <span><i class="fa fa-cab"></i> Yes</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </section>
 
@@ -710,153 +860,6 @@
 
 
                 </div>
-            </div>
-
-
-            {{--最新动态--}}
-            <div class="col-lg-12 col-md-12">
-                <section class="property-contents common">
-                    <div class="entry-title clearfix">
-                        <h3 class="text-center"> 最新动态 </h3>
-                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
-                    </div>
-                    <div>
-                        {{{ $data->custom->recent_news or '' }}}
-                    </div>
-                </section>
-            </div>
-
-
-            {{--图片--}}
-            <div class="col-lg-12 col-md-12">
-                <img src="{{ url('/custom/images/box-img.jpg') }}" alt="" />
-            </div>
-
-
-            <style>
-                .property-contents table { width:100%; }
-                .property-contents tbody { width:100%; }
-                .property-contents tr { width:100%; min-height:32px; line-height:32px; border-bottom:1px dashed #eee; }
-                .property-contents td { width:50%;float:left; }
-            </style>
-            {{--基本信息--}}
-            <div class="col-lg-12 col-md-12">
-                <section class="property-contents common">
-                    <div class="entry-title clearfix">
-                        <h3 class="text-center"> 基本信息 </h3>
-                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
-                    </div>
-                    <div>
-                        <table cellpadding="0" cellspacing="0">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <label>开盘时间：</label>
-                                    <span>{{ $data->custom->start_time or '' }}</span>
-                                </td>
-                                <td>
-                                    <label>入住时间：</label>
-                                    <span>{{ $data->custom->live_time or '' }}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>开&nbsp;发&nbsp;商&nbsp;：</label>
-                                    <span>{{ $data->custom->developer or '' }}</span>
-                                </td>
-                                <td>
-                                    <label>产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;权：</label>
-                                    <span>{{ $data->custom->property_rights or '' }}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>建筑面积：</label>
-                                    <span>{{ $data->custom->acreage or '' }} m<sup>2</sup></span>
-                                </td>
-                                <td>
-                                    <label>户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</label>
-                                    <span>{{ $data->custom->households or '' }}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>容&nbsp;积&nbsp;率&nbsp;：</label>
-                                    <span>{{ $data->custom->capacity_rate or '' }}</span>
-                                </td>
-                                <td>
-                                    <label>绿&nbsp;化&nbsp;率&nbsp;：</label>
-                                    <span>{{ $data->custom->greening_rate or '' }}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>装修状态：</label>
-                                    <span>{{ $data->custom->decoration or '' }}</span>
-                                </td>
-                                <td>
-                                    <label>物业类型：</label>
-                                    <span>{{ $data->custom->manager_type or '' }}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>物业公司：</label>
-                                    <span>{{ $data->custom->manager_company or '' }}</span>
-                                </td>
-                                <td>
-                                    <label>物&nbsp;业&nbsp;费&nbsp;：</label>
-                                    <span>{{ $data->custom->manager_cost or '' }}元/m<sup>2</sup>/月</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="details" style="width:100%;">
-                                    <label>楼盘详情：</label>
-                                    <span>{{ $data->custom->description or '' }}</span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>&nbsp;</div>
-                </section>
-            </div>
-
-
-            {{--户型图--}}
-            <div class="col-lg-12 col-md-12">
-                <section class="property-contents common">
-                    <div class="entry-title clearfix">
-                        <h3 class="text-center"> 户型图 </h3>
-                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
-                    </div>
-                    <div id="house-type-images">
-                        @if(!empty($data->custom->house_type_images))
-                            @foreach($data->custom->house_type_images as $img)
-                                <article class="property clearfix" >
-                                    <figure class="feature-image">
-                                        <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
-                                    </figure>
-                                </article>
-
-                            @endforeach
-                        @endif
-                    </div>
-                </section>
-            </div>
-
-
-            {{--图文详情--}}
-            <div class="col-lg-12 col-md-12">
-                <section class="property-contents common">
-                    <div class="entry-title clearfix">
-                        <h3 class="text-center"> 图文详情 </h3>
-                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
-                    </div>
-                    <div>
-                        {!! $data->content or '' !!}
-                    </div>
-                </section>
             </div>
 
 

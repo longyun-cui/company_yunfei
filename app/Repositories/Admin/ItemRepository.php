@@ -105,6 +105,7 @@ class ItemRepository {
             {
                 unset($mine->id);
                 $mine->custom = json_decode($mine->custom);
+                $mine->custom2 = json_decode($mine->custom2);
                 $category = $mine->category;
 
                 if($category == '1') $view_blade = 'admin.item.edit-about';
@@ -161,12 +162,8 @@ class ItemRepository {
         DB::beginTransaction();
         try
         {
-            $custom_decode = json_decode($mine->custom,true);
-            $house_type_images_pre = $custom_decode["house_type_images"];
-
             if(!empty($post_data['custom']))
             {
-                $post_data['custom']["house_type_images"] = $house_type_images_pre;
                 $post_data['custom'] = json_encode($post_data['custom']);
             }
 
@@ -186,9 +183,10 @@ class ItemRepository {
                 if(!empty($post_data["house_type_images"][0]))
                 {
                     // 删除原有图片
-                    if(!empty($house_type_images_pre))
+                    $custom2_decode = json_decode($mine->custom2,true);
+                    if(count($custom2_decode) > 0)
                     {
-                        foreach ($house_type_images_pre as $img)
+                        foreach ($custom2_decode as $img)
                         {
                             if(!empty($img["img"]) && file_exists(storage_path("resource/" . $img["img"])))
                             {
@@ -210,9 +208,8 @@ class ItemRepository {
 
                     if(count($house_type_images) > 0)
                     {
-                        $custom_decode["house_type_images"] = $house_type_images;
-                        $custom_encode = json_encode($custom_decode);
-                        $mine->custom = $custom_encode;
+                        $custom_encode = json_encode($house_type_images);
+                        $mine->custom2 = $custom_encode;
                         $mine->save();
                     }
                 }
@@ -314,11 +311,10 @@ class ItemRepository {
             }
 
             // 删除原有图片
-            $custom_decode = json_decode($mine->custom,true);
-            $house_type_images_pre = $custom_decode["house_type_images"];
-            if(!empty($house_type_images_pre))
+            $custom2_decode = json_decode($mine->custom2,true);
+            if(count($custom2_decode) > 0)
             {
-                foreach ($house_type_images_pre as $img)
+                foreach ($custom2_decode as $img)
                 {
                     if(!empty($img["img"]) && file_exists(storage_path("resource/" . $img["img"])))
                     {

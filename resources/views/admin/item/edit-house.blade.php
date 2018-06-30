@@ -122,7 +122,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">建筑面积</label>
                     <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[acreage]" placeholder="建筑面积" value="{{$data->custom->acreage or ''}}">
+                        <input type="text" class="form-control" name="custom[acreage]" placeholder="建筑面积（单位 m2）" value="{{$data->custom->acreage or ''}}">
                     </div>
                 </div>
                 {{--容积率--}}
@@ -171,7 +171,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">物业费用</label>
                     <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[manager_cost]" placeholder="物业费用（单价）" value="{{$data->custom->manager_cost or ''}}">
+                        <input type="text" class="form-control" name="custom[manager_cost]" placeholder="物业费用（单价 /m2/月）" value="{{$data->custom->manager_cost or ''}}">
                     </div>
                 </div>
                 {{--楼盘详情--}}
@@ -253,14 +253,14 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">户型图</label>
                     <div class="col-md-8 fileinput-group">
-                        @if(!empty($data->custom->house_type_images))
-                        @foreach($data->custom->house_type_images as $img)
-                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
+                        @if(!empty($data->custom2))
+                            @foreach($data->custom2 as $img)
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
                         @else
                             <div class="fileinput-preview fileinput-exists thumbnail"></div>
                         @endif
