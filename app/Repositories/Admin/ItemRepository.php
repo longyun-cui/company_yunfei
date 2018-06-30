@@ -313,6 +313,20 @@ class ItemRepository {
                 unlink(storage_path("resource/" . $cover_pic));
             }
 
+            // 删除原有图片
+            $custom_decode = json_decode($mine->custom,true);
+            $house_type_images_pre = $custom_decode["house_type_images"];
+            if(!empty($house_type_images_pre))
+            {
+                foreach ($house_type_images_pre as $img)
+                {
+                    if(!empty($img["img"]) && file_exists(storage_path("resource/" . $img["img"])))
+                    {
+                        unlink(storage_path("resource/" . $img["img"]));
+                    }
+                }
+            }
+
             return response_success([]);
         }
         catch (Exception $e)
