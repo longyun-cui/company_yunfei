@@ -489,7 +489,7 @@ $saveFolder/$date/
 EOF;
             $path = storage_path($upload_path);
             if (!is_dir($path)) {
-                mkdir($path, 0766, true);
+                mkdir($path, 0777, true);
             }
             if($filename == '') $filename = uniqid() . time() . '.' . $extension;
             else $filename = $filename . '.' . $extension;

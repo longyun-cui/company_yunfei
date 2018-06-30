@@ -44,7 +44,7 @@
         <div id="slider-contents">
             <div class="container text-center">
                 <div class="jumbotron">
-                    <h1>汉盟房产</h1>
+                    <h1>盛贝地产</h1>
                     <div class="contents clearfix">
                         <p class="font-24px"><b>邻里中心  领衔未来人居</b></p>
                     </div>
