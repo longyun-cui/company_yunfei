@@ -2,7 +2,7 @@
 
   var isIE = window.navigator.appName == 'Microsoft Internet Explorer';
 
-  var Fileinput = function (element, options) {
+  var FileinputOn = function (element, options) {
     this.$element = $(element);
 
     this.$input = this.$element.find(':file');
@@ -30,7 +30,7 @@
     this.listen()
   };
 
-  Fileinput.prototype.listen = function() {
+  FileinputOn.prototype.listen = function() {
     this.$input.on('change.bs.fileinput', $.proxy(this.change, this));
     $(this.$input[0].form).on('reset.bs.fileinput', $.proxy(this.reset, this));
 
@@ -38,7 +38,7 @@
     this.$element.find('[data-dismiss="fileinput"]').on('click.bs.fileinput', $.proxy(this.clear, this))
   };
 
-  Fileinput.prototype.change = function(e) {
+  FileinputOn.prototype.change = function(e) {
     var files = e.target.files === undefined ? (e.target && e.target.value ? [{ name: e.target.value.replace(/^.+\\/, '')}] : []) : e.target.files;
 
     e.stopPropagation();
@@ -86,7 +86,7 @@
     }
   };
 
-  Fileinput.prototype.clear = function(e) {
+  FileinputOn.prototype.clear = function(e) {
     if (e) e.preventDefault();
 
     this.$hidden.val('');
@@ -113,7 +113,7 @@
     }
   };
 
-  Fileinput.prototype.reset = function() {
+  FileinputOn.prototype.reset = function() {
     this.clear();
 
     this.$hidden.val(this.original.hiddenVal);
@@ -126,33 +126,33 @@
     this.$element.trigger('reset.bs.fileinput')
   };
 
-  Fileinput.prototype.trigger = function(e) {
+  FileinputOn.prototype.trigger = function(e) {
     this.$input.trigger('click');
     e.preventDefault()
   };
 
-  var old = $.fn.fileinput;
+  var old = $.fn.fileinputonly;
 
-  $.fn.fileinput = function (options) {
+  $.fn.fileinputonly = function (options) {
     return this.each(function () {
       var $this = $(this),
           data = $this.data('bs.fileinput');
-      if (!data) $this.data('bs.fileinput', (data = new Fileinput(this, options)));
+      if (!data) $this.data('bs.fileinput', (data = new FileinputOn(this, options)));
       if (typeof options == 'string') data[options]()
     })
   };
 
-  $.fn.fileinput.Constructor = Fileinput;
+  $.fn.fileinputonly.Constructor = FileinputOn;
 
-  $.fn.fileinput.noConflict = function () {
-    $.fn.fileinput = old;
+  $.fn.fileinputonly.noConflict = function () {
+    $.fn.fileinputonly = old;
     return this
   };
 
-  $(document).on('click.fileinput.data-api', '[data-provides="fileinput"]', function (e) {
+  $(document).on('click.FileinputOn.data-api', '[data-provides="fileinput"]', function (e) {
     var $this = $(this);
     if ($this.data('bs.fileinput')) return;
-    $this.fileinput($this.data());
+    $this.fileinputonly($this.data());
 
     var $target = $(e.target).closest('[data-dismiss="fileinput"],[data-trigger="fileinput"]');
     if ($target.length > 0) {

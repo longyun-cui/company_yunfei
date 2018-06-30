@@ -121,6 +121,7 @@ class ItemRepository {
     // 【保存】数据
     public function save($post_data)
     {
+//        dd($post_data);
         $messages = [
             'encode_id.required' => '参数有误',
             'title.required' => '请输入标题',
@@ -160,7 +161,14 @@ class ItemRepository {
         DB::beginTransaction();
         try
         {
-            if(!empty($post_data['custom'])) $post_data['custom'] = json_encode($post_data['custom']);
+            $custom_decode = json_decode($mine->custom,true);
+            $house_type_images_pre = $custom_decode["house_type_images"];
+
+            if(!empty($post_data['custom']))
+            {
+                $post_data['custom']["house_type_images"] = $house_type_images_pre;
+                $post_data['custom'] = json_encode($post_data['custom']);
+            }
 
             $bool = $mine->fill($post_data)->save();
             if($bool)
@@ -173,6 +181,42 @@ class ItemRepository {
 
                 $encode_id = encode($mine->id);
 
+                // 户型图片
+                $house_type_images = [];
+                if(!empty($post_data["house_type_images"][0]))
+                {
+                    // 删除原有图片
+                    if(!empty($house_type_images_pre))
+                    {
+                        foreach ($house_type_images_pre as $img)
+                        {
+                            if(!empty($img["img"]) && file_exists(storage_path("resource/" . $img["img"])))
+                            {
+                                unlink(storage_path("resource/" . $img["img"]));
+                            }
+                        }
+                    }
+
+                    // 添加图片
+                    foreach ($post_data["house_type_images"] as $n => $f)
+                    {
+                        if(!empty($f))
+                        {
+                            $result = upload_storage($f);
+                            if($result["result"]) $house_type_images[$n]["img"] = $result["local"];
+                            else throw new Exception("upload-image-fail");
+                        }
+                    }
+
+                    if(count($house_type_images) > 0)
+                    {
+                        $custom_decode["house_type_images"] = $house_type_images;
+                        $custom_encode = json_encode($custom_decode);
+                        $mine->custom = $custom_encode;
+                        $mine->save();
+                    }
+                }
+
                 // 封面图片
                 if(!empty($post_data["cover"]))
                 {
@@ -183,20 +227,28 @@ class ItemRepository {
                         unlink(storage_path("resource/" . $mine_cover_pic));
                     }
 
-                    $upload = new CommonRepository();
-                    $result = $upload->upload($post_data["cover"], 'outside-unique-items' , 'cover_item_'.$encode_id);
-                    if($result["status"])
+                    $result = upload_storage($post_data["cover"]);
+                    if($result["result"])
                     {
-                        $mine->cover_pic = $result["data"];
+                        $mine->cover_pic = $result["local"];
                         $mine->save();
                     }
                     else throw new Exception("upload-cover-fail");
+
+//                    $upload = new CommonRepository();
+//                    $result = $upload->upload($post_data["cover"], 'outside-unique-items' , 'cover_item_'.$encode_id);
+//                    if($result["status"])
+//                    {
+//                        $mine->cover_pic = $result["data"];
+//                        $mine->save();
+//                    }
+//                    else throw new Exception("upload-cover-fail");
                 }
 
 
 //                $url = 'http://www.softorg.cn/outside/item/'.$encode_id;  // 目标URL
 //                // 保存位置
-//                $qrcode_path = 'resource/org/'.$admin->id.'/unique/items';
+//                $qrcode_path = 'resource/'.$admin->id.'/unique/items';
 //                if(!file_exists(storage_path($qrcode_path)))
 //                    mkdir(storage_path($qrcode_path), 0777, true);
 //                // qrcode图片文件
@@ -204,13 +256,6 @@ class ItemRepository {
 //                QrCode::errorCorrection('H')->format('png')->size(160)->margin(0)->encoding('UTF-8')->generate($url,storage_path($qrcode));
 
 
-//                $organization = OrgOrganization::find($admin->org_id);
-//                $create = new CommonRepository();
-//                $org_name = $organization->name;
-//                $logo_path = '/resource/'.$organization->logo;
-//                $title = $mine->title;
-//                $name = $qrcode_path.'/qrcode__item_'.$encode_id.'.png';
-//                $create->create_qrcode_image($org_name, '内容', $title, $qrcode, $logo_path, $name);
             }
             else throw new Exception("insert--item--fail");
 

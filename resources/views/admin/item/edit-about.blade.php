@@ -114,6 +114,7 @@
                     </div>
                 </div>
 
+
                 {{--cover 封面图片--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">封面图片</label>
@@ -122,7 +123,7 @@
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
                                 @if(!empty($data->cover_pic))
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic.'?'.rand(0,99))}}" alt="" />
+                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic)}}" alt="" />
                                 @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail">
@@ -131,7 +132,7 @@
                                 <span class="btn-file">
                                     <button class="btn btn-sm btn-primary fileinput-new">选择图片</button>
                                     <button class="btn btn-sm btn-warning fileinput-exists">更改</button>
-                                    <input type="file" name="cover" />
+                                    <input type="file" name="cover" class="cover" />
                                 </span>
                                 <span class="">
                                     <button class="btn btn-sm btn-danger fileinput-exists" data-dismiss="fileinput">移除</button>

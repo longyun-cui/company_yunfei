@@ -2,7 +2,7 @@
 <div id="property-single">
 
     <style>
-        .slick-slide img { width: 100%; height: 480px; object-fit:cover; }
+        #main-slider .slick-slide img { width: 100%; height: 480px; object-fit:cover; }
     </style>
     <div id="main-slider">
         <div class="slide"><img src="{{ url('/common/images/banner01.jpeg') }}" alt="Slide"></div>
@@ -803,6 +803,29 @@
             </div>
 
 
+            {{--户型图--}}
+            <div class="col-lg-12 col-md-12">
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center"> 户型图 </h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div id="house-type-images">
+                        @if(!empty($data->custom->house_type_images))
+                            @foreach($data->custom->house_type_images as $img)
+                                <article class="property clearfix" >
+                                    <figure class="feature-image">
+                                        <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
+                                    </figure>
+                                </article>
+
+                            @endforeach
+                        @endif
+                    </div>
+                </section>
+            </div>
+
+
             {{--图文详情--}}
             <div class="col-lg-12 col-md-12">
                 <section class="property-contents common">
@@ -821,6 +844,8 @@
     </div>
 
 </div>
+
+
 
 <style>
 

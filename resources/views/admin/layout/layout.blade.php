@@ -119,7 +119,7 @@ desired effect
 <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
 
 <script src="https://cdn.bootcss.com/bootstrap-fileinput/4.4.8/js/fileinput.min.js"></script>
-<script src="{{ asset('common/js/component/fileinput.js') }}"></script>
+<script src="{{ asset('common/js/component/fileinput-only.js') }}"></script>
 
 <script src="https://cdn.bootcss.com/jquery.form/4.2.2/jquery.form.min.js"></script>
 

@@ -39,7 +39,38 @@
 @section('custom-script')
 
     <script>
-        $(function() {
+
+        $('#house-type-images').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            speed: 1000,
+            prevArrow: '<i class="fa fa-angle-left"></i>',
+            nextArrow: '<i class="fa fa-angle-right"></i>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 2
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1
+                    }
+                }
+            ]
         });
     </script>
 

@@ -183,14 +183,6 @@
                     </div>
                 </div>
 
-                {{--户型图--}}
-                <div class="form-group _none">
-                    <label class="control-label col-md-2">户型图</label>
-                    <div class="col-md-8 ">
-                        <input id="input-id" type="file" class="file" data-preview-file-type="text" >
-                    </div>
-                </div>
-
                 {{--链接地址--}}
                 <div class="form-group _none">
                     <label class="control-label col-md-2">链接地址</label>
@@ -248,6 +240,28 @@
                     </div>
                 </div>
 
+                {{--户型图--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">户型图</label>
+                    <div class="col-md-8 fileinput-group">
+                        @if(!empty($data->custom->house_type_images))
+                        @foreach($data->custom->house_type_images as $img)
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail">
+                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
+                                </div>
+                            </div>
+                        @endforeach
+                        @else
+                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        @endif
+                    </div>
+
+                    <div class="col-md-8 col-md-offset-2 ">
+                        <input id="input-id" type="file" class="file-" name="house_type_images[]" multiple >
+                    </div>
+                </div>
+
                 {{--cover 封面图片--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">封面图片</label>
@@ -256,7 +270,7 @@
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
                                 @if(!empty($data->cover_pic))
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic.'?'.rand(0,99))}}" alt="" />
+                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic)}}" alt="" />
                                 @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail">
@@ -332,7 +346,10 @@
 <script>
     $(function() {
 
-        $("#input-id").fileinput();
+        $("#input-id").fileinput({
+            allowedFileExtensions : [ 'jpg', 'jpeg', 'png', 'gif' ],
+            showUpload: false
+        });
 
         // 添加or编辑
         $("#edit-item-submit").on('click', function() {
