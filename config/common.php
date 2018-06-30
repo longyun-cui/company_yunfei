@@ -12,9 +12,9 @@
             ],
 
             'online' => [
-                'root' => 'http://live8.pub',
-                'www' => 'http://www.live8.pub',
-                'cdn' => 'http://cdn.live8.pub',
+                'root' => 'http://tinymin.cn',
+                'www' => 'http://www.tinymin.cn',
+                'cdn' => 'http://cdn.tinymin.cn',
             ],
 
             'front' => [

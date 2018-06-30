@@ -2,7 +2,7 @@
 
 
 {{--html.head--}}
-@section('head_title')联系我们-汉盟房产@endsection
+@section('head_title')联系我们-{{ config('company.info.short_name') }}@endsection
 @section('meta_author')@endsection
 @section('meta_title')@endsection
 @section('meta_description')@endsection
@@ -73,7 +73,7 @@
                                 <i class="fa fa-map-marker"></i>
                                 <div class="contents">
                                     <h6 class="title">地址</h6>
-                                    <address> 江苏省 昆山市 绿地大道189弄 </address>
+                                    <address> {{ config('company.info.address') }} </address>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -81,10 +81,10 @@
                                 <div class="contents">
                                     <h5 class="title">联系我们</h5>
                                     <ul>
-                                        <li>电话 : <a href="tel:400-990-9092">400-990-9092</a></li>
-                                        <li>联系人 : 李经理</li>
-                                        <li>手机 : <a href="tel:186-2151-9928">186-2151-9928</a></li>
-                                        <li>邮箱 : <a href="mailto:461207859@qq.com">461207859@qq.com</a></li>
+                                        <li>电话 : <a href="tel:{{ config('company.info.telephone') }}">{{ config('company.info.telephone') }}</a></li>
+                                        <li>联系人 : {{ config('company.info.linkman') }}</li>
+                                        <li>手机 : <a href="tel:{{ config('company.info.mobile') }}">{{ config('company.info.mobile') }}</a></li>
+                                        <li>邮箱 : <a href="mailto:{{ config('company.info.email') }}">{{ config('company.info.email') }}</a></li>
                                     </ul>
                                 </div>
                             </div>
