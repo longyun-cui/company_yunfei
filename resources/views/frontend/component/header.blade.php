@@ -114,7 +114,7 @@
                     <i class="fa fa-mobile"></i>
                     <span>
                         敬请来电 <br>
-                        <a href="tel:4009909092"><strong>400-990-9092</strong></a>
+                        <a href="tel:{{ config('company.info.telephone') }}"><strong>{{ config('company.info.telephone') }}</strong></a>
                     </span>
                 </div>
             </div>
