@@ -713,6 +713,26 @@
             </div>
 
 
+            {{--最新动态--}}
+            <div class="col-lg-12 col-md-12">
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center"> 最新动态 </h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div>
+                        {{{ $data->custom->recent_news or '' }}}
+                    </div>
+                </section>
+            </div>
+
+
+            {{--图片--}}
+            <div class="col-lg-12 col-md-12">
+                <img src="{{ url('/custom/images/box-img.jpg') }}" alt="" />
+            </div>
+
+
             <style>
                 .property-contents table { width:100%; }
                 .property-contents tbody { width:100%; }
