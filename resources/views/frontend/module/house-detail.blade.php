@@ -4,7 +4,7 @@
     <style>
         #main-slider .slick-slide img { width: 100%; height: 480px; object-fit:cover; }
         #property-single .common .entry-title { padding-bottom: 8px; }
-        #property-single .common .entry-title .text-center { margin-top: 0; }
+        #property-single .common .entry-title .text-center { margin-top: 16px; }
     </style>
     <div id="main-slider">
         <div class="slide"><img src="{{ url('/common/images/banner01.jpeg') }}" alt="Slide"></div>
