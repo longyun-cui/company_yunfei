@@ -47,7 +47,7 @@ class IndexRepository {
     }
 
 
-    // root
+    // contact
     public function contact()
     {
 
@@ -65,11 +65,12 @@ class IndexRepository {
 
 
 
-    // services
+    // houses
     public function houses()
     {
 //        $info = json_decode(json_encode(config('mitong.company.info')));
 //        $menus = RootMenu::where(['active'=>1])->orderby('order', 'asc')->get();
+
         $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
         foreach($houses as $item)
         {
@@ -81,7 +82,7 @@ class IndexRepository {
         return $html;
     }
 
-    // service_seo
+    // house
     public function house($id = 0)
     {
 //        $info = json_decode(json_encode(config('mitong.company.info')));
@@ -105,7 +106,10 @@ class IndexRepository {
         return $html;
     }
 
-    // services
+
+
+
+    // informations
     public function informations()
     {
 //        $info = json_decode(json_encode(config('mitong.company.info')));
@@ -117,13 +121,14 @@ class IndexRepository {
         foreach($informations as $item)
         {
             $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
         }
 
         $html = view('frontend.entrance.informations')->with(['houses'=>$houses, 'informations'=>$informations])->__toString();
         return $html;
     }
 
-    // service_seo
+    // information
     public function information($id = 0)
     {
 //        $info = json_decode(json_encode(config('mitong.company.info')));
@@ -146,6 +151,7 @@ class IndexRepository {
         $html = view('frontend.entrance.information')->with(['houses'=>$houses, 'informations'=>$informations, 'information'=>$information,])->__toString();
         return $html;
     }
+
 
 
 
@@ -192,7 +198,6 @@ class IndexRepository {
 
     }
 
-
     //
     public function message_book_appointment($post_data)
     {
@@ -235,7 +240,6 @@ class IndexRepository {
 
 
     }
-
 
     //
     public function message_grab_ticket($post_data)
