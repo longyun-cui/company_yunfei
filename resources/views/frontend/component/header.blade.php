@@ -45,6 +45,7 @@
     <style>
         .downlist {
             position: absolute;
+            width: auto;
             min-width: 160px;
             height: auto;
             padding: 16px 32px;
@@ -60,16 +61,20 @@
             overflow: hidden;
         }
         #site-nav .downlist a {
+            display:inline-block;
             width: 100%;
-            height: auto;
-            padding: 8px 16px;
+            height: 36px;
+            padding: 8px;
+            margin: 2px;
             border-bottom: 1px solid #aaa;
             color: #fff;
-            float:left;
             filter:alpha(opacity=100);
             -khtml-opacity: 1;
             -moz-opacity:1;
             opacity: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            float:left;
         }
         #site-nav li {
             padding-left: 8px;
@@ -98,7 +103,7 @@
                         <li class="nav_nohover hlzb"  drop-down='downlist4'>
                             <a href="{{ url('/houses') }}">楼盘</a>
 
-                            <div class="downlist downlist4 _none" style="">
+                            <div class="downlist downlist4 _nones" style="">
                                 <div class="d_menu">
                                     @foreach($houses as $v)
                                     <a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a>
