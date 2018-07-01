@@ -293,7 +293,7 @@
                     <input name="Submit2" value="清空" class="submit_quxiao hidden-xs" type="reset"> &nbsp;
                     <div class="bm-tel visible-xs" style="float:right;">
                         <img src="{{ url('/templates/moban2030/assets/images/tel.png') }}" alt="">
-                        <a href="tel:400-990-9092" style="color:#fff;">400-990-9092</a>
+                        <a href="tel:{{ config('company.info.telephone') }}" style="color:#fff;">{{ config('company.info.telephone') }}</a>
                     </div>
                 </div>
 

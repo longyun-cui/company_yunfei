@@ -3,6 +3,8 @@
 
     <style>
         #main-slider .slick-slide img { width: 100%; height: 480px; object-fit:cover; }
+        #property-single .common .entry-title { padding-bottom: 8px; }
+        #property-single .common .entry-title .text-center { margin-top: 0; }
     </style>
     <div id="main-slider">
         <div class="slide"><img src="{{ url('/common/images/banner01.jpeg') }}" alt="Slide"></div>
@@ -21,7 +23,10 @@
             <div class="col-lg-12 col-md-12">
 
                 <section class="property-meta-wrapper common">
-                    <h3 class="entry-title">{{ $data->title or '' }}</h3>
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center">{{ $data->title or '' }}</h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
 
                     <div class="property-single-meta">
                         <div class="row">

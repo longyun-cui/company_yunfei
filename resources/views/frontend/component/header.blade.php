@@ -75,6 +75,10 @@
             padding-left: 8px;
             padding-right: 8px;
         }
+        #site-logo a {
+            font-size:24px;
+            line-height: 52px;
+        }
 
     </style>
 
@@ -83,7 +87,8 @@
         <div class="row">
             <div class="col-md-3">
                 <figure id="site-logo">
-                    <a href="{{ url('/') }}"><img src="{{ url('/templates/moban2030/assets/images/logo.png') }}" alt="Logo"></a>
+                    {{--<a href="{{ url('/') }}"><img src="{{ url('/templates/moban2030/assets/images/logo.png') }}" alt="Logo"></a>--}}
+                    <a href="{{ url('/') }}">{{ config('company.info.brand') }}</a>
                 </figure>
             </div>
             <div class="col-md-6 col-sm-8">

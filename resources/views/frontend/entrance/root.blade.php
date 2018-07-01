@@ -188,6 +188,7 @@
         </div>
     </div>
 
+
     {{--main--}}
     <section id="home-property-listing" class="">
         <header class="section-header home-section-header text-center">
@@ -241,6 +242,7 @@
         </div>
     </section>
 
+
     {{--下载APP--}}
     <section id="announcement-section" class="text-center">
         <div class="container ">
@@ -251,7 +253,8 @@
         </div>
     </section>
 
-    {{--出租--}}
+
+    {{--最新资讯--}}
     <section id="home-property-for-rent-listing" style="display:none-;">
         <header class="section-header home-section-header text-center">
             <div class="container">
@@ -293,6 +296,12 @@
         </div>
     </section>
 
+
+    <style>
+        @media screen and (max-width: 992px) {
+            #home-features-section .container .row>div:nth-child(2n+1) { clear: left; }
+        }
+    </style>
     {{--优势--}}
     <section id="home-features-section" class="text-center">
         <header class="section-header home-section-header">
