@@ -76,7 +76,7 @@
 
 
     .bm-title { display:block; width:420px; height:42px; margin-right:16px; float:left; }
-    .bm-tel { display:block; width:220px; height:42px; float:left; }
+    .bm-tel { display:block; width:232px; height:42px; float:left; }
     .bm-tel img { height:42px; margin-right:8px; float:left; }
     .bm-tel a { font-size:24px; float:left; }
 
@@ -266,7 +266,7 @@
                 <div class="bm-title"><img src="{{ url('/templates/moban2030/assets/images/bm.png') }}" alt=""></div>
                 <div class="bm-tel hidden-xs">
                     <img src="{{ url('/templates/moban2030/assets/images/tel.png') }}" alt="">
-                    <a href="tel:400-990-9092" style="color:#fff;">400-990-9092</a>
+                    <a href="tel:{{ config('company.info.telephone') }}" style="color:#fff;">{{ config('company.info.telephone') }}</a>
                 </div>
             </div>
 

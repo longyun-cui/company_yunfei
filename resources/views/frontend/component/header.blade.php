@@ -92,8 +92,9 @@
         <div class="row">
             <div class="col-md-3">
                 <figure id="site-logo">
-                    {{--<a href="{{ url('/') }}"><img src="{{ url('/templates/moban2030/assets/images/logo.png') }}" alt="Logo"></a>--}}
-                    <a href="{{ url('/') }}">{{ config('company.info.brand') }}</a>
+{{--                    <a href="{{ url('/') }}"><img src="{{ url('/templates/moban2030/assets/images/logo.png') }}" alt="Logo"></a>--}}
+                    <a href="{{ url('/') }}"><img src="{{ url(config('company.info.logo')) }}" alt="Logo"></a>
+                    {{--<a href="{{ url('/') }}">{{ config('company.info.brand') }}</a>--}}
                 </figure>
             </div>
             <div class="col-md-6 col-sm-8">

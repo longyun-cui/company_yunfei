@@ -83,6 +83,13 @@
                         <input type="text" class="form-control" name="custom[position]" placeholder="位置" value="{{$data->custom->position or ''}}">
                     </div>
                 </div>
+                {{--区域--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">区域</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[district]" placeholder="区域 | suzhou | suzhouyuanqu | kunshan | taichang | ... " value="{{$data->custom->district or ''}}">
+                    </div>
+                </div>
                 {{--开盘时间--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">开盘时间</label>

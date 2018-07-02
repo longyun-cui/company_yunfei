@@ -36,10 +36,35 @@
                 <p class="wow slideInLeft font-24px"><b>专业经纪人帮你找好房源</b></p>
             </div>
         </header>
-        <div class="container">
+
+        <style>
+            #filters { padding: 0; margin:0 4px 32px; list-style: none; }
+            #filters li { margin-bottom: 6px; float: left; width: 120px; }
+            #filters li span {
+                 display: block;
+                 padding: 5px 20px;
+                 text-align: center;
+                 text-decoration: none;
+                 color: #666;
+                 cursor: pointer;
+             }
+            #filters li span.active { color: #fff; background: #e95a44; }
+        </style>
+        <div class="container" id="portfolio-list-ctrl">
+            <div class="row">
+                <ul id="filters" class="clearfix">
+                    <li><span class="filter active" data-filter="all">不限区域</span></li>
+                    @foreach(config('company.district') as $k => $v)
+                        <li><span class="filter" data-filter="{{ $k or '' }}">{{ $v or '' }}</span></li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+
+        <div class="container" id="portfolio-list">
             <div class="row">
                 @foreach($houses as $v)
-                    <div class="col-lg-4 col-sm-6 layout-item-wrap">
+                    <div class="col-lg-4 col-sm-6 layout-item-wrap portfolio all {{ $v->custom->district or '' }} _none">
                         <article class="property layout-item clearfix">
                             <figure class="feature-image">
                                 <a class="clearfix zoom-" target="_blank"  href="{{ url('/house/'.$v->id) }}">
@@ -70,7 +95,7 @@
                                 </div>
                                 <div class="author-box clearfix">
                                     <a href="index.html#" class="author-img"><img src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Agent Image"></a>
-                                    <cite class="author-name">Personal Seller: <a href="index.html#">Linda Garret</a></cite>
+                                    <cite class="author-name">Personal Seller: <a href="/#">Linda Garret</a></cite>
                                     <span class="phone"><i class="fa fa-phone"></i> 00894 692-49-22</span>
                                 </div>
                             </div>
@@ -82,4 +107,63 @@
     </section>
 
 
+@endsection
+
+
+@section('custom-css')
+    {{--<link href="{{ asset('/templates/jiaoben1627/css/layout.css') }}" rel="stylesheet">--}}
+    <link href="{{ asset('/templates/jiaoben1627/css/normalize.css') }}" rel="stylesheet">
+@endsection
+
+
+@section('custom-js')
+    <script type="text/javascript" src="{{ asset('/templates/jiaoben1627/js/jquery.easing.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/templates/jiaoben1627/js/jquery.mixitup.min.js') }}"></script>
+@endsection
+
+
+@section('custom-script')
+    <script type="text/javascript">
+        $(function () {
+
+            var filterList = {
+
+                init: function () {
+
+                    // MixItUp plugin
+                    $('#portfolio-list').mixitup({
+                        targetSelector: '.portfolio',
+                        filterSelector: '.filter',
+                        effects: ['fade'],
+                        easing: 'snap',
+                        // call the hover effect
+                        onMixEnd: filterList.hoverEffect()
+                    });
+
+                },
+
+                hoverEffect: function () {
+
+                    // Simple parallax effect
+                    $('#portfolio-list .portfolio').hover(
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                            $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');
+                        },
+                        function () {
+                            $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                            $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                        }
+                    );
+
+                }
+
+            };
+
+            // Run the show!
+            filterList.init();
+
+
+        });
+    </script>
 @endsection
