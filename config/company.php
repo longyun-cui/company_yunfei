@@ -26,6 +26,9 @@
 
 
         'district' => [
+            'jiaxing' => '嘉兴市',
+            'jiashan' => '嘉兴嘉善县',
+            'haining' => '嘉兴海宁市',
             'suzhou' => '苏州市',
             'suzhouyuanqu' => '苏州园区',
             'suzhouxinqu' => '苏州新区',
@@ -39,7 +42,6 @@
             'zhangjiagang' => '张家港市',
             'changshu' => '常熟市',
             'huzhou' => '湖州市',
-            'jiangxing' => '嘉兴市',
             'nantong' => '南通市',
             'shanghai' => '上海市',
             'wuhan' => '武汉市',
