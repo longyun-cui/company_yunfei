@@ -248,8 +248,8 @@
         <div class="container ">
             <h2 class="title wow slideInLeft">权威发布</h2>
             <p class="wow slideInRight font-20px">发布最新升值最快房源信息，扫码关注官方微信！</p>
-            <a class="btn" href="javascript:void(0);"><img src="{{ url('/common/images/wechat.png') }}" alt="ISO Button" style="width:128px;"></a>
-            <a class="btn _none" href="javascript:void(0);"><img src="{{ url('/templates/moban2030/assets/images/playstore-btn.png') }}" alt="Play Store Button"></a>
+            <a class="btn" href="javascript:void(0);"><img src="{{ url(config('company.info.wechat_qrcode')) }}" alt="ISO Button" style="width:128px;"></a>
+            <a class="btn _none" href="javascript:void(0);"><img src="{{ url(config('company.info.wechat_qrcode')) }}" alt="Play Store Button"></a>
         </div>
     </section>
 

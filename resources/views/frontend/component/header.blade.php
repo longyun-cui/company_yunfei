@@ -103,7 +103,7 @@
                         <li class="nav_nohover hlzb"  drop-down='downlist4'>
                             <a href="{{ url('/houses') }}">楼盘</a>
 
-                            <div class="downlist downlist4 _nones" style="">
+                            <div class="downlist downlist4 _none" style="">
                                 <div class="d_menu">
                                     @foreach($houses as $v)
                                     <a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a>
