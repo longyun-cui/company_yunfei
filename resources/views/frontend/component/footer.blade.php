@@ -6,7 +6,10 @@
                 <div class="col-md-6 col-sm-6">
                     <section class="widget about-widget clearfix">
                         <h4 class="title hide">关于我们</h4>
-                        <a class="footer-logo" href="javascript:void(0);"><img src="{{ url('/templates/moban2030/assets/images/footer-logo.png') }}" alt="Footer Logo"></a>
+                        <a class="footer-logo" href="javascript:void(0);">
+                            {{--<img src="{{ url('/templates/moban2030/assets/images/footer-logo.png') }}" alt="Footer Logo">--}}
+                            <img src="{{ config('company.info.logo') }}" alt="Footer Logo">
+                        </a>
                         <p>{{ config('company.info.description') }}</p>
                         <ul class="social-icons clearfix">
                             <li><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>

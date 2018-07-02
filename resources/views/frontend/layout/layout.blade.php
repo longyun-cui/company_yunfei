@@ -30,6 +30,7 @@
 
 {{--        <link href="{{ asset('/templates/moban2030/assets/others/common.css') }}" rel="stylesheet">--}}
         <link href="{{ asset('/common/css/common.css') }}" rel="stylesheet">
+        <link href="{{ asset('/common/css/frontend.css') }}" rel="stylesheet">
 
 
         @yield('custom-css')
