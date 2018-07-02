@@ -239,14 +239,12 @@
                     </div>
                 @endforeach
             </div>
-            <style>
-            </style>
-            <header class="section-header home-section-header text-center">
-                <div class="container">
-                    <a href="{{ url('/houses') }}" class="view-more">查看更多 <i class="fa fa-hand-o-right"></i></a>
-                </div>
-            </header>
         </div>
+        <header class="section-header home-section-header text-center">
+            <div class="container">
+                <a href="{{ url('/houses') }}" class="view-more">查看更多 <i class="fa fa-hand-o-right"></i></a>
+            </div>
+        </header>
     </section>
 
 
