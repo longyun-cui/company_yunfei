@@ -50,7 +50,7 @@
              }
             #filters li span.active { color: #fff; background: #e95a44; }
         </style>
-        <div class="container" id="portfolio-list-ctrl">
+        <div class="container _none" id="portfolio-list-ctrl">
             <div class="row">
                 <ul id="filters" class="clearfix">
                     <li><span class="filter active" data-filter="all">不限区域</span></li>
@@ -64,7 +64,7 @@
         <div class="container" id="portfolio-list">
             <div class="row">
                 @foreach($houses as $v)
-                    <div class="col-lg-4 col-sm-6 layout-item-wrap portfolio all {{ $v->custom->district or '' }} _none">
+                    <div class="col-lg-4 col-sm-6 layout-item-wrap portfolio all {{ $v->custom->district or '' }}">
                         <article class="property layout-item clearfix">
                             <figure class="feature-image">
                                 <a class="clearfix zoom-" target="_blank"  href="{{ url('/house/'.$v->id) }}">
