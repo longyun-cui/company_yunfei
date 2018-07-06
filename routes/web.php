@@ -55,8 +55,11 @@ Route::group(['namespace' => 'Front'], function () {
 
 
     Route::post('message/contact', $controller.'@message_contact');
-    Route::post('message/book/appointment', $controller.'@message_book_appointment');
-    Route::post('message/grab/ticket', $controller.'@message_grab_ticket');
+    //
+    Route::post('message/grab/yy', $controller.'@message_grab_yy');
+    Route::post('message/grab/zc', $controller.'@message_grab_zc');
+    Route::post('message/grab/jg', $controller.'@message_grab_jg');
+    Route::post('message/grab/kp', $controller.'@message_grab_kp');
 
 
 });

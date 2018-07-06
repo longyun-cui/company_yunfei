@@ -6,7 +6,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>轻</b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Softorg</b></span>
+            <span class="logo-lg"><b>盛贝地产</b></span>
         </a>
 
         <!-- Header Navbar -->

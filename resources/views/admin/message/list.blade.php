@@ -31,6 +31,7 @@
                     <tr role='row' class='heading'>
                         <th>#ID</th>
                         <th>所属类别</th>
+                        <th>所属内容</th>
                         <th>姓名</th>
                         <th>手机</th>
                         {{--<th>邮箱</th>--}}
@@ -39,6 +40,7 @@
                         <th>操作</th>
                     </tr>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -130,14 +132,19 @@
                         'orderable': false,
                         render: function(data, type, row, meta) {
                             if(data == 0) return '<small class="label bg-blue">自定义内容</small>';
-                            else if(data == 1) return '<small class="label bg-blue">留言</small>';
-                            else if(data == 9) return '合作加盟模块';
-                            else if(data == 11) return '<small class="label bg-teal">预约看房</small>';
-                            else if(data == 12) return '<small class="label bg-green">抢车券</small>';
-                            else if(data == 19) return '礼服模块';
-                            else if(data == 21) return '活动模块';
-                            else if(data == 31) return '分享模块';
+                            else if(data == 1) return '<small class="label btn-info">一般留言</small>';
+                            else if(data == 11) return '<small class="label bg-blue">预约看房</small>';
+                            else if(data == 12) return '<small class="label bg-green">抢专车券</small>';
+                            else if(data == 13) return '<small class="label bg-purple">价格动态</small>';
+                            else if(data == 14) return '<small class="label bg-teal">开盘提醒</small>';
                             else return '未知模块';
+                        }
+                    },
+                    {
+                        "data": "item",
+                        'orderable': false,
+                        render: function(data, type, row, meta) {
+                            return row.item == null ? '' : row.item.title;
                         }
                     },
                     {

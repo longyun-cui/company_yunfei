@@ -1386,7 +1386,9 @@ img.zoom-img {
   margin-bottom: 0;
 }
 .property-single-meta ul li span {
-  width: 120px;
+  width: auto;
+  min-width: 72px;
+  padding-right: 8px;
   display: inline-block;
   color: #707070;
 }

@@ -12,9 +12,9 @@
             ],
 
             'online' => [
-                'root' => 'http://tinymin.cn',
-                'www' => 'http://www.tinymin.cn',
-                'cdn' => 'http://cdn.tinymin.cn',
+                'root' => 'http://shxmyj.com',
+                'www' => 'http://www.shxmyj.com',
+                'cdn' => 'http://cdn.shxmyj.com',
             ],
 
             'front' => [

@@ -39,6 +39,7 @@ class IndexRepository {
         {
             $item->custom = json_decode($item->custom);
             $item->custom2 = json_decode($item->custom2);
+            $item->custom3 = json_decode($item->custom3);
         }
         $informations = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->get();
 
@@ -76,6 +77,7 @@ class IndexRepository {
         {
             $item->custom = json_decode($item->custom);
             $item->custom2 = json_decode($item->custom2);
+            $item->custom3 = json_decode($item->custom3);
         }
 
         $html = view('frontend.entrance.houses')->with(['houses'=>$houses])->__toString();
@@ -92,6 +94,7 @@ class IndexRepository {
         else $house = RootItem::orderby('id', 'desc')->first();
         $house->custom = json_decode($house->custom);
         $house->custom2 = json_decode($house->custom2);
+        $house->custom3 = json_decode($house->custom3);
 
         $ticket_total = RootMessage::where('category', 12)->count();
 
@@ -100,6 +103,7 @@ class IndexRepository {
         {
             $item->custom = json_decode($item->custom);
             $item->custom2 = json_decode($item->custom2);
+            $item->custom3 = json_decode($item->custom3);
         }
 
         $html = view('frontend.entrance.house')->with(['houses'=>$houses, 'house'=>$house, 'ticket_total'=>$ticket_total])->__toString();
@@ -155,7 +159,7 @@ class IndexRepository {
 
 
 
-    //
+    // 留言
     public function message_contact($post_data)
     {
         $messages = [
@@ -198,8 +202,9 @@ class IndexRepository {
 
     }
 
-    //
-    public function message_book_appointment($post_data)
+
+    // 预约看房
+    public function message_grab_yy($post_data)
     {
         $messages = [
             'name.required' => '请输入姓名',
@@ -240,9 +245,8 @@ class IndexRepository {
 
 
     }
-
-    //
-    public function message_grab_ticket($post_data)
+    // 专车券
+    public function message_grab_zc($post_data)
     {
         $messages = [
             'mobile.required' => '请输入电话',
@@ -273,6 +277,90 @@ class IndexRepository {
         {
             DB::rollback();
             $msg = '抢专车券成功失败，请重试！';
+//            $msg = $e->getMessage();
+//            exit($e->getMessage());
+            return response_fail([],$msg);
+        }
+
+
+
+    }
+    // 价格动态
+    public function message_grab_jg($post_data)
+    {
+        $messages = [
+            'mobile.required' => '请输入电话',
+            'item_id.required' => '参数有误',
+        ];
+        $v = Validator::make($post_data, [
+            'mobile' => 'required',
+            'item_id' => 'required'
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        // 启动数据库事务
+        DB::beginTransaction();
+        try
+        {
+            $post_data['category'] = 13;
+            $mine = new RootMessage;
+            $bool = $mine->fill($post_data)->save();
+            if(!$bool) throw new Exception("insert--message--fail");
+
+            DB::commit();
+            $msg = '订阅成功！';
+            return response_success([],$msg);
+        }
+        catch (Exception $e)
+        {
+            DB::rollback();
+            $msg = '订阅失败，请重试！';
+//            $msg = $e->getMessage();
+//            exit($e->getMessage());
+            return response_fail([],$msg);
+        }
+
+
+
+    }
+    // 开盘提醒
+    public function message_grab_kp($post_data)
+    {
+        $messages = [
+            'mobile.required' => '请输入电话',
+            'item_id.required' => '参数有误',
+        ];
+        $v = Validator::make($post_data, [
+            'mobile' => 'required',
+            'item_id' => 'required'
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        // 启动数据库事务
+        DB::beginTransaction();
+        try
+        {
+            $post_data['category'] = 14;
+            $mine = new RootMessage;
+            $bool = $mine->fill($post_data)->save();
+            if(!$bool) throw new Exception("insert--message--fail");
+
+            DB::commit();
+            $msg = '已关注！';
+            return response_success([],$msg);
+        }
+        catch (Exception $e)
+        {
+            DB::rollback();
+            $msg = '关注失败，请重试！';
 //            $msg = $e->getMessage();
 //            exit($e->getMessage());
             return response_fail([],$msg);

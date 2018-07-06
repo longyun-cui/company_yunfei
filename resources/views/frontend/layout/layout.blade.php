@@ -125,7 +125,7 @@
                     }
 
                     var options = {
-                        url: "{{url('/message/book/appointment')}}",
+                        url: "{{url('/message/grab/yy')}}",
                         type: "post",
                         dataType: "json",
                         // target: "#div2",
@@ -141,15 +141,15 @@
                             }
                         }
                     };
-                    $("#form-book-appointment").ajaxSubmit(options);
+                    form.ajaxSubmit(options);
                 });
 
 
-                // 抢券
-                $("#grab-submit").on('click', function() {
+                // 抢专车券
+                $("#grab-zc-submit").on('click', function() {
 
-                    var form = $("#form-grab-ticket");
-                    var mobile = $("#grab-mobile");
+                    var form = $("#form-grab-zc");
+                    var mobile = $("#grab-zc-mobile");
                     var mobile_val = mobile.val();
 
                     var filter=/^1[3|4|5|7|8][0-9]\d{8}$/;
@@ -162,7 +162,79 @@
                     }
 
                     var options = {
-                        url: "{{url('/message/grab/ticket')}}",
+                        url: "{{url('/message/grab/zc')}}",
+                        type: "post",
+                        dataType: "json",
+                        // target: "#div2",
+                        success: function (data) {
+                            if(!data.success) layer.msg(data.msg);
+                            else
+                            {
+                                layer.msg(data.msg);
+                                mobile.val('');
+                                {{--location.href = "{{url('/admin/item/list')}}";--}}
+                                $('#grab-modal').modal('hide');
+                                $('.modal-backdrop').hide();
+                                return true;
+                            }
+                        }
+                    };
+                    form.ajaxSubmit(options);
+                });
+                // 价格动态
+                $("#grab-jg-submit").on('click', function() {
+
+                    var form = $("#form-grab-jg");
+                    var mobile = $("#grab-jg-mobile");
+                    var mobile_val = mobile.val();
+
+                    var filter=/^1[3|4|5|7|8][0-9]\d{8}$/;
+                    if(!filter.test(mobile_val))
+                    {
+                        layer.msg("请输入正确的手机号!");
+                        mobile.focus();
+                        mobile.val('');
+                        return false;
+                    }
+
+                    var options = {
+                        url: "{{url('/message/grab/jg')}}",
+                        type: "post",
+                        dataType: "json",
+                        // target: "#div2",
+                        success: function (data) {
+                            if(!data.success) layer.msg(data.msg);
+                            else
+                            {
+                                layer.msg(data.msg);
+                                mobile.val('');
+                                {{--location.href = "{{url('/admin/item/list')}}";--}}
+                                $('#grab-modal').modal('hide');
+                                $('.modal-backdrop').hide();
+                                return true;
+                            }
+                        }
+                    };
+                    form.ajaxSubmit(options);
+                });
+                // 开盘提醒
+                $("#grab-kp-submit").on('click', function() {
+
+                    var form = $("#form-grab-kp");
+                    var mobile = $("#grab-kp-mobile");
+                    var mobile_val = mobile.val();
+
+                    var filter=/^1[3|4|5|7|8][0-9]\d{8}$/;
+                    if(!filter.test(mobile_val))
+                    {
+                        layer.msg("请输入正确的手机号!");
+                        mobile.focus();
+                        mobile.val('');
+                        return false;
+                    }
+
+                    var options = {
+                        url: "{{url('/message/grab/kp')}}",
                         type: "post",
                         dataType: "json",
                         // target: "#div2",

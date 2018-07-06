@@ -29,12 +29,14 @@ class MessageRepository {
     public function get_list_datatable($post_data)
     {
         $admin = Auth::guard('admin')->user();
-        $query = RootMessage::select("*")->with(['admin','pivot_menus']);
+        $query = RootMessage::select("*")->with(['admin','pivot_menus','item']);
 
         $category = $post_data['category'];
         if($category == "message") $query->where('category', 1);
-        else if($category == "book") $query->where('category', 11);
-        else if($category == "grab") $query->where('category', 12);
+        else if($category == "yy") $query->where('category', 11);
+        else if($category == "zc") $query->where('category', 12);
+        else if($category == "jg") $query->where('category', 13);
+        else if($category == "kp") $query->where('category', 14);
 
         $total = $query->count();
 

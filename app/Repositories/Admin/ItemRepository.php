@@ -106,6 +106,7 @@ class ItemRepository {
                 unset($mine->id);
                 $mine->custom = json_decode($mine->custom);
                 $mine->custom2 = json_decode($mine->custom2);
+                $mine->custom3 = json_decode($mine->custom3);
                 $category = $mine->category;
 
                 if($category == '1') $view_blade = 'admin.item.edit-about';
@@ -208,8 +209,44 @@ class ItemRepository {
 
                     if(count($house_type_images) > 0)
                     {
-                        $custom_encode = json_encode($house_type_images);
-                        $mine->custom2 = $custom_encode;
+                        $custom2_encode = json_encode($house_type_images);
+                        $mine->custom2 = $custom2_encode;
+                        $mine->save();
+                    }
+                }
+
+                // 样板图片
+                $house_template_images = [];
+                if(!empty($post_data["house_template_images"][0]))
+                {
+                    // 删除原有图片
+                    $custom3_decode = json_decode($mine->custom3,true);
+                    if(count($custom3_decode) > 0)
+                    {
+                        foreach ($custom3_decode as $img)
+                        {
+                            if(!empty($img["img"]) && file_exists(storage_path("resource/" . $img["img"])))
+                            {
+                                unlink(storage_path("resource/" . $img["img"]));
+                            }
+                        }
+                    }
+
+                    // 添加图片
+                    foreach ($post_data["house_template_images"] as $n => $f)
+                    {
+                        if(!empty($f))
+                        {
+                            $result = upload_storage($f);
+                            if($result["result"]) $house_template_images[$n]["img"] = $result["local"];
+                            else throw new Exception("upload-image-fail");
+                        }
+                    }
+
+                    if(count($house_template_images) > 0)
+                    {
+                        $custom3_encode = json_encode($house_template_images);
+                        $mine->custom3 = $custom3_encode;
                         $mine->save();
                     }
                 }
@@ -310,11 +347,24 @@ class ItemRepository {
                 unlink(storage_path("resource/" . $cover_pic));
             }
 
-            // 删除原有图片
+            // 删除户型图片
             $custom2_decode = json_decode($mine->custom2,true);
             if(count($custom2_decode) > 0)
             {
                 foreach ($custom2_decode as $img)
+                {
+                    if(!empty($img["img"]) && file_exists(storage_path("resource/" . $img["img"])))
+                    {
+                        unlink(storage_path("resource/" . $img["img"]));
+                    }
+                }
+            }
+
+            // 删除样板图片
+            $custom3_decode = json_decode($mine->custom3,true);
+            if(count($custom3_decode) > 0)
+            {
+                foreach ($custom3_decode as $img)
                 {
                     if(!empty($img["img"]) && file_exists(storage_path("resource/" . $img["img"])))
                     {

@@ -63,15 +63,25 @@ class IndexController extends Controller
     {
         return $this->repo->message_contact(request()->all());
     }
-    //
-    public function message_book_appointment()
+    // 预约看房
+    public function message_grab_yy()
     {
-        return $this->repo->message_book_appointment(request()->all());
+        return $this->repo->message_grab_yy(request()->all());
     }
-    //
-    public function message_grab_ticket()
+    // 专车券
+    public function message_grab_zc()
     {
-        return $this->repo->message_grab_ticket(request()->all());
+        return $this->repo->message_grab_zc(request()->all());
+    }
+    // 价格动态
+    public function message_grab_jg()
+    {
+        return $this->repo->message_grab_jg(request()->all());
+    }
+    // 开盘提醒
+    public function message_grab_kp()
+    {
+        return $this->repo->message_grab_kp(request()->all());
     }
 
 

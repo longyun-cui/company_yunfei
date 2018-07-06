@@ -34,38 +34,53 @@
                                 <img src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic }}" alt="Agent Image">
                             </div>
                             <div class="col-sm-7 col-xs-12 pull-left" style="margin: 8px 0">
+
+                                <style>
+                                    .property-single-meta .custom-average { color: #ff6d6f; font-size: 24px; }
+                                    .property-single-meta ul li a { padding:4px 8px; margin-left:8px; border-radius: 2px; border: 1px solid #ff6d6f; color: #ff6d6f; font-size:12px; }
+                                </style>
                                 <ul class="clearfix">
-                                    <li><span>参考单价 :</span> {{ $data->custom->average or '' }} </li>
+                                    <li>
+                                        <span>参考单价 :</span>
+                                        <span class="custom-average"><b>{{ $data->custom->average or '' }}/m²</b></span>
+                                        <a class="show-modal-jg" href="javascript:void(0);">获取最新价格变动</a>
+                                    </li>
                                     <li><span>参考总价 :</span> {{ $data->custom->total or '' }} </li>
                                     <li><span>楼盘户型 :</span> {{ $data->custom->type or '' }} </li>
                                     <li><span>楼盘地址 :</span> {{ $data->custom->position or '' }} </li>
-                                    <li><span>开盘时间 :</span> {{ $data->custom->start_time or '' }} </li>
+                                    <li><span>开发商 :</span> {{ $data->custom->developer or '' }} </li>
+                                    <li><span>交房时间 :</span> {{ $data->custom->live_time or '' }} </li>
+                                    <li><span>物业公司 :</span> {{ $data->custom->manager_company or '' }} </li>
+                                    <li>
+                                        <span>最新开盘时间 :</span> {{ $data->custom->start_time or '' }}
+                                        <a class="show-modal-kp" href="javascript:void(0);">关注下次开盘时间</a>
+                                    </li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
 
-                    <style>
-                        .free-car { width:100%; border: 1px solid #eee; padding: 16px; margin-top: 16px; border-radius: 4px; z-index: 1000; }
-                        .free-car .car-top { width:auto; padding: 8px 0; border-bottom: 1px solid #f4f4f4; }
-                        .free-car .car-bottom { width:auto; padding: 8px 0; margin: 16px 0 8px; }
-                        .free-car .num { color: #ff6d6f; }
-                        .free-car .ticket { padding: 12px 24px; border-radius: 2px; font-size:20px; color: #ff6d6f; border: 2px solid #ff6d6f; }
-                        .free-car .ticket:hover { color: #22f3ae; border: 2px solid #22f3ae; }
-                    </style>
+                                <!--免费专车-->
+                                <style>
+                                    .free-car { width:100%; border: 1px solid #eee; padding: 16px; margin-top: 16px; border-radius: 4px; z-index: 1000; }
+                                    .free-car .car-top { width:auto; padding: 8px 0; border-bottom: 1px solid #f4f4f4; }
+                                    .free-car .car-bottom { width:auto; padding: 8px 0; margin: 16px 0 8px; }
+                                    .free-car .num { color: #ff6d6f; }
+                                    .free-car .ticket { padding: 12px 24px; border-radius: 2px; font-size:20px; color: #ff6d6f; border: 2px solid #ff6d6f; }
+                                    .free-car .ticket:hover { color: #22f3ae; border: 2px solid #22f3ae; }
+                                </style>
+                                <div class="row">
+                                    <div class="free-car">
+                                        <div class="car-top">
+                                            <p class="tit"><b>免费专车</b></p>
+                                            <p class="describe">全城免费专车接送看房，人均节省<span class="num">827元</span>路费</p>
+                                        </div>
+                                        <div class="car-bottom">
+                                            <a class="ticket show-modal-zc" href="javascript:void(0);" data-toggle="modal-" data-target="#grab-modal">
+                                                <i class="fa fa-car"></i> <b>抢专车券</b>
+                                            </a> &nbsp; &nbsp;
+                                            <span class="num">{{ $ticket_total or 257 }}人</span>已抢
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <!--免费专车-->
-                    <div class="row">
-                        <div class="free-car">
-                            <div class="car-top">
-                                <p class="tit"><b>免费专车</b></p>
-                                <p class="describe">全城免费专车接送看房，人均节省<span class="num">827元</span>路费</p>
-                            </div>
-                            <div class="car-bottom">
-                                <a class="ticket grab-ticket" href="javascript:void(0);" data-toggle="modal" data-target="#grab-modal">
-                                    <i class="fa fa-car"></i> <b>抢专车券</b>
-                                </a> &nbsp; &nbsp;
-                                <span class="num">{{ $ticket_total or 257 }}人</span>已抢
                             </div>
                         </div>
                     </div>
@@ -194,7 +209,7 @@
 
 
             {{--图片--}}
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-md-12 _none">
                 <img src="{{ url('/custom/images/box-img.jpg') }}" alt="" />
             </div>
 
@@ -206,7 +221,7 @@
                 .property-contents td { width:50%;float:left; }
             </style>
             {{--基本信息--}}
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-md-12 _none">
                 <section class="property-contents common">
                     <div class="entry-title clearfix">
                         <h3 class="text-center"> 基本信息 </h3>
@@ -299,6 +314,30 @@
                     <div id="house-type-images">
                         @if(count($data->custom2) > 0)
                             @foreach($data->custom2 as $img)
+                                <article class="property clearfix">
+                                    <figure class="feature-image">
+                                        <a class="zoom-" target="_blank">
+                                            <img data-action="zoom-" src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
+                                        </a>
+                                    </figure>
+                                </article>
+                            @endforeach
+                        @endif
+                    </div>
+                </section>
+            </div>
+
+
+            {{--样板图--}}
+            <div class="col-lg-12 col-md-12">
+                <section class="property-contents common">
+                    <div class="entry-title clearfix">
+                        <h3 class="text-center"> 样板图 </h3>
+                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                    </div>
+                    <div id="house-template-images">
+                        @if(count($data->custom3) > 0)
+                            @foreach($data->custom3 as $img)
                                 <article class="property clearfix">
                                     <figure class="feature-image">
                                         <a class="zoom-" target="_blank">
@@ -949,11 +988,11 @@
 
 
 <div class="modal fade in" id="grab-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-dismiss="modal" aria-hidden="true" data-keyboard="false">
-    <div style="margin-top:64px;margin-bottom:64px;padding-top:32px;">
+    <div style="margin-top:32px;margin-bottom:32px;padding-top:32px;">
 
         <div class="modal-dialog">
 
-            <div class="dialog dialog-zckf grab-clone-body">
+            <div class="dialog dialog-zckf" id="dialog-zc" style="display:none;">
                 <a class="dialog-close ly-close" href="javascript:void(0)">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         <span class="icon icon-close fa fa-close"></span>
@@ -970,15 +1009,62 @@
                         <p class="con-txt">预约居理专车看房，楼下接您，随时出发，不花一分钱</p>
                         <div class="ipt-area">
                             <div>
-                                <form id="form-grab-ticket">
+                                <form id="form-grab-zc">
                                     {{csrf_field()}}
-                                    <input type="text" name="mobile" class="ipt mobile-ipt" id="grab-mobile" placeholder="输入预约手机号" value="">
+                                    <input type="text" name="mobile" class="ipt mobile-ipt" id="grab-zc-mobile" placeholder="输入预约手机号" value="">
                                 </form>
                                 <div class="error-msg"><span>请输入正确格式的手机号</span></div>
                             </div>
                         </div>
                         <div class="btn-area">
-                            <button class="btn btn3 new_common_free_submit" id="grab-submit">抢专车券</button>
+                            <button class="btn btn3 new_common_free_submit" id="grab-zc-submit">抢专车券</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dialog " id="dialog-jg" style="display:none;">
+                <!--关闭按钮-->
+                <a class="dialog-close ly-close" href="Javascript:void(0)" data-sub-status="2"><span class="icon icon-close"></span></a>
+                <div class="dialog-bd">
+                    <div class="content form-box">
+                        <div class="title"><span class="pro-name">{{ $data->title or '' }}</span> 价格变动趋势</div>
+                        <p class="con-info">价格变动频繁，订阅楼盘价格通知，涨价降价我们将第一时间通知您，帮你找准买房最佳时机！</p>
+                        <div class="ipt-area">
+                            <div>
+                                <form id="form-grab-jg">
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="item_id" value="{{ $data->id or '' }}">
+                                    <input type="text" name="mobile" class="ipt mobile-ipt" id="grab-jg-mobile" placeholder="请输入订阅手机号" value="">
+                                </form>
+                                <div class="error-msg"><span style="display: none;">请输入正确格式的手机号</span></div>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <button class="btn btn3 new_common_free_submit" id="grab-jg-submit">立即订阅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dialog " id="dialog-kp" style="display:none;">
+                <a class="dialog-close ly-close" href="javascript:void(0)" data-sub-status="2"><span class="icon icon-close"></span></a>
+                <div class="dialog-bd">
+                    <div class="dialog-cons-wrap form-box">
+                        <p class="con-txt">担心错过开盘？想第一时间获取最新动态？输入手机号关注，楼盘一手情报抢先知道</p>
+                        <div class="ipt-area">
+                            <div>
+                                <form id="form-grab-kp">
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="item_id" value="{{ $data->id or '' }}">
+                                    <input type="text" name="mobile" class="ipt mobile-ipt" id="grab-kp-mobile" placeholder="输入手机号">
+                                </form>
+                                <p class="ipt-text">居理承诺，严格保障您的个人信息安全</p>
+                                <div class="error-msg"><span style="display: none;">请输入正确格式的手机号</span></div>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <button class="btn btn3 new_common_free_submit" id="grab-kp-submit">关注下次开盘时间</button>
                         </div>
                     </div>
                 </div>

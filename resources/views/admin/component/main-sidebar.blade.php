@@ -119,19 +119,31 @@
 
             <li class="treeview">
                 <a href="{{ url('/admin/message/list?category=all') }}">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>全部</span>
+                    <i class="fa fa-circle-o text-aqua"></i> <span>全部留言</span>
                 </a>
             </li>
 
             <li class="treeview">
-                <a href="{{ url('/admin/message/list?category=book') }}">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>预约列表</span>
+                <a href="{{ url('/admin/message/list?category=yy') }}">
+                    <i class="fa fa-circle-o text-aqua"></i> <span>预约看房列表</span>
                 </a>
             </li>
 
             <li class="treeview">
-                <a href="{{ url('/admin/message/list?category=grab') }}">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>专车券列表</span>
+                <a href="{{ url('/admin/message/list?category=zc') }}">
+                    <i class="fa fa-circle-o text-aqua"></i> <span>抢专车券列表</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/message/list?category=jg') }}">
+                    <i class="fa fa-circle-o text-aqua"></i> <span>价格动态列表</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/message/list?category=kp') }}">
+                    <i class="fa fa-circle-o text-aqua"></i> <span>开盘提醒列表</span>
                 </a>
             </li>
 

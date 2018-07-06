@@ -259,7 +259,7 @@
 </style>
 
 <div class="act_nav" id="bottom-bm-container">
-    <div class="s_close" id="bottom-bm-close"><i class="fa fa-times-circle"></i></div>
+    <div class="s_close" id="bottom-bm-close" style="display:none;"><i class="fa fa-times-circle"></i></div>
     <div class="s_w">
         <div class="row s_w_left">
             <div class="row pull-left bm-top">

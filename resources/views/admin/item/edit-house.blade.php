@@ -99,9 +99,9 @@
                 </div>
                 {{--入住时间--}}
                 <div class="form-group">
-                    <label class="control-label col-md-2">入住时间</label>
+                    <label class="control-label col-md-2">交房时间</label>
                     <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[live_time]" placeholder="入住时间" value="{{$data->custom->live_time or ''}}">
+                        <input type="text" class="form-control" name="custom[live_time]" placeholder="交房时间" value="{{$data->custom->live_time or ''}}">
                     </div>
                 </div>
                 {{--开发商--}}
@@ -274,7 +274,29 @@
                     </div>
 
                     <div class="col-md-8 col-md-offset-2 ">
-                        <input id="input-id" type="file" class="file-" name="house_type_images[]" multiple >
+                        <input id="house-type-images" type="file" class="file-" name="house_type_images[]" multiple >
+                    </div>
+                </div>
+
+                {{--样板图--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">样板图</label>
+                    <div class="col-md-8 fileinput-group">
+                        @if(!empty($data->custom3))
+                            @foreach($data->custom3 as $img)
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        @endif
+                    </div>
+
+                    <div class="col-md-8 col-md-offset-2 ">
+                        <input id="house-template-images" type="file" class="file-" name="house_template_images[]" multiple >
                     </div>
                 </div>
 
@@ -362,7 +384,12 @@
 <script>
     $(function() {
 
-        $("#input-id").fileinput({
+        $("#house-type-images").fileinput({
+            allowedFileExtensions : [ 'jpg', 'jpeg', 'png', 'gif' ],
+            showUpload: false
+        });
+
+        $("#house-template-images").fileinput({
             allowedFileExtensions : [ 'jpg', 'jpeg', 'png', 'gif' ],
             showUpload: false
         });

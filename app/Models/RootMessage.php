@@ -7,7 +7,7 @@ class RootMessage extends Model
     //
     protected $table = "root_message";
     protected $fillable = [
-        'sort', 'category', 'type', 'admin_id', 'menu_id', 'active',
+        'sort', 'category', 'type', 'admin_id', 'menu_id', 'item_id', 'active',
         'name', 'mobile', 'email', 'title', 'subtitle', 'description', 'content', 'custom', 'link_url', 'cover_pic',
         'visit_num', 'share_num'
     ];
@@ -24,6 +24,12 @@ class RootMessage extends Model
     function admin()
     {
         return $this->belongsTo('App\Administrator','admin_id','id');
+    }
+
+    // 一对多 反向关联的内容（所属内容）
+    function item()
+    {
+        return $this->belongsTo('App\Models\RootItem','item_id','id');
     }
 
     // 一对多 反向关联的目录（所属目录）
