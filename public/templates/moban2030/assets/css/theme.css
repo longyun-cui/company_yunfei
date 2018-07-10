@@ -748,6 +748,7 @@ img.zoom-img {
 .property .feature-image {
   position: relative;
   margin-bottom: 24px;
+  height: 240px;
   max-height: 240px;
   overflow: hidden;
 }
