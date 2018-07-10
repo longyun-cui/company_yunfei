@@ -36,6 +36,16 @@
         @yield('custom-css')
         @yield('custom-style')
 
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?db38c4f99dac05fe97e03f26eef0d213";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+
     </head>
     <body class="">
 
