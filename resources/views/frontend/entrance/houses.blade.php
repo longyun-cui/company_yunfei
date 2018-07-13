@@ -66,7 +66,7 @@
                 @foreach($houses as $v)
                     <div class="col-lg-4 col-sm-6 layout-item-wrap portfolio all {{ $v->custom->district or '' }}">
                         <article class="property layout-item clearfix">
-                            <figure class="feature-image">
+                            <figure class="feature-image" style="height:240px; max-height:240px; overflow:hidden;">
                                 <a class="clearfix zoom-" target="_blank"  href="{{ url('/house/'.$v->id) }}">
                                     <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
                                 </a>
