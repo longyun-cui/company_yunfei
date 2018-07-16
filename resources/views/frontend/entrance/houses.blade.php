@@ -77,20 +77,25 @@
                                     <div class="pull-left">
                                         <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
                                         <span><i class="fa fa-cny"></i> {{ $v->custom->average or '' }} </span>
+                                        <span class="property-location"><i class="fa fa-map-marker"></i> {{ $v->custom->position or '' }} </span>
                                     </div>
-                                    <a target="_blank" href="{{ url('/house/'.$v->id) }}">
+                                    <a class="_none" target="_blank" href="{{ url('/house/'.$v->id) }}">
                                         <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看">
                                             <strong>查看详情</strong>
                                         </button>
                                     </a>
                                 </header>
                                 <div class="property-meta clearfix">
-                                    <span class="property-location"><i class="fa fa-map-marker"></i> {{ $v->custom->position or '' }} </span>
-
                                     <span class="_none"><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
                                     <span class="_none"><i class="fa fa-bed"></i> {{ $v->custom->average or '' }} </span>
                                     <span class="_none"><i class="fa fa-bathtub"></i> {{ $v->custom->total or '' }} </span>
                                     <span class="_none"><i class="fa fa-cab"></i> Yes</span>
+
+                                    <a target="_blank" href="{{ url('/house/'.$v->id) }}">
+                                        <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看">
+                                            <strong>查看详情</strong>
+                                        </button>
+                                    </a>
                                 </div>
                                 <div class="contents clearfix">
                                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </p>
