@@ -315,8 +315,8 @@
                         @if(count($data->custom2) > 0)
                             @foreach($data->custom2 as $img)
                                 <article class="property clearfix">
-                                    <figure class="feature-image">
-                                        <a class="zoom-" target="_blank">
+                                    <figure class="feature-image" style="height:240px; max-height:240px; overflow:hidden;">
+                                        <a class="clearfix zoom lightcase-image" data-rel="lightcase" href="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}">
                                             <img data-action="zoom-" src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
                                         </a>
                                     </figure>
@@ -339,8 +339,8 @@
                         @if(count($data->custom3) > 0)
                             @foreach($data->custom3 as $img)
                                 <article class="property clearfix">
-                                    <figure class="feature-image">
-                                        <a class="zoom-" target="_blank">
+                                    <figure class="feature-image" style="height:240px; max-height:240px; overflow:hidden;">
+                                        <a class="clearfix zoom lightcase-image" data-rel="lightcase" href="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}">
                                             <img data-action="zoom-" src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
                                         </a>
                                     </figure>
