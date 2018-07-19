@@ -46,9 +46,12 @@
                                         <a class="show-modal-jg" href="javascript:void(0);">获取最新价格变动</a>
                                     </li>
                                     <li><span>参考总价 :</span> {{ $data->custom->total or '' }} </li>
-                                    <li><span>楼盘户型 :</span> {{ $data->custom->type or '' }} </li>
                                     <li><span>楼盘地址 :</span> {{ $data->custom->position or '' }} </li>
                                     <li><span>开发商 :</span> {{ $data->custom->developer or '' }} </li>
+                                    <li><span>产权 :</span> {{ $data->custom->property_rights or '' }} </li>
+                                    <li><span>楼盘户数 :</span> {{ $data->custom->households or '' }} </li>
+                                    <li><span>楼盘户型 :</span> {{ $data->custom->type or '' }} </li>
+                                    <li><span>装修状态 :</span> {{ $data->custom->decoration or '' }} </li>
                                     <li><span>交房时间 :</span> {{ $data->custom->live_time or '' }} </li>
                                     <li><span>物业公司 :</span> {{ $data->custom->manager_company or '' }} </li>
                                     <li>

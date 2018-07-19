@@ -27,6 +27,7 @@
         <link href="{{ asset('/templates/moban2030/assets/css/theme.css') }}" rel="stylesheet">
         <link href="https://cdn.bootcss.com/layer/3.0.3/skin/default/layer.min.css" rel="stylesheet">
         {{--<link href="https://cdn.bootcss.com/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css" rel="stylesheet">--}}
+        <link href="https://cdn.bootcss.com/lightcase/2.5.0/css/lightcase.min.css" rel="stylesheet">
 
 {{--        <link href="{{ asset('/templates/moban2030/assets/others/common.css') }}" rel="stylesheet">--}}
         <link href="{{ asset('/common/css/common.css') }}" rel="stylesheet">
@@ -95,6 +96,7 @@
         <script src="{{ asset('/templates/moban2030/assets/js/theme.js') }}"></script>
         <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
         {{--<script src="https://cdn.bootcss.com/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>--}}
+        <script src="https://cdn.bootcss.com/lightcase/2.5.0/js/lightcase.min.js"></script>
 
         <script src="{{ asset('/templates/moban2030/assets/others/common.js') }}"></script>
 
