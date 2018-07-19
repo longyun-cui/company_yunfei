@@ -42,7 +42,8 @@
     </div>
     <div class="site-footer-bottom">
         <div class="container">
-            <p class="copyright pull-left wow slideInRight">Copyright &copy; 2018.{{ config('company.info.name') }} All rights reserved.</p>
+{{--            <p class="copyright pull-left wow slideInRight">Copyright © 2018.{{ config('company、.info.name') }} All rights reserved.</p>--}}
+            <p class="copyright pull-left wow slideInRight">Copyright © 2018.寻觅e家 All rights reserved.</p>
             <nav class="footer-nav pull-right wow slideInLeft">
                 <ul>
                     <li><a href="{{ url('/houses') }}">楼盘</a></li>

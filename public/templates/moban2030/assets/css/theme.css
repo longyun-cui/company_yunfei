@@ -57,7 +57,7 @@ a {
 h1,
 h2,
 h3 {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 h1 a,
 h2 a,
