@@ -7,8 +7,8 @@
                     <section class="widget about-widget clearfix">
                         <h4 class="title hide">关于我们</h4>
                         <a class="footer-logo" href="javascript:void(0);">
-                            {{--<img src="{{ url('/templates/moban2030/assets/images/footer-logo.png') }}" alt="Footer Logo">--}}
-                            <img src="{{ config('company.info.logo') }}" alt="Footer Logo">
+                            <img src="{{ url('/templates/moban2030/assets/images/footer-logo.png') }}" alt="Footer Logo">
+                            {{--<img src="{{ config('company.info.logo') }}" alt="Footer Logo">--}}
                         </a>
                         <p>{{ config('company.info.description') }}</p>
                         <ul class="social-icons clearfix">
@@ -29,6 +29,7 @@
                     <section class="widget address-widget clearfix">
                         <h4 class="title">联系我们</h4>
                         <ul>
+                            <li><i class="fa fa-copyright"></i> 上海邕兴贸易有限公司 </li>
                             <li><i class="fa fa-map-marker"></i> {{ config('company.info.address') }} </li>
                             <li><i class="fa fa-user"></i> {{ config('company.info.linkman') }} </li>
                             <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile') }}">{{ config('company.info.mobile') }}</a> </li>
@@ -40,7 +41,7 @@
             </div>
         </div>
     </div>
-    <div class="site-footer-bottom">
+    <div class="site-footer-bottom _none">
         <div class="container">
 {{--            <p class="copyright pull-left wow slideInRight">Copyright © 2018.{{ config('company、.info.name') }} All rights reserved.</p>--}}
             <p class="copyright pull-left wow slideInRight">Copyright © 2018.寻觅e家 All rights reserved.</p>
