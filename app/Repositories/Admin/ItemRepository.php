@@ -148,6 +148,12 @@ class ItemRepository {
         $operate = $post_data["operate"];
         if($operate == 'create') // 添加 ( $id==0，添加一个新的产品 )
         {
+            $category = $post_data["category"];
+            if($category == 11)
+            {
+                $house_total = RootItem::where('category',11)->count();
+                if($house_total >= 10) return response_error([],"添加房屋数量超过限制，请联系管理员！");
+            }
             $mine = new RootItem;
             $post_data["admin_id"] = $admin->id;
         }
