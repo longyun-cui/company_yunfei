@@ -29,7 +29,7 @@
                     <section class="widget address-widget clearfix">
                         <h4 class="title">联系我们</h4>
                         <ul>
-                            <li><i class="fa fa-copyright"></i> 上海邕兴贸易有限公司 </li>
+                            <li><i class="fa fa-copyright"></i> {{ config('company.info.name') }} </li>
                             <li><i class="fa fa-map-marker"></i> {{ config('company.info.address') }} </li>
                             <li><i class="fa fa-user"></i> {{ config('company.info.linkman') }} </li>
                             <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile') }}">{{ config('company.info.mobile') }}</a> </li>
