@@ -44,7 +44,7 @@
         <div id="slider-contents">
             <div class="container text-center">
                 <div class="jumbotron">
-                    <h1>寻觅e家</h1>
+                    <h1>上海盛贝房地产营销策划有限公司</h1>
                     <div class="contents clearfix">
                         <p class="font-24px"><b>邻里中心  领衔未来人居</b></p>
                     </div>
