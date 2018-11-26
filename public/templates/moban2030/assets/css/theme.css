@@ -609,19 +609,19 @@ img.zoom-img {
   background: none;
   padding: 0;
   margin: auto;
-  margin-top: -123px;
+  margin-top: -80px;
 }
 .main-slider-wrapper h1 {
   color: #fff;
-  font-size: 60px;
-  margin: 0 0 14px 0;
+  font-size: 48px;
+  margin: 0 0 12px 0;
 }
 .main-slider-wrapper p {
   font-size: 17px;
   color: #fff;
 }
 .main-slider-wrapper .contents {
-  margin-bottom: 45px;
+  margin-bottom: 24px;
 }
 .main-slider-wrapper .btn {
   margin-right: 10px;
@@ -986,7 +986,7 @@ img.zoom-img {
 }
 .address-widget ul li {
   list-style: none;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: inherit;
 }
 .address-widget ul .fa {
@@ -1066,7 +1066,9 @@ img.zoom-img {
 }
 .recent-properties .feature-image {
   width: 40%;
+  height: 120px;
   margin: 0 5% 0 0;
+  overflow: hidden;
   float: left;
 }
 .recent-properties .entry-title {

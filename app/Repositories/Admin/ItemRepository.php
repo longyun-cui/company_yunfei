@@ -31,10 +31,17 @@ class ItemRepository {
         $query = RootItem::select("*")->with(['admin','pivot_menus']);
 
         $category = $post_data['category'];
-        if($category == "about") $query->where('category', 1);
+        if($category == "info") $query->where('category', 1);
+        else if($category == "about") $query->where('category', 2);
+        else if($category == "advantage") $query->where('category', 5);
         else if($category == "cooperation") $query->where('category', 9);
-        else if($category == "house") $query->where('category', 11);
-        else if($category == "information") $query->where('category', 31);
+        else if($category == "rent-out") $query->where('category', 11);
+        else if($category == "second-wholesale") $query->where('category', 12);
+        else if($category == "recycling") $query->where('category', 19);
+        else if($category == "faq") $query->where('category', 31);
+        else if($category == "coverage") $query->where('category', 41);
+        else if($category == "activity") $query->where('category', 48);
+        else if($category == "client") $query->where('category', 51);
 
         $total = $query->count();
 
@@ -75,10 +82,19 @@ class ItemRepository {
     {
         $admin = Auth::guard('admin')->user();
         $menus = RootMenu::get();
+
         $category = request("category",'');
-        if($category == 'about') $view_blade = 'admin.item.edit-about';
-        elseif($category == 'house') $view_blade = 'admin.item.edit-house';
-        elseif($category == 'information') $view_blade = 'admin.item.edit-information';
+        if($category == 'info') $view_blade = 'admin.item.edit-info';
+        elseif($category == 'about') $view_blade = 'admin.item.edit-about';
+        elseif($category == 'advantage') $view_blade = 'admin.item.edit-advantage';
+        elseif($category == 'cooperation') $view_blade = 'admin.item.edit-cooperation';
+        elseif($category == 'rent-out') $view_blade = 'admin.item.edit-rent-out';
+        elseif($category == 'second-wholesale') $view_blade = 'admin.item.edit-second-wholesale';
+        elseif($category == 'recycling') $view_blade = 'admin.item.edit-recycling';
+        elseif($category == 'faq') $view_blade = 'admin.item.edit-faq';
+        elseif($category == 'coverage') $view_blade = 'admin.item.edit-coverage';
+        elseif($category == 'activity') $view_blade = 'admin.item.edit-activity';
+        elseif($category == 'client') $view_blade = 'admin.item.edit-client';
         else $view_blade = 'admin.item.edit';
 
         return view($view_blade)->with(['operate'=>'create', 'encode_id'=>encode(0), 'menus'=>$menus]);
@@ -109,9 +125,17 @@ class ItemRepository {
                 $mine->custom3 = json_decode($mine->custom3);
                 $category = $mine->category;
 
-                if($category == '1') $view_blade = 'admin.item.edit-about';
-                elseif($category == '11') $view_blade = 'admin.item.edit-house';
-                elseif($category == '31') $view_blade = 'admin.item.edit-information';
+                if($category == '1') $view_blade = 'admin.item.edit-info';
+                elseif($category == '2') $view_blade = 'admin.item.edit-about';
+                elseif($category == '5') $view_blade = 'admin.item.edit-advantage';
+                elseif($category == '9') $view_blade = 'admin.item.edit-cooperation';
+                elseif($category == '11') $view_blade = 'admin.item.edit-rent-out';
+                elseif($category == '12') $view_blade = 'admin.item.edit-second-wholesale';
+                elseif($category == '19') $view_blade = 'admin.item.edit-recycling';
+                elseif($category == '31') $view_blade = 'admin.item.edit-faq';
+                elseif($category == '41') $view_blade = 'admin.item.edit-coverage';
+                elseif($category == '48') $view_blade = 'admin.item.edit-activity';
+                elseif($category == '51') $view_blade = 'admin.item.edit-client';
                 else $view_blade = 'admin.item.edit';
 
                 return view($view_blade)->with(['operate'=>'edit', 'encode_id'=>$id, 'menus'=>$menus, 'data'=>$mine]);
@@ -149,18 +173,13 @@ class ItemRepository {
         if($operate == 'create') // 添加 ( $id==0，添加一个新的产品 )
         {
             $category = $post_data["category"];
-            if($category == 11)
-            {
-                $house_total = RootItem::where('category',11)->count();
-                if($house_total >= 10) return response_error([],"添加房屋数量超过限制，请联系管理员！");
-            }
             $mine = new RootItem;
             $post_data["admin_id"] = $admin->id;
         }
         else if($operate == 'edit') // 编辑
         {
             $mine = RootItem::find($decode_id);
-            if(!$mine) return response_error([],"该产品不存在，刷新页面重试");
+            if(!$mine) return response_error([],"该内容不存在，刷新页面重试");
             if($mine->admin_id != $admin->id) return response_error([],"你没有操作权限");
         }
         else return response_error([],"参数有误");
@@ -186,8 +205,8 @@ class ItemRepository {
                 $encode_id = encode($mine->id);
 
                 // 户型图片
-                $house_type_images = [];
-                if(!empty($post_data["house_type_images"][0]))
+                $multiple_images = [];
+                if(!empty($post_data["multiple_images"][0]))
                 {
                     // 删除原有图片
                     $custom2_decode = json_decode($mine->custom2,true);
@@ -203,56 +222,20 @@ class ItemRepository {
                     }
 
                     // 添加图片
-                    foreach ($post_data["house_type_images"] as $n => $f)
+                    foreach ($post_data["multiple_images"] as $n => $f)
                     {
                         if(!empty($f))
                         {
                             $result = upload_storage($f);
-                            if($result["result"]) $house_type_images[$n]["img"] = $result["local"];
+                            if($result["result"]) $multiple_images[$n]["img"] = $result["local"];
                             else throw new Exception("upload-image-fail");
                         }
                     }
 
-                    if(count($house_type_images) > 0)
+                    if(count($multiple_images) > 0)
                     {
-                        $custom2_encode = json_encode($house_type_images);
+                        $custom2_encode = json_encode($multiple_images);
                         $mine->custom2 = $custom2_encode;
-                        $mine->save();
-                    }
-                }
-
-                // 样板图片
-                $house_template_images = [];
-                if(!empty($post_data["house_template_images"][0]))
-                {
-                    // 删除原有图片
-                    $custom3_decode = json_decode($mine->custom3,true);
-                    if(count($custom3_decode) > 0)
-                    {
-                        foreach ($custom3_decode as $img)
-                        {
-                            if(!empty($img["img"]) && file_exists(storage_path("resource/" . $img["img"])))
-                            {
-                                unlink(storage_path("resource/" . $img["img"]));
-                            }
-                        }
-                    }
-
-                    // 添加图片
-                    foreach ($post_data["house_template_images"] as $n => $f)
-                    {
-                        if(!empty($f))
-                        {
-                            $result = upload_storage($f);
-                            if($result["result"]) $house_template_images[$n]["img"] = $result["local"];
-                            else throw new Exception("upload-image-fail");
-                        }
-                    }
-
-                    if(count($house_template_images) > 0)
-                    {
-                        $custom3_encode = json_encode($house_template_images);
-                        $mine->custom3 = $custom3_encode;
                         $mine->save();
                     }
                 }

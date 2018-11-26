@@ -6,9 +6,9 @@
         'host' => [
 
             'local' => [
-                'root' => 'http://local-shengbei.com',
-                'www' => 'http://www.local-shengbei.com',
-                'cdn' => 'http://cdn.local-shengbei.com',
+                'root' => 'http://local-yunfei.com',
+                'www' => 'http://www.local-yunfei.com',
+                'cdn' => 'http://cdn.local-yunfei.com',
             ],
 
             'online' => [

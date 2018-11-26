@@ -16,7 +16,10 @@
 
 
         <!-- favicon and touch icons -->
-        <link rel="shortcut icon" href="assets/images/favicon.png.html" >
+        <link rel="shortcut icon" type="image/ico" href="{{ url('favicon.ico') }}">
+        <link rel="shortcut icon" type="image/png" href="{{ url('favicon.png') }}">
+        <link rel="icon" sizes="16x16 32x32 64x64" href="{{ url('favicon.ico') }}">
+        <link rel="icon" type="image/png" sizes="196x196" href="{{ url('favicon.png') }}">
 
         <!-- Bootstrap -->
         <link href="{{ asset('/templates/moban2030/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -37,15 +40,15 @@
         @yield('custom-css')
         @yield('custom-style')
 
-        <script>
-            var _hmt = _hmt || [];
-            (function() {
-                var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?db38c4f99dac05fe97e03f26eef0d213";
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
-        </script>
+        {{--<script>--}}
+            {{--var _hmt = _hmt || [];--}}
+            {{--(function() {--}}
+                {{--var hm = document.createElement("script");--}}
+                {{--hm.src = "https://hm.baidu.com/hm.js?db38c4f99dac05fe97e03f26eef0d213";--}}
+                {{--var s = document.getElementsByTagName("script")[0];--}}
+                {{--s.parentNode.insertBefore(hm, s);--}}
+            {{--})();--}}
+        {{--</script>--}}
 
         <script>
             (function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
@@ -78,7 +81,7 @@
 
 
         {{--bottom--}}
-        @include('frontend.component.bottom')
+        {{--@include('frontend.component.bottom')--}}
 
 
         <a href="#top" id="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -106,6 +109,9 @@
         <script src="https://cdn.bootcss.com/lightcase/2.5.0/js/lightcase.min.js"></script>
 
         <script src="{{ asset('/templates/moban2030/assets/others/common.js') }}"></script>
+
+
+        <script src="{{ asset('/common/js/frontend.js') }}"></script>
 
 
         <script>
@@ -236,12 +242,23 @@
                     };
                     form.ajaxSubmit(options);
                 });
-                // 开盘提醒
-                $("#grab-kp-submit").on('click', function() {
 
-                    var form = $("#form-grab-kp");
-                    var mobile = $("#grab-kp-mobile");
+
+                // 询价
+                $("#grab-item-submit").on('click', function() {
+
+                    var form = $("#form-grab-item");
+                    var name = $("grab-item-name");
+                    var name_val = name.val();
+                    var mobile = $("#grab-item-mobile");
                     var mobile_val = mobile.val();
+
+                    if(name_val == "")
+                    {
+                        layer.msg("名字不能为空");
+                        name.focus();
+                        return false;
+                    }
 
                     var filter=/^1[3|4|5|7|8][0-9]\d{8}$/;
                     if(!filter.test(mobile_val))
@@ -253,7 +270,7 @@
                     }
 
                     var options = {
-                        url: "{{url('/message/grab/kp')}}",
+                        url: "{{url('/message/grab/item')}}",
                         type: "post",
                         dataType: "json",
                         // target: "#div2",

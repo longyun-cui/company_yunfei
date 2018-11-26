@@ -18,24 +18,64 @@
 
             <div class="box-header with-border" style="margin:16px 0;">
                 <h3 class="box-title">
-                    @if($category == 'about') 关于我们
-                    @elseif($category == 'house') 楼盘列表
-                    @elseif($category == 'information') 资讯列表
+                    @if($category == 'about') 关于企业列表
+                    @elseif($category == 'cooperation') 合作加盟列表
+                    @elseif($category == 'advantage') 选择我们列表
+                    @elseif($category == 'cooperation') 合作加盟列表
+                    @elseif($category == 'rent-out') 出租列表
+                    @elseif($category == 'second-wholesale') 二手批发列表
+                    @elseif($category == 'recycling') 回收列表
+                    @elseif($category == 'faq') 资讯列表
+                    @elseif($category == 'coverage') 资讯列表
+                    @elseif($category == 'activity') 活动列表
+                    @elseif($category == 'client') 客户列表
                     @else 全部内容
                     @endif
                 </h3>
                 <div class="pull-right">
-                    @if($category == 'about')
+                    @if($category == 'info')
+                        <a href="{{url('/admin/item/create?category=info')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加基本信息</button>
+                        </a>
+                    @elseif($category == 'about')
                         <a href="{{url('/admin/item/create?category=about')}}">
-                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加关于企业内容</button>
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加关于企业</button>
                         </a>
-                    @elseif($category == 'house')
-                        <a href="{{url('/admin/item/create?category=house')}}">
-                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加楼盘内容</button>
+                    @elseif($category == 'advantage')
+                        <a href="{{url('/admin/item/create?category=advantage')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加选择我们</button>
                         </a>
-                    @elseif($category == 'information')
-                        <a href="{{url('/admin/item/create?category=information')}}">
-                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加资讯内容</button>
+                    @elseif($category == 'cooperation')
+                        <a href="{{url('/admin/item/create?category=cooperation')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加合作加盟</button>
+                        </a>
+                    @elseif($category == 'rent-out')
+                        <a href="{{url('/admin/item/create?category=rent-out')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加出租</button>
+                        </a>
+                    @elseif($category == 'second-wholesale')
+                        <a href="{{url('/admin/item/create?category=second-wholesale')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加二手批发内容</button>
+                        </a>
+                    @elseif($category == 'recycling')
+                        <a href="{{url('/admin/item/create?category=recycling')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加回收</button>
+                        </a>
+                    @elseif($category == 'faq')
+                        <a href="{{url('/admin/item/create?category=faq')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加常见问题</button>
+                        </a>
+                    @elseif($category == 'coverage')
+                        <a href="{{url('/admin/item/create?category=coverage')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加资讯</button>
+                        </a>
+                    @elseif($category == 'activity')
+                        <a href="{{url('/admin/item/create?category=activity')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加活动</button>
+                        </a>
+                    @elseif($category == 'client')
+                        <a href="{{url('/admin/item/create?category=client')}}">
+                            <button type="button" onclick="" class="btn btn-success pull-right"><i class="fa fa-plus"></i> 添加客户</button>
                         </a>
                     @else
                         {{--<a href="{{url('/admin/item/create')}}">--}}
@@ -145,12 +185,21 @@
                         "data": "encode_id",
                         'orderable': false,
                         render: function(data, type, row, meta) {
-                            var category;
-                            if(row.category == 0) category = 'custom';
-                            else if(row.category == 1) category = 'about';
-                            else if(row.category == 9) category = 'cooperation';
-                            else if(row.category == 11) category = 'house';
-                            else if(row.category == 31) category = 'information';
+                            var category = 'item';
+//                            if(row.category == 0) category = 'custom';
+//                            else if(row.category == 1) category = 'info';
+//                            else if(row.category == 2) category = 'about';
+//                            else if(row.category == 5) category = 'advantage';
+//                            else if(row.category == 9) category = 'cooperation';
+//                            else if(row.category == 11) category = 'rent-out';
+//                            else if(row.category == 12) category = 'second-wholesale';
+//                            else if(row.category == 19) category = 'recycling';
+//                            else if(row.category == 31) category = 'faq';
+//                            else if(row.category == 41) category = 'coverage';
+//                            else if(row.category == 48) category = 'activity';
+//                            else if(row.category == 51) category = 'client';
+//                            else category = 'item';
+                            category = 'item';
                             return '<a target="_blank" href="/'+category+'/'+row.id+'">'+row.title+'</a>';
                         }
                     },
@@ -158,14 +207,18 @@
                         'data': 'category',
                         'orderable': false,
                         render: function(data, type, row, meta) {
-                            if(data == 0) return '自定义内容';
-                            else if(data == 1) return '关于企业';
-                            else if(data == 9) return '合作加盟';
-                            else if(data == 11) return '楼盘';
-                            else if(data == 12) return '宴会模块';
-                            else if(data == 19) return '礼服模块';
-                            else if(data == 21) return '活动模块';
-                            else if(data == 31) return '资讯';
+                            if(data == 0) return '<small class="label bg-teal">自定义内容</small>';
+                            else if(data == 1) return '<small class="label bg-teal">基本信息</small>';
+                            else if(data == 2) return '<small class="label btn-info">关于企业</small>';
+                            else if(data == 5) return '<small class="label btn-info">选择我们</small>';
+                            else if(data == 9) return '<small class="label bg-maroon">合作伙伴</small>';
+                            else if(data == 11) return '<small class="label bg-primary">出租模块</small>';
+                            else if(data == 12) return '<small class="label bg-purple">二手批发模块</small>';
+                            else if(data == 19) return '<small class="label bg-orange">回收模块</small>';
+                            else if(data == 31) return '<small class="label bg-olive">常见问题模块</small>';
+                            else if(data == 41) return '<small class="label bg-olive">资讯模块</small>';
+                            else if(data == 48) return '<small class="label bg-olive">活动模块</small>';
+                            else if(data == 51) return '<small class="label bg-olive">客户模块</small>';
                             else return '未知模块';
                         }
                     },

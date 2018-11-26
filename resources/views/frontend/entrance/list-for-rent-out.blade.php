@@ -2,7 +2,7 @@
 
 
 {{--html.head--}}
-@section('head_title')楼盘展示-{{ config('company.info.short_name') }}@endsection
+@section('head_title')钢琴出租-{{ config('company.info.short_name') }}@endsection
 @section('meta_author')@endsection
 @section('meta_title')@endsection
 @section('meta_description')@endsection
@@ -28,12 +28,21 @@
 @section('custom-content')
 
 
+    {{--banner--}}
+    @include('frontend.component.banner-for-rent-out-list')
+
     {{--main--}}
-    <section id="home-property-listing" class="">
+    @include('frontend.module.list-for-rent-out')
+
+
+    <section id="home-property-listing" class="_none">
+
+
+
         <header class="section-header home-section-header text-center">
             <div class="container">
-                <h2 class="wow slideInRight">楼盘展示</h2>
-                <p class="wow slideInLeft font-24px"><b>专业经纪人帮你找好房源</b></p>
+                <h2 class="wow slideInRight">钢琴出租</h2>
+                <p class="wow slideInLeft font-24px"><b>专业从业者帮你找好</b></p>
             </div>
         </header>
 
@@ -63,7 +72,7 @@
 
         <div class="container" id="portfolio-list">
             <div class="row">
-                @foreach($houses as $v)
+                @foreach($items as $v)
                     <div class="col-lg-4 col-sm-6 layout-item-wrap portfolio all {{ $v->custom->district or '' }}">
                         <article class="property layout-item clearfix">
                             <figure class="feature-image" style="height:240px; max-height:240px; overflow:hidden;">

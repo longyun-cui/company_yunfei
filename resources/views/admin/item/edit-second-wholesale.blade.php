@@ -1,8 +1,8 @@
 @extends('admin.layout.layout')
 
-@section('create-text') 添加关于我们 @endsection
-@section('edit-text') 添加关于我们 @endsection
-@section('list-text') 关于我们列表 @endsection
+@section('create-text') 添加二手批发 @endsection
+@section('edit-text') 添加二手批发 @endsection
+@section('list-text') 二手批发列表 @endsection
 
 @section('title')
     @if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif
@@ -18,7 +18,7 @@
 
 @section('breadcrumb')
     <li><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{ url('/admin/item/list?category=about') }}"><i class="fa "></i> @yield('list-text')</a></li>
+    <li><a href="{{ url('/admin/item/list?category=second-wholesale') }}"><i class="fa "></i> @yield('list-text')</a></li>
     <li><a href="#"><i class="fa "></i> Here</a></li>
 @endsection
 
@@ -41,7 +41,7 @@
                 {{csrf_field()}}
                 <input type="hidden" name="operate" value="{{ $operate or '' }}" readonly>
                 <input type="hidden" name="encode_id" value="{{ $encode_id or encode(0) }}" readonly>
-                <input type="hidden" name="category" value="2" readonly>
+                <input type="hidden" name="category" value="12" readonly>
 
 
                 {{--标题--}}
@@ -51,19 +51,34 @@
                         <input type="text" class="form-control" name="title" placeholder="请输入标题" value="{{ $data->title or '' }}">
                     </div>
                 </div>
-                {{--标题--}}
+                {{--副标题--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">副标题</label>
                     <div class="col-md-8 ">
                         <input type="text" class="form-control" name="subtitle" placeholder="请输入副标题" value="{{ $data->subtitle or '' }}">
                     </div>
                 </div>
-                {{--说明--}}
+                {{--描述--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">描述</label>
                     <div class="col-md-8 ">
-                        {{--<input type="text" class="form-control" name="description" placeholder="描述" value="{{$data->description or ''}}">--}}
-                        <textarea class="form-control" name="description" rows="3" cols="100%">{{ $data->description or '' }}</textarea>
+                        <input type="text" class="form-control" name="description" placeholder="描述" value="{{ $data->description or '' }}">
+                        {{--<textarea class="form-control" name="description" rows="3" cols="100%">{{$data->description or ''}}</textarea>--}}
+                    </div>
+                </div>
+
+                {{--型号--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">型号</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[model]" placeholder="型号" value="{{ $data->custom->model or '' }}">
+                    </div>
+                </div>
+                {{--价格--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">价格</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[price]" placeholder="价格" value="{{ $data->custom->price or '' }}">
                     </div>
                 </div>
 
@@ -71,13 +86,13 @@
                 <div class="form-group _none">
                     <label class="control-label col-md-2">链接地址</label>
                     <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="link_url" placeholder="链接地址" value="{{$data->link_url or ''}}">
+                        <input type="text" class="form-control" name="link_url" placeholder="链接地址" value="{{ $data->link_url or '' }}">
                     </div>
                 </div>
 
-                {{--目录--}}
+                {{--选择目录--}}
                 <div class="form-group _none">
-                    <label class="control-label col-md-2">目录</label>
+                    <label class="control-label col-md-2">选择目录</label>
                     <div class="col-md-8 ">
                         <select class="form-control" onchange="select_menu()">
                             <option data-id="0">未分类</option>
@@ -91,10 +106,11 @@
                                 {{--@endforeach--}}
                             {{--@endif--}}
                         </select>
-                        <input type="hidden" value="{{$data->menu_id or 0}}" name="menu_id" id="menu-selected">
+                        <input type="hidden" value="{{ $data->menu_id or 0 }}" name="menu_id" id="menu-selected">
                     </div>
                 </div>
-                {{--目录--}}
+
+                {{--添加目录--}}
                 <div class="form-group _none">
                     <label class="control-label col-md-2">添加目录</label>
                     <div class="col-md-8 ">
@@ -106,7 +122,7 @@
 
                 {{--内容--}}
                 <div class="form-group">
-                    <label class="control-label col-md-2">内容详情</label>
+                    <label class="control-label col-md-2">图文详情</label>
                     <div class="col-md-8 ">
                         <div>
                             @include('UEditor::head')
@@ -123,6 +139,27 @@
                     </div>
                 </div>
 
+                {{--多图展示--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">多图展示</label>
+                    <div class="col-md-8 fileinput-group">
+                        @if(!empty($data->custom2))
+                            @foreach($data->custom2 as $img)
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="{{ url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img) }}" alt="" />
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        @endif
+                    </div>
+
+                    <div class="col-md-8 col-md-offset-2 ">
+                        <input id="multiple-images" type="file" class="file-" name="multiple_images[]" multiple >
+                    </div>
+                </div>
 
                 {{--cover 封面图片--}}
                 <div class="form-group">
@@ -132,7 +169,7 @@
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
                                 @if(!empty($data->cover_pic))
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic)}}" alt="" />
+                                    <img src="{{ url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic) }}" alt="" />
                                 @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail">
@@ -141,7 +178,7 @@
                                 <span class="btn-file">
                                     <button class="btn btn-sm btn-primary fileinput-new">选择图片</button>
                                     <button class="btn btn-sm btn-warning fileinput-exists">更改</button>
-                                    <input type="file" name="cover" class="cover" />
+                                    <input type="file" name="cover" />
                                 </span>
                                 <span class="">
                                     <button class="btn btn-sm btn-danger fileinput-exists" data-dismiss="fileinput">移除</button>
@@ -208,6 +245,11 @@
 <script>
     $(function() {
 
+        $("#multiple-images").fileinput({
+            allowedFileExtensions : [ 'jpg', 'jpeg', 'png', 'gif' ],
+            showUpload: false
+        });
+
         // 添加or编辑
         $("#edit-item-submit").on('click', function() {
             var options = {
@@ -220,7 +262,7 @@
                     else
                     {
                         layer.msg(data.msg);
-                        location.href = "{{url('/admin/item/list?category=about')}}";
+                        location.href = "{{url('/admin/item/list?category=second-wholesale')}}";
                     }
                 }
             };

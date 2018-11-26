@@ -1,5 +1,5 @@
 {{--footer--}}
-<footer id="footer">
+<footer class="footer-container" id="footer">
     <div class="site-footer">
         <div class="container">
             <div class="row">
@@ -33,8 +33,8 @@
                             <li><i class="fa fa-map-marker"></i> {{ config('company.info.address') }} </li>
                             <li><i class="fa fa-user"></i> {{ config('company.info.linkman') }} </li>
                             <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile') }}">{{ config('company.info.mobile') }}</a> </li>
-                            <li><i class="fa fa-envelope"></i> <a href="mailto:{{ config('company.info.email') }}">{{ config('company.info.email') }}</a> </li>
-                            <li><i class="fa fa-clock-o"></i> 周一 - 周六: 9:00 - 18:00 </li>
+                            {{--<li><i class="fa fa-envelope"></i> <a href="mailto:{{ config('company.info.email') }}">{{ config('company.info.email') }}</a> </li>--}}
+                            <li><i class="fa fa-clock-o"></i> 周一 - 周六: 9:00 - 21:00 </li>
                         </ul>
                     </section>
                 </div>
@@ -43,16 +43,36 @@
     </div>
     <div class="site-footer-bottom _none">
         <div class="container">
-{{--            <p class="copyright pull-left wow slideInRight">Copyright © 2018.{{ config('company、.info.name') }} All rights reserved.</p>--}}
+            {{--<p class="copyright pull-left wow slideInRight">Copyright © 2018.{{ config('company、.info.name') }} All rights reserved.</p>--}}
             <p class="copyright pull-left wow slideInRight">Copyright © 2018.寻觅e家 All rights reserved.</p>
             <nav class="footer-nav pull-right wow slideInLeft">
                 <ul>
-                    <li><a href="{{ url('/houses') }}">楼盘</a></li>
+                    <li><a href="{{ url('/rent-out') }}">钢琴出租</a></li>
                     <li><a href="{{ url('/contact') }}">联系我们</a></li>
                 </ul>
             </nav>
         </div>
     </div>
-    <div class="site-footer-bottom" style="height: 140px;">
+    <div class="site-footer-bottom">
+        <div class="container">
+            <div class="row mt10 mb10">
+                <div class="col-md-12 text-center">
+                    <div>
+                        <small> Copyright&copy;2018. {{ config('company.info.english_name') }} 上海云飞钢琴有限公司.</small><br>
+                    </div>
+                    <div>
+                        <small>
+                            <strong>上海钢琴出租</strong> |
+                            <strong>二手钢琴批发</strong> |
+                            <strong>钢琴回收</strong> |
+                            <strong>钢琴维修</strong> |
+                            <strong>全年无休上门服务</strong>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-footer-bottom _none" style="height: 140px;">
     </div>
 </footer>

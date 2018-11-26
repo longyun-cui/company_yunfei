@@ -100,14 +100,56 @@
             </li>
 
             <li class="treeview">
-                <a href="{{ url('/admin/item/list?category=house') }}">
-                    <i class="fa fa-circle-o text-yellow"></i> <span>楼盘模块</span>
+                <a href="{{ url('/admin/item/list?category=advantage') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>选择我们模块</span>
                 </a>
             </li>
 
             <li class="treeview">
-                <a href="{{ url('/admin/item/list?category=information') }}">
+                <a href="{{ url('/admin/item/list?category=cooperation') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>合作加盟模块</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/item/list?category=rent-out') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>租琴模块</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/item/list?category=second-wholesale') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>二手批发模块</span>
+                </a>
+            </li>
+
+            <li class="treeview _none">
+                <a href="{{ url('/admin/item/list?category=recycling') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>回收模块</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/item/list?category=faq') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>常见问题模块</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/item/list?category=coverage') }}">
                     <i class="fa fa-circle-o text-yellow"></i> <span>资讯模块</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/item/list?category=activity') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>活动模块</span>
+                </a>
+            </li>
+
+            <li class="treeview">
+                <a href="{{ url('/admin/item/list?category=client') }}">
+                    <i class="fa fa-circle-o text-yellow"></i> <span>客户模块</span>
                 </a>
             </li>
 
@@ -120,30 +162,6 @@
             <li class="treeview">
                 <a href="{{ url('/admin/message/list?category=all') }}">
                     <i class="fa fa-circle-o text-aqua"></i> <span>全部留言</span>
-                </a>
-            </li>
-
-            <li class="treeview">
-                <a href="{{ url('/admin/message/list?category=yy') }}">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>预约看房列表</span>
-                </a>
-            </li>
-
-            <li class="treeview">
-                <a href="{{ url('/admin/message/list?category=zc') }}">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>抢专车券列表</span>
-                </a>
-            </li>
-
-            <li class="treeview">
-                <a href="{{ url('/admin/message/list?category=jg') }}">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>价格动态列表</span>
-                </a>
-            </li>
-
-            <li class="treeview">
-                <a href="{{ url('/admin/message/list?category=kp') }}">
-                    <i class="fa fa-circle-o text-aqua"></i> <span>开盘提醒列表</span>
                 </a>
             </li>
 

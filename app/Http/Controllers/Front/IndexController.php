@@ -26,48 +26,56 @@ class IndexController extends Controller
         return $this->repo->root();
     }
 
-    // 返回【主页】视图
+    // 返回【联系我们】视图
     public function view_contact()
     {
         return $this->repo->contact();
     }
 
-
-    // 返回【楼盘】【列表】视图
-    public function view_houses()
+    // 返回【详情】视图
+    public function view_item($id=0)
     {
-        return $this->repo->houses();
-    }
-    // 返回【楼盘】【详情】视图
-    public function view_house($id=0)
-    {
-        return $this->repo->house($id);
+        return $this->repo->view_item($id);
     }
 
 
-    // 返回【楼盘】【列表】视图
-    public function view_informations()
+    // 返回【钢琴出租】【列表】视图
+    public function view_rent_out_list()
     {
-        return $this->repo->informations();
+        return $this->repo->view_rent_out_list();
     }
-    // 返回【楼盘】【详情】视图
-    public function view_information($id=0)
+    // 返回【二手批发】【列表】视图
+    public function view_second_wholesale_list()
     {
-        return $this->repo->information($id);
+        return $this->repo->view_second_wholesale_list();
+    }
+
+    // 返回【钢琴回收】【单页】视图
+    public function view_recycle_page()
+    {
+        return $this->repo->view_recycle_page();
+    }
+
+
+    // 返回【最新动态】【列表】视图
+    public function view_coverage_list()
+    {
+        return $this->repo->view_coverage_list();
     }
 
 
 
-    //
+    // 【留言】
     public function message_contact()
     {
         return $this->repo->message_contact(request()->all());
     }
-    // 预约看房
-    public function message_grab_yy()
+    // 【询价】
+    public function message_grab_item()
     {
-        return $this->repo->message_grab_yy(request()->all());
+        return $this->repo->message_grab_item(request()->all());
     }
+
     // 专车券
     public function message_grab_zc()
     {

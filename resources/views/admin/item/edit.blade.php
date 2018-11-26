@@ -1,20 +1,24 @@
 @extends('admin.layout.layout')
 
+@section('create-text') 添加内容 @endsection
+@section('edit-text') 添加内容 @endsection
+@section('list-text') 出租内容 @endsection
+
 @section('title')
-    @if($operate == 'create') 添加内容 @else 编辑内容 @endif
+    @if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif
 @endsection
 
 @section('header')
-    @if($operate == 'create') 添加内容 @else 编辑内容 @endif
+    @if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif
 @endsection
 
 @section('description')
-    @if($operate == 'create') 添加内容 @else 编辑内容 @endif
+    @if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif
 @endsection
 
 @section('breadcrumb')
     <li><a href="{{url('/admin')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{url('/admin/item/list')}}"><i class="fa "></i> 内容列表</a></li>
+    <li><a href="{{url('/admin/item/list?category=all')}}"><i class="fa "></i> @yield('list-text')</a></li>
     <li><a href="#"><i class="fa "></i> Here</a></li>
 @endsection
 
@@ -26,7 +30,7 @@
         <div class="box box-info form-container">
 
             <div class="box-header with-border" style="margin:16px 0;">
-                <h3 class="box-title">@if($operate == 'create') 添加内容 @else 编辑内容 @endif</h3>
+                <h3 class="box-title">@if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif</h3>
                 <div class="box-tools pull-right">
                 </div>
             </div>
@@ -35,8 +39,9 @@
             <div class="box-body">
 
                 {{csrf_field()}}
-                <input type="hidden" name="operate" value="{{$operate or ''}}" readonly>
-                <input type="hidden" name="encode_id" value="{{$encode_id or encode(0)}}" readonly>
+                <input type="hidden" name="operate" value="{{ $operate or '' }}" readonly>
+                <input type="hidden" name="encode_id" value="{{ $encode_id or encode(0) }}" readonly>
+
 
                 {{--类别--}}
                 <div class="form-group form-category">
@@ -47,8 +52,8 @@
                             <button type="button" class="btn">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="category" value="1"
-                                           @if($operate == 'edit' && $data->category == 1) checked="checked" @endif> 关于企业模块
+                                        <input type="radio" name="category" value="2"
+                                           @if($operate == 'edit' && $data->category == 2) checked="checked" @endif> 关于企业模块
                                     </label>
                                 </div>
                             </button>
@@ -57,7 +62,7 @@
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="category" value="11"
-                                           @if($operate == 'edit' && $data->category == 11) checked="checked" @endif> 楼盘模块
+                                           @if($operate == 'edit' && $data->category == 11) checked="checked" @endif> 产品模块
                                     </label>
                                 </div>
                             </button>
@@ -65,7 +70,7 @@
                             <button type="button" class="btn">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="category" value="31"
+                                        <input type="radio" name="category" value="41"
                                                @if($operate == 'edit' && $data->category == 31) checked="checked" @endif> 资讯模块
                                     </label>
                                 </div>
@@ -84,69 +89,38 @@
                     </div>
                 </div>
 
+
                 {{--标题--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">标题</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="title" placeholder="请输入标题" value="{{$data->title or ''}}"></div>
+                        <input type="text" class="form-control" name="title" placeholder="请输入标题" value="{{ $data->title or '' }}">
                     </div>
                 </div>
                 {{--标题--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">副标题</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="subtitle" placeholder="请输入副标题" value="{{$data->subtitle or ''}}"></div>
+                        <input type="text" class="form-control" name="subtitle" placeholder="请输入副标题" value="{{ $data->subtitle or '' }}">
                     </div>
                 </div>
                 {{--说明--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">描述</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="description" placeholder="描述" value="{{$data->description or ''}}"></div>
+                        {{--<input type="text" class="form-control" name="description" placeholder="描述" value="{{$data->description or ''}}">--}}
+                        <textarea class="form-control" name="description" rows="3" cols="100%">{{ $data->description or '' }}</textarea>
                     </div>
                 </div>
-                {{--均价--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">均价</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[average]" placeholder="均价" value="{{$data->custom->average or ''}}"></div>
-                    </div>
-                </div>
-                {{--总价--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">总价</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[total]" placeholder="总价" value="{{$data->custom->total or ''}}"></div>
-                    </div>
-                </div>
-                {{--户型--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">户型</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[type]" placeholder="户型" value="{{$data->custom->type or ''}}"></div>
-                    </div>
-                </div>
-                {{--位置--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">位置</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[position]" placeholder="位置" value="{{$data->custom->position or ''}}"></div>
-                    </div>
-                </div>
-                {{--位置--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">开盘时间</label>
-                    <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="custom[start_time]" placeholder="开盘时间" value="{{$data->custom->start_time or ''}}"></div>
-                    </div>
-                </div>
-                {{--说明--}}
+
+                {{--链接地址--}}
                 <div class="form-group _none">
                     <label class="control-label col-md-2">链接地址</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="link_url" placeholder="链接地址" value="{{$data->link_url or ''}}"></div>
+                        <input type="text" class="form-control" name="link_url" placeholder="链接地址" value="{{ $data->link_url or '' }}">
                     </div>
                 </div>
+
                 {{--目录--}}
                 <div class="form-group _none">
                     <label class="control-label col-md-2">目录</label>
@@ -163,7 +137,7 @@
                                 {{--@endforeach--}}
                             {{--@endif--}}
                         </select>
-                        <input type="hidden" value="{{$data->menu_id or 0}}" name="menu_id" id="menu-selected">
+                        <input type="hidden" value="{{ $data->menu_id or 0 }}" name="menu_id" id="menu-selected">
                     </div>
                 </div>
                 {{--目录--}}
@@ -175,6 +149,7 @@
                         </select>
                     </div>
                 </div>
+
                 {{--内容--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">内容详情</label>
@@ -194,6 +169,28 @@
                     </div>
                 </div>
 
+                {{--多图展示--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">多图展示</label>
+                    <div class="col-md-8 fileinput-group">
+                        @if(!empty($data->custom2))
+                            @foreach($data->custom2 as $img)
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="{{ url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img) }}" alt="" />
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                        @endif
+                    </div>
+
+                    <div class="col-md-8 col-md-offset-2 ">
+                        <input id="multiple-images" type="file" class="file-" name="multiple_images[]" multiple >
+                    </div>
+                </div>
+
                 {{--cover 封面图片--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">封面图片</label>
@@ -202,7 +199,7 @@
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
                                 @if(!empty($data->cover_pic))
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic)}}" alt="" />
+                                    <img src="{{ url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic) }}" alt="" />
                                 @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail">
@@ -278,6 +275,11 @@
 <script>
     $(function() {
 
+        $("#multiple-images").fileinput({
+            allowedFileExtensions : [ 'jpg', 'jpeg', 'png', 'gif' ],
+            showUpload: false
+        });
+
         // 添加or编辑
         $("#edit-item-submit").on('click', function() {
             var options = {
@@ -290,7 +292,7 @@
                     else
                     {
                         layer.msg(data.msg);
-                        location.href = "{{url('/admin/item/list')}}";
+                        location.href = "{{url('/admin/item/list?category=all')}}";
                     }
                 }
             };

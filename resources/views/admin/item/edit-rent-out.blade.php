@@ -1,20 +1,24 @@
 @extends('admin.layout.layout')
 
+@section('create-text') 添加出租 @endsection
+@section('edit-text') 添加出租 @endsection
+@section('list-text') 出租列表 @endsection
+
 @section('title')
-    @if($operate == 'create') 添加楼盘 @else 编辑楼盘 @endif
+    @if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif
 @endsection
 
 @section('header')
-    @if($operate == 'create') 添加楼盘 @else 编辑楼盘 @endif
+    @if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif
 @endsection
 
 @section('description')
-    @if($operate == 'create') 添加楼盘 @else 编辑楼盘 @endif
+    @if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif
 @endsection
 
 @section('breadcrumb')
-    <li><a href="{{url('/admin')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{url('/admin/item/list')}}"><i class="fa "></i> 内容列表</a></li>
+    <li><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="{{ url('/admin/item/list?category=rent-out') }}"><i class="fa "></i> @yield('list-text')</a></li>
     <li><a href="#"><i class="fa "></i> Here</a></li>
 @endsection
 
@@ -26,7 +30,7 @@
         <div class="box box-info form-container">
 
             <div class="box-header with-border" style="margin:16px 0;">
-                <h3 class="box-title">@if($operate == 'create') 添加楼盘 @else 编辑楼盘 @endif</h3>
+                <h3 class="box-title">@if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif</h3>
                 <div class="box-tools pull-right">
                 </div>
             </div>
@@ -35,8 +39,8 @@
             <div class="box-body">
 
                 {{csrf_field()}}
-                <input type="hidden" name="operate" value="{{$operate or ''}}" readonly>
-                <input type="hidden" name="encode_id" value="{{$encode_id or encode(0)}}" readonly>
+                <input type="hidden" name="operate" value="{{ $operate or '' }}" readonly>
+                <input type="hidden" name="encode_id" value="{{ $encode_id or encode(0) }}" readonly>
                 <input type="hidden" name="category" value="11" readonly>
 
 
@@ -44,158 +48,100 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">标题</label>
                     <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="title" placeholder="请输入标题" value="{{$data->title or ''}}">
+                        <input type="text" class="form-control" name="title" placeholder="请输入标题" value="{{ $data->title or '' }}">
                     </div>
                 </div>
-                {{--标题--}}
+                {{--副标题--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">副标题</label>
                     <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="subtitle" placeholder="请输入副标题" value="{{$data->subtitle or ''}}">
+                        <input type="text" class="form-control" name="subtitle" placeholder="请输入副标题" value="{{ $data->subtitle or '' }}">
                     </div>
                 </div>
-                {{--说明--}}
+                {{--描述--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">描述</label>
                     <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="description" placeholder="描述" value="{{$data->description or ''}}">
-                        {{--<textarea class="form-control" name="description" rows="3" cols="100%">{{$data->descr、iption or ''}}</textarea>--}}
-                    </div>
-                </div>
-                {{--均价--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">均价</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[average]" placeholder="均价" value="{{$data->custom->average or ''}}">
-                    </div>
-                </div>
-                {{--总价--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">总价</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[total]" placeholder="总价" value="{{$data->custom->total or ''}}">
-                    </div>
-                </div>
-                {{--位置--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">位置</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[position]" placeholder="位置" value="{{$data->custom->position or ''}}">
-                    </div>
-                </div>
-                {{--区域--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">区域</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[district]" placeholder="区域 | jiaxing | jiaxingxiuzhou | jiashan | pinghu | ... " value="{{$data->custom->district or ''}}">
-                    </div>
-                </div>
-                {{--开盘时间--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">开盘时间</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[start_time]" placeholder="开盘时间" value="{{$data->custom->start_time or ''}}">
-                    </div>
-                </div>
-                {{--入住时间--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">交房时间</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[live_time]" placeholder="交房时间" value="{{$data->custom->live_time or ''}}">
-                    </div>
-                </div>
-                {{--开发商--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">开发商</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[developer]" placeholder="开发商" value="{{$data->custom->developer or ''}}">
-                    </div>
-                </div>
-                {{--产权--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">产权</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[property_rights]" placeholder="产权" value="{{$data->custom->property_rights or ''}}">
-                    </div>
-                </div>
-                {{--户数--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">户数</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[households]" placeholder="户数" value="{{$data->custom->households or ''}}">
-                    </div>
-                </div>
-                {{--建筑面积--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">建筑面积</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[acreage]" placeholder="建筑面积（单位 m2）" value="{{$data->custom->acreage or ''}}">
-                    </div>
-                </div>
-                {{--容积率--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">容积率</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[capacity_rate]" placeholder="容积率" value="{{$data->custom->capacity_rate or ''}}">
-                    </div>
-                </div>
-                {{--绿化率--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">绿化率</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[greening_rate]" placeholder="绿化率" value="{{$data->custom->greening_rate or ''}}">
-                    </div>
-                </div>
-                {{--装修状态--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">装修状态</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[decoration]" placeholder="装修状态" value="{{$data->custom->decoration or ''}}">
-                    </div>
-                </div>
-                {{--户型--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">户型</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[type]" placeholder="户型" value="{{$data->custom->type or ''}}">
-                    </div>
-                </div>
-                {{--物业类型--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">物业类型</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[manager_type]" placeholder="物业类型" value="{{$data->custom->manager_type or ''}}">
-                    </div>
-                </div>
-                {{--物业公司--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">物业公司</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[manager_company]" placeholder="物业公司" value="{{$data->custom->property_company or ''}}">
-                    </div>
-                </div>
-                {{--物业费用--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">物业费用</label>
-                    <div class="col-md-8 ">
-                        <input type="text" class="form-control" name="custom[manager_cost]" placeholder="物业费用（单价 /m2/月）" value="{{$data->custom->manager_cost or ''}}">
-                    </div>
-                </div>
-                {{--楼盘详情--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">楼盘详情</label>
-                    <div class="col-md-8 ">
-                        {{--<input type="text" class="form-control" name="custom[description]" placeholder="" value="{{$data->custom->manager_cost or ''}}">--}}
-                        <textarea class="form-control" name="custom[description]" rows="3" cols="100%">{{$data->custom->description or ''}}</textarea>
+                        {{--<input type="text" class="form-control" name="description" placeholder="描述" value="{{ $data->description or '' }}">--}}
+                        <textarea class="form-control" name="description" rows="3" cols="100%">{{ $data->description or ''}}</textarea>
                     </div>
                 </div>
 
-                {{--最新动态--}}
+                {{--租金--}}
                 <div class="form-group">
-                    <label class="control-label col-md-2">最新动态</label>
+                    <label class="control-label col-md-2">租金</label>
                     <div class="col-md-8 ">
-                        {{--<input type="text" class="form-control" name="custom[description]" placeholder="" value="{{$data->custom->manager_cost or ''}}">--}}
-                        <textarea class="form-control" name="custom[recent_news]" rows="3" cols="100%">{{$data->custom->recent_news or ''}}</textarea>
+                        <input type="text" class="form-control" name="custom[price]" placeholder="租金" value="{{ $data->custom->price or '' }}">
+                    </div>
+                </div>
+                {{--押金--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">押金</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[deposit]" placeholder="押金" value="{{ $data->custom->deposit or '' }}">
+                    </div>
+                </div>
+                {{--品牌--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">品牌</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[brand]" placeholder="品牌" value="{{ $data->custom->brand or '' }}">
+                    </div>
+                </div>
+                {{--型号--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">型号</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[model]" placeholder="型号" value="{{ $data->custom->model or '' }}">
+                    </div>
+                </div>
+                {{--品牌所属地--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">品牌所属地</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[brand_place]" placeholder="品牌所属地" value="{{ $data->custom->brand_place or '' }}">
+                    </div>
+                </div>
+                {{--产地--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">产地</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[production_place]" placeholder="产地" value="{{ $data->custom->production_place or '' }}">
+                    </div>
+                </div>
+                {{--款式--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">款式</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[style]" placeholder="款式" value="{{ $data->custom->style or '' }}">
+                    </div>
+                </div>
+                {{--系列--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">系列</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[series]" placeholder="系列" value="{{ $data->custom->series or '' }}">
+                    </div>
+                </div>
+                {{--尺寸--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">尺寸</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[size]" placeholder="尺寸" value="{{ $data->custom->size or '' }}">
+                    </div>
+                </div>
+                {{--外观颜色--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">外观颜色</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[outer_color]" placeholder="外观颜色" value="{{ $data->custom->outer_color or '' }}">
+                    </div>
+                </div>
+                {{--金属件颜色--}}
+                <div class="form-group">
+                    <label class="control-label col-md-2">金属件颜色</label>
+                    <div class="col-md-8 ">
+                        <input type="text" class="form-control" name="custom[metal_color]" placeholder="金属件颜色" value="{{ $data->custom->metal_color or '' }}">
                     </div>
                 </div>
 
@@ -203,7 +149,7 @@
                 <div class="form-group _none">
                     <label class="control-label col-md-2">链接地址</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="link_url" placeholder="链接地址" value="{{$data->link_url or ''}}"></div>
+                        <div><input type="text" class="form-control" name="link_url" placeholder="链接地址" value="{{ $data->link_url or '' }}"></div>
                     </div>
                 </div>
 
@@ -223,7 +169,7 @@
                                 {{--@endforeach--}}
                             {{--@endif--}}
                         </select>
-                        <input type="hidden" value="{{$data->menu_id or 0}}" name="menu_id" id="menu-selected">
+                        <input type="hidden" value="{{ $data->menu_id or 0 }}" name="menu_id" id="menu-selected">
                     </div>
                 </div>
 
@@ -232,7 +178,7 @@
                     <label class="control-label col-md-2">添加目录</label>
                     <div class="col-md-8 ">
                         <select name="menus[]" id="menus" multiple="multiple" style="width:100%;">
-                            {{--<option value="{{$data->people_id or 0}}">{{$data->people->name or '请选择作者'}}</option>--}}
+                            {{--<option value="{{ $data->people_id or 0}}">{{ $data->people->name or '请选择作者'}}</option>--}}
                         </select>
                     </div>
                 </div>
@@ -256,15 +202,15 @@
                     </div>
                 </div>
 
-                {{--户型图--}}
+                {{--多图展示--}}
                 <div class="form-group">
-                    <label class="control-label col-md-2">户型图</label>
+                    <label class="control-label col-md-2">多图展示</label>
                     <div class="col-md-8 fileinput-group">
                         @if(!empty($data->custom2))
                             @foreach($data->custom2 as $img)
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
-                                        <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
+                                        <img src="{{ url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img) }}" alt="" />
                                     </div>
                                 </div>
                             @endforeach
@@ -274,29 +220,7 @@
                     </div>
 
                     <div class="col-md-8 col-md-offset-2 ">
-                        <input id="house-type-images" type="file" class="file-" name="house_type_images[]" multiple >
-                    </div>
-                </div>
-
-                {{--样板图--}}
-                <div class="form-group">
-                    <label class="control-label col-md-2">样板图</label>
-                    <div class="col-md-8 fileinput-group">
-                        @if(!empty($data->custom3))
-                            @foreach($data->custom3 as $img)
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="fileinput-new thumbnail">
-                                        <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
-                        @endif
-                    </div>
-
-                    <div class="col-md-8 col-md-offset-2 ">
-                        <input id="house-template-images" type="file" class="file-" name="house_template_images[]" multiple >
+                        <input id="multiple-images" type="file" class="file-" name="multiple_images[]" multiple >
                     </div>
                 </div>
 
@@ -308,7 +232,7 @@
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
                                 @if(!empty($data->cover_pic))
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic)}}" alt="" />
+                                    <img src="{{ url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic) }}" alt="" />
                                 @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail">
@@ -384,12 +308,7 @@
 <script>
     $(function() {
 
-        $("#house-type-images").fileinput({
-            allowedFileExtensions : [ 'jpg', 'jpeg', 'png', 'gif' ],
-            showUpload: false
-        });
-
-        $("#house-template-images").fileinput({
+        $("#multiple-images").fileinput({
             allowedFileExtensions : [ 'jpg', 'jpeg', 'png', 'gif' ],
             showUpload: false
         });
@@ -406,7 +325,7 @@
                     else
                     {
                         layer.msg(data.msg);
-                        location.href = "{{url('/admin/item/list?category=house')}}";
+                        location.href = "{{url('/admin/item/list?category=rent-out')}}";
                     }
                 }
             };

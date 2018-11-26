@@ -30,7 +30,7 @@
 
     <div id="site-banner" class="text-center clearfix">
         <div class="container">
-            <h1 class="title wow slideInLeft">联系我们 / 预约看房</h1>
+            <h1 class="title wow slideInLeft">联系我们</h1>
             <ol class="breadcrumb wow slideInRight">
                 <li><a href="index.html">主页</a></li>
                 <li class="active">联系我们</li>
@@ -40,9 +40,9 @@
     <div id="contact-page" class="contact-page-var-one">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-sm-6 col-md-7 col-md-8">
                     <div class="contact-form-wrapper">
-                        <h3 class="entry-title">联系我们 / 预约看房</h3>
+                        <h3 class="entry-title">联系我们</h3>
                         <div class="contents">
                             <p>我们会尽快联系您！</p>
                         </div>
@@ -66,7 +66,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-6 col-md-5 col-lg-4">
                     <div class="contact-page-contents clearfix">
                         <div class="row">
                             <div class="col-md-12">

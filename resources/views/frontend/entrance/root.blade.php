@@ -28,32 +28,12 @@
 @section('custom-content')
 
     <style>
-        .slide.slick-slide img { width: 100%; height: 480px; object-fit:cover; }
+        @media screen and (max-width: 992px) {
+            #home-features-section .container .row>div:nth-child(2n+1) { clear: left; }
+        }
     </style>
     {{--banner--}}
-    <div class="main-slider-wrapper clearfix">
-        <div id="main-slider">
-            <div class="slide"><img src="{{ url('/common/images/banner01.jpeg') }}" alt="Slide"></div>
-            <div class="slide"><img src="{{ url('/common/images/banner02.jpeg') }}" alt="Slide"></div>
-            <div class="slide"><img src="{{ url('/common/images/banner03.jpeg') }}" alt="Slide"></div>
-            {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/1.jpg') }}" alt="Slide"></div>--}}
-            {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/2.jpg') }}" alt="Slide"></div>--}}
-            {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/3.jpg') }}" alt="Slide"></div>--}}
-            {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/4.jpg') }}" alt="Slide"></div>--}}
-        </div>
-        <div id="slider-contents">
-            <div class="container text-center">
-                <div class="jumbotron">
-                    <h1>上海盛贝房地产营销策划有限公司</h1>
-                    <div class="contents clearfix">
-                        <p class="font-24px"><b>邻里中心  领衔未来人居</b></p>
-                    </div>
-                    <a class="btn btn-warning btn-lg btn-3d" data-hover="预约看房" href="{{ url('/contact') }}" role="button">预约看房</a>
-                    <a class="btn btn-default btn-border btn-lg" href="javascript:void(0);" role="button">Get a Quote</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('frontend.component.banner-for-root')
 
     {{----}}
     <div id="advance-search" class="main-page clearfix _none">
@@ -189,172 +169,19 @@
     </div>
 
 
-    {{--main--}}
-    <section id="home-property-listing" class="">
-        <header class="section-header home-section-header text-center">
-            <div class="container">
-                <h2 class="wow slideInRight">楼盘展示</h2>
-                <p class="wow slideInLeft font-20px"><b>专业经纪人帮你找好房源</b></p>
-            </div>
-        </header>
-        <div class="container">
-            <div class="row">
-                @foreach($houses as $v)
-                    <div class="col-lg-4 col-sm-6 layout-item-wrap">
-                        <article class="property layout-item clearfix">
-                            <figure class="feature-image" style="height:240px; max-height:240px; overflow:hidden;">
-                                <a class="clearfix zoom-" target="_blank"  href="{{ url('/house/'.$v->id) }}">
-                                    <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
-                                </a>
-                                <span class="btn btn-warning btn-sale">热销中</span>
-                            </figure>
-                            <div class="property-contents clearfix">
-                                <header class="property-header clearfix">
-                                    <div class="pull-left">
-                                        <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
-                                        <span><i class="fa fa-cny"></i> {{ $v->custom->average or '' }} </span>
-                                        <span class="property-location"><i class="fa fa-map-marker"></i> {{ $v->custom->position or '' }} </span>
-                                    </div>
-                                    <a class="_none" target="_blank" href="{{ url('/house/'.$v->id) }}">
-                                        <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看">
-                                                <strong>查看详情^^^</strong>
-                                        </button>
-                                    </a>
-                                </header>
-                                <div class="property-meta clearfix">
-                                    <span class="_none"><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
-                                    <span class="_none"><i class="fa fa-bed"></i> {{ $v->custom->average or '' }} </span>
-                                    <span class="_none"><i class="fa fa-bathtub"></i> {{ $v->custom->total or '' }} </span>
-                                    <span class="_none"><i class="fa fa-cab"></i> Yes</span>
+    @include('frontend.module.root-rent-out', ['items'=>$rent_items])
 
-                                    <a target="_blank" href="{{ url('/house/'.$v->id) }}">
-                                        <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看">
-                                            <strong>查看详情</strong>
-                                        </button>
-                                    </a>
-                                </div>
-                                <div class="contents clearfix">
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. </p>
-                                </div>
-                                <div class="author-box clearfix">
-                                    <a href="index.html#" class="author-img"><img src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Agent Image"></a>
-                                    <cite class="author-name">Personal Seller: <a href="index.html#">Linda Garret</a></cite>
-                                    <span class="phone"><i class="fa fa-phone"></i> 00894 692-49-22</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        <header class="section-header home-section-header text-center">
-            <div class="container">
-                <a href="{{ url('/houses') }}" class="view-more">查看更多 <i class="fa fa-hand-o-right"></i></a>
-            </div>
-        </header>
-    </section>
+    @include('frontend.module.root-cooperation', ['items'=>$cooperation_items])
 
+    @include('frontend.module.root-second-wholesale', ['items'=>$wholesale_items])
 
-    {{--下载APP--}}
-    <section id="announcement-section" class="text-center">
-        <div class="container ">
-            <h2 class="title wow slideInLeft">权威发布</h2>
-            <p class="wow slideInRight font-20px">发布最新升值最快房源信息，扫码关注官方微信！</p>
-            <a class="btn" href="javascript:void(0);"><img src="{{ url(config('company.info.wechat_qrcode')) }}" alt="ISO Button" style="width:128px;"></a>
-            <a class="btn _none" href="javascript:void(0);"><img src="{{ url(config('company.info.wechat_qrcode')) }}" alt="Play Store Button"></a>
-        </div>
-    </section>
+    @include('frontend.module.root-recycle')
 
+    @include('frontend.module.root-advantage')
 
-    {{--最新资讯--}}
-    <section id="home-property-for-rent-listing" style="display:none-;">
-        <header class="section-header home-section-header text-center">
-            <div class="container">
-                <h2 class="wow slideInLeft">最新资讯</h2>
-                <p class="wow slideInRight font-20px">随时了解最新资讯，掌握市场动态</p>
-            </div>
-        </header>
-        <div class="container">
-            <div class="row">
-                <div id="property-for-rent-slider">
-                    @foreach($informations as $v)
-                        <div class="col-lg-4 col-md-6">
-                            <article class="property clearfix">
-                                <figure class="feature-image">
-                                    <a class="clearfix" href="{{ url('/information/'.$v->id) }}">
-                                        <img src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
-                                    </a>
-                                </figure>
-                                <div class="property-contents">
-                                    <header class="property-header clearfix">
-                                        <div class="pull-left">
-                                            <h6 class="entry-title"><a href="{{ url('/house') }}">{{ $v->title or '' }}</a></h6>
-                                            <span class="property-location _none"><i class="fa fa-map-marker"></i> 14 Tottenham Road, London</span>
-                                        </div>
-                                        <a href="{{ url('/information/'.$v->id) }}" class="btn btn-default btn-price pull-right btn-3d" data-hover="查看详情"><strong>查看详情</strong></a>
-                                    </header>
-                                    <div class="property-meta clearfix _none">
-                                        <span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
-                                        <span><i class="fa fa-bed"></i> 3 Beds</span>
-                                        <span><i class="fa fa-bathtub"></i> 3 Baths</span>
-                                        <span><i class="fa fa-cab"></i> Yes</span>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('frontend.module.root-coverage', ['items'=>$coverage_items])
 
-
-    <style>
-        @media screen and (max-width: 992px) {
-            #home-features-section .container .row>div:nth-child(2n+1) { clear: left; }
-        }
-    </style>
-    {{--优势--}}
-    <section id="home-features-section" class="text-center">
-        <header class="section-header home-section-header">
-            <div class="container">
-                <h2 class="wow slideInRight">为什么选择我们？</h2>
-                <p class="wow slideInLeft"></p>
-            </div>
-        </header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-xs-6">
-                    <div class="feature clearfix">
-                        <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/1.png') }}" alt="Feature Icon"></i>
-                        <h6 class="entry-title font-20px">实力强 </h6>
-                        <p>房源实力雄厚，从市场上来说，我司选择的房源使用更好材料；从设计上来说，我司选择的房源更有能力和资金在商业配套、景观设计等方面投入开发。  </p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <div class="feature clearfix">
-                        <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/2.png') }}" alt="Feature Icon"></i>
-                        <h6 class="entry-title font-20px">风险小  </h6>
-                        <p>买房子不是一锥子买卖，相比于其他房源，我们的选择的房源更注重口碑和声誉，房源证件齐全，收房放心。 </p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <div class="feature clearfix">
-                        <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/3.png') }}" alt="Feature Icon"></i>
-                        <h6 class="entry-title font-20px">物业好  </h6>
-                        <p>真正的精致生活居所不仅在于硬件设施的完美与奢华，更在于提供全面的增值服务。我司房源更加注重后期管理和服务，物业质量较高。 　</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <div class="feature clearfix">
-                        <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/4.png') }}" alt="Feature Icon"></i>
-                        <h6 class="entry-title font-20px">眼光好  </h6>
-                        <p>我司选择的房源开发商往往拥有十余年甚至数十年的房产开发经历，经验丰富。也许若干年后，当初同价位的房子因为区域的不同价格早已不可同日而语，即便是同一地段的房子，我司房源的价格也会涨得比周围多的多，如果是投资的话，那就更得选择我们了。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('frontend.module.root-qrcode')
 
 
 @endsection

@@ -133,10 +133,10 @@
                         render: function(data, type, row, meta) {
                             if(data == 0) return '<small class="label bg-blue">自定义内容</small>';
                             else if(data == 1) return '<small class="label btn-info">一般留言</small>';
-                            else if(data == 11) return '<small class="label bg-blue">预约看房</small>';
-                            else if(data == 12) return '<small class="label bg-green">抢专车券</small>';
-                            else if(data == 13) return '<small class="label bg-purple">价格动态</small>';
-                            else if(data == 14) return '<small class="label bg-teal">开盘提醒</small>';
+                            else if(data == 11) return '<small class="label bg-blue">租琴</small>';
+                            else if(data == 12) return '<small class="label bg-green"></small>';
+                            else if(data == 13) return '<small class="label bg-purple"></small>';
+                            else if(data == 14) return '<small class="label bg-teal"></small>';
                             else return '未知模块';
                         }
                     },

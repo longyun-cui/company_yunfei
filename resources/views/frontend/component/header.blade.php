@@ -1,5 +1,5 @@
 {{--header--}}
-<header id="site-header" style="padding: 16px 0;">
+<header id="site-header" class="header-container" style="">
 
     {{--选择语言--}}
     <div id="site-header-top" class="_none">
@@ -42,94 +42,74 @@
         </div>
     </div>
 
-    <style>
-        .downlist {
-            position: absolute;
-            width: auto;
-            min-width: 160px;
-            height: auto;
-            padding: 16px 32px;
-            margin-left: -40px;
-            margin-top: 0;
-            border: 1px solid #000;
-            background:#000;
-            filter:alpha(opacity=60);
-            -khtml-opacity: 0.6;
-            -moz-opacity:0.6;
-            opacity: 0.6;
-            z-index:100;
-            overflow: hidden;
-        }
-        #site-nav .downlist a {
-            display:inline-block;
-            width: 100%;
-            height: 36px;
-            padding: 8px;
-            margin: 2px;
-            border-bottom: 1px solid #aaa;
-            color: #fff;
-            filter:alpha(opacity=100);
-            -khtml-opacity: 1;
-            -moz-opacity:1;
-            opacity: 1;
-            white-space: nowrap;
-            overflow: hidden;
-            float:left;
-        }
-        #site-nav li {
-            padding-left: 8px;
-            padding-right: 8px;
-        }
-        #site-logo a {
-            font-size:24px;
-            line-height: 52px;
-        }
-
-    </style>
 
     {{--header--}}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <figure id="site-logo">
-                    <a href="{{ url('/') }}"><img src="{{ url('/templates/moban2030/assets/images/logo.png') }}" alt="Logo"></a>
-{{--                    <a href="{{ url('/') }}"><img src="{{ url(config('company.info.logo')) }}" alt="Logo"></a>--}}
-                    {{--<a href="{{ url('/') }}">{{ config('company.info.brand') }}</a>--}}
-                </figure>
-            </div>
-            <div class="col-md-6 col-sm-8">
-                <nav id="site-nav" class="nav navbar-default">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/') }}">首页</a></li>
-                        <li class="nav_nohover hlzb"  drop-down='downlist4'>
-                            <a href="{{ url('/houses') }}">楼盘</a>
+    <div class="full-screen">
 
-                            <div class="downlist downlist4 _none" style="">
-                                <div class="d_menu">
-                                    @foreach($houses as $v)
-                                    <a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="{{ url('/informations') }}">资讯动态</a></li>
-                        {{--<li><a href="single-property.html">Property</a></li>--}}
-                        {{--<li><a href="gallery.html">Gallery</a></li>--}}
-                        <li><a href="{{ url('/contact') }}">联系我们</a></li>
-                    </ul>
-                </nav>
+        <div class="header-site pull-left" id="site-logo">
 
+            <div class="logo-site pull-left">
+                <a href="{{ url('/') }}"><img src="{{ url(config('company.info.logo')) }}" alt="Logo"></a>
+                <a href="{{ url('/') }}">{{ config('company.info.name') }}</a>
             </div>
-            <div class="col-md-3 col-sm-4">
-                <div class="contact-in-header clearfix">
-                    <i class="fa fa-mobile"></i>
-                    <span>
-                        敬请来电 <br>
-                        <a href="tel:{{ config('company.info.telephone') }}"><strong>{{ config('company.info.telephone') }}</strong></a>
-                    </span>
-                </div>
-            </div>
+
         </div>
+
+
+        <a href="javascript:void(0);" class="header-burger-menu visible-xs visible-sm"><i>Menu</i></a>
+
+        <div class="header-site pull-right">
+
+            <nav class="nav-site nav navbar-default- pull-left" id="site-nav-">
+                <ul class="nav- navbar-nav nav-bar">
+
+                    <li><a href="{{ url('/') }}">首页</a></li>
+                    <li><a href="{{ url('/rent-out/list') }}">租琴</a></li>
+                    <li><a href="{{ url('/second-wholesale/list') }}">二手批发</a></li>
+                    <li><a href="{{ url('/recycle/page') }}">钢琴回收</a></li>
+                    <li><a href="{{ url('/coverage/list') }}">资讯动态</a></li>
+                    <li><a href="{{ url('/contact') }}">联系我们</a></li>
+
+                    {{--<li class="nav_nohover hlzb"  drop-down='downlist4'>--}}
+                        {{--<a href="{{ url('/item/list') }}">下拉框</a>--}}
+                        {{--<div class="downlist downlist4 _none" style="">--}}
+                            {{--<div class="d_menu">--}}
+                                {{--@foreach($header_items as $v)--}}
+                                {{--<a href="{{ url('/item/'.$v->id) }}">{{ $v->title or '' }}</a>--}}
+                                {{--@endforeach--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</li>--}}
+
+                    <li class="header-wechat wechat-box" role="button">
+                        <a href="javascript:void(0);" rel="nofollow">
+                            <i class="fa fa-weixin"></i> <b>微信客服</b>
+                        </a>
+                        <span class="image-box">
+                            <img src="{{ config('company.info.wechat_qrcode') }}" alt="Wechat QRCode">
+                        </span>
+                    </li>
+
+                    <li class="mobile-box">
+                        <div class="mobile-icon-inn">
+                            <i class="fa fa-mobile"></i>
+                        </div>
+                        <div class="mobile-main-inn">
+                            <a href="tel:{{ config('company.info.telephone') }}">
+                                <b>{{ config('company.info.telephone') }}</b>
+                            </a>
+                            {{--<span class="text-row"><b>24Hours</b></span><br>--}}
+                            {{--<span class="number-row">--}}
+                            {{--<a href="tel:{{ config('company.info.telephone') }}"><b>{{ config('company.info.telephone') }}</b></a>--}}
+                            {{--</span>--}}
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+
     </div>
 
 </header>

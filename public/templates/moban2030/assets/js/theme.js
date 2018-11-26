@@ -97,8 +97,8 @@ $(function () {
             ]
         });
 
-        $('#property-for-rent-slider').slick({
-            slidesToShow: 3,
+        $('.root-slider').slick({
+            slidesToShow: 4,
             slidesToScroll: 1,
             dots: false,
             infinite: true,

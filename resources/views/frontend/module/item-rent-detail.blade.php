@@ -2,19 +2,9 @@
 <div id="property-single">
 
     <style>
-        #main-slider .slick-slide img { width: 100%; height: 480px; object-fit:cover; }
         #property-single .common .entry-title { padding-bottom: 8px; }
         #property-single .common .entry-title .text-center { margin-top: 16px; }
     </style>
-    <div id="main-slider">
-        <div class="slide"><img src="{{ url('/common/images/banner01.jpeg') }}" alt="Slide"></div>
-        <div class="slide"><img src="{{ url('/common/images/banner02.jpeg') }}" alt="Slide"></div>
-        <div class="slide"><img src="{{ url('/common/images/banner03.jpeg') }}" alt="Slide"></div>
-        {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/1.jpg') }}" alt="Slide"></div>--}}
-        {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/2.jpg') }}" alt="Slide"></div>--}}
-        {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/3.jpg') }}" alt="Slide"></div>--}}
-        {{--<div class="slide"><img src="{{ url('/templates/moban2030/assets/images/slider/4.jpg') }}" alt="Slide"></div>--}}
-    </div>
 
     <div class="container">
         <div class="row">
@@ -25,7 +15,8 @@
                 <section class="property-meta-wrapper common">
                     <div class="entry-title clearfix">
                         <h3 class="text-center">{{ $data->title or '' }}</h3>
-                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+                        {{--<a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>--}}
+                        <a class="pull-right print-btn font-14px" href="javascript:void(0);">浏览 ({{ $data->visit_num or '' }}) 次</a>
                     </div>
 
                     <div class="property-single-meta">
@@ -41,23 +32,17 @@
                                 </style>
                                 <ul class="clearfix">
                                     <li>
-                                        <span>参考单价 :</span>
-                                        <span class="custom-average"><b>{{ $data->custom->average or '' }}/m²</b></span>
-                                        <a class="show-modal-jg" href="javascript:void(0);">获取最新价格变动</a>
+                                        <span>租金 :</span>
+                                        <span class="custom-average"><b>{{ $data->custom->price or '' }}</b></span>
+                                        <a class="show-modal-item" href="javascript:void(0);">资讯价格</a>
                                     </li>
-                                    <li><span>参考总价 :</span> {{ $data->custom->total or '' }} </li>
-                                    <li><span>楼盘地址 :</span> {{ $data->custom->position or '' }} </li>
-                                    <li><span>开发商 :</span> {{ $data->custom->developer or '' }} </li>
-                                    <li><span>产权 :</span> {{ $data->custom->property_rights or '' }} </li>
-                                    <li><span>楼盘户数 :</span> {{ $data->custom->households or '' }} </li>
-                                    <li><span>楼盘户型 :</span> {{ $data->custom->type or '' }} </li>
-                                    <li><span>装修状态 :</span> {{ $data->custom->decoration or '' }} </li>
-                                    <li><span>交房时间 :</span> {{ $data->custom->live_time or '' }} </li>
-                                    <li><span>物业公司 :</span> {{ $data->custom->manager_company or '' }} </li>
                                     <li>
-                                        <span>最新开盘时间 :</span> {{ $data->custom->start_time or '' }}
-                                        <a class="show-modal-kp" href="javascript:void(0);">关注下次开盘时间</a>
+                                        <span>押金 :</span>
+                                        <span><b>{{ $data->custom->deposit or '' }}</b></span>
+                                        {{--<a class="show-modal-jg" href="javascript:void(0);">获取最新价格变动</a>--}}
                                     </li>
+                                    <li><span>品牌 :</span> {{ $data->custom->brand or '' }} </li>
+                                    <li><span>型号 :</span> {{ $data->custom->model or '' }} </li>
                                 </ul>
 
                                 <!--免费专车-->
@@ -69,7 +54,7 @@
                                     .free-car .ticket { padding: 12px 24px; border-radius: 2px; font-size:20px; color: #ff6d6f; border: 2px solid #ff6d6f; }
                                     .free-car .ticket:hover { color: #22f3ae; border: 2px solid #22f3ae; }
                                 </style>
-                                <div class="row">
+                                <div class="row _none">
                                     <div class="free-car">
                                         <div class="car-top">
                                             <p class="tit"><b>免费专车</b></p>
@@ -198,7 +183,7 @@
 
 
             {{--最新动态--}}
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-md-12 _none">
                 <section class="property-contents common">
                     <div class="entry-title clearfix">
                         <h3 class="text-center"> 最新动态 </h3>
@@ -224,7 +209,7 @@
                 .property-contents td { width:50%;float:left; }
             </style>
             {{--基本信息--}}
-            <div class="col-lg-12 col-md-12 _none">
+            <div class="col-lg-12 col-md-12">
                 <section class="property-contents common">
                     <div class="entry-title clearfix">
                         <h3 class="text-center"> 基本信息 </h3>
@@ -235,67 +220,54 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <label>开盘时间：</label>
-                                    <span>{{ $data->custom->start_time or '' }}</span>
+                                    <label>品牌：</label>
+                                    <span>{{ $data->custom->brand or '' }}</span>
                                 </td>
                                 <td>
-                                    <label>入住时间：</label>
-                                    <span>{{ $data->custom->live_time or '' }}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>开&nbsp;发&nbsp;商&nbsp;：</label>
-                                    <span>{{ $data->custom->developer or '' }}</span>
-                                </td>
-                                <td>
-                                    <label>产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;权：</label>
-                                    <span>{{ $data->custom->property_rights or '' }}</span>
+                                    <label>型号：</label>
+                                    <span>{{ $data->custom->model or '' }}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>建筑面积：</label>
-                                    <span>{{ $data->custom->acreage or '' }} m<sup>2</sup></span>
+                                    <label>品牌所属地：</label>
+                                    <span>{{ $data->custom->brand_place or '' }}</span>
                                 </td>
                                 <td>
-                                    <label>户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数：</label>
-                                    <span>{{ $data->custom->households or '' }}</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>容&nbsp;积&nbsp;率&nbsp;：</label>
-                                    <span>{{ $data->custom->capacity_rate or '' }}</span>
-                                </td>
-                                <td>
-                                    <label>绿&nbsp;化&nbsp;率&nbsp;：</label>
-                                    <span>{{ $data->custom->greening_rate or '' }}</span>
+                                    <label>产地：</label>
+                                    <span>{{ $data->custom->production_place or '' }}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>装修状态：</label>
-                                    <span>{{ $data->custom->decoration or '' }}</span>
+                                    <label>款式：</label>
+                                    <span>{{ $data->custom->style or '' }}</span>
                                 </td>
                                 <td>
-                                    <label>物业类型：</label>
-                                    <span>{{ $data->custom->manager_type or '' }}</span>
+                                    <label>系列：</label>
+                                    <span>{{ $data->custom->series or '' }}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>物业公司：</label>
-                                    <span>{{ $data->custom->manager_company or '' }}</span>
+                                    <label>尺寸：</label>
+                                    <span>{{ $data->custom->size or '' }}</span>
+                                    {{--<span>{{ $data->custom->size or '' }} m<sup>2</sup></span>--}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>外观颜色：</label>
+                                    <span>{{ $data->custom->outer_color or '' }}</span>
                                 </td>
                                 <td>
-                                    <label>物&nbsp;业&nbsp;费&nbsp;：</label>
-                                    <span>{{ $data->custom->manager_cost or '' }}元/m<sup>2</sup>/月</span>
+                                    <label>金属件颜色：</label>
+                                    <span>{{ $data->custom->metal_color or '' }}</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2" class="details" style="width:100%;">
-                                    <label>楼盘详情：</label>
+                                    <label>描述：</label>
                                     <span>{{ $data->custom->description or '' }}</span>
                                 </td>
                             </tr>
@@ -311,36 +283,12 @@
             <div class="col-lg-12 col-md-12">
                 <section class="property-contents common">
                     <div class="entry-title clearfix">
-                        <h3 class="text-center"> 户型图 </h3>
+                        <h3 class="text-center"> 图片展示 </h3>
                         <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
                     </div>
                     <div id="house-type-images">
                         @if(count($data->custom2) > 0)
                             @foreach($data->custom2 as $img)
-                                <article class="property clearfix">
-                                    <figure class="feature-image" style="height:240px; max-height:240px; overflow:hidden;">
-                                        <a class="clearfix zoom lightcase-image" data-rel="lightcase" href="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}">
-                                            <img data-action="zoom-" src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}" alt="" />
-                                        </a>
-                                    </figure>
-                                </article>
-                            @endforeach
-                        @endif
-                    </div>
-                </section>
-            </div>
-
-
-            {{--样板图--}}
-            <div class="col-lg-12 col-md-12">
-                <section class="property-contents common">
-                    <div class="entry-title clearfix">
-                        <h3 class="text-center"> 样板图 </h3>
-                        <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
-                    </div>
-                    <div id="house-template-images">
-                        @if(count($data->custom3) > 0)
-                            @foreach($data->custom3 as $img)
                                 <article class="property clearfix">
                                     <figure class="feature-image" style="height:240px; max-height:240px; overflow:hidden;">
                                         <a class="clearfix zoom lightcase-image" data-rel="lightcase" href="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$img->img)}}">
@@ -859,17 +807,17 @@
 
                     {{----}}
                     <section class="widget recent-properties clearfix">
-                        <h4 class="title" style="margin-bottom:32px;padding-bottom:16px;font-size:24px;line-height:24px; border-bottom:1px solid #eee;"><b>其他楼盘</b></h4>
-                        @foreach($houses as $v)
+                        <h4 class="title" style="margin-bottom:32px;padding-bottom:16px;font-size:24px;line-height:24px; border-bottom:1px solid #eee;"><b>热门租琴</b></h4>
+                        @foreach($rent_items as $v)
                             <div class="col-lg-4 col-md-4 ">
                                 <div class="property clearfix">
-                                    <a href="{{ url('/house/'.$v->id) }}" class="feature-image zoom-">
+                                    <a href="{{ url('/item/'.$v->id) }}" class="feature-image zoom-">
                                         <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
                                     </a>
                                     <div class="property-contents">
-                                        <h6 class="entry-title"><a href="{{ url('/house/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
-                                        <span class="btn-price">单价：{{ $v->custom->average or '' }}</span>
-                                        <span class="btn-price">总价：{{ $v->custom->total or '' }}</span>
+                                        <h6 class="entry-title"><a href="{{ url('/item/'.$v->id) }}">{{ $v->title or '' }}</a></h6>
+                                        <span class="btn-price">租金：{{ $v->custom->price or '' }}</span>
+                                        <span class="btn-price">押金：{{ $v->custom->deposit or '' }}</span>
                                         <div class="property-meta clearfix _none">
                                             <span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>
                                             <span><i class="fa fa-bed"></i> 3 Beds</span>
@@ -914,170 +862,3 @@
     </div>
 
 </div>
-
-
-
-<style>
-
-    .modal-open .modal { display: block; }
-
-    .dialog{position:relative;width:500px;border-radius:15px;background-color:#fff;overflow:hidden; }
-    .dialog .dialog-close{position:absolute;top:10px;right:12px}
-    .dialog .dialog-close:hover{text-decoration:none}
-    .dialog .dialog-close .icon{font-size:22px;color:#a1a1a1}
-    .dialog .ipt-area{overflow:hidden}
-    .dialog .ipt-area .ipt{width:370px;height:32px;padding:0 14px;border:solid 1px #eaeaea}
-    .dialog .ipt-area .error-msg{clear:both;text-align:center;color:#ff6d6f;width:100%;height:30px;line-height:30px;overflow:hidden}
-    .dialog .ipt-area .error-msg span{display:none}
-    .dialog .btn3{width:250px;padding:0;border-radius:4px;background-color:#48b3e2}
-    .dialog .btn3:hover{text-decoration:none;background-color:#64c2eb}
-
-    .dialog .ipt-area input::-webkit-input-placeholder{color:#b7b7b7}
-
-    .dialog .chart-area{width:100%;height:196px;background-color:#48b3e2}
-    .dialog .chart-area #chart{width:100%;height:100%}
-    .dialog .content{text-align:center;padding:18px 50px 28px 50px;background-color:#fff}
-    .dialog .content .con-info{font-size:14px;color:#666;text-align:left;line-height:24px;margin-bottom:10px}
-    .dialog .dialog-close{z-index:1000}
-
-    .dialog .con-txt{text-align:left;font-size:14px;color:#666;margin-bottom:24px}
-    .dialog .ico-edu{width:60px;height:60px;background:url(../images/ico-edu.png) no-repeat;background-size:100% 100%}
-    .dialog .ico-train{width:60px;height:60px;background:url(../images/ico-train.png) no-repeat;background-size:100% 100%}
-    .dialog .ico-server{width:60px;height:60px;background:url(../images/ico-zan-s.png) no-repeat;background-size:100% 100%}
-
-    .dialog .dialog-cons-wrap .btn-area{text-align:center}
-    .dialog .ipt-area .ipt-text{color:#666;margin-top:20px}
-
-    .btn, .btn2, .btn3, .btn4 {
-        background: #ff6d6f none repeat scroll 0 0;
-        border: medium none;
-        color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 14px;
-        overflow: hidden;
-    }
-
-    .dialog .btn3{width:250px;height:34px;padding:0;border-radius:4px;background-color:#48b3e2}
-    .dialog .btn3:hover{text-decoration:none;background-color:#64c2eb}
-
-    .consultant-brand{padding:35px 10px 30px;background-color:#48b3e2;overflow:hidden}
-    .consultant-brand>li{float:left;text-align:center;width:160px;margin:0}
-    .consultant-brand>li>p{color:#fff;font-size:14px}
-    .consultant-brand>li>p.font-b{font-size:20px}
-
-    .consultant-brand ul{overflow:hidden}
-    .consultant-brand ul li{float:left;width:33.3%;text-align:center}
-    .consultant-brand ul li .ico-tick{background:url(../images/ico-ww-d.png) no-repeat;vertical-align:sub;width:15px;height:15px;border-radius:50%}
-    .consultant-brand ul li .text{font-size:14px;color:#fff}
-
-    .dialog-zckf .zc,.dialog-zckf .zc img{width:420px;height:100px}
-    .dialog-zckf h3{font-size:18px;color:#fff;margin-bottom:18px;text-align:center;font-weight:400}
-    .dialog-zckf .consultant-brand{padding:26px 40px 30px 40px}
-    .dialog-zckf .dialog-close .icon-close{color:#fff}
-
-    .dialog-cons-wrap{padding:30px 50px 36px}
-
-    .dialog .dialog-close{position: absolute;top: 10px;right: 12px;z-index:1000}
-    .dialog-zckf .dialog-close .icon-close{color:#fff}
-    @media screen and (max-width: 768px) {
-        .dialog { width:100%; }
-        .dialog-zckf .zc,.dialog-zckf .zc img{width:100%;height:auto}
-        .dialog .ipt-area .ipt{width:100%;}
-    }
-
-</style>
-
-
-
-<div class="modal fade in" id="grab-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-dismiss="modal" aria-hidden="true" data-keyboard="false">
-    <div style="margin-top:32px;margin-bottom:32px;padding-top:32px;">
-
-        <div class="modal-dialog">
-
-            <div class="dialog dialog-zckf" id="dialog-zc" style="display:none;">
-                <a class="dialog-close ly-close" href="javascript:void(0)">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        <span class="icon icon-close fa fa-close"></span>
-                    </button>
-                </a>
-                <div class="dialog-bd">
-                    <div class="consultant-brand">
-                        <h3>时间地点行程您做主、把关提醒服务我来帮</h3>
-                        <div class="zc">
-                            <img src="{{ asset('/templates/moban2030/assets/others/zckf.gif') }}" alt="专车看房">
-                        </div>
-                    </div>
-                    <div class="dialog-cons-wrap form-box">
-                        <p class="con-txt">预约居理专车看房，楼下接您，随时出发，不花一分钱</p>
-                        <div class="ipt-area">
-                            <div>
-                                <form id="form-grab-zc">
-                                    {{csrf_field()}}
-                                    <input type="text" name="mobile" class="ipt mobile-ipt" id="grab-zc-mobile" placeholder="输入预约手机号" value="">
-                                </form>
-                                <div class="error-msg"><span>请输入正确格式的手机号</span></div>
-                            </div>
-                        </div>
-                        <div class="btn-area">
-                            <button class="btn btn3 new_common_free_submit" id="grab-zc-submit">抢专车券</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dialog " id="dialog-jg" style="display:none;">
-                <!--关闭按钮-->
-                <a class="dialog-close ly-close" href="Javascript:void(0)" data-sub-status="2"><span class="icon icon-close"></span></a>
-                <div class="dialog-bd">
-                    <div class="content form-box">
-                        <div class="title"><span class="pro-name">{{ $data->title or '' }}</span> 价格变动趋势</div>
-                        <p class="con-info">价格变动频繁，订阅楼盘价格通知，涨价降价我们将第一时间通知您，帮你找准买房最佳时机！</p>
-                        <div class="ipt-area">
-                            <div>
-                                <form id="form-grab-jg">
-                                    {{csrf_field()}}
-                                    <input type="hidden" name="item_id" value="{{ $data->id or '' }}">
-                                    <input type="text" name="mobile" class="ipt mobile-ipt" id="grab-jg-mobile" placeholder="请输入订阅手机号" value="">
-                                </form>
-                                <div class="error-msg"><span style="display: none;">请输入正确格式的手机号</span></div>
-                            </div>
-                        </div>
-                        <div class="btn-area">
-                            <button class="btn btn3 new_common_free_submit" id="grab-jg-submit">立即订阅</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dialog " id="dialog-kp" style="display:none;">
-                <a class="dialog-close ly-close" href="javascript:void(0)" data-sub-status="2"><span class="icon icon-close"></span></a>
-                <div class="dialog-bd">
-                    <div class="dialog-cons-wrap form-box">
-                        <p class="con-txt">担心错过开盘？想第一时间获取最新动态？输入手机号关注，楼盘一手情报抢先知道</p>
-                        <div class="ipt-area">
-                            <div>
-                                <form id="form-grab-kp">
-                                    {{csrf_field()}}
-                                    <input type="hidden" name="item_id" value="{{ $data->id or '' }}">
-                                    <input type="text" name="mobile" class="ipt mobile-ipt" id="grab-kp-mobile" placeholder="输入手机号">
-                                </form>
-                                <p class="ipt-text">居理承诺，严格保障您的个人信息安全</p>
-                                <div class="error-msg"><span style="display: none;">请输入正确格式的手机号</span></div>
-                            </div>
-                        </div>
-                        <div class="btn-area">
-                            <button class="btn btn3 new_common_free_submit" id="grab-kp-submit">关注下次开盘时间</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-
-
-

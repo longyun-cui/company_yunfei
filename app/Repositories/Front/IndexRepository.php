@@ -27,23 +27,27 @@ class IndexRepository {
 //        $info = json_decode(json_encode(config('mitong.company.info')));
 //        $menus = RootMenu::where(['active'=>1])->orderby('order', 'asc')->get();
 
-//        $seoCases = RootSeoCase::where(['active'=>1])->orderby('id', 'desc')->limit(6)->get();
-//        $websiteTemplates = RootWebsiteTemplate::where(['active'=>1])->orderby('id', 'desc')->limit(8)->get();
-//
-//        $html = view('frontend.entrance.root')
-//            ->with(['info'=>$info, 'menus'=>$menus, 'seoCases'=>$seoCases, 'websiteTemplates'=>$websiteTemplates])->__toString();
-//        return $html;
-
-        $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
-        foreach($houses as $item)
+        $rent_items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->limit(8)->get();
+        foreach($rent_items as $item)
         {
             $item->custom = json_decode($item->custom);
-            $item->custom2 = json_decode($item->custom2);
-            $item->custom3 = json_decode($item->custom3);
         }
-        $informations = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->get();
 
-        $html = view('frontend.entrance.root')->with(['houses'=>$houses,'informations'=>$informations])->__toString();
+        $wholesale_items = RootItem::where(['category'=>12, 'active'=>1])->orderby('id', 'desc')->limit(4)->get();
+        foreach($wholesale_items as $item)
+        {
+            $item->custom = json_decode($item->custom);
+        }
+
+        $cooperation_items = RootItem::where(['category'=>9, 'active'=>1])->orderby('id', 'desc')->get();
+        $coverage_items = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->get();
+
+        $html = view('frontend.entrance.root')->with([
+                'rent_items'=>$rent_items,
+                'wholesale_items'=>$wholesale_items,
+                'cooperation_items'=>$cooperation_items,
+                'coverage_items'=>$coverage_items
+            ])->__toString();
         return $html;
     }
 
@@ -51,7 +55,6 @@ class IndexRepository {
     // contact
     public function contact()
     {
-
         $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
         foreach($houses as $item)
         {
@@ -66,93 +69,90 @@ class IndexRepository {
 
 
 
-    // houses
-    public function houses()
+    // 【出租】
+    public function view_rent_out_list()
     {
-//        $info = json_decode(json_encode(config('mitong.company.info')));
-//        $menus = RootMenu::where(['active'=>1])->orderby('order', 'asc')->get();
-
-        $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
-        foreach($houses as $item)
+        $items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->paginate(8);
+        foreach($items as $item)
         {
             $item->custom = json_decode($item->custom);
             $item->custom2 = json_decode($item->custom2);
-            $item->custom3 = json_decode($item->custom3);
         }
 
-        $html = view('frontend.entrance.houses')->with(['houses'=>$houses])->__toString();
+        $rent_items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->limit(6)->get();
+
+        $html = view('frontend.entrance.list-for-rent-out')->with(['items'=>$items, 'rent_items'=>$rent_items])->__toString();
         return $html;
     }
 
-    // house
-    public function house($id = 0)
+    // 【二手批发】
+    public function view_second_wholesale_list()
     {
-//        $info = json_decode(json_encode(config('mitong.company.info')));
-//        $menus = RootMenu::where(['active'=>1])->orderby('order', 'asc')->get();
-
-        if($id != 0) $house = RootItem::where(['id'=>$id])->orderby('id', 'desc')->first();
-        else $house = RootItem::orderby('id', 'desc')->first();
-        $house->custom = json_decode($house->custom);
-        $house->custom2 = json_decode($house->custom2);
-        $house->custom3 = json_decode($house->custom3);
-
-        $ticket_total = RootMessage::where('category', 12)->count();
-
-        $houses = RootItem::where(['category'=>11, 'active'=>1])->where('id', '<>', $id)->orderby('id', 'desc')->get();
-        foreach($houses as $item)
+        $items = RootItem::where(['category'=>12, 'active'=>1])->orderby('id', 'desc')->paginate(8);
+        foreach($items as $item)
         {
             $item->custom = json_decode($item->custom);
             $item->custom2 = json_decode($item->custom2);
-            $item->custom3 = json_decode($item->custom3);
         }
 
-        $html = view('frontend.entrance.house')->with(['houses'=>$houses, 'house'=>$house, 'ticket_total'=>$ticket_total])->__toString();
+        $rent_items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->limit(6)->get();
+
+        $html = view('frontend.entrance.list-for-second-wholesale')->with(['items'=>$items, 'rent_items'=>$rent_items])->__toString();
+        return $html;
+    }
+
+    // 【回收】
+    public function view_recycle_page()
+    {
+        $items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
+        foreach($items as $item)
+        {
+            $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
+        }
+
+        $html = view('frontend.entrance.page-for-recycle')->with(['items'=>$items])->__toString();
+        return $html;
+    }
+
+    // 【资讯】
+    public function view_coverage_list()
+    {
+        $items = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->paginate(8);
+        foreach($items as $item)
+        {
+            $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
+        }
+
+        $rent_items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->limit(6)->get();
+
+        $html = view('frontend.entrance.list-for-coverage')->with(['items'=>$items, 'rent_items'=>$rent_items])->__toString();
         return $html;
     }
 
 
 
 
-    // informations
-    public function informations()
+    // item
+    public function view_item($id = 0)
     {
-//        $info = json_decode(json_encode(config('mitong.company.info')));
-//        $menus = RootMenu::where(['active'=>1])->orderby('order', 'asc')->get();
+        if($id != 0) $mine = RootItem::where(['id'=>$id])->orderby('id', 'desc')->first();
+        else $mine = RootItem::orderby('id', 'desc')->first();
 
-        $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
+        $mine->timestamps = false;
+        $mine->increment('visit_num');
 
-        $informations = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->get();
-        foreach($informations as $item)
+        $mine->custom = json_decode($mine->custom);
+        $mine->custom2 = json_decode($mine->custom2);
+
+        $rent_items = RootItem::where(['category'=>11, 'active'=>1])->where('id', '<>', $id)->orderby('id', 'desc')->limit(6)->get();
+        foreach($rent_items as $item)
         {
             $item->custom = json_decode($item->custom);
-            $item->custom2 = json_decode($item->custom2);
         }
 
-        $html = view('frontend.entrance.informations')->with(['houses'=>$houses, 'informations'=>$informations])->__toString();
-        return $html;
-    }
-
-    // information
-    public function information($id = 0)
-    {
-//        $info = json_decode(json_encode(config('mitong.company.info')));
-//        $menus = RootMenu::where(['active'=>1])->orderby('order', 'asc')->get();
-
-        $houses = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->get();
-
-        if($id != 0) $information = RootItem::where(['id'=>$id])->orderby('id', 'desc')->first();
-        else $information = RootItem::orderby('id', 'desc')->first();
-        $information->custom = json_decode($information->custom);
-
-
-        $informations = RootItem::where(['category'=>11, 'active'=>1])->where('id', '<>', $id)->orderby('id', 'desc')->get();
-        foreach($informations as $item)
-        {
-            $item->custom = json_decode($item->custom);
-            $item->custom2 = json_decode($item->custom2);
-        }
-
-        $html = view('frontend.entrance.information')->with(['houses'=>$houses, 'informations'=>$informations, 'information'=>$information,])->__toString();
+        $html = view('frontend.entrance.item')->with(['rent_items'=>$rent_items, 'item'=>$mine])->__toString();
         return $html;
     }
 
@@ -203,8 +203,8 @@ class IndexRepository {
     }
 
 
-    // 预约看房
-    public function message_grab_yy($post_data)
+    // ITEM 留言
+    public function message_grab_item($post_data)
     {
         $messages = [
             'name.required' => '请输入姓名',
@@ -230,14 +230,14 @@ class IndexRepository {
             if(!$bool) throw new Exception("insert--message--fail");
 
             DB::commit();
-            $msg = '预约成功！';
+            $msg = '提交成功！';
             return response_success([],$msg);
         }
         catch (Exception $e)
         {
             DB::rollback();
-            $msg = '预约失败，请重试！';
-//            $msg = $e->getMessage();
+            $msg = '提交失败，请重试！';
+            $msg = $e->getMessage();
 //            exit($e->getMessage());
             return response_fail([],$msg);
         }
@@ -331,6 +331,7 @@ class IndexRepository {
     public function message_grab_kp($post_data)
     {
         $messages = [
+            'name.required' => '请输入姓名',
             'mobile.required' => '请输入电话',
             'item_id.required' => '参数有误',
         ];

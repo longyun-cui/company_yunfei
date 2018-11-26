@@ -1,8 +1,8 @@
 @extends('admin.layout.layout')
 
-@section('create-text') 添加关于我们 @endsection
-@section('edit-text') 添加关于我们 @endsection
-@section('list-text') 关于我们列表 @endsection
+@section('create-text') 添加活动 @endsection
+@section('edit-text') 添加活动 @endsection
+@section('list-text') 选择活动 @endsection
 
 @section('title')
     @if($operate == 'create') @yield('create-text') @else @yield('edit-text') @endif
@@ -18,7 +18,7 @@
 
 @section('breadcrumb')
     <li><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{ url('/admin/item/list?category=about') }}"><i class="fa "></i> @yield('list-text')</a></li>
+    <li><a href="{{ url('/admin/item/list?category=activity') }}"><i class="fa "></i> @yield('list-text')</a></li>
     <li><a href="#"><i class="fa "></i> Here</a></li>
 @endsection
 
@@ -41,7 +41,7 @@
                 {{csrf_field()}}
                 <input type="hidden" name="operate" value="{{ $operate or '' }}" readonly>
                 <input type="hidden" name="encode_id" value="{{ $encode_id or encode(0) }}" readonly>
-                <input type="hidden" name="category" value="2" readonly>
+                <input type="hidden" name="category" value="48" readonly>
 
 
                 {{--标题--}}
@@ -132,7 +132,7 @@
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
                                 @if(!empty($data->cover_pic))
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic)}}" alt="" />
+                                    <img src="{{ url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$data->cover_pic) }}" alt="" />
                                 @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail">
@@ -220,7 +220,7 @@
                     else
                     {
                         layer.msg(data.msg);
-                        location.href = "{{url('/admin/item/list?category=about')}}";
+                        location.href = "{{url('/admin/item/list?category=activity')}}";
                     }
                 }
             };

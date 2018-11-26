@@ -26,6 +26,7 @@
                             <i class="fa fa-plus"></i>
                         </a>
                         <ul class="dropdown-menu">
+
                             <li class="header _none">
                                 <a href="{{url('/admin/module/create')}}">
                                     <i class="fa fa-plus text-green"></i> 添加模块
@@ -36,19 +37,57 @@
                                     <i class="fa fa-plus text-green"></i> 添加目录
                                 </a>
                             </li>
+
                             <li class="header">
                                 <a href="{{url('/admin/item/create?category=about')}}">
-                                    <i class="fa fa-plus text-green"></i> 添加关于企业内容
+                                    <i class="fa fa-plus text-green"></i> 添加关于企业
                                 </a>
                             </li>
                             <li class="header">
-                                <a href="{{url('/admin/item/create?category=house')}}">
-                                    <i class="fa fa-plus text-green"></i> 添加楼盘内容
+                                <a href="{{url('/admin/item/create?category=advantage')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加选择我们
                                 </a>
                             </li>
                             <li class="header">
-                                <a href="{{url('/admin/item/create?category=information')}}">
-                                    <i class="fa fa-plus text-green"></i> 添加资讯内容
+                                <a href="{{url('/admin/item/create?category=cooperation')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加合作伙伴
+                                </a>
+                            </li>
+                            <li class="header">
+                                <a href="{{url('/admin/item/create?category=rent-out')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加出租
+                                </a>
+                            </li>
+                            <li class="header">
+                                <a href="{{url('/admin/item/create?category=second-wholesale')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加二手批发
+                                </a>
+                            </li>
+                            <li class="header _none">
+                                <a href="{{url('/admin/item/create?category=recycling')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加回收
+                                </a>
+                            </li>
+
+                            <li class="header">
+                                <a href="{{url('/admin/item/create?category=faq')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加常见问题
+                                </a>
+                            </li>
+                            <li class="header">
+                                <a href="{{url('/admin/item/create?category=coverage')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加资讯
+                                </a>
+                            </li>
+                            <li class="header">
+                                <a href="{{url('/admin/item/create?category=activity')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加活动
+                                </a>
+                            </li>
+
+                            <li class="header">
+                                <a href="{{url('/admin/item/create?category=client')}}">
+                                    <i class="fa fa-plus text-green"></i> 添加客户
                                 </a>
                             </li>
 

@@ -47,19 +47,18 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('/', $controller.'@view_root');
     Route::get('/contact', $controller.'@view_contact');
 
-    Route::get('houses', $controller.'@view_houses');
-    Route::get('house/{id?}', $controller.'@view_house');
+    Route::get('item/{id?}', $controller.'@view_item');
 
-    Route::get('informations', $controller.'@view_informations');
-    Route::get('information/{id?}', $controller.'@view_information');
+    Route::get('rent-out/list', $controller.'@view_rent_out_list');
+    Route::get('second-wholesale/list', $controller.'@view_second_wholesale_list');
+
+    Route::get('recycle/page', $controller.'@view_recycle_page');
+
+    Route::get('coverage/list', $controller.'@view_coverage_list');
 
 
     Route::post('message/contact', $controller.'@message_contact');
-    //
-    Route::post('message/grab/yy', $controller.'@message_grab_yy');
-    Route::post('message/grab/zc', $controller.'@message_grab_zc');
-    Route::post('message/grab/jg', $controller.'@message_grab_jg');
-    Route::post('message/grab/kp', $controller.'@message_grab_kp');
+    Route::post('message/grab/item', $controller.'@message_grab_item');
 
 
 });
