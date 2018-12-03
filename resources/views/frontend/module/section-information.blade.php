@@ -69,3 +69,11 @@
 
     </div>
 </section>
+
+
+<style>
+    .property-contents table { width:100%; }
+    .property-contents tbody { width:100%; }
+    .property-contents tr { width:100%; min-height:32px; line-height:32px; border-bottom:1px dashed #eee; }
+    .property-contents td { width:50%;float:left; }
+</style>

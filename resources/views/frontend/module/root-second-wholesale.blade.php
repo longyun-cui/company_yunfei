@@ -45,7 +45,7 @@
         </div>
 
         <footer class="module-row module-footer-container text-center">
-            <a href="{{ url('/second-wholesale/list') }}" class="view-more">查看更多 <i class="fa fa-hand-o-right"></i></a>
+            <a href="{{ url('/second-wholesale/list') }}" class="view-more style-dark">查看更多 <i class="fa fa-hand-o-right"></i></a>
         </footer>
 
     </div>
