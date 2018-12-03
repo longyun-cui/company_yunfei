@@ -4,9 +4,9 @@
         <!-- Logo -->
         <a href="{{url(config('common.org.admin.prefix').'/admin')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>轻</b></span>
+            <span class="logo-mini"><b>M</b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>盛贝地产</b></span>
+            <span class="logo-lg"><b>{{ config('company.info.short_name') }}</b></span>
         </a>
 
         <!-- Header Navbar -->

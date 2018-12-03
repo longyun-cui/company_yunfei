@@ -50,18 +50,21 @@
 
             <div class="logo-site pull-left">
                 <a href="{{ url('/') }}"><img src="{{ url(config('company.info.logo')) }}" alt="Logo"></a>
-                <a href="{{ url('/') }}">{{ config('company.info.name') }}</a>
+                <a href="{{ url('/') }}"><b>{{ config('company.info.name') }}</b></a>
             </div>
 
         </div>
 
 
-        <a href="javascript:void(0);" class="header-burger-menu visible-xs visible-sm"><i>Menu</i></a>
+        <a href="javascript:void(0);" rel="nofollow" class="header-burger-menu visible-xs visible-sm"><i>Menu</i></a>
 
         <div class="header-site pull-right">
 
-            <nav class="nav-site nav navbar-default- pull-left" id="site-nav-">
-                <ul class="nav- navbar-nav nav-bar">
+            <nav class="nav-site pull-left hidden-xs hidden-sm" id="nav-site">
+
+                <a href="javascript:void(0);" rel="nofollow" class="header-burger-menu visible-xs visible-sm"><i>Menu</i></a>
+
+                <ul class="nav-bar">
 
                     <li><a href="{{ url('/') }}">首页</a></li>
                     <li><a href="{{ url('/rent-out/list') }}">租琴</a></li>
@@ -107,6 +110,45 @@
 
                 </ul>
             </nav>
+            <div class="extra-text visible-xs- visible-sm- _none">
+                <h5 class="mb20"></h5>
+                <ul class="social-buttons header-social _none">
+                    <li><a target="_blank" href="http://www.wechat.com">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-wechat.png') }}" alt="WeChat Logo">
+                        </a></li>
+                    <li><a target="_blank" href="http://www.linkedin.com/company/keron-international-relocation-movers/">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-linkedin.png') }}" alt="Linkedin Logo">
+                        </a></li>
+                    <li><a target="_blank" href="https://moveaide.com/movers/keron-international-relocation-shanghai-china-mover-reviews">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-moveaide.png') }}" alt="MoveAide Logo">
+                        </a></li>
+                    <li><a target="_blank" href="http://www.smartshanghai.com/venue/15561/keron_international_relocation_and_movers_zhongshan_bei_lu">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-smart.png') }}" alt="Instagram Logo">
+                        </a></li>
+                    <li><a target="_blank" href="http://www.thatsmags.com/shanghai">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-thats.png') }}" alt="Instagram Logo">
+                        </a></li>
+                    <li><a target="_blank" href="{{ trans('custom.text.video_url') }}">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-youku.png') }}" alt="Instagram Logo">
+                        </a></li>
+                    <li><a target="_blank" href="https://www.baidu.com/">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-baidu.png') }}" alt="Instagram Logo">
+                        </a></li>
+                    <li><a target="_blank" href="https://plus.google.com/">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-google.png') }}" alt="Google Plus Logo">
+                        </a></li>
+                    <li style="display: none;"><a target="_blank" href="https://www.facebook.com/">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-facebook.png') }}" alt="Facebook Logo">
+                        </a></li>
+                    <li style="display: none;"><a target="_blank" href="https://twitter.com/">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-twitter.png') }}" alt="Twitter Logo">
+                        </a></li>
+                    <li style="display: none;"><a target="_blank" href="https://instagram.com/">
+                            <img src="{{ asset('/common/images/logo-icon/icon-logo-instagram.png') }}" alt="Instagram Logo">
+                        </a></li>
+                </ul>
+                <p><small>&copy; Copyright©2018. KERON All Rights Reserved.</small></p>
+            </div>
 
         </div>
 

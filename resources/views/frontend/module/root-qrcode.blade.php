@@ -1,6 +1,6 @@
 {{--下载APP--}}
-<section id="announcement-section"  class="module-container text-center">
-    <div class="container ">
+<section  class="module-container text-center" id="announcement-section">
+    <div class="container full-container">
 
         <header class="module-row module-header-container">
             <div class="wow slideInLeft module-title-row color-f border-light"><b>权威发布</b></div>

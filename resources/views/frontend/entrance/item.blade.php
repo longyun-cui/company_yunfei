@@ -31,11 +31,15 @@
     {{--banner--}}
     @include('frontend.component.banner-for-rent-out-list')
 
-    @if($item->category == 11)
-        @include('frontend.module.item-rent-detail', ['data'=>$item])
-    @else
-        @include('frontend.module.item-detail', ['data'=>$item])
-    @endif
+    <div class="">
+
+        @if($item->category == 11)
+            @include('frontend.module.item-rent-out-detail', ['data'=>$item])
+        @else
+            @include('frontend.module.item-detail', ['data'=>$item])
+        @endif
+
+    </div>
 
     @include('frontend.module.item-modal')
 
@@ -69,7 +73,7 @@
         $('#grab-modal').modal();
     });
 
-    $('#house-type-images').slick({
+    $('.lightcase-images-show').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         dots: false,

@@ -1,6 +1,6 @@
 {{--最新资讯--}}
 <section class="module-container bg-dark" id="home-property-for-rent-listing">
-    <div class="container">
+    <div class="container main-container">
 
         <header class="module-row module-header-container">
             <div class="wow slideInLeft module-title-row color-e border-light"><b>钢琴Tips</b></div>

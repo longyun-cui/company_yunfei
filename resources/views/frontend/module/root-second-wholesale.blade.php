@@ -1,16 +1,16 @@
 {{--main--}}
-<section class="module-container bg-dark">
-    <div class="container">
+<section class="module-container bg-light">
+    <div class="container main-container">
 
         <header class="module-row module-header-container">
-            <div class="wow slideInLeft module-title-row color-e border-dark"><b>二手钢琴批发</b></div>
-            <div class="wow slideInRight module-subtitle-row color-a"><b>上海地区最实惠的二手钢琴批发</b></div>
+            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light"><b>二手钢琴批发</b></div>
+            <div class="wow slideInRight module-subtitle-row color-5"><b>上海地区最实惠的二手钢琴批发</b></div>
         </header>
 
         <div class="module-row module-body-container">
             @foreach($items as $v)
                 <div class="col-lg-3 col-md-4 col-sm-6 item-col">
-                    <div class="item-container">
+                    <div class="item-container padding-8px">
 
                         <figure class="image-container padding-top-3-4">
                             <div class="image-box">
@@ -24,15 +24,15 @@
                         <figure class="text-container clearfix">
                             <div class="text-box" style="border-bottom:1px solid #e6e6e6">
                                 <div class="text-title-row"><a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a></div>
-                                <div class="text-description-row">
+                                <div class="text-description-row _none">
                                     <div>
                                         <i class="fa fa-cny"></i> <span class="font-18px color-red"><b>{{ $v->custom->price or '' }}</b></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-box clearfix">
+                            <div class="text-box text-center clearfix">
                                 <a target="_blank" href="{{ url('/item/'.$v->id) }}">
-                                    <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看">
+                                    <button class="btn btn-default btn-3d btn-clicker" data-hover="点击查看">
                                         <strong>查看详情</strong>
                                     </button>
                                 </a>

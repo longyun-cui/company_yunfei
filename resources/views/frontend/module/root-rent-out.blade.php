@@ -1,10 +1,10 @@
 {{--main--}}
 <section class="module-container bg-light">
-    <div class="container">
+    <div class="container main-container">
 
         <header class="module-row module-header-container">
-            <div class="wow slideInLeft module-title-row color-1 border-light"><b>钢琴出租</b></div>
-            <div class="wow slideInRight module-subtitle-row color-6"><b>上海地区最实惠的租琴</b></div>
+            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light"><b>钢琴出租</b></div>
+            <div class="wow slideInRight module-subtitle-row color-5"><b>上海地区最实惠的租琴</b></div>
         </header>
 
         <div class="module-row module-body-container">
@@ -33,9 +33,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-box clearfix">
+                            <div class="text-box text-center clearfix">
                                 <a target="_blank" href="{{ url('/item/'.$v->id) }}">
-                                    <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看">
+                                    <button class="btn btn-default btn-3d btn-clicker" data-hover="点击查看">
                                         <strong>查看详情</strong>
                                     </button>
                                 </a>
@@ -48,7 +48,7 @@
         </div>
 
         <footer class="module-row module-footer-container text-center">
-            <a href="{{ url('/rent-out/list') }}" class="view-more">查看更多 <i class="fa fa-hand-o-right"></i></a>
+            <a href="{{ url('/rent-out/list') }}" class="view-more style-dark">查看更多 <i class="fa fa-hand-o-right"></i></a>
         </footer>
 
     </div>

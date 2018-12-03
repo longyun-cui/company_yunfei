@@ -11,15 +11,17 @@
         <meta name="description" content="@yield('meta_description')" />
         <meta name="keywords" content="@yield('meta_keywords')" />
 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <!-- Styles -->
         {{--<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CPoppins:400,600" rel="stylesheet">--}}
-
 
         <!-- favicon and touch icons -->
         <link rel="shortcut icon" type="image/ico" href="{{ url('favicon.ico') }}">
         <link rel="shortcut icon" type="image/png" href="{{ url('favicon.png') }}">
         <link rel="icon" sizes="16x16 32x32 64x64" href="{{ url('favicon.ico') }}">
         <link rel="icon" type="image/png" sizes="196x196" href="{{ url('favicon.png') }}">
+
 
         <!-- Bootstrap -->
         <link href="{{ asset('/templates/moban2030/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -32,7 +34,7 @@
         {{--<link href="https://cdn.bootcss.com/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css" rel="stylesheet">--}}
         <link href="https://cdn.bootcss.com/lightcase/2.5.0/css/lightcase.min.css" rel="stylesheet">
 
-{{--        <link href="{{ asset('/templates/moban2030/assets/others/common.css') }}" rel="stylesheet">--}}
+        {{--<link href="{{ asset('/templates/moban2030/assets/others/common.css') }}" rel="stylesheet">--}}
         <link href="{{ asset('/common/css/common.css') }}" rel="stylesheet">
         <link href="{{ asset('/common/css/frontend.css') }}" rel="stylesheet">
 

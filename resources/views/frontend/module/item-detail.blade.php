@@ -1,5 +1,5 @@
 {{--house-detail--}}
-<div id="property-single">
+<div class="module-container" id="property-single">
 
     <style>
         #property-single .common .entry-title { padding-bottom: 8px; }

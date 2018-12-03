@@ -37,17 +37,17 @@
             }),
                 $(window).width()>991 ?
                     (
-                        $("body").removeClass("probootstrap-mobile-menu-active"),
-                            $(".header-burger-menu").removeClass("active")):$("body").addClass("probootstrap-mobile-menu-active"),
+                        $("body").removeClass("mobile-menu-active"),
+                            $(".header-burger-menu").removeClass("active")):$("body").addClass("mobile-menu-active"),
 
                         $(window).resize(function(){
                             $(window).width()>991 ?
                             (
                                 console.log("resizing"),
-                                $("body").removeClass("probootstrap-mobile-menu-active"),$(".header-burger-menu").removeClass("active")
+                                $("body").removeClass("mobile-menu-active"),$(".header-burger-menu").removeClass("active")
                             )
                             :
-                            $("body").addClass("probootstrap-mobile-menu-active")
+                            $("body").addClass("mobile-menu-active")
                         }
                     ),
                 $(document).click(function(o){
