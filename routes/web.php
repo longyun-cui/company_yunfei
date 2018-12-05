@@ -61,6 +61,15 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('message/grab/item', $controller.'@message_grab_item');
 
 
+    Route::group(['prefix' => 'test'], function () {
+
+        $controller = "TestController";
+
+        Route::get('/index', $controller.'@view_index');
+
+    });
+
+
 });
 
 

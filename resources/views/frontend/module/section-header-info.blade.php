@@ -2,8 +2,8 @@
 <section class="section-container bg-white">
     <div class="row">
 
-        <header class="module-row module-header-container with-border-bottom">
-            <div class="wow slideInLeft module-title-row color-1 border-light"><b>{{ $data->title or '' }}</b></div>
+        <header class="module-row module-header-container with-border-bottom text-center">
+            <div class="wow slideInLeft module-title-row color-1 border-light title-h2"><b>{{ $data->title or '' }}</b></div>
             <a class="module-subtitle-row pull-right print-btn font-14px" href="javascript:void(0);">浏览 ({{ $data->visit_num or '' }}) 次</a>
         </header>
 

@@ -314,6 +314,23 @@ img { max-width:100%; }
 
 
 
+.title-h1 { font-size:40px; }
+.title-h2 { font-size:32px; }
+.title-h3 { font-size:24px; }
+.title-h4 { font-size:20px; }
+.title-h5 { font-size:16px; }
+
+@media (max-width: 767px) {
+    .title-h1 { font-size:32px; }
+    .title-h2 { font-size:24px; }
+    .title-h3 { font-size:20px; }
+    .title-h4 { font-size:16px; }
+    .title-h5 { font-size:14px; }
+}
+
+
+
+
 .color-white { color:#fff !important; }
 .color-black { color:#000 !important; }
 .color-light { color:#e8e8e8 !important; }

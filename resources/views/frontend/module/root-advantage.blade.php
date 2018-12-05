@@ -2,9 +2,9 @@
 <section class="module-container text-center">
     <div class="container main-container">
 
-        <header class="module-row module-header-container">
-            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light">为什么选择我们？</div>
-            <div class="wow slideInRight module-subtitle-row color-5">服务更多城市，城市让生活更美好</div>
+        <header class="module-row module-header-container text-center">
+            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light title-h2">为什么选择我们？</div>
+            <div class="wow slideInRight module-subtitle-row color-5 title-h4"><b>服务更多城市，城市让生活更美好</b></div>
         </header>
 
         <div class="module-row module-body-container">

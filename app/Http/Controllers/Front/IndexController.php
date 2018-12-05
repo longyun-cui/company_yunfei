@@ -20,6 +20,7 @@ class IndexController extends Controller
 
 
 
+
     // 返回【主页】视图
     public function view_root()
     {

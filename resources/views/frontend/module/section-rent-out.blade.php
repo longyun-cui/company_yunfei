@@ -2,8 +2,8 @@
 <section class="section-container bg-white">
     <div class="row">
 
-        <header class="module-row module-header-container with-border-bottom">
-            <div class="wow slideInLeft module-title-row color-1 border-light"><b>热门租琴</b></div>
+        <header class="module-row module-header-container with-border-bottom text-center">
+            <div class="wow slideInLeft module-title-row color-1 border-light title-h2"><b>热门租琴</b></div>
         </header>
 
         <div class="module-row module-body-container">

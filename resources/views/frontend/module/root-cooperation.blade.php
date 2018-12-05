@@ -2,9 +2,9 @@
 <section class="module-container bg-dark text-center">
     <div class="container main-container">
 
-        <header class="module-row module-header-container">
-            <div class="wow slideInLeft module-title-row title-with-double-line color-e border-light">合作加盟</div>
-            <div class="wow slideInRight module-subtitle-row color-b">服务更多城市，城市让生活更美好</div>
+        <header class="module-row module-header-container text-center">
+            <div class="wow slideInLeft module-title-row title-with-double-line color-e border-light title-h2">合作加盟</div>
+            <div class="wow slideInRight module-subtitle-row color-b title-h4">服务更多城市，城市让生活更美好</div>
         </header>
 
         <div class="module-row module-body-container ">

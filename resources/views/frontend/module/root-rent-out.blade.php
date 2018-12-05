@@ -2,9 +2,9 @@
 <section class="module-container bg-light">
     <div class="container main-container">
 
-        <header class="module-row module-header-container">
-            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light"><b>钢琴出租</b></div>
-            <div class="wow slideInRight module-subtitle-row color-5"><b>上海地区最实惠的租琴</b></div>
+        <header class="module-row module-header-container text-center">
+            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light title-h2"><b>钢琴出租</b></div>
+            <div class="wow slideInRight module-subtitle-row color-5 title-h4"><b>上海地区最实惠的租琴</b></div>
         </header>
 
         <div class="module-row module-body-container">

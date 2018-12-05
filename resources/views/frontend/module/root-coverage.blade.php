@@ -2,9 +2,9 @@
 <section class="module-container bg-dark" id="home-property-for-rent-listing">
     <div class="container main-container">
 
-        <header class="module-row module-header-container">
-            <div class="wow slideInLeft module-title-row color-e border-light"><b>钢琴Tips</b></div>
-            <div class="wow slideInRight module-subtitle-row color-b"><b>随时了解最新资讯，掌握钢琴小贴士</b></div>
+        <header class="module-row module-header-container text-center">
+            <div class="wow slideInLeft module-title-row title-with-double-line color-e border-light title-h2"><b>钢琴Tips</b></div>
+            <div class="wow slideInRight module-subtitle-row color-b title-h4"><b>随时了解最新资讯，掌握钢琴小贴士</b></div>
         </header>
 
         <div class="module-row module-body-container root-slider">
