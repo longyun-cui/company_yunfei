@@ -9,7 +9,7 @@
 
         <div class="module-row module-body-container">
             @foreach($items as $v)
-                <div class="col-lg-3 col-md-4 col-sm-6 item-col">
+                <div class="item-col col-lg-3 col-md-4 col-sm-6 col-xs-6">
                     <div class="item-container padding-8px">
 
                         <figure class="image-container padding-top-3-4">

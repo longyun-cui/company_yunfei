@@ -380,7 +380,7 @@
 
 @media (max-width: 767px) {
     .module-container { padding:40px 0; }
-    .module-header-container { margin-bottom:12px; }
+    .module-header-container { margin-bottom:16px; }
     .module-title-row { margin-bottom:8px; font-size:20px; line-height:24px; }
     .module-subtitle-row { font-size:14px; }
     .module-body-container { margin:0; }

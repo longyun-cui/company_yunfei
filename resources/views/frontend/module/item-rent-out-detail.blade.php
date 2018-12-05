@@ -4,8 +4,10 @@
 
         <div class="col-lg-12 col-md-12 ">
 
+            {{----}}
             @include('frontend.module.section-header-info', ['data'=>$data])
 
+            {{----}}
             @include('frontend.module.section-information', ['data'=>$data])
 
             {{--最新动态--}}
@@ -15,13 +17,13 @@
             @include('frontend.module.section-images', ['data'=>$data])
 
             {{--图文详情--}}
-            @include('frontend.module.section-detail', ['data'=>$data])
+            @include('frontend.module.section-detail', ['data'=>$data,'title_is'=>0])
 
             {{--视频展示--}}
-            @include('frontend.module.section-video')
+            {{--@include('frontend.module.section-video')--}}
 
             {{--地图--}}
-            @include('frontend.module.section-map')
+            {{--@include('frontend.module.section-map')--}}
 
             {{--经纪人--}}
             {{--@include('frontend.module.section-agent')--}}
@@ -31,7 +33,6 @@
         </div>
 
         <div class="col-lg-12 col-md-12 _none">
-
 
             {{----}}
             <section class="property-single-features common clearfix _none-">
@@ -61,7 +62,6 @@
                     <li>Cable TV</li>
                 </ul>
             </section>
-
 
         </div>
 
