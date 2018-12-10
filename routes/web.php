@@ -96,6 +96,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
         $controller = "AdminController";
 
+        Route::get('/404', $controller.'@view_404');
+
         Route::get('/', $controller.'@index');
 
         // 管理员模块

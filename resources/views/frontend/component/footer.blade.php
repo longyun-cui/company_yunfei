@@ -69,10 +69,11 @@
                             <strong>全年无休上门服务</strong>
                         </small>
                     </div>
+                    <div>
+                        <a target="_blank" href="http://www.miitbeian.gov.cn">沪ICP备18045960号-1</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="site-footer-bottom _none" style="height: 140px;">
     </div>
 </footer>
