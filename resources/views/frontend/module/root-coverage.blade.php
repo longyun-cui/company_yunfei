@@ -26,7 +26,7 @@
                                 </div>
                             </header>
                             <div class="property-meta clearfix">
-                                <a href="{{ url('/item/'.$v->id) }}" class="btn btn-default btn-price pull-right btn-3d" data-hover="查看详情"><strong>查看详情</strong></a>
+                                <a href="{{ url('/item/'.$v->id) }}" class="btn btn-default btn-price pull-right btn-3d" data-hover="查看详情" style="border-radius:0;"><strong>查看详情</strong></a>
                                 {{--<span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>--}}
                                 {{--<span><i class="fa fa-bed"></i> 3 Beds</span>--}}
                                 {{--<span><i class="fa fa-bathtub"></i> 3 Baths</span>--}}

@@ -12,9 +12,9 @@
             ],
 
             'online' => [
-                'root' => 'http://shxmyj.com',
-                'www' => 'http://www.shxmyj.com',
-                'cdn' => 'http://cdn.shxmyj.com',
+                'root' => 'http://yunfei-piano.com',
+                'www' => 'http://www.yunfei-piano.com',
+                'cdn' => 'http://cdn.yunfei-piano.com',
             ],
 
             'front' => [

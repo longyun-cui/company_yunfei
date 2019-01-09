@@ -84,9 +84,15 @@
                         {{--</div>--}}
                     {{--</li>--}}
 
+                    <li class="header-box header-taobao taobao-box _none" role="button">
+                        <a href="https://shop62683376.taobao.com">
+                            <i class="icon"><img src="/common/images/icons/icon_taobao_1.png" alt=""></i> <b>淘宝店铺</b>
+                        </a>
+                    </li>
+
                     <li class="header-wechat wechat-box" role="button">
                         <a href="javascript:void(0);" rel="nofollow">
-                            <i class="fa fa-weixin"></i> <b>微信客服</b>
+                            <i class="fa fa-weixin"></i> <b>微信公众号</b>
                         </a>
                         <span class="image-box">
                             <img src="{{ config('company.info.wechat_qrcode') }}" alt="Wechat QRCode">

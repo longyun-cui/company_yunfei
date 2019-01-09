@@ -15,14 +15,14 @@
                         <figure class="image-container padding-top-3-4">
                             <div class="image-box">
                                 <a class="clearfix zoom-" target="_blank"  href="{{ url('/item/'.$v->id) }}">
-                                    <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
+                                    <img data-action="zoom-" src="{{ url(env('DOMAIN_CDN').'/'.$data->cover_pic) }}" alt="Property Image">
                                 </a>
                                 {{--<span class="btn btn-warning">热销中</span>--}}
                             </div>
                         </figure>
 
                         <figure class="text-container clearfix">
-                            <div class="text-box" style="border-bottom:1px solid #e6e6e6">
+                            <div class="text-box">
                                 <div class="text-title-row"><a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a></div>
                                 <div class="text-description-row _none">
                                     <div>
@@ -30,9 +30,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-box text-center clearfix">
+                            <div class="text-box with-border-top text-center clearfix">
                                 <a target="_blank" href="{{ url('/item/'.$v->id) }}">
-                                    <button class="btn btn-default btn-3d btn-clicker" data-hover="点击查看">
+                                    <button class="btn btn-default btn-3d btn-clicker" data-hover="点击查看" style="border-radius:0;">
                                         <strong>查看详情</strong>
                                     </button>
                                 </a>

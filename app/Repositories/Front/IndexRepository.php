@@ -41,12 +41,14 @@ class IndexRepository {
 
         $cooperation_items = RootItem::where(['category'=>9, 'active'=>1])->orderby('id', 'desc')->get();
         $coverage_items = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->get();
+        $client_items = RootItem::where(['category'=>51, 'active'=>1])->orderby('id', 'desc')->get();
 
         $html = view('frontend.entrance.root')->with([
                 'rent_items'=>$rent_items,
                 'wholesale_items'=>$wholesale_items,
                 'cooperation_items'=>$cooperation_items,
-                'coverage_items'=>$coverage_items
+                'coverage_items'=>$coverage_items,
+                'client_items'=>$client_items
             ])->__toString();
         return $html;
     }

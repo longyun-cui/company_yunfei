@@ -5,7 +5,7 @@
 @section('content')
 <div class="login-box">
     <div class="login-logo">
-        <a href="/admin"><b>盛贝地产</b> 后台</a>
+        <a href="/admin"><b>{{ config('company.info.short_name')  }}</b> 后台</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
