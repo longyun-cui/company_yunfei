@@ -15,7 +15,7 @@
                         <figure class="image-container padding-top-3-4">
                             <div class="image-box">
                                 <a class="clearfix zoom-" target="_blank"  href="{{ url('/item/'.$v->id) }}">
-                                    <img data-action="zoom-" src="{{ url(env('DOMAIN_CDN').'/'.$data->cover_pic) }}" alt="Property Image">
+                                    <img data-action="zoom-" src="{{ url(env('DOMAIN_CDN').'/'.$v->cover_pic) }}" alt="Property Image">
                                 </a>
                                 {{--<span class="btn btn-warning">热销中</span>--}}
                             </div>
