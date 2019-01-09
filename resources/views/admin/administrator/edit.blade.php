@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">昵称</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="nickname" placeholder="请输入昵称" value="{{$me->nickname}}"></div>
+                        <input type="text" class="form-control" name="nickname" placeholder="请输入昵称" value="{{ $me->nickname or '' }}">
                     </div>
                 </div>
 
@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">真实姓名</label>
                     <div class="col-md-8 ">
-                        <div><input type="text" class="form-control" name="true_name" placeholder="请输入真实姓名" value="{{$me->true_name}}"></div>
+                        <input type="text" class="form-control" name="true_name" placeholder="请输入真实姓名" value="{{ $me->true_name or '' }}">
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
                         <div class="fileinput fileinput-new" data-provides="fileinput">
                             <div class="fileinput-new thumbnail">
                                 @if(!empty($me->portrait_img))
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$me->portrait_img.'?'.rand(0,99))}}" alt="" />
+                                    <img src="{{ url(env('DOMAIN_CDN').'/'.$me->portrait_img.'?'.rand(0,99)) }}" alt="" />
                                 @endif
                             </div>
                             <div class="fileinput-preview fileinput-exists thumbnail">

@@ -197,24 +197,24 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
                             @if(Auth::guard('admin')->user()->portrait_img)
-                                <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.Auth::guard('admin')->user()->portrait_img)}}" class="user-image" alt="User Image">
+                                <img src="{{ url(env('DOMAIN_CDN').'/'.Auth::guard('admin')->user()->portrait_img) }}" class="user-image" alt="U-Image">
                             @else
                                 <img src="/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                             @endif
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{Auth::guard('admin')->user()->nickname}}</span>
+                            <span class="hidden-xs">{{ Auth::guard('admin')->user()->nickname }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
                                 @if(Auth::guard('admin')->user()->portrait_img)
-                                    <img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.Auth::guard('admin')->user()->portrait_img)}}" class="img-circle" alt="User Image">
+                                    <img src="{{ url(env('DOMAIN_CDN').'/'.Auth::guard('admin')->user()->portrait_img) }}" class="img-circle" alt="U-Image">
                                 @else
                                     <img src="/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                 @endif
 
                                 <p>
-                                    {{Auth::guard('admin')->user()->nickname}} - 管理员
+                                    {{ Auth::guard('admin')->user()->nickname }} - 管理员
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>

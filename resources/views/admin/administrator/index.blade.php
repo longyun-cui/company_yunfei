@@ -30,35 +30,35 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">邮箱：</label>
                     <div class="col-md-8 ">
-                        <div><label class="control-label">{{$me->email or ''}}</label></div>
+                        <div><label class="control-label">{{ $me->email or '' }}</label></div>
                     </div>
                 </div>
                 {{--昵称--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">昵称：</label>
                     <div class="col-md-8 ">
-                        <div><label class="control-label">{{$me->nickname or ''}}</label></div>
+                        <div><label class="control-label">{{ $me->nickname or '' }}</label></div>
                     </div>
                 </div>
                 {{--真实姓名--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">真实姓名：</label>
                     <div class="col-md-8 ">
-                        <div><label class="control-label">{{$me->true_name or ''}}</label></div>
+                        <div><label class="control-label">{{ $me->true_name or '' }}</label></div>
                     </div>
                 </div>
                 {{--portrait--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">头像：</label>
                     <div class="col-md-8 ">
-                        <div class="info-img-block"><img src="{{url(config('common.host.'.env('APP_ENV').'.cdn').'/'.$me->portrait_img)}}" alt=""></div>
+                        <div class="info-img-block"><img src="{{ url(env('DOMAIN_CDN').'/'.$me->portrait_img) }}" alt=""></div>
                     </div>
                 </div>
                 {{--修改密码--}}
                 <div class="form-group">
                     <label class="control-label col-md-2">修改密码：</label>
                     <div class="col-md-8 ">
-                        <a class="btn btn-danger _left" href="{{url('/admin/administrator/password/reset')}}">修改密码</a>
+                        <a class="btn btn-danger _left" href="{{ url('/admin/administrator/password/reset') }}">修改密码</a>
                     </div>
                 </div>
             </div>
