@@ -20,7 +20,7 @@
             'mobile-1' => '135-2488-1889',
             'email' => '',
             'wechat_id' => '',
-            'wechat_qrcode' => '/custom/images/shengbei-wechat.jpeg',
+            'wechat_qrcode' => '/custom/images/yunfei-wechat.jpg',
             'weibo_name' => '',
             'weibo_address' => '',
         ],
