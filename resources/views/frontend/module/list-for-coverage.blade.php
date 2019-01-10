@@ -2,9 +2,9 @@
 <section class="module-container bg-light">
     <div class="container">
 
-        <header class="module-row module-header-container">
-            <div class="wow slideInLeft module-title-row color-1 border-light"><b>钢琴资讯</b></div>
-            <div class="wow slideInRight module-subtitle-row color-6"><b>上海地区最实惠的租琴</b></div>
+        <header class="module-row module-header-container text-center">
+            <div class="wow slideInLeft module-title-row title-with-double-line color-e border-light title-h2"><b>钢琴Tips</b></div>
+            <div class="wow slideInRight module-subtitle-row color-b title-h4"><b>随时了解最新资讯，掌握钢琴小贴士</b></div>
         </header>
 
         <div class="module-row module-body-container">
@@ -15,7 +15,7 @@
                         <figure class="image-container padding-top-3-4">
                             <div class="image-box">
                                 <a class="clearfix zoom-" target="_blank"  href="{{ url('/item/'.$v->id) }}">
-                                    <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
+                                    <img data-action="zoom-" src="{{ url(env('DOMAIN_CDN').'/'.$v->cover_pic) }}" alt="Image">
                                 </a>
                                 {{--<span class="btn btn-warning">热销中</span>--}}
                             </div>

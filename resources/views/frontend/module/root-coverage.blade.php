@@ -14,7 +14,7 @@
 
                         <figure class="feature-image">
                             <a class="clearfix" href="{{ url('/item/'.$v->id) }}">
-                                <img src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
+                                <img data-action="zoom-" src="{{ url(env('DOMAIN_CDN').'/'.$v->cover_pic) }}" alt="Image">
                             </a>
                         </figure>
 
