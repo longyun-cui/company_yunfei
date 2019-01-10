@@ -120,7 +120,7 @@ class IndexRepository {
     // 【资讯】
     public function view_coverage_list()
     {
-        $items = RootItem::where(['category'=>31, 'active'=>1])->orderby('id', 'desc')->paginate(8);
+        $items = RootItem::where(['category'=>41, 'active'=>1])->orderby('id', 'desc')->paginate(8);
         foreach($items as $item)
         {
             $item->custom = json_decode($item->custom);
