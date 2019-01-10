@@ -4,7 +4,7 @@
 
         <header class="module-row module-header-container text-center">
             <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light title-h2"><b>二手钢琴批发</b></div>
-            <div class="wow slideInRight module-subtitle-row color-5 title-h4"><b>上海地区最实惠的二手钢琴批发</b></div>
+            <div class="wow slideInRight module-subtitle-row color-5 title-h4"><b>十年品质保证</b></div>
         </header>
 
         <div class="module-row module-body-container">
