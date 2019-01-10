@@ -2,9 +2,9 @@
 <section class="module-container bg-light">
     <div class="container">
 
-        <header class="module-row module-header-container">
-            <div class="wow slideInLeft module-title-row color-1 border-light"><b>二手钢琴批发</b></div>
-            <div class="wow slideInRight module-subtitle-row color-6"><b>上海地区最实惠的二手钢琴批发</b></div>
+        <header class="module-row module-header-container text-center">
+            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light title-h2"><b>二手钢琴批发</b></div>
+            <div class="wow slideInRight module-subtitle-row color-5 title-h4"><b>十年品质保证</b></div>
         </header>
 
         <div class="module-row module-body-container">
@@ -22,7 +22,7 @@
                         </figure>
 
                         <figure class="text-container clearfix">
-                            <div class="text-box" style="border-bottom:1px solid #e6e6e6">
+                            <div class="text-box">
                                 <div class="text-title-row"><a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a></div>
                                 <div class="text-description-row">
                                     <div>
@@ -30,9 +30,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-box clearfix">
+                            <div class="text-box with-border-top clearfix">
                                 <a target="_blank" href="{{ url('/item/'.$v->id) }}">
-                                    <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看">
+                                    <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看" style="border-radius:0;">
                                         <strong>查看详情</strong>
                                     </button>
                                 </a>

@@ -21,15 +21,18 @@
                             </div>
                         </figure>
 
-                        <figure class="text-container clearfix text-center">
-                            <div class="text-box" style="border-bottom:1px solid #e6e6e6">
-                                <div class="text-title-row"><a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a></div>
-                                <div class="text-description-row _none">
+                        <figure class="text-container clearfix">
+                            <div class="text-box">
+                                <div class="text-title-row multi-ellipsis-2">
+                                    <a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a>
+                                </div>
+                                <div class="text-description-row">
+                                    <i class="fa fa-map-marker"></i> 14 Tottenham Road, London.
                                 </div>
                             </div>
-                            <div class="text-box clearfix">
+                            <div class="text-box with-border-top clearfix">
                                 <a target="_blank" href="{{ url('/item/'.$v->id) }}">
-                                    <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看">
+                                    <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看" style="border-radius:0;">
                                         <strong>查看详情</strong>
                                     </button>
                                 </a>
