@@ -8,7 +8,7 @@
         </header>
 
         <div class="module-row module-body-container property-contents lightcase-images-show" id="lightcase-images-show">
-            @if(count($data->custom2) > 0)
+            @if(!empty($data->custom2) && count($data->custom2) > 0)
                 @foreach($data->custom2 as $img)
                     <article class="property clearfix">
                         <figure class="feature-image" style="height:240px; max-height:240px; overflow:hidden;">
