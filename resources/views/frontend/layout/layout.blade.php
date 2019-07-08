@@ -8,8 +8,9 @@
         <title>@yield('head_title')</title>
 
         <meta name="author" content="@yield('meta_author')" />
-        <meta name="description" content="@yield('meta_description')" />
+        <meta name="title" content="@yield('meta_title')" />
         <meta name="keywords" content="@yield('meta_keywords')" />
+        <meta name="description" content="@yield('meta_description')" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
