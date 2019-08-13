@@ -3,8 +3,8 @@
     <div class="container main-container">
 
         <header class="module-row module-header-container text-center">
-            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light title-h2"><b>钢琴出租</b></div>
-            <div class="wow slideInRight module-subtitle-row color-5 title-h4"><b>十年品质保证</b></div>
+            <div class="wow slideInLeft module-title-row title-with-double-line color-e border-light title-h2"><b>钢琴出租</b></div>
+            <div class="wow slideInRight module-subtitle-row color-d title-h4"><b>十年品质保证</b></div>
         </header>
 
         <div class="module-row module-body-container">
@@ -48,7 +48,7 @@
         </div>
 
         <footer class="module-row module-footer-container text-center">
-            <a href="{{ url('/rent-out/list') }}" class="view-more style-dark">查看更多 <i class="fa fa-hand-o-right"></i></a>
+            <a href="{{ url('/rent-out/list') }}" class="view-more style-light">查看更多 <i class="fa fa-hand-o-right"></i></a>
         </footer>
 
     </div>
