@@ -22,7 +22,7 @@
                             <header class="property-header clearfix">
                                 <div class="pull-left">
                                     <h6 class="entry-title"><a href="{{ url('/item') }}">{{ $v->title or '' }}</a></h6>
-                                    <span class="property-location _none"><i class="fa fa-map-marker"></i> 14 Tottenham Road, London</span>
+                                    <span class="property-location _none">{{ $v->updated_at or '' }}</span>
                                 </div>
                             </header>
                             <div class="property-meta clearfix">
