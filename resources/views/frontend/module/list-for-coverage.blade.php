@@ -27,7 +27,7 @@
                                     <a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a>
                                 </div>
                                 <div class="text-description-row">
-                                    <i class="fa fa-map-marker"></i> 14 Tottenham Road, London.
+                                    {{ $v->updated_at or '' }}
                                 </div>
                             </div>
                             <div class="text-box with-border-top clearfix">
