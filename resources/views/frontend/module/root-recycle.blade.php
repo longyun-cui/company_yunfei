@@ -1,4 +1,4 @@
-{{--下载APP--}}
+{{--回收--}}
 <section class="module-container text-center" id="module-recycle">
     <div class="container full-container">
 

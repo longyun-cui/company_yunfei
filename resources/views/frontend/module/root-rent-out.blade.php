@@ -10,7 +10,7 @@
         <div class="module-row module-body-container">
             @foreach($items as $v)
                 <div class="item-col col-lg-3 col-md-4 col-sm-6 col-xs-6" style="padding:8px;">
-                    <div class="item-container">
+                    <div class="item-container padding-8px">
 
                         <figure class="image-container padding-top-3-4">
                             <div class="image-box">
@@ -26,7 +26,7 @@
                                 <div class="text-title-row multi-ellipsis-2"><a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a></div>
                                 <div class="text-description-row">
                                     <div>
-                                        <i class="fa fa-cny"></i> <span class="font-18px color-red"><b>{{ $v->custom->price or '' }}</b></span>
+                                        租金：<i class="fa fa-cny"></i> <span class="font-16px color-red"><b>{{ $v->custom->price or '' }}</b></span>
                                     </div>
                                     <div>
                                         <span>押金：<i class="fa fa-cny"></i> {{ $v->custom->deposit or '' }} </span>

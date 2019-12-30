@@ -56,6 +56,8 @@ Route::group(['namespace' => 'Front'], function () {
 
     Route::get('coverage/list', $controller.'@view_coverage_list');
 
+    Route::get('course/list', $controller.'@view_course_list');
+
 
     Route::post('message/contact', $controller.'@message_contact');
     Route::post('message/grab/item', $controller.'@message_grab_item');
