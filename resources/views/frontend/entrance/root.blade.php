@@ -34,7 +34,7 @@
 
         @include('frontend.module.root-rent-out', ['items'=>$rent_items])
 
-        {{--@include('frontend.module.root-video')--}}
+{{--        @include('frontend.module.root-video')--}}
 
         @include('frontend.module.root-cooperation', ['items'=>$cooperation_items])
 
