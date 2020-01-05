@@ -41,9 +41,5 @@
             @endfor
         </div>
 
-        <footer class="module-row module-footer-container text-center">
-            {{ $items->links() }}
-        </footer>
-
     </div>
 </section>

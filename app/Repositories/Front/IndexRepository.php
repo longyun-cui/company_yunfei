@@ -155,16 +155,9 @@ class IndexRepository {
     {
         $id = $var = sprintf("%02d", request()->input('id', '01'));
 
-        $items = RootItem::where(['category'=>41, 'active'=>1])->orderby('id', 'desc')->paginate(8);
-        foreach($items as $item)
-        {
-            $item->custom = json_decode($item->custom);
-            $item->custom2 = json_decode($item->custom2);
-        }
-
         $rent_items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->limit(6)->get();
 
-        $html = view('frontend.entrance.page-for-course')->with(['id'=>$id, 'items'=>$items, 'rent_items'=>$rent_items])->__toString();
+        $html = view('frontend.entrance.page-for-course')->with(['id'=>$id, 'rent_items'=>$rent_items])->__toString();
         return $html;
     }
 
