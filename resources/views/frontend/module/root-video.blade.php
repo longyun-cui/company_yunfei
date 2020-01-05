@@ -29,8 +29,8 @@
                     <a class="btn btn-ghost btn-ghost-white btn-lg btn-block" data-fancybox="" href="#myVideo">
                         <i class="fa fa-play-circle-o" style="font-size:64px;"></i>
                     </a>
-                    <video width="720" height="416" controls="" id="myVideo" style="display:none;">
-                        <source src="{{ asset('/custom/video/xiaotang_01.mp4') }}" type="video/mp4">
+                    <video width="720" height="416"  controls="true" controlslist="nodownload" id="myVideo" style="display:none;">
+                        <source src="{{ asset('/custom/videos/xiaotang_01.mp4') }}" type="video/mp4">
                     </video>
 
                 </p>
@@ -38,7 +38,7 @@
         </div>
 
         <footer class="module-row module-footer-container text-center">
-            <a href="{{ url('/course/list') }}" class="view-more style-light" role="button">查看更多 <i class="fa fa-hand-o-right"></i></a>
+            <a href="{{ url('/course/xiaotang01?id=01') }}" class="view-more style-light" role="button">查看更多 <i class="fa fa-hand-o-right"></i></a>
         </footer>
 
     </div>

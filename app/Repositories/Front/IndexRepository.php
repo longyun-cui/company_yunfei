@@ -135,6 +135,41 @@ class IndexRepository {
 
 
 
+    // 【视频教程】
+    public function view_course_list()
+    {
+        $items = RootItem::where(['category'=>41, 'active'=>1])->orderby('id', 'desc')->paginate(8);
+        foreach($items as $item)
+        {
+            $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
+        }
+
+        $rent_items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->limit(6)->get();
+
+        $html = view('frontend.entrance.list-for-course')->with(['items'=>$items, 'rent_items'=>$rent_items])->__toString();
+        return $html;
+    }
+    // 【视频教程】
+    public function view_course_xiaotang01()
+    {
+        $id = $var = sprintf("%02d", request()->input('id', '01'));
+
+        $items = RootItem::where(['category'=>41, 'active'=>1])->orderby('id', 'desc')->paginate(8);
+        foreach($items as $item)
+        {
+            $item->custom = json_decode($item->custom);
+            $item->custom2 = json_decode($item->custom2);
+        }
+
+        $rent_items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->limit(6)->get();
+
+        $html = view('frontend.entrance.page-for-course')->with(['id'=>$id, 'items'=>$items, 'rent_items'=>$rent_items])->__toString();
+        return $html;
+    }
+
+
+
 
     // item
     public function view_item($id = 0)

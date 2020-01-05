@@ -65,6 +65,18 @@ class IndexController extends Controller
     }
 
 
+    // 返回【视频教程】【列表】视图
+    public function view_course_list()
+    {
+        return $this->repo->view_course_list();
+    }
+    // 返回【视频教程】【列表】视图
+    public function view_course_xiaotang01()
+    {
+        return $this->repo->view_course_xiaotang01();
+    }
+
+
 
     // 【留言】
     public function message_contact()
