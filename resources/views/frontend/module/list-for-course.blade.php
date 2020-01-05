@@ -13,7 +13,7 @@
                 <p class="text-center">
 
                     <video width="720" height="416" controls="true" controlslist="nodownload" id="myVideo">
-                        <source src="{{ asset('/custom/videos/xiaotang_02.mp4') }}" type="video/mp4">
+                        <source src="{{ asset('/custom/videos/xiaotang_01.mp4') }}" type="video/mp4">
                     </video>
 
                 </p>
