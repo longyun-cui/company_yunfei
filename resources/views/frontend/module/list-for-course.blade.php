@@ -22,28 +22,24 @@
         </div>
 
         <div class="module-row module-body-container">
-            @for($i=1; $i<31; $i++)
-                <div class="col-lg-2 col-md-3 col-sm-4 item-col margin-0">
-                    <div class="item-container">
+            <div class="item-col margin-0">
+                <div class="item-container">
 
-                        <a target="_blank" href="{{ url('/course/xiaotang01?id='.$i) }}">
-                        <figure class="text-container clearfix">
-                            <div class="text-box clearfix">
-                                    <button class="btn btn-default btn-price pull-right btn-3d" data-hover="点击查看" style="border-radius:0;">
-                                        <strong>第{{ $i }}讲</strong>
+                    <figure class="text-container clearfix">
+                        <div class="text-box clearfix">
+                            @for($i=1; $i<31; $i++)
+                                <a href="{{ url('/course/xiaotang01?id='.sprintf("%02d", $i)) }}">
+                                    <button class="btn btn-default btn-3d margin-4px" data-hover="点击查看" style="min-width:84px;border-radius:0;">
+                                        <strong>第{{ sprintf("%02d", $i) }}讲</strong>
                                     </button>
-                            </div>
-                        </figure>
-                        </a>
+                                </a>
+                            @endfor
+                        </div>
+                    </figure>
 
-                    </div>
                 </div>
-            @endfor
+            </div>
         </div>
-
-        <footer class="module-row module-footer-container text-center">
-            {{ $items->links() }}
-        </footer>
 
     </div>
 </section>

@@ -497,8 +497,8 @@
 /*.image-container:before { display:block; content:""; }*/
 /*.image-box { position:absolute; top:0; left:0; right:0; bottom:0; }*/
 
-.module-container.bg-light .item-container,
-.module-container.bg-dark .item-container { background:#fff; }
+/*.module-container.bg-light .item-container,
+.module-container.bg-dark .item-container { background:#fff; }*/
 
 .item-container { position:relative; margin-bottom:8px; }
 .item-container.with-padding { padding:8px; }

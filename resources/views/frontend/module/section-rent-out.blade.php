@@ -24,7 +24,7 @@
                                     <div class="text-title-row"><b>{{ $v->title or '' }}</b></div>
                                     <div class="text-description-row">
                                         <div>
-                                            <i class="fa fa-cny"></i> <span class="font-18px color-red"><b>{{ $v->custom->price or '' }}</b></span>
+                                            <span>租金：<i class="fa fa-cny"></i> <span class="color-red"><b>{{ $v->custom->price or '' }}</b></span></span>
                                         </div>
                                         <div>
                                             <span>押金：<i class="fa fa-cny"></i> {{ $v->custom->deposit or '' }} </span>
