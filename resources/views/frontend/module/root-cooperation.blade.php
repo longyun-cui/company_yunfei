@@ -10,7 +10,7 @@
         <div class="module-row module-body-container ">
             @foreach($items as $v)
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 item-col">
-                    <div class="item-container padding-8px">
+                    <div class="item-container padding-8px bg-white">
 
                         <figure class="image-container padding-top-4-5">
                             <div class="image-box">
