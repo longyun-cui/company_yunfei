@@ -1,10 +1,10 @@
 {{--最新资讯--}}
-<section class="module-container bg-dark" id="home-property-for-rent-listing">
+<section class="module-container bg-grey-27 bg-dark" id="home-property-for-rent-listing">
     <div class="container main-container">
 
         <header class="module-row module-header-container text-center">
-            <div class="wow slideInLeft module-title-row title-with-double-line color-e border-light title-h2"><b>钢琴Tips</b></div>
-            <div class="wow slideInRight module-subtitle-row color-b title-h4"><b>随时了解最新资讯，掌握钢琴小贴士</b></div>
+            <div class="wow slideInLeft module-title-row title-with-double-line title-lg"><b>钢琴Tips</b></div>
+            <div class="wow slideInRight module-subtitle-row title-sm">随时了解最新资讯，掌握钢琴小贴士</div>
         </header>
 
         <div class="module-row module-body-container root-slider">
@@ -26,7 +26,9 @@
                                 </div>
                             </header>
                             <div class="property-meta clearfix">
-                                <a href="{{ url('/item/'.$v->id) }}" class="btn btn-default btn-price pull-right btn-3d" data-hover="查看详情" style="border-radius:0;"><strong>查看详情</strong></a>
+                                <a target="_blank" href="{{ url('/item/'.$v->id) }}">
+                                    <button class="btn btn-default btn-3d btn-clicker pull-right" data-hover="点击查看">查看详情</button>
+                                </a>
                                 {{--<span><i class="fa fa-arrows-alt"></i> 3060 SqFt</span>--}}
                                 {{--<span><i class="fa fa-bed"></i> 3 Beds</span>--}}
                                 {{--<span><i class="fa fa-bathtub"></i> 3 Baths</span>--}}

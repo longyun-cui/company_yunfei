@@ -3,8 +3,8 @@
     <div class="container main-container">
 
         <header class="module-row module-header-container text-center">
-            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light title-h2"><b>二手钢琴批发</b></div>
-            <div class="wow slideInRight module-subtitle-row color-5 title-h4"><span>十年品质保证</span></div>
+            <div class="wow slideInLeft module-title-row title-with-double-line title-lg"><b>二手钢琴批发</b></div>
+            <div class="wow slideInRight module-subtitle-row title-sm"><span>十年品质保证</span></div>
         </header>
 
         <div class="module-row module-body-container">
@@ -26,15 +26,13 @@
                                 <div class="text-title-row"><a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a></div>
                                 <div class="text-description-row _none">
                                     <div>
-                                        <i class="fa fa-cny"></i> <span class="font-18px color-red"><b>{{ $v->custom->price or '' }}</b></span>
+                                        <i class="fa fa-cny"></i> <span class="color-red _bold">{{ $v->custom->price or '' }}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-box with-border-top text-center clearfix">
                                 <a target="_blank" href="{{ url('/item/'.$v->id) }}">
-                                    <button class="btn btn-default btn-3d btn-clicker" data-hover="点击查看" style="border-radius:0;">
-                                        <strong>查看详情</strong>
-                                    </button>
+                                    <button class="btn btn-default btn-3d btn-clicker" data-hover="点击查看">查看详情</button>
                                 </a>
                             </div>
                         </figure>

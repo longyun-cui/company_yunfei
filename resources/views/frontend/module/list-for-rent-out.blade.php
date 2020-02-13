@@ -23,7 +23,7 @@
 
                         <figure class="text-container clearfix">
                             <div class="text-box">
-                                <div class="text-title-row multi-ellipsis-2"><a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a></div>
+                                <div class="text-title-row multi-ellipsis-1"><a href="{{ url('/item/'.$v->id) }}"><b>{{ $v->title or '' }}</b></a></div>
                                 <div class="text-description-row">
                                     <div class="font-14px">
                                         <span>租金：<i class="fa fa-cny"></i> <b class="color-red">{{ $v->custom->price or '' }}</b></span>

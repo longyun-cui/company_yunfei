@@ -1,10 +1,10 @@
 {{--<!-- START: module-link-contact -->--}}
-<section class="module-container text-center" id="module-video">
+<section class="module-container text-center bg-dark" id="module-video">
     <div class="container full-container">
 
         <header class="module-row module-header-container text-center">
-            <div class="wow slideInLeft module-title-row title-with-double-line color-e border-light title-h2"><b>钢琴教学</b></div>
-            <div class="wow slideInRight module-subtitle-row color-e title-h4"><b>钢琴入门教程 小汤一</b></div>
+            <div class="wow slideInLeft module-title-row title-with-double-line title-lg _bold">钢琴教学</div>
+            <div class="wow slideInRight module-subtitle-row title-sm">钢琴入门教程 小汤一</div>
         </header>
 
         <div class="module-row module-body-container ">
@@ -38,7 +38,7 @@
         </div>
 
         <footer class="module-row module-footer-container text-center">
-            <a href="{{ url('/course/xiaotang01?id=01') }}" class="view-more style-light" role="button">查看更多 <i class="fa fa-hand-o-right"></i></a>
+            <a href="{{ url('/course/xiaotang01?id=01') }}" class="view-more" role="button">查看更多 <i class="fa fa-hand-o-right"></i></a>
         </footer>
 
     </div>
