@@ -3,8 +3,8 @@
     <div class="container main-container">
 
         <header class="module-row module-header-container text-center">
-            <div class="wow slideInLeft module-title-row title-with-double-line color-1 border-light title-h2"><b>我们的客户</b></div>
-            <div class="wow slideInRight module-subtitle-row color-5 title-h4 _none"><b>description-client-1</b></div>
+            <div class="wow slideInLeft module-title-row title-with-double-line title-lg _bold">我们的客户</div>
+            <div class="wow slideInRight module-subtitle-row title-sm">忠实服务于每一个客户，谢谢您的信赖</div>
         </header>
 
         <div class="module-row module-body-container">
