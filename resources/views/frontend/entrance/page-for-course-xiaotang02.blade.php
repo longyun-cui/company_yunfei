@@ -31,6 +31,6 @@
     @include('frontend.component.banner-for-rent-out-list')
 
     {{--main--}}
-    @include('frontend.module.page-for-course')
+    @include('frontend.module.page-for-course-xiaotang02')
 
 @endsection

@@ -177,7 +177,21 @@ class IndexRepository {
             $item->custom = json_decode($item->custom);
         }
 
-        $html = view('frontend.entrance.page-for-course')->with(['id'=>$id, 'rent_items'=>$rent_items])->__toString();
+        $html = view('frontend.entrance.page-for-course-xiaotang01')->with(['id'=>$id, 'rent_items'=>$rent_items])->__toString();
+        return $html;
+    }
+    // 【视频教程】
+    public function view_course_xiaotang02()
+    {
+        $id = sprintf("%02d", request()->input('id', '01'));
+
+        $rent_items = RootItem::where(['category'=>11, 'active'=>1])->orderby('id', 'desc')->limit(6)->get();
+        foreach($rent_items as $item)
+        {
+            $item->custom = json_decode($item->custom);
+        }
+
+        $html = view('frontend.entrance.page-for-course-xiaotang02')->with(['id'=>$id, 'rent_items'=>$rent_items])->__toString();
         return $html;
     }
 

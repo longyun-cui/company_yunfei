@@ -70,7 +70,7 @@
                     <li><a href="{{ url('/rent-out/list') }}">租琴</a></li>
                     <li><a href="{{ url('/second-wholesale/list') }}">二手批发</a></li>
                     <li><a href="{{ url('/recycle/page') }}">钢琴回收</a></li>
-                    <li><a href="{{ url('/course/xiaotang01?id=01') }}">钢琴教学</a></li>
+                    <li><a href="{{ url('/course/list') }}">钢琴教学</a></li>
                     <li><a href="{{ url('/coverage/list') }}">资讯动态</a></li>
                     <li><a href="{{ url('/contact') }}">联系我们</a></li>
 

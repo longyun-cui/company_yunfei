@@ -58,6 +58,7 @@ Route::group(['namespace' => 'Front'], function () {
 
     Route::get('course/list', $controller.'@view_course_list');
     Route::get('course/xiaotang01', $controller.'@view_course_xiaotang01');
+    Route::get('course/xiaotang02', $controller.'@view_course_xiaotang02');
 
 
     Route::post('message/contact', $controller.'@message_contact');
