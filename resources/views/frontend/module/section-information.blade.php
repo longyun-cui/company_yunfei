@@ -1,10 +1,9 @@
 {{--基本信息--}}
-<section class="section-container bg-white">
+<section class="section-container bg-light bg-white">
     <div class="row">
 
         <header class="module-row module-header-container with-border-bottom text-center">
-            <div class="wow slideInLeft module-title-row color-1 border-light title-h2"><b>基本信息</b></div>
-            <a class="pull-right print-btn _none" href="javascript:window.print()">Print This Property <i class="fa fa-print"></i></a>
+            <div class="wow slideInLeft module-title-row title-lg _bold">基本信息</div>
         </header>
 
         <div class="module-row module-body-container property-contents">

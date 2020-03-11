@@ -1,9 +1,10 @@
 {{--main--}}
-<section class="section-container bg-f">
+<section class="section-container bg-light bg-f">
     <div class="row">
 
         <header class="module-row module-header-container with-border-bottom text-center">
-            <div class="wow slideInLeft module-title-row color-1 border-light title-h2"><b>热门租琴</b></div>
+            <div class="wow slideInLeft module-title-row title-lg _bold">热门租琴</div>
+            {{--<div class="wow slideInRight module-subtitle-row title-sm">Description</div>--}}
         </header>
 
         <div class="module-row module-body-container">

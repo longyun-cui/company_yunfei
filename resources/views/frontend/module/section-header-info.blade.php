@@ -1,10 +1,10 @@
 {{--main--}}
-<section class="section-container bg-white">
+<section class="section-container bg-light bg-white">
     <div class="row">
 
         <header class="module-row module-header-container with-border-bottom text-center">
-            <div class="wow slideInLeft module-title-row color-1 border-light title-h2"><b>{{ $data->title or '' }}</b></div>
-            <a class="module-subtitle-row pull-right print-btn font-14px" href="javascript:void(0);">浏览 ({{ $data->visit_num or '' }}) 次</a>
+            <div class="wow slideInLeft module-title-row title-lg _bold">{{ $data->title or '' }}</div>
+            <a class="module-subtitle-row pull-right print-btn" href="javascript:void(0);">浏览 ({{ $data->visit_num or '' }}) 次</a>
         </header>
 
         <div class="module-row module-body-container property-single-meta">

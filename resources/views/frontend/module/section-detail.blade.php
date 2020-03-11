@@ -1,5 +1,5 @@
 {{--图片展示--}}
-<section class="section-container bg-white">
+<section class="section-container bg-light bg-white">
     <div class="row">
 
         <header class="module-row module-header-container with-border-bottom text-center">

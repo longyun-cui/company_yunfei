@@ -12,10 +12,11 @@
     <div id="slider-contents">
         <div class="container text-center">
             <div class="jumbotron">
-                <h1>{{ config('company.info.short_name') }}</h1>
-                <div class="contents clearfix">
-                    <p class="font-24px"><b>{{ config('company.info.slogan') }}</b></p>
-                </div>
+                <div class="padding-8px title-xl color-f _bold">{{ config('company.info.name') }}</div>
+                <div class="contents clearfix"></div>
+                {{--<div class="contents clearfix">--}}
+                    {{--<span class="title-sm color-e">{{ config('company.info.slogan') }}</span>--}}
+                {{--</div>--}}
                 <a class="btn btn-warning btn-lg btn-3d" data-hover="联系我们" href="{{ url('/contact') }}" role="button">联系我们</a>
                 <a class="btn btn-default btn-border btn-lg" href="javascript:void(0);" role="button">Get a Quote</a>
             </div>
