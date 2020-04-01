@@ -3,7 +3,7 @@
     <div class="container main-container">
 
         <header class="module-row module-header-container text-center">
-            <div class="wow slideInLeft module-title-row title-with-double-line title-lg"><b>钢琴Tips</b></div>
+            <div class="wow slideInLeft module-title-row title-with-double-line title-md _blod">钢琴Tips</div>
             <div class="wow slideInRight module-subtitle-row title-sm">随时了解最新资讯，掌握钢琴小贴士</div>
         </header>
 
