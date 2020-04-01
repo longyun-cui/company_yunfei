@@ -1,5 +1,5 @@
 {{--<!-- START: module-link-contact -->--}}
-<section class="module-container text-center bg-light bg-" id="module-course">
+<section class="module-container text-center bg-light module-video" id="module-course">
     <div class="container main-container">
 
         <header class="module-row module-header-container text-center">
@@ -73,13 +73,13 @@
 {{--<!-- END: module-link-contact -->--}}
 
 <style>
-    #module-course .module-body-container { margin-top:8px; margin-bottom:8px; }
+    .module-video .module-body-container { margin-top:8px; margin-bottom:8px; }
 
-    #module-course .section-container { padding:16px; margin-bottom:16px; }
-    #module-course .button-col { margin:0; padding:1px; }
-    #module-course .btn { width:100%;height:100%; }
+    .module-video .section-container { padding:16px; margin-bottom:16px; }
+    .module-video .button-col { margin:0; padding:1px; }
+    .module-video .btn { width:100%;height:100%; }
 
     @media (max-width: 767px) {
-        #module-course .section-container { padding: 16px 8px; }
+        .module-video .section-container { padding: 16px 8px; }
     }
 </style>

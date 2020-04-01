@@ -1,5 +1,5 @@
 {{--main--}}
-<section class="module-container bg-light">
+<section class="module-container text-center bg-light module-video">
     <div class="container main-container">
 
         <header class="module-row module-header-container text-center">

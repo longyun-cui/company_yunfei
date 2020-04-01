@@ -1,5 +1,5 @@
 {{--main--}}
-<section class="module-container text-center bg-light">
+<section class="module-container text-center bg-light module-video">
     <div class="container main-container">
 
         <header class="module-row module-header-container text-center">
@@ -13,7 +13,7 @@
                 <p class="text-center">
 
                     <video width="720" height="416" controls="true" controlslist="nodownload" autoplay="autoplay" id="myVideo">
-                        <source src="{{ asset('/custom/videos/xiaotang01/xiaotang_'.$id.'.mp4') }}" type="video/mp4">
+                        <source src="{{ asset('/custom/videos/xiaotang01/xiaotang_01_'.$id.'.mp4') }}" type="video/mp4">
                     </video>
 
                 </p>

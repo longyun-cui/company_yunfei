@@ -3,7 +3,7 @@
     <div class="row">
 
         <header class="module-row module-header-container with-border-bottom text-center">
-            <div class="wow slideInLeft module-title-row title-lg _bold">热门租琴</div>
+            <div class="wow slideInLeft module-title-row title-md _bold">热门租琴</div>
             {{--<div class="wow slideInRight module-subtitle-row title-sm">Description</div>--}}
         </header>
 
@@ -20,10 +20,10 @@
                                 </div>
                             </figure>
 
-                            <figure class="text-container">
+                            <figure class="text-container text-left">
                                 <div class="text-box">
                                     <div class="text-title-row">
-                                        <span>{{ $v->title or '' }}</span>
+                                        <span class="_bold">{{ $v->title or '' }}</span>
                                     </div>
                                     <div class="text-description-row">
                                         <div>
