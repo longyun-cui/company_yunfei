@@ -4,7 +4,14 @@
 
         <header class="module-row module-header-container text-center">
             <div class="wow slideInLeft module-title-row title-with-double-line title-lg _bold">视频教程</div>
-            <div class="wow slideInRight module-subtitle-row title-sm">钢琴入门教程 小汤一 第{{ $id }}讲</div>
+            <div class="wow slideInRight module-subtitle-row title-sm">
+                钢琴入门教程
+                @if($course == "xiaotang01") 小汤一
+                @elseif($course == "xiaotang02") 小汤二
+                @elseif($course == "xiaotang03") 小汤三
+                @endif
+                第{{ $id }}讲
+            </div>
         </header>
 
         <div class="module-row module-body-container">
