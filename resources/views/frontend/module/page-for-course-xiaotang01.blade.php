@@ -77,4 +77,8 @@
     </div>
 </section>
 
-
+<style>
+    @media (max-width: 767px) {
+        video { width:100% }
+    }
+</style>
