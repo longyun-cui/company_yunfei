@@ -29,7 +29,7 @@
 
                 <figure class="text-container clearfix">
                     <div class="text-box clearfix text-center">
-                        <span class="title-sm">钢琴入门教学 小汤一</span>
+                        <span class="title-with-double-line border-light title-sm">钢琴入门教学 小汤一</span>
                     </div>
                     <div class="text-box clearfix">
                         @for($i=1; $i<31; $i++)
@@ -50,22 +50,22 @@
         <div class="module-row module-body-container bg-white">
             <div class="section-container">
 
-                    <figure class="text-container clearfix">
-                        <div class="text-box clearfix text-center">
-                            <span class="title-sm">钢琴入门教学 小汤二</span>
-                        </div>
-                        <div class="text-box clearfix">
-                            @for($i=1; $i<33; $i++)
-                                <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 button-col">
-                                    <a href="{{ url('/course/xiaotang02?id='.sprintf("%02d", $i)) }}">
-                                        <button class="btn btn-default btn-3d" data-hover="点击查看">
-                                            <strong>第{{ sprintf("%02d", $i) }}讲</strong>
-                                        </button>
-                                    </a>
-                                </div>
-                            @endfor
-                        </div>
-                    </figure>
+                <figure class="text-container clearfix">
+                    <div class="text-box clearfix text-center">
+                        <span class="title-with-double-line border-light title-sm">钢琴入门教学 小汤二</span>
+                    </div>
+                    <div class="text-box clearfix">
+                        @for($i=1; $i<33; $i++)
+                            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 button-col">
+                                <a href="{{ url('/course/xiaotang02?id='.sprintf("%02d", $i)) }}">
+                                    <button class="btn btn-default btn-3d" data-hover="点击查看">
+                                        <strong>第{{ sprintf("%02d", $i) }}讲</strong>
+                                    </button>
+                                </a>
+                            </div>
+                        @endfor
+                    </div>
+                </figure>
 
             </div>
         </div>
