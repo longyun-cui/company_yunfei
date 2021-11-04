@@ -54,6 +54,39 @@ return [
             'engine' => null,
         ],
 
+        'mysql0' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
+        'mysql_yf' => [
+            'driver' => 'mysql',
+            'host' => env('DB_YF_HOST', '127.0.0.1'),
+            'port' => env('DB_YF_PORT', '3306'),
+            'database' => env('DB_YF_DATABASE', ''),
+            'username' => env('DB_YF_USERNAME', ''),
+            'password' => env('DB_YF_PASSWORD', ''),
+            'unix_socket' => env('DB_YF_SOCKET', ''),
+            'prefix' => env('DB_YF_PREFIX', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_general_ci',
+            'strict' => false,
+            'engine' => null,
+//            'options'   =>[
+//                PDO::ATTR_EMULATE_PREPARES => false,
+//            ],
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),

@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-//    return view('frontend/entrance/root');
-});
+//Route::get('/', function () {
+////    return view('welcome');
+////    return view('frontend/entrance/root');
+//});
 
 
 /*
- * Common 通用
+ * Common 通用∂∂
  */
 Route::group(['prefix' => 'common'], function () {
 
@@ -37,45 +37,15 @@ Route::group(['prefix' => 'common'], function () {
 
 
 
+
+
 /*
- * 前台
+ * Staff
  */
-Route::group(['namespace' => 'Front'], function () {
-
-    $controller = "IndexController";
-
-    Route::get('/', $controller.'@view_root');
-    Route::get('/contact', $controller.'@view_contact');
-
-    Route::get('item/{id?}', $controller.'@view_item');
-
-    Route::get('rent-out/list', $controller.'@view_rent_out_list');
-    Route::get('second-wholesale/list', $controller.'@view_second_wholesale_list');
-
-    Route::get('recycle/page', $controller.'@view_recycle_page');
-
-    Route::get('coverage/list', $controller.'@view_coverage_list');
-
-    Route::get('course/list', $controller.'@view_course_list');
-    Route::get('course/{course?}', $controller.'@view_course');
-//    Route::get('course/xiaotang01', $controller.'@view_course_xiaotang01');
-//    Route::get('course/xiaotang02', $controller.'@view_course_xiaotang02');
-
-
-    Route::post('message/contact', $controller.'@message_contact');
-    Route::post('message/grab/item', $controller.'@message_grab_item');
-
-
-    Route::group(['prefix' => 'test'], function () {
-
-        $controller = "TestController";
-
-        Route::get('/index', $controller.'@view_index');
-
-    });
-
-
+Route::group(['domain' => 'staff.'.env('DOMAIN_ROOT'), 'namespace' => 'Staff'], function () {
+    require(__DIR__ . '/Staff/route.php');
 });
+
 
 
 
@@ -190,3 +160,42 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 
 
+/*
+ * 前台
+ */
+Route::group(['namespace' => 'Front'], function () {
+
+    $controller = "IndexController";
+
+    Route::get('/', $controller.'@view_root');
+    Route::get('/contact', $controller.'@view_contact');
+
+    Route::get('item/{id?}', $controller.'@view_item');
+
+    Route::get('rent-out/list', $controller.'@view_rent_out_list');
+    Route::get('second-wholesale/list', $controller.'@view_second_wholesale_list');
+
+    Route::get('recycle/page', $controller.'@view_recycle_page');
+
+    Route::get('coverage/list', $controller.'@view_coverage_list');
+
+    Route::get('course/list', $controller.'@view_course_list');
+    Route::get('course/{course?}', $controller.'@view_course');
+//    Route::get('course/xiaotang01', $controller.'@view_course_xiaotang01');
+//    Route::get('course/xiaotang02', $controller.'@view_course_xiaotang02');
+
+
+    Route::post('message/contact', $controller.'@message_contact');
+    Route::post('message/grab/item', $controller.'@message_grab_item');
+
+
+    Route::group(['prefix' => 'test'], function () {
+
+        $controller = "TestController";
+
+        Route::get('/index', $controller.'@view_index');
+
+    });
+
+
+});

@@ -16,6 +16,12 @@ body:before {
     opacity: 0.04;
 }
 
+i { width:16px; }
+
+.tag { margin-right:8px; }
+
+.container-box { position:relative; width:100%; float:left; }
+
 .banner-mp4 {
     -ms-flex-align: center;
     -ms-flex-pack: center;
