@@ -50,13 +50,10 @@
         {{--<link rel="stylesheet" media="all" href="{{ asset('/common/css/frontend.css') }}" />--}}
         {{--<link rel="stylesheet" media="all" href="{{ asset('/common/css/backend.css') }}" />--}}
 
-        <link rel="stylesheet" media="all" href="{{ asset('http://cui.party/common/css/common.css') }}" />
-        <link rel="stylesheet" media="all" href="{{ asset('http://cui.party/common/css/frontend.css') }}" />
-        <link rel="stylesheet" media="all" href="{{ asset('http://cui.party/common/css/backend.css') }}" />
 
-        <link rel="stylesheet" media="all" href="{{ asset('http://gps.com/common/css/common.css') }}" />
-        <link rel="stylesheet" media="all" href="{{ asset('http://gps.com/common/css/frontend.css') }}" />
-        <link rel="stylesheet" media="all" href="{{ asset('http://gps.com/common/css/backend.css') }}" />
+        <link rel="stylesheet" media="all" href="{{ asset('/common/css/common-1.css') }}" />
+        <link rel="stylesheet" media="all" href="{{ asset('/common/css/frontend-1.css') }}" />
+        <link rel="stylesheet" media="all" href="{{ asset('/common/css/backend.css') }}" />
 
 
         @yield('custom-css')
