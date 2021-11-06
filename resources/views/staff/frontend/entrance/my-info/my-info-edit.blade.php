@@ -46,11 +46,11 @@
                             <div class="form-group">
                                 <label class="control-label col-md-2">用户名</label>
                                 <div class="col-md-9 ">
-                                    <input type="text" class="form-control" name="name" placeholder="请输入用户名" value="{{ $info->username or '' }}">
+                                    <input type="text" class="form-control" name="username" placeholder="请输入用户名" value="{{ $info->username or '' }}">
                                 </div>
                             </div>
                             {{--真实姓名--}}
-                            <div class="form-group">
+                            <div class="form-group _none">
                                 <label class="control-label col-md-2">真实姓名</label>
                                 <div class="col-md-9 ">
                                     <input type="text" class="form-control" name="true_name" placeholder="真实姓名" value="{{ $info->true_name or '' }}">
@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-2">电话</label>
                                 <div class="col-md-9 ">
-                                    <input type="text" class="form-control" name="mobile" placeholder="电话" value="{{ $info->mobile or '' }}">
+                                    <input type="text" class="form-control" name="mobile" placeholder="电话" value="{{ $info->mobile or '' }}" readonly>
                                 </div>
                             </div>
                             {{--邮箱--}}
