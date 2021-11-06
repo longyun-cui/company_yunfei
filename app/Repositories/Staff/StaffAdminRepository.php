@@ -79,7 +79,7 @@ class StaffAdminRepository {
                         $me->portrait_img = $result["local"];
                         $me->save();
                     }
-                    else throw new Exception("upload-portrait-img-file-fail");
+                    else throw new Exception("upload--portrait-img--file--fail");
                 }
 
             }
