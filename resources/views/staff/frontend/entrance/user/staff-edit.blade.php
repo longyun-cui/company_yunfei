@@ -80,9 +80,11 @@
                                     <button type="button" class="btn">
                                         <span class="radio">
                                             <label>
-                                                <input type="radio" name="user_type" value=19
-                                                   @if($operate == 'edit' && $data->user_type == 19) checked="checked" @endif
-                                                > 经理
+                                                @if(($operate == 'create' && $me->user_type == 11) || ($operate == 'edit' && $data->user_type == 19))
+                                                    <input type="radio" name="user_type" value=19 checked="checked"> 经理
+                                                @else
+                                                    <input type="radio" name="user_type" value=19> 经理
+                                                @endif
                                             </label>
                                         </span>
                                     </button>
@@ -94,9 +96,11 @@
                                     <button type="button" class="btn">
                                         <span class="radio">
                                             <label>
-                                                <input type="radio" name="user_type" value="41"
-                                                       @if($operate == 'edit' && $data->user_type == 41) checked="checked" @endif
-                                                > 员工
+                                                @if($operate == 'edit' && $data->user_type == 41)
+                                                    <input type="radio" name="user_type" value="41" checked="checked"> 员工
+                                                @else
+                                                    <input type="radio" name="user_type" value="41"> 员工
+                                                @endif
                                             </label>
                                         </span>
                                     </button>

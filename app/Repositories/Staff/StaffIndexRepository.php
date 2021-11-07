@@ -167,7 +167,7 @@ class StaffIndexRepository {
                         unlink(storage_path("resource/" . $mine_portrait_img));
                     }
 
-                    $result = upload_img_storage($post_data["portrait"],'user_'.$me->id,'staff/unique/portrait/');
+                    $result = upload_img_storage($post_data["portrait"],'user_'.$me->id,'staff/unique/portrait/','assign');
                     if($result["result"])
                     {
                         $me->portrait_img = $result["local"];
@@ -362,8 +362,7 @@ class StaffIndexRepository {
             $mine = new User;
             $post_data["user_category"] = 1;
             $post_data["active"] = 1;
-            $post_data["password"] = password_encode("123456");
-            $post_data["portrait_img"] = 'unique/portrait/user2.jpg';
+            $post_data["password"] = password_encode("abcd1234");
         }
         else if($operate == 'edit') // 编辑
         {
@@ -387,20 +386,19 @@ class StaffIndexRepository {
             $bool = $mine->fill($mine_data)->save();
             if($bool)
             {
+
                 // 头像
                 if(!empty($post_data["portrait"]))
                 {
-                    // 删除原图片
-                    if($mine->portrait_img != 'unique/portrait/user2.jpg')
+                    $mine_portrait_img = $mine->portrait_img;
+                    if(!empty($mine_portrait_img) && file_exists(storage_path("resource/" . $mine_portrait_img)))
                     {
-                        $mine_portrait_img = $mine->portrait_img;
-                        if(!empty($mine_portrait_img) && file_exists(storage_path("resource/" . $mine_portrait_img)))
-                        {
-                            unlink(storage_path("resource/" . $mine_portrait_img));
-                        }
+                        unlink(storage_path("resource/" . $mine_portrait_img));
                     }
 
-                    $result = upload_storage($post_data["portrait"]);
+//                    $result = upload_storage($post_data["portrait"]);
+//                    $result = upload_storage($post_data["portrait"], null, null, 'assign');
+                    $result = upload_img_storage($post_data["portrait"],'user_'.$mine->id,'staff/unique/portrait/','assign');
                     if($result["result"])
                     {
                         $mine->portrait_img = $result["local"];
@@ -408,43 +406,52 @@ class StaffIndexRepository {
                     }
                     else throw new Exception("upload--portrait--fail");
                 }
-
-                // 微信二维码
-                if(!empty($post_data["wechat_qr_code"]))
+                else
                 {
-                    // 删除原图片
-                    $mine_wechat_qr_code_img = $mine->wechat_qr_code_img;
-                    if(!empty($mine_wechat_qr_code_img) && file_exists(storage_path("resource/" . $mine_wechat_qr_code_img)))
+                    if($operate == 'create')
                     {
-                        unlink(storage_path("resource/" . $mine_wechat_qr_code_img));
-                    }
-
-                    $result = upload_storage($post_data["wechat_qr_code"]);
-                    if($result["result"])
-                    {
-                        $mine->wechat_qr_code_img = $result["local"];
+                        copy(storage_path("resource/unique/portrait/user2.jpg"), storage_path("resource/staff/unique/portrait/user_".$mine->id.".jpg"));
+                        $mine->portrait_img = "staff/unique/portrait/user_".$mine->id.".jpg";
                         $mine->save();
                     }
-                    else throw new Exception("upload--wechat_qr_code--fail");
+                }
+
+                // 微信二维码
+                if(!empty($post_data["wx_qr_code"]))
+                {
+                    // 删除原图片
+                    $mine_wx_qr_code_img = $mine->wechat_qr_code_img;
+                    if(!empty($mine_wx_qr_code_img) && file_exists(storage_path("resource/" . $mine_wx_qr_code_img)))
+                    {
+                        unlink(storage_path("resource/" . $mine_wx_qr_code_img));
+                    }
+
+                    $result = upload_storage($post_data["wx_qr_code"]);
+                    if($result["result"])
+                    {
+                        $mine->wx_qr_code_img = $result["local"];
+                        $mine->save();
+                    }
+                    else throw new Exception("upload--wx_qr_code--fail");
                 }
 
                 // 联系人微信二维码
-                if(!empty($post_data["linkman_wechat_qr_code"]))
+                if(!empty($post_data["linkman_wx_qr_code"]))
                 {
                     // 删除原图片
-                    $mine_linkman_wechat_qr_code_img = $mine->linkman_wechat_qr_code_img;
-                    if(!empty($mine_linkman_wechat_qr_code_img) && file_exists(storage_path("resource/" . $mine_linkman_wechat_qr_code_img)))
+                    $mine_linkman_wx_qr_code_img = $mine->linkman_wx_qr_code_img;
+                    if(!empty($mine_linkman_wx_qr_code_img) && file_exists(storage_path("resource/" . $mine_linkman_wx_qr_code_img)))
                     {
-                        unlink(storage_path("resource/" . $mine_linkman_wechat_qr_code_img));
+                        unlink(storage_path("resource/" . $mine_linkman_wx_qr_code_img));
                     }
 
-                    $result = upload_storage($post_data["linkman_wechat_qr_code"]);
+                    $result = upload_storage($post_data["linkman_wx_qr_code"]);
                     if($result["result"])
                     {
-                        $mine->linkman_wechat_qr_code_img = $result["local"];
+                        $mine->linkman_wx_qr_code_img = $result["local"];
                         $mine->save();
                     }
-                    else throw new Exception("upload--linkman_wechat_qr_code--fail");
+                    else throw new Exception("upload--linkman_wx_qr_code--fail");
                 }
 
             }
@@ -1263,6 +1270,11 @@ class StaffIndexRepository {
 
 
 
+
+
+
+
+    // 【内容】返回-内容-HTML
     public function get_the_item_html($item)
     {
         $item->custom = json_decode($item->custom);
@@ -1279,6 +1291,8 @@ class StaffIndexRepository {
 
         return $item_html;
     }
+
+    // 【内容】删除-内容-附属文件
     public function delete_the_item_files($item)
     {
         $mine_id = $item->id;
@@ -1314,6 +1328,7 @@ class StaffIndexRepository {
             }
         }
     }
+
 
 
 
