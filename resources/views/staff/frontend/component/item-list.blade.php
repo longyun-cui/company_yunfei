@@ -142,6 +142,13 @@
                     </div>
                 @endif
 
+                {{--地址--}}
+                @if(!empty($item->description))
+                    <div class="text-row text-info-row- margin-bottom-4px">
+                        <span class="">{{ $item->description or '' }}</span>
+                    </div>
+                @endif
+
                 <div class="text-title-row multi-ellipsis-1 _none">
                     <span class="info-tags text-danger">该组织•贴片广告</span>
                 </div>
