@@ -13,10 +13,10 @@
         <figure class="text-container clearfix">
             <div class="text-box">
                 <div class="text-title-row multi-ellipsis-1">
-                    <a href="{{ url('/user/'.$item->owner->id) }}" style="color:#ff7676;font-size:13px;">
+                    <a href="{{ url('/user/'.$item->creator->id) }}" style="color:#ff7676;font-size:13px;">
                         <span class="item-user-portrait">
                             {{--<img src="/common/images/bg/background-image.png" data-src="{{ url(env('DOMAIN_CDN').'/'.$item->owner->portrait_img) }}" alt="">--}}
-                            <img src="{{ url(env('DOMAIN_CDN').'/'.$item->owner->portrait_img) }}" alt="">
+                            <img src="{{ url(env('DOMAIN_CDN').'/'.$item->creator->portrait_img) }}" alt="">
                         </span>
                         {{ $item->creator->username or '' }}
                     </a>
@@ -30,7 +30,6 @@
                         </small>
 
                     </span>
-                    {{ $item->id or 0 }}
                 </div>
             </div>
         </figure>
@@ -156,6 +155,7 @@
             </div>
 
             {{--工具栏--}}
+            @if(in_array($me_staff->user_type,[0,1,9,11,19,41]))
             <div class="text-box with-border-top clearfix">
 
                 <div class="text-row text-tool-row">
@@ -206,27 +206,18 @@
                         @elseif($item->item_active == 1)
 
                             {{--是否完成--}}
-                            @if($item->is_completed == 0)
+                            @if(in_array($me_staff->user_type,[0,1,9,11,19,41]))
 
-                                {{--<lable class="tag bg-red-gradient">--}}
-                                    {{--<i class="icon ion-android-checkbox-outline"></i> 待完成--}}
-                                {{--</lable>--}}
-                                {{--<lable class="tag bg-maroon-gradient">--}}
-                                    {{--<i class="icon ion-android-checkbox-outline"></i> 待完成--}}
-                                {{--</lable>--}}
-                                {{--<lable class="tag bg-yellow-gradient">--}}
-                                    {{--<i class="icon ion-android-checkbox-outline"></i> 待完成--}}
-                                {{--</lable>--}}
-                                {{--<lable class="tag bg-purple-gradient">--}}
-                                    {{--<i class="icon ion-android-checkbox-outline"></i> 待完成--}}
-                                {{--</lable>--}}
-                                <a class="tool-button operate-btn complete-btn task-complete-this" role="button">
-                                    <i class="icon ion-android-checkbox-outline"></i> 完成
-                                </a>
-                            @elseif($item->is_completed == 1)
-                                <lable class="tag bg-olive">
-                                    <i class="icon ion-android-checkbox"></i> 已完成 by 【{{ $item->completer->username or '' }}】{{ time_show($item->completed_at) }}
-                                </lable>
+                                @if($item->is_completed == 0)
+                                    <a class="tool-button operate-btn complete-btn task-complete-this" role="button">
+                                        <i class="icon ion-android-checkbox-outline"></i> 完成
+                                    </a>
+                                @elseif($item->is_completed == 1)
+                                    <lable class="tag bg-olive">
+                                        <i class="icon ion-android-checkbox"></i> 已完成 by 【{{ $item->completer->username or '' }}】{{ time_show($item->completed_at) }}
+                                    </lable>
+                                @endif
+
                             @endif
 
                             {{--删除权限--}}
@@ -238,10 +229,7 @@
 
                         @endif
 
-
                     @endif
-
-
 
 
                     {{--分享--}}
@@ -259,6 +247,7 @@
                 </div>
 
             </div>
+            @endif
 
 
             <div class="text-box with-border-top text-center clearfix _none">

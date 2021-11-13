@@ -624,7 +624,7 @@ class StaffAdminRepository {
         $query = User::select('*')
 //            ->with(['district'])
             ->whereIn('user_category',[1])
-            ->whereIn('user_type',[0,1,9,11,19,41]);
+            ->whereIn('user_type',[0,1,9,11,19,41,61]);
 //            ->whereHas('fund', function ($query1) { $query1->where('totalfunds', '>=', 1000); } )
 //            ->with('ep','parent','fund')
 //            ->withCount([

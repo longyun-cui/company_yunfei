@@ -99,27 +99,27 @@ class YF_Item extends Model
     // 拥有者
     function owner()
     {
-        return $this->belongsTo('App\User','owner_id','id');
+        return $this->belongsTo('App\User','owner_id','id')->withTrashed();
     }
     // 创作者
     function creator()
     {
-        return $this->belongsTo('App\User','creator_id','id');
+        return $this->belongsTo('App\User','creator_id','id')->withTrashed();
     }
     // 更新者
     function updater()
     {
-        return $this->belongsTo('App\User','updater_id','id');
+        return $this->belongsTo('App\User','updater_id','id')->withTrashed();
     }
     // 完成者
     function completer()
     {
-        return $this->belongsTo('App\User','completer_id','id');
+        return $this->belongsTo('App\User','completer_id','id')->withTrashed();
     }
     // 用户
     function user()
     {
-        return $this->belongsTo('App\User','user_id','id');
+        return $this->belongsTo('App\User','user_id','id')->withTrashed();
     }
 
 

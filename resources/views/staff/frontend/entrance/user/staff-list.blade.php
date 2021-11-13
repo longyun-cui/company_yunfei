@@ -72,3 +72,7 @@
     });
 </script>
 @endsection
+
+@section('custom-script')
+    @include(env('TEMPLATE_STAFF_FRONT').'entrance.user.staff-script')
+@endsection

@@ -28,7 +28,7 @@ class StaffIndexRepository {
 
         $menu_active = 'sidebar_menu_root_active';
 
-        $item_query = YF_Item::with(['creator','updater','completer']);
+        $item_query = YF_Item::with(['owner','creator','updater','completer']);
 //        $item_query->where(['item_status'=>1,'active'=>1]);
         $item_query->where(['item_category'=>11]);
 
@@ -482,12 +482,12 @@ class StaffIndexRepository {
         $list_link = '/admin/user/user-list-for-all';
         $menu_active = 'sidebar_menu_staff_list_active';
 
-        $user_list = User::with([
+        $user_list = User::withTrashed()->with([
 //            'ad',
-        ])->withCount([
+            ])->withCount([
 //            'items as article_count' => function($query) { $query->where(['item_category'=>1,'item_type'=>1]); },
 //            'items as activity_count' => function($query) { $query->where(['item_category'=>1,'item_type'=>11]); },
-        ])
+            ])
 //            ->where('user_category',1)
             ->where('user_type','>',0)
 //            ->where('user_status',1)
@@ -543,6 +543,187 @@ class StaffIndexRepository {
         }
 //        dd($list->toArray());
         return datatable_response($list, $draw, $total);
+    }
+
+
+    // 【用户】获取详情
+    public function operate_user_staff_get($post_data)
+    {
+        $messages = [
+            'operate.required' => '参数有误！',
+            'item_id.required' => '请输入ID！',
+        ];
+        $v = Validator::make($post_data, [
+            'operate' => 'required',
+            'item_id' => 'required',
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        $operate = $post_data["operate"];
+        if($operate != 'item-get') return response_error([],"参数operate有误！");
+        $id = $post_data["item_id"];
+        if(intval($id) !== 0 && !$id) return response_error([],"参数ID有误！");
+
+        $item = YF_Item::withTrashed()->find($id);
+        if(!$item) return response_error([],"该内容不存在，刷新页面重试！");
+
+        $me = Auth::guard('staff')->user();
+        if($item->owner_id != $me->id) return response_error([],"你没有操作权限！");
+
+        return response_success($item,"");
+
+    }
+    // 【用户】删除
+    public function operate_user_staff_delete($post_data)
+    {
+        $messages = [
+            'operate.required' => '参数有误！',
+            'user_id.required' => '请输入ID！',
+        ];
+        $v = Validator::make($post_data, [
+            'operate' => 'required',
+            'user_id' => 'required',
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        $operate = $post_data["operate"];
+        if($operate != 'user-delete') return response_error([],"参数operate有误！");
+        $id = $post_data["user_id"];
+        if(intval($id) !== 0 && !$id) return response_error([],"参数ID有误！");
+
+        $mine = User::withTrashed()->find($id);
+        if(!$mine) return response_error([],"该用户不存在，刷新页面重试！");
+
+        $me = Auth::guard('staff')->user();
+        if(!in_array($me->user_type,[0,1,9,11])) return response_error([],"用户类型错误！");
+
+        // 启动数据库事务
+        DB::beginTransaction();
+        try
+        {
+            $mine->timestamps = false;
+            $bool = $mine->delete();
+            if(!$bool) throw new Exception("user--delete--fail");
+            DB::commit();
+
+            $user_html = $this->get_the_user_html($mine);
+            return response_success(['user_html'=>$user_html]);
+        }
+        catch (Exception $e)
+        {
+            DB::rollback();
+            $msg = '操作失败，请重试！';
+            $msg = $e->getMessage();
+//            exit($e->getMessage());
+            return response_fail([],$msg);
+        }
+
+    }
+    // 【用户】恢复
+    public function operate_user_staff_restore($post_data)
+    {
+        $messages = [
+            'operate.required' => '参数有误！',
+            'user_id.required' => '请输入ID！',
+        ];
+        $v = Validator::make($post_data, [
+            'operate' => 'required',
+            'user_id' => 'required',
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        $operate = $post_data["operate"];
+        if($operate != 'user-restore') return response_error([],"参数operate有误！");
+        $id = $post_data["user_id"];
+        if(intval($id) !== 0 && !$id) return response_error([],"参数ID有误！");
+
+        $mine = User::withTrashed()->find($id);
+        if(!$mine) return response_error([],"该用户不存在，刷新页面重试！");
+
+        $me = Auth::guard('staff')->user();
+        if(!in_array($me->user_type,[0,1,9,11])) return response_error([],"用户类型错误！");
+
+        // 启动数据库事务
+        DB::beginTransaction();
+        try
+        {
+            $mine->timestamps = false;
+            $bool = $mine->restore();
+            if(!$bool) throw new Exception("item--restore--fail");
+            DB::commit();
+
+            $user_html = $this->get_the_user_html($mine);
+            return response_success(['user_html'=>$user_html]);
+        }
+        catch (Exception $e)
+        {
+            DB::rollback();
+            $msg = '操作失败，请重试！';
+            $msg = $e->getMessage();
+//            exit($e->getMessage());
+            return response_fail([],$msg);
+        }
+
+    }
+    // 【用户】彻底删除
+    public function operate_user_staff_delete_permanently($post_data)
+    {
+        $messages = [
+            'operate.required' => '参数有误！',
+            'user_id.required' => '请输入ID！',
+        ];
+        $v = Validator::make($post_data, [
+            'operate' => 'required',
+            'user_id' => 'required',
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        $operate = $post_data["operate"];
+        if($operate != 'user-delete-permanently') return response_error([],"参数operate有误！");
+        $id = $post_data["user_id"];
+        if(intval($id) !== 0 && !$id) return response_error([],"参数ID有误！");
+
+        $mine = User::withTrashed()->find($id);
+        if(!$mine) return response_error([],"该内容不存在，刷新页面重试！");
+
+        $me = Auth::guard('staff')->user();
+        if(!in_array($me->user_type,[0,1,9,11])) return response_error([],"用户类型错误！");
+
+        // 启动数据库事务
+        DB::beginTransaction();
+        try
+        {
+            $bool = $mine->forceDelete();
+            if(!$bool) throw new Exception("item--delete--fail");
+            DB::commit();
+
+            return response_success([]);
+        }
+        catch (Exception $e)
+        {
+            DB::rollback();
+            $msg = '操作失败，请重试！';
+            $msg = $e->getMessage();
+//            exit($e->getMessage());
+            return response_fail([],$msg);
+        }
+
     }
 
 
@@ -952,7 +1133,7 @@ class StaffIndexRepository {
 
     }
     // 【任务】恢复
-    public function operate_item_item_restore($post_data)
+    public function operate_item_task_restore($post_data)
     {
         $messages = [
             'operate.required' => '参数有误！',
@@ -1003,7 +1184,7 @@ class StaffIndexRepository {
 
     }
     // 【任务】彻底删除
-    public function operate_item_item_delete_permanently($post_data)
+    public function operate_item_task_delete_permanently($post_data)
     {
         $messages = [
             'operate.required' => '参数有误！',
@@ -1132,7 +1313,7 @@ class StaffIndexRepository {
         if(!$item) return response_error([],"该内容不存在，刷新页面重试！");
 
         $me = Auth::guard('staff')->user();
-//        if($me->user_category != 0) return response_error([],"你没有操作权限！");
+        if(!in_array($me->user_type,[0,1,9,11,19,41])) return response_error([],"用户类型错误！");
 
         // 启动数据库事务
         DB::beginTransaction();
@@ -1273,6 +1454,24 @@ class StaffIndexRepository {
 
 
 
+
+    // 【内容】返回-内容-HTML
+    public function get_the_user_html($item)
+    {
+        $item->custom = json_decode($item->custom);
+        $user_array[0] = $item;
+        $return['user_list'] = $user_array;
+
+        // method A
+        $item_html = view(env('TEMPLATE_STAFF_FRONT').'component.user-list')->with($return)->__toString();
+//        // method B
+//        $item_html = view(env('TEMPLATE_STAFF_FRONT').'component.item-list')->with($return)->render();
+//        // method C
+//        $view = view(env('TEMPLATE_STAFF_FRONT').'component.item-list')->with($return);
+//        $item_html=response($view)->getContent();
+
+        return $item_html;
+    }
 
     // 【内容】返回-内容-HTML
     public function get_the_item_html($item)

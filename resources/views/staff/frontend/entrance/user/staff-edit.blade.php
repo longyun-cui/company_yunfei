@@ -107,6 +107,22 @@
                                     @endif
                                     @endif
 
+                                    @if(in_array($me->user_type, [0,1,11]))
+                                    @if($operate == 'create' || ($operate == 'edit' && $data->user_type == 61))
+                                    <button type="button" class="btn">
+                                        <span class="radio">
+                                            <label>
+                                                @if($operate == 'edit' && $data->user_type == 61)
+                                                    <input type="radio" name="user_type" value="61" checked="checked"> 观察员
+                                                @else
+                                                    <input type="radio" name="user_type" value="61"> 观察员
+                                                @endif
+                                            </label>
+                                        </span>
+                                    </button>
+                                    @endif
+                                    @endif
+
                                 </div>
                             </div>
                         </div>

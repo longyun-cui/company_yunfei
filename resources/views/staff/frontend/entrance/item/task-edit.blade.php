@@ -71,25 +71,39 @@
                                         </button>
                                         @elseif($operate == 'create')
                                         <button type="button" class="btn _none">
-                                            <div class="radio">
+                                            <span class="radio">
                                                 <label>
                                                     <input type="radio" name="item_type" value="1"> haha
                                                 </label>
-                                            </div>
+                                            </span>
                                         </button>
                                         <button type="button" class="btn">
-                                            <div class="radio">
+                                            <span class="radio">
                                                 <label>
                                                     <input type="radio" name="item_type" value="2" checked="checked"> 回收
                                                 </label>
-                                            </div>
+                                            </span>
                                         </button>
                                         <button type="button" class="btn">
-                                            <div class="radio">
+                                            <span class="radio">
                                                 <label>
-                                                    <input type="radio" name="item_type" value="3" checked="checked"> 调琴
+                                                    <input type="radio" name="item_type" value="3"> 调琴
                                                 </label>
-                                            </div>
+                                            </span>
+                                        </button>
+                                        <button type="button" class="btn">
+                                            <span class="radio">
+                                                <label>
+                                                    <input type="radio" name="item_type" value="4"> 搬运
+                                                </label>
+                                            </span>
+                                        </button>
+                                        <button type="button" class="btn _none">
+                                            <span class="radio">
+                                                <label>
+                                                    <input type="radio" name="item_type" value="5"> 搬运
+                                                </label>
+                                            </span>
                                         </button>
                                         @endif
 

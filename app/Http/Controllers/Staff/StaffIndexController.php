@@ -44,25 +44,29 @@ class StaffIndexController extends Controller
 //            $admin = OrgAdministrator::whereEmail($email)->first();
 
             $mobile = request()->get('mobile');
-            $admin = User::whereMobile($mobile)->first();
+            $user = User::withTrashed()->whereMobile($mobile)->first();
 
-            if($admin)
+            if($user)
             {
-                if($admin->active == 1)
+                if($user->deleted_at == null)
                 {
-                    $password = request()->get('password');
-                    if(password_check($password,$admin->password))
+                    if($user->active == 1)
                     {
-                        $remember = request()->get('remember');
-                        if($remember) Auth::guard('staff')->login($admin,true);
-                        else Auth::guard('staff')->login($admin,true);
-                        return response_success();
+                        $password = request()->get('password');
+                        if(password_check($password,$user->password))
+                        {
+                            $remember = request()->get('remember');
+                            if($remember) Auth::guard('staff')->login($user,true);
+                            else Auth::guard('staff')->login($user,true);
+                            return response_success();
+                        }
+                        else return response_error([],'账户or密码不正确！');
                     }
-                    else return response_error([],'账户or密码不正确 ');
+                    else return response_error([],'账户尚未激活，请先去邮箱激活！');
                 }
-                else return response_error([],'账户尚未激活，请先去邮箱激活。');
+                else return response_error([],'账户已删除！');
             }
-            else return response_error([],'账户不存在');
+            else return response_error([],'账户不存在！');
         }
     }
 
@@ -138,6 +142,27 @@ class StaffIndexController extends Controller
         else if(request()->isMethod('post')) return $this->repo->get_user_staff_list_datatable(request()->all());
     }
 
+    // 【员工】获取-详情
+    public function operate_user_staff_get()
+    {
+        return $this->repo->operate_user_staff_get(request()->all());
+    }
+    // 【员工】删除
+    public function operate_user_staff_delete()
+    {
+        return $this->repo->operate_user_staff_delete(request()->all());
+    }
+    // 【员工】恢复
+    public function operate_user_staff_restore()
+    {
+        return $this->repo->operate_user_staff_restore(request()->all());
+    }
+    // 【员工】永久删除
+    public function operate_user_staff_delete_permanently()
+    {
+        return $this->repo->operate_user_staff_delete_permanently(request()->all());
+    }
+
 
 
 
@@ -170,12 +195,12 @@ class StaffIndexController extends Controller
     // 【任务】恢复
     public function operate_item_task_restore()
     {
-        return $this->repo->operate_item_item_restore(request()->all());
+        return $this->repo->operate_item_task_restore(request()->all());
     }
     // 【任务】永久删除
     public function operate_item_task_delete_permanently()
     {
-        return $this->repo->operate_item_item_delete_permanently(request()->all());
+        return $this->repo->operate_item_task_delete_permanently(request()->all());
     }
     // 【任务】发布
     public function operate_item_task_publish()

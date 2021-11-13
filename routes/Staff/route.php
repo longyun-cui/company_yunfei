@@ -44,7 +44,9 @@ Route::group(['middleware' => ['staff.login']], function () {
     Route::match(['get','post'], '/user/staff-create', $controller.'@operate_user_staff_create');
     Route::match(['get','post'], '/user/staff-edit', $controller.'@operate_user_staff_edit');
     Route::match(['get','post'], '/user/staff-list', $controller.'@view_user_staff_list');
-    Route::match(['get','post'], '/user/staff-delete', $controller.'@operate_user_staff_delete');
+    Route::post('/user/staff-delete', $controller.'@operate_user_staff_delete');
+    Route::post('/user/staff-restore', $controller.'@operate_user_staff_restore');
+    Route::post('/user/staff-delete-permanently', $controller.'@operate_user_staff_delete_permanently');
 
 
 

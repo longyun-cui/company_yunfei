@@ -2,6 +2,7 @@
 <div class="a-piece a-option user-piece user-option user margin-bottom-8px radius-2px"
      data-user="{{ $u->id or 0 }}"
      data-type="{{ $u->relation_type or 0 }}"
+     data-user-id="{{ $u->id or 0 }}"
 >
     <div class="panel-default box-default item-entity-container">
 
@@ -16,6 +17,12 @@
             <div class="item-right-box">
 
                 <div class="item-row item-title-row">
+
+                    {{--是否删除--}}
+                    @if($u->deleted_at != null)
+                        <lable class="tag bg-black">已删除</lable>
+                    @else
+                    @endif
 
                     <a href="{{ url('/user/'.$u->id) }}">
                         <b>{{ $u->username or '' }}</b>
@@ -39,6 +46,7 @@
                         @elseif($u->user_type == 11) <i class="fa fa-user text-orange" style="width:12px;"></i> 总经理
                         @elseif($u->user_type == 19) <i class="fa fa-user text-orange" style="width:12px;"></i> 经理
                         @elseif($u->user_type == 41) <i class="fa fa-user text-primary" style="width:12px;"></i> 员工
+                        @elseif($u->user_type == 61) <i class="fa fa-user text-primary" style="width:12px;"></i> 观察员
                         @endif
                     </span>
                 </div>
@@ -102,6 +110,22 @@
                     <span class="tool-button operate-btn complete-btn" role="button">
                         <a href="/user/staff-edit?user-id={{ $u->id }}"><i class="icon ion-edit"></i> 编辑</a>
                     </span>
+
+                    {{--删除权限--}}
+                    @if(in_array($me_staff->user_type,[0,1,9,11]))
+                        @if($u->deleted_at != null)
+                            <a class="tool-button operate-btn delete-btn staff-restore-this" role="button">
+                                <i class="icon ion-arrow-return-left"></i> 恢复
+                            </a>
+                            <a class="tool-button operate-btn delete-btn staff-delete-permanently-this" role="button">
+                                <i class="icon ion-trash-a"></i> 彻底删除
+                            </a>
+                        @else
+                            <a class="tool-button operate-btn delete-btn staff-delete-this" role="button">
+                                <i class="icon ion-trash-a"></i> 删除
+                            </a>
+                        @endif
+                    @endif
 
                 </div>
 
