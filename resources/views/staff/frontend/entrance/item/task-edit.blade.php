@@ -63,9 +63,12 @@
                                         <button type="button" class="btn">
                                             <label>
                                                 <input type="radio" name="item_type" value="{{ $data->item_type or 0 }}" checked="checked">
-                                                @if($data->item_type == 1) 送
+                                                @if($data->item_type == 1) 售前
                                                 @elseif($data->item_type == 2) 回收
                                                 @elseif($data->item_type == 3) 调琴
+                                                @elseif($data->item_type == 4) 搬运
+                                                @elseif($data->item_type == 5) 异常
+                                                @elseif($data->item_type == 9) 售后
                                                 @endif
                                             </label>
                                         </button>
@@ -73,7 +76,7 @@
                                         <button type="button" class="btn _none">
                                             <span class="radio">
                                                 <label>
-                                                    <input type="radio" name="item_type" value="1"> haha
+                                                    <input type="radio" name="item_type" value="1"> 售前
                                                 </label>
                                             </span>
                                         </button>
@@ -98,10 +101,17 @@
                                                 </label>
                                             </span>
                                         </button>
+                                        <button type="button" class="btn">
+                                            <span class="radio">
+                                                <label>
+                                                    <input type="radio" name="item_type" value="5"> 异常
+                                                </label>
+                                            </span>
+                                        </button>
                                         <button type="button" class="btn _none">
                                             <span class="radio">
                                                 <label>
-                                                    <input type="radio" name="item_type" value="5"> 搬运
+                                                    <input type="radio" name="item_type" value="9"> 售后
                                                 </label>
                                             </span>
                                         </button>

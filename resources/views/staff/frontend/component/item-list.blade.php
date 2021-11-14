@@ -100,6 +100,8 @@
                     @if($item->item_type == 1) <lable class="tag bg-purple-gradient">售前</lable>
                     @elseif($item->item_type == 2) <lable class="tag bg-primary">回收</lable>
                     @elseif($item->item_type == 3) <lable class="tag bg-light-blue">调琴</lable>
+                    @elseif($item->item_type == 4) <lable class="tag bg-light-blue">搬运</lable>
+                    @elseif($item->item_type == 5) <lable class="tag bg-light-blue">异常</lable>
                     @elseif($item->item_type == 9)  <lable class="tag bg-teal">售后</lable>
                     @endif
 
