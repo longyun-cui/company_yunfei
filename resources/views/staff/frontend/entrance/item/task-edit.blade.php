@@ -155,7 +155,7 @@
                                 <div class="col-md-9 ">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="item_active" value="1"> 同时发布
+                                            <input type="checkbox" name="item_active" value="1"> 现在发布
                                         </label>
                                     </div>
                                 </div>
