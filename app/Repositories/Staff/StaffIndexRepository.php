@@ -601,6 +601,7 @@ class StaffIndexRepository {
 
         $mine = User::withTrashed()->find($id);
         if(!$mine) return response_error([],"该用户不存在，刷新页面重试！");
+        if(in_array($mine->user_type,[0,1,9,11])) return response_error([],"该用户不可删除！");
 
         $me = Auth::guard('staff')->user();
         if(!in_array($me->user_type,[0,1,9,11])) return response_error([],"用户类型错误！");
