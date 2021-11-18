@@ -150,6 +150,13 @@
                     </div>
                 @endif
 
+                {{--备注--}}
+                @if(!empty($item->remark))
+                    <div class="text-row text-description-row margin-bottom-4px">
+                        【备注】<span class="">{{ $item->remark or '' }}</span>
+                    </div>
+                @endif
+
                 <div class="text-title-row multi-ellipsis-1 _none">
                     <span class="info-tags text-danger">该组织•贴片广告</span>
                 </div>
@@ -229,6 +236,19 @@
                                 </a>
                             @endif
 
+                            {{--备注权限--}}
+                            @if(in_array($me_staff->user_type,[0,1,9,11,19]))
+                                @if(empty($item->remark))
+                                    <a class="tool-button remark-toggle" role="button">
+                                        <i class="icon ion-ios-pricetag"></i> 添加备注
+                                    </a>
+                                @else
+                                    <a class="tool-button remark-toggle" role="button">
+                                        <i class="icon ion-ios-pricetag"></i> 修改备注
+                                    </a>
+                                @endif
+                            @endif
+
                         @endif
 
                     @endif
@@ -258,6 +278,35 @@
                         <strong>查看详情</strong>
                     </button>
                 </a>
+            </div>
+
+
+            {{--备注--}}
+            <div class="box-body item-row remark-container"  style="display:none;">
+
+                <div class="box-body remark-input-container">
+                    <form action="" method="post" class="form-horizontal form-bordered item-remark-form">
+
+                        {{ csrf_field() }}
+                        <input type="hidden" name="item_id" value="{{ $item->id }}" readonly>
+                        <input type="hidden" name="operate" value="item-remark-save" readonly>
+                        <input type="hidden" name="type" value="1" readonly>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div><textarea class="form-control" name="content" rows="2" placeholder="请输入你的备注">{{ $item->remark or '' }}</textarea></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 ">
+                                <button type="button" class="btn btn-block btn-flat btn-primary remark-submit">提交</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
             </div>
 
 

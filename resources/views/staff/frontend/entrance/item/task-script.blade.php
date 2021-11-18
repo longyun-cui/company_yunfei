@@ -270,6 +270,134 @@
 
 
 
+
+
+
+
+        // 显示备注编辑窗口
+        $(".main-content-container").off("click",".remark-toggle").on('click', ".remark-toggle", function() {
+            var $this = $(this);
+            var $item_option = $this.parents('.item-option');
+
+            $item_option.find(".remark-container").toggle();
+        });
+        // 发布评论
+        $(".main-content-container").off("click",".remark-submit").on('click', ".remark-submit", function() {
+            var $this = $(this);
+            var $item_option = $this.parents('.item-option');
+
+            var form = $(this).parents('.item-remark-form');
+            var options = {
+                url: "/item/task-remark-edit",
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    if(!data.success) layer.msg(data.msg);
+                    else
+                    {
+                        layer.closeAll();
+                        $item_option.replaceWith(data.data.item_html);
+                    }
+                }
+            };
+            form.ajaxSubmit(options);
+        });
+
+
+        // 查看评论
+        $(".main-content-container").off("click",".comments-get").on('click', ".comments-get", function() {
+            var that = $(this);
+            var item_option = $(this).parents('.item-option');
+            var getSort = that.attr('data-getSort');
+            var getSupport = item_option.find('input[name=get-support]:checked').val();
+
+            $.post(
+                "/item/comment/get",
+                {
+                    _token: $('meta[name="_token"]').attr('content'),
+                    item_id: item_option.attr('data-item-id'),
+                    support: getSupport,
+                    category: 11,
+                    type: 0
+                },
+                function(data){
+                    if(!data.success) layer.msg(data.msg);
+                    else
+                    {
+                        item_option.find('.comment-list-container').html(data.data.html);
+
+                        item_option.find('.comments-more').attr("data-getSort",getSort);
+                        item_option.find('.comments-more').attr("data-maxId",data.data.max_id);
+                        item_option.find('.comments-more').attr("data-minId",data.data.min_id);
+                        item_option.find('.comments-more').attr("data-more",data.data.more);
+                        if(data.data.more == 'more')
+                        {
+                            item_option.find('.comments-more').html("更多");
+                        }
+                        else if(data.data.more == 'none')
+                        {
+                            item_option.find('.comments-more').html("评论也是有底的！");
+                        }
+                    }
+                },
+                'json'
+            );
+        });
+        // 更多评论
+        $(".main-content-container").off("click",".comments-more").on('click', ".comments-more", function() {
+
+            var that = $(this);
+            var more = that.attr('data-more');
+            var getSort = that.attr('data-getSort');
+            var min_id = that.attr('data-minId');
+
+            var item_option = $(this).parents('.item-option');
+
+            if(more == 'more')
+            {
+                $.post(
+                    "/item/comment/get",
+                    {
+                        _token: $('meta[name="_token"]').attr('content'),
+                        item_id: item_option.attr('data-item-id'),
+                        min_id: min_id,
+                        category: 11,
+                        type: 0
+                    },
+                    function(data){
+                        if(!data.success) layer.msg(data.msg);
+                        else
+                        {
+                            item_option.find('.comment-list-container').append(data.data.html);
+
+                            item_option.find('.comments-more').attr("data-getSort",getSort);
+                            item_option.find('.comments-more').attr("data-maxId",data.data.max_id);
+                            item_option.find('.comments-more').attr("data-minId",data.data.min_id);
+                            item_option.find('.comments-more').attr("data-more",data.data.more);
+                            if(data.data.more == 'more')
+                            {
+                                item_option.find('.comments-more').html("更多");
+                            }
+                            else if(data.data.more == 'none')
+                            {
+                                item_option.find('.comments-more').html("我是有底的！");
+                            }
+                        }
+                    },
+                    'json'
+                );
+            }
+            else if(more == 'none')
+            {
+                layer.msg('没有更多评论了', function(){});
+            }
+        });
+
+
+
+
+
+
         /*
          * 批量操作
          */

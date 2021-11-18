@@ -1344,6 +1344,61 @@ class StaffIndexRepository {
 
     }
 
+    // 【任务-备注】保存-数据
+    public function operate_item_task_remark_save($post_data)
+    {
+        $messages = [
+            'operate.required' => 'operate.required.',
+            'item_id.required' => '请输入ID！',
+        ];
+        $v = Validator::make($post_data, [
+            'operate' => 'required',
+            'item_id' => 'required',
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        $operate = $post_data["operate"];
+        if($operate != 'item-remark-save') return response_error([],"参数operate有误！");
+        $id = $post_data["item_id"];
+        if(intval($id) !== 0 && !$id) return response_error([],"参数ID有误！");
+
+        $item = YF_Item::withTrashed()->find($id);
+        if(!$item) return response_error([],"该内容不存在，刷新页面重试！");
+
+        $me = Auth::guard('staff')->user();
+        if(!in_array($me->user_type,[0,1,9,11,19])) return response_error([],"用户类型错误！");
+//        if($item->creator_id != $me->id) return response_error([],"你没有操作权限！");
+
+
+        // 启动数据库事务
+        DB::beginTransaction();
+        try
+        {
+            $item->timestamps = false;
+            $item->remark = $post_data['content'];
+
+            $bool = $item->save();
+            if(!$bool) throw new Exception("update--item-remark--fail");
+            DB::commit();
+
+            $item_html = $this->get_the_item_html($item);
+            return response_success(['item_html'=>$item_html]);
+        }
+        catch (Exception $e)
+        {
+            DB::rollback();
+            $msg = '操作失败，请重试！';
+            $msg = $e->getMessage();
+//            exit($e->getMessage());
+            return response_fail([],$msg);
+        }
+
+    }
+
 
 
 

@@ -223,6 +223,12 @@ class StaffIndexController extends Controller
         return $this->repo->operate_item_admin_enable(request()->all());
     }
 
+    // 【任务】备注编辑
+    public function operate_item_task_remark_edit()
+    {
+        return $this->repo->operate_item_task_remark_save(request()->all());
+    }
+
 
 
 

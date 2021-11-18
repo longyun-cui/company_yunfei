@@ -61,6 +61,7 @@ Route::group(['middleware' => ['staff.login']], function () {
     Route::post('/item/task-delete-permanently', $controller.'@operate_item_task_delete_permanently');
     Route::post('/item/task-publish', $controller.'@operate_item_task_publish');
     Route::post('/item/task-complete', $controller.'@operate_item_task_complete');
+    Route::post('/item/task-remark-edit', $controller.'@operate_item_task_remark_edit');
 
 
 

@@ -21,7 +21,7 @@ class YF_Item extends Model
         'rank', 'version',
         'admin_id',
         'item_id', 'menu_id',
-        'name', 'title', 'subtitle', 'description', 'content', 'custom', 'custom2', 'custom3',
+        'name', 'title', 'subtitle', 'description', 'remark', 'content', 'custom', 'custom2', 'custom3',
         'link_url', 'cover_pic', 'attachment_name', 'attachment_src',
         'tag',
         'atom_category', 'major', 'nation', 'birth_time', 'death_time',
