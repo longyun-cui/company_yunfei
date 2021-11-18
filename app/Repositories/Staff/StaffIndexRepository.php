@@ -410,7 +410,7 @@ class StaffIndexRepository {
                 {
                     if($operate == 'create')
                     {
-                        copy(storage_path("resource/unique/portrait/user2.jpg"), storage_path("resource/staff/unique/portrait/user_".$mine->id.".jpg"));
+                        copy(storage_path("resource/unique/portrait/user0.jpeg"), storage_path("resource/staff/unique/portrait/user_".$mine->id.".jpeg"));
                         $mine->portrait_img = "staff/unique/portrait/user_".$mine->id.".jpg";
                         $mine->save();
                     }
