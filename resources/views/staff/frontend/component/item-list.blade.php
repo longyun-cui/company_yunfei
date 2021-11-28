@@ -143,7 +143,7 @@
                     </div>
                 @endif
 
-                {{--地址--}}
+                {{--描述--}}
                 @if(!empty($item->description))
                     <div class="text-row text-info-row- margin-bottom-4px">
                         <span class="">{{ $item->description or '' }}</span>

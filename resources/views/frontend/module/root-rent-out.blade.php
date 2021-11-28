@@ -9,6 +9,42 @@
 
         <div class="module-row module-body-container">
             @foreach($items as $v)
+                <div class="col-lg-6 col-md-6 col-sm-6 item-col">
+                    <a class="zoom- clearfix" target="_blank" href="{{ url('/item/'.$v->id) }}">
+                        <div class="item-container model-left-right padding-8px bg-grey-f5">
+
+                            <figure class="image-container padding-top-1-4-" style="float:right;">
+                                <div class="image-box">
+                                    <img data-action="zoom-" src="{{ config('common.host.'.env('APP_ENV').'.cdn').'/'.$v->cover_pic }}" alt="Property Image">
+                                    {{--<span class="btn btn-warning">热销中</span>--}}
+                                </div>
+                            </figure>
+
+                            <figure class="text-container text-left">
+                                <div class="text-box">
+                                    <div class="text-title-row">
+                                        <span class="_bold">{{ $v->title or '' }}</span>
+                                    </div>
+                                    <div class="text-description-row">
+                                        <div>
+                                            <span>租金：<i class="fa fa-cny"></i> <span class="color-red _bold">{{ $v->custom->price or '' }}</span></span>
+                                        </div>
+                                        <div>
+                                            <span>押金：<i class="fa fa-cny"></i> {{ $v->custom->deposit or '' }} </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figure>
+
+                        </div>
+                    </a>
+                </div>
+
+            @endforeach
+        </div>
+
+        <div class="module-row module-body-container _none">
+            @foreach($items as $v)
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 item-col">
                     <div class="item-container padding-8px bg-white">
 

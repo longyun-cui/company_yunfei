@@ -216,7 +216,7 @@
                         </div>
 
                         {{--头像--}}
-                        <div class="form-group">
+                        <div class="form-group _none">
                             <label class="control-label col-md-2">头像</label>
                             <div class="col-md-8 fileinput-group">
 

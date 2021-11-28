@@ -25,25 +25,34 @@
 
 
         <!-- Bootstrap -->
-        <link href="{{ asset('/templates/moban2030/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('/templates/moban2030/plugins/slick/slick.css') }}" rel="stylesheet">
-        <link href="{{ asset('/templates/moban2030/plugins/slick-nav/slicknav.css') }}" rel="stylesheet">
-        <link href="{{ asset('/templates/moban2030/plugins/wow/animate.css') }}" rel="stylesheet">
-        <link href="{{ asset('/templates/moban2030/assets/css/bootstrap.css') }}" rel="stylesheet">
-        <link href="{{ asset('/templates/moban2030/assets/css/theme.css') }}" rel="stylesheet">
-        <link href="https://cdn.bootcss.com/layer/3.0.3/skin/default/layer.min.css" rel="stylesheet">
-        {{--<link href="https://cdn.bootcss.com/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css" rel="stylesheet">--}}
-        <link href="https://cdn.bootcss.com/lightcase/2.5.0/css/lightcase.min.css" rel="stylesheet">
-        <link href="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.css" rel="stylesheet">
-        <link href="https://cdn.bootcss.com/Swiper/4.2.2/css/swiper.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/templates/moban2030/plugins/font-awesome/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/templates/moban2030/plugins/slick/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('/templates/moban2030/plugins/slick-nav/slicknav.css') }}">
+        <link rel="stylesheet" href="{{ asset('/templates/moban2030/plugins/wow/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('/templates/moban2030/assets/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('/templates/moban2030/assets/css/theme.css') }}">
+
+        {{--<link rel="stylesheet" href="https://cdn.bootcss.com/layer/3.0.3/skin/default/layer.min.css">--}}
+        <link rel="stylesheet" href="{{ asset('/resource/component/css/layer-style-3.0.3.min.css') }}">
+
+        {{--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css">--}}
+
+        {{--<link rel="stylesheet" href="https://cdn.bootcss.com/lightcase/2.5.0/css/lightcase.min.css">--}}
+        <link rel="stylesheet" href="{{ asset('/resource/component/css/lightcase-2.5.0.min.css') }}">
+
+        {{--<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.css">--}}
+        <link rel="stylesheet" href="{{ asset('/resource/component/css/jquery.fancybox-3.3.5.css') }}">
+
+        {{--<link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/4.2.2/css/swiper.min.css">--}}
+        <link rel="stylesheet" href="{{ asset('/resource/component/css/swiper-4.2.2.min.css') }}">
 
         {{--<link href="{{ asset('/templates/moban2030/assets/others/common.css') }}" rel="stylesheet">--}}
 
 
 
 
-        <link href="{{ asset('/common/css/animate/hover.css') }}" rel="stylesheet" media="all" />
-        <link href="{{ asset('/common/css/animate/wicked.css') }}" rel="stylesheet" media="all" />
+        <link rel="stylesheet" href="{{ asset('/common/css/animate/hover.css') }}">
+        <link rel="stylesheet" href="{{ asset('/common/css/animate/wicked.css') }}">
 
 
         {{--<link rel="stylesheet" media="all" href="{{ asset('/common/css/common.css') }}" />--}}
@@ -51,9 +60,9 @@
         {{--<link rel="stylesheet" media="all" href="{{ asset('/common/css/backend.css') }}" />--}}
 
 
-        <link rel="stylesheet" media="all" href="{{ asset('/common/css/common-1.css') }}" />
-        <link rel="stylesheet" media="all" href="{{ asset('/common/css/frontend-1.css') }}" />
-        <link rel="stylesheet" media="all" href="{{ asset('/common/css/backend.css') }}" />
+        <link rel="stylesheet" href="{{ asset('/common/css/common-1.css') }}" />
+        <link rel="stylesheet" href="{{ asset('/common/css/frontend-1.css') }}" />
+        <link rel="stylesheet" href="{{ asset('/common/css/backend.css') }}" />
 
 
         @yield('custom-css')
@@ -123,11 +132,20 @@
         <!---<script src="http://ditu.google.cn/maps/api/js?key=AIzaSyD2MtZynhsvwI2B40juK6SifR_OSyj4aBA&libraries=places"></script>--->
 {{--        <script src="{{ asset('/templates/moban2030/plugins/whats-nearby/source/WhatsNearby.js') }}"></script>--}}
         <script src="{{ asset('/templates/moban2030/assets/js/theme.js') }}"></script>
-        <script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
+
+        {{--<script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>--}}
+        <script src="{{ asset('/resource/component/js/layer-3.0.3.min.js') }}"></script>
+
         {{--<script src="https://cdn.bootcss.com/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>--}}
-        <script src="https://cdn.bootcss.com/lightcase/2.5.0/js/lightcase.min.js"></script>
-        <script src="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.js"></script>
-        <script src="https://cdn.bootcss.com/Swiper/4.2.2/js/swiper.min.js"></script>
+
+        {{--<script src="https://cdn.bootcss.com/lightcase/2.5.0/js/lightcase.min.js"></script>--}}
+        <script src="{{ asset('/resource/component/js/lightcase-2.5.0.min.js') }}"></script>
+
+        {{--<script src="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.js"></script>--}}
+        <script src="{{ asset('/resource/component/js/jquery.fancybox-3.3.5.js') }}"></script>
+
+        {{--<script src="https://cdn.bootcss.com/Swiper/4.2.2/js/swiper.min.js"></script>--}}
+        <script src="{{ asset('/resource/component/js/swiper-4.2.2.min.js') }}"></script>
 
 
         <script src="{{ asset('/templates/moban2030/assets/others/common.js') }}"></script>
@@ -136,9 +154,8 @@
 
 
         <script>
+
             $(function() {
-
-
 
                 $("#bottom-bm-close").on('click', function () {
                     $('#bottom-bm-container').slideUp();
@@ -320,6 +337,7 @@
                 });
 
             });
+
         </script>
 
 

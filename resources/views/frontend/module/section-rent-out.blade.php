@@ -9,7 +9,7 @@
 
         <div class="module-row module-body-container">
             @foreach($items as $v)
-                <div class="col-lg-4 col-md-6 col-sm-6 item-col">
+                <div class="col-lg-6 col-md-6 col-sm-6 item-col">
                     <a class="zoom- clearfix" target="_blank" href="{{ url('/item/'.$v->id) }}">
                         <div class="item-container model-left-right padding-8px bg-grey-f5">
 
