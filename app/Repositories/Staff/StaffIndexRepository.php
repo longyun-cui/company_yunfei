@@ -60,20 +60,24 @@ class StaffIndexRepository {
         }
         else
         {
-
         }
+
+
+        $condition = request()->all();
 
         $task_list_type = request('task-list-type','root');
         if($task_list_type == 'root')
         {
             if(in_array($me->user_type,[0,1,9,11]))
             {
-                return redirect('/?task-list-type=all');
+                $condition['task-list-type'] = 'all';
             }
             else
             {
-                return redirect('/?task-list-type=unfinished');
+                $condition['task-list-type'] = 'unfinished';
             }
+            $parameter_result = http_build_query($condition);
+            return redirect('/?'.$parameter_result);
         }
         else if($task_list_type == 'all')
         {
@@ -108,6 +112,7 @@ class StaffIndexRepository {
             $item->custom = json_decode($item->custom);
         }
 
+        $return['condition'] = $condition;
         $return[$menu_active] = 'active';
         $return['item_list'] = $item_list;
         return view(env('TEMPLATE_STAFF_FRONT').'entrance.root')

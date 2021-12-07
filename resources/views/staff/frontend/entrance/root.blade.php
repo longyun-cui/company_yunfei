@@ -63,7 +63,7 @@
 
         {{--@endif--}}
 
-        {!! $item_list->links() !!}
+        {!! $item_list->appends($condition)->links() !!}
 
     </div>
 
