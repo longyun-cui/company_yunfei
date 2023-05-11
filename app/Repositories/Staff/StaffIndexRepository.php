@@ -1048,7 +1048,7 @@ class StaffIndexRepository {
     public function operate_item_task_get($post_data)
     {
         $messages = [
-            'operate.required' => '参数有误！',
+            'operate.required' => 'operate.required.！',
             'item_id.required' => '请输入ID！',
         ];
         $v = Validator::make($post_data, [
@@ -1062,9 +1062,9 @@ class StaffIndexRepository {
         }
 
         $operate = $post_data["operate"];
-        if($operate != 'item-get') return response_error([],"参数operate有误！");
+        if($operate != 'item-get') return response_error([],"参数[operate]有误！");
         $id = $post_data["item_id"];
-        if(intval($id) !== 0 && !$id) return response_error([],"参数ID有误！");
+        if(intval($id) !== 0 && !$id) return response_error([],"参数[ID]有误！");
 
         $item = YF_Item::withTrashed()->find($id);
         if(!$item) return response_error([],"该内容不存在，刷新页面重试！");

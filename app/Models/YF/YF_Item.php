@@ -13,7 +13,7 @@ class YF_Item extends Model
     protected $table = "item";
 
     protected $fillable = [
-        'active', 'status', 'item_active', 'item_status',  'is_show', 'is_completed',
+        'active', 'status', 'item_active', 'item_status', 'is_show', 'is_published', 'is_completed',
         'item_category', 'item_type', 'item_form', 'category', 'type', 'form',
         'owner_active',
         'owner_id', 'creator_id', 'updater_id', 'completer_id', 'user_id', 'belong_id', 'source_id', 'object_id',
@@ -27,7 +27,7 @@ class YF_Item extends Model
         'atom_category', 'major', 'nation', 'birth_time', 'death_time',
         'time_point', 'time_type', 'start_time', 'end_time', 'address',
         'visit_num', 'share_num', 'favor_num', 'comment_num',
-        'published_at'
+        'published_at', 'completed_at'
     ];
 
     // 定义是否默认维护时间，默认是true.改为false，则以下时间相关设定无效

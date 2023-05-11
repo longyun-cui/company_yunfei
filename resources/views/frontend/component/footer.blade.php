@@ -58,7 +58,7 @@
             <div class="row mt10 mb10">
                 <div class="col-md-12 text-center">
                     <div>
-                        <small> Copyright&copy;2018. {{ config('company.info.english_name') }} 上海云飞钢琴有限公司.</small><br>
+                        <small> Copyright&copy;2018. {{ config('company.info.english_name') }} 上海德烨乐器有限公司.</small><br>
                     </div>
                     <div>
                         <small>

@@ -1,7 +1,7 @@
 @extends(env('TEMPLATE_STAFF_FRONT').'layout.layout')
 
 
-@section('head_title','修改密码 - 云飞钢琴')
+@section('head_title','修改密码 - 德烨乐器')
 
 
 @section('meta_author')@endsection
@@ -11,7 +11,7 @@
 
 
 @section('header','')
-@section('description','修改密码 - 云飞钢琴')
+@section('description','修改密码 - 德烨乐器')
 @section('content')
 <div class="container">
 

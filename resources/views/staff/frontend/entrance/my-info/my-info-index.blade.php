@@ -1,7 +1,7 @@
 @extends(env('TEMPLATE_STAFF_FRONT').'layout.layout')
 
 
-@section('head_title','我的信息 - 云飞钢琴')
+@section('head_title','我的信息 - 德烨乐器')
 
 
 @section('meta_title')@endsection

@@ -2,7 +2,7 @@
 
 
 @section('head_title')
-    {{ $title_text }} - 云飞钢琴
+    {{ $title_text }} - {{ config('company.info.short_name') }}
 @endsection
 
 

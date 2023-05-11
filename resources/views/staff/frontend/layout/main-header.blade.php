@@ -14,7 +14,7 @@
             <a href="{{ url('/') }}">
                 <span class="logo-big hidden-xs">
                     <img src="{{ url(config('company.info.logo')) }}" class="img-icon" alt="Image">
-                    <b class="hidden-xs">云飞钢琴</b>
+                    <b class="hidden-xs">德烨乐器</b>
                 </span>
                 <span class="logo-big visible-xs">
                     <img src="{{ url(config('company.info.logo')) }}" class="img-icon" alt="Image">

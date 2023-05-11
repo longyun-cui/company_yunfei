@@ -19,7 +19,7 @@
     {{--<br>--}}
     {{--<small>联系电话：</small><strong>17721364771</strong>--}}
     {{--<br>--}}
-    <small>版权所有&copy;上海云飞钢琴有限公司</small><span class="_none">(2017-2021)</span>
+    <small>版权所有&copy;上海德烨乐器有限公司</small><span class="_none">(2017-2021)</span>
     <br class="visible-xs">
     <a target="_blank" href="https://beian.miit.gov.cn"><small>沪ICP备17052782号-4</small></a>
 </footer>

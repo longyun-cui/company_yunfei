@@ -38,7 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     {{--<link href="https://cdn.bootcss.com/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css" rel="stylesheet">--}}
 
     <link href="https://cdn.bootcss.com/bootstrap-fileinput/4.4.8/css/fileinput.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('common/css/component/fileinput.css') }}" media="all" />
+    <link rel="stylesheet" href="{{ asset('common/css/component/fileinput-only.css') }}" media="all" />
 
     <link rel="stylesheet" href="{{asset('AdminLTE/plugins/datatables/dataTables.bootstrap.css')}}">
 
