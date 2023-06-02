@@ -13,7 +13,7 @@
             'slogan' => '上海钢琴租售',
             'favicon' => '/favicon-240.png',
             'logo' => '/custom/images/logo-piano.jpg',
-            'address' => '上海市闵行区北松公路838弄68号',
+            'address' => '浦东新区新共路1118号',
             'linkman' => '胡老师',
             'telephone' => '136-8179-8818',
             'mobile' => '136-8179-8818',

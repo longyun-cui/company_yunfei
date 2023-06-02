@@ -70,7 +70,7 @@
                         </small>
                     </div>
                     <div>
-                        <a target="_blank" href="https://beian.miit.gov.cn">沪ICP备18045960号-1</a>
+                        <a target="_blank" href="https://beian.miit.gov.cn">沪ICP备2023014304号</a>
                     </div>
                 </div>
             </div>
