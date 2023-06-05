@@ -79,8 +79,9 @@ desired effect
 
 <script src="https://cdn.bootcss.com/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>
 
-<script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>
-<script src="{{ asset('/resource/component/js/layer-3.0.3.min.js') }}"></script>
+{{--<script src="https://cdn.bootcss.com/layer/3.0.3/layer.min.js"></script>--}}
+{{--<script src="{{ asset('/resource/component/js/layer-3.0.3.min.js') }}"></script>--}}
+<script src="{{ asset('/resource/component/js/layer-3.5.1/layer.js') }}"></script>
 
 <script src="https://cdn.bootcss.com/bootstrap-fileinput/4.4.3/js/fileinput.min.js"></script>
 
