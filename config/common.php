@@ -12,9 +12,9 @@
             ],
 
             'online' => [
-                'root' => 'http://yunfei-piano.com',
-                'www' => 'http://www.yunfei-piano.com',
-                'cdn' => 'http://cdn.yunfei-piano.com',
+                'root' => 'http://piano-lai.com',
+                'www' => 'http://www.piano-lai.com',
+                'cdn' => 'http://cdn.piano-lai.com',
             ],
 
             'front' => [
