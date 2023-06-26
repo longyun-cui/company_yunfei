@@ -137,7 +137,18 @@ class StaffIndexRepository {
         }
 
         $operate = $post_data["operate"];
-        $keywords = "%{$post_data['keywords']}%";
+        $keywords = $post_data['keywords'];
+        $keywords_search = "%{$post_data['keywords']}%";
+        $keywords_json = json_encode($post_data['keywords']);
+
+
+        $bb = substr(json_encode($keywords), 1 ,-1);
+        $str = preg_replace("/^\[\"|\"\]$/","", $bb);
+//        $str = str_replace("\\","\\\\", $str);
+        $keywords_json = str_replace("\\","\\\\", $str);
+        $keywords_json = "%".$keywords_json."%";
+
+//        var_dump($keywords_json);
 
         $me = Auth::guard("staff")->user();
 
@@ -157,7 +168,12 @@ class StaffIndexRepository {
 
 
 
-        $item_query->where(function($query1) use($keywords) { $query1->where('description','like',$keywords)->orWhere('remark','like',$keywords); } );
+        $item_query->where(function($query1) use($keywords_search,$keywords_json) {
+            $query1->where('description','like',$keywords_search)
+                ->orWhere('remark','like',$keywords_search)
+                ->orWhere('custom','like',$keywords_search)
+                ->orWhere('custom','like',$keywords_json);
+        });
 
         $item_list = $item_query->orderByDesc('published_at')->orderByDesc('updated_at')->paginate(20);
         foreach ($item_list as $item)
