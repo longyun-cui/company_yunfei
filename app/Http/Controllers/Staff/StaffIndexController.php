@@ -87,6 +87,10 @@ class StaffIndexController extends Controller
 	{
         return $this->repo->view_root();
 	}
+    public function view_search()
+    {
+        return $this->repo->view_search(request()->all());
+    }
 
     public function dataTableI18n()
     {

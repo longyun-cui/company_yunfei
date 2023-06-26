@@ -24,6 +24,7 @@ Route::group(['middleware' => ['staff.login']], function () {
 
     Route::get('/', $controller.'@view_root');
     Route::get('/404', $controller.'@view_404');
+    Route::match(['get','post'], '/search', $controller.'@view_search');
 
 
     /*

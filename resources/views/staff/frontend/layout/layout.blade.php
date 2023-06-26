@@ -517,6 +517,46 @@ desired effect
             })
         };
 //        setInterval(lazy_load,1000);
+
+
+
+        $('.lightcase-image').lightcase({
+            maxWidth: 9999,
+            maxHeight: 9999
+        });
+
+
+        // 【查询】
+        $(".main-header").on('click', "#search-btn", function() {
+            var $that = $(this);
+
+            var $url = "/search?&operate=search&keywords="+$('input[name=q]').val();
+            window.location.href = $url;
+            // window.open($url);
+
+            {{--$.post(--}}
+            {{--    "{{ url('/search') }}",--}}
+            {{--    {--}}
+            {{--        _token: $('meta[name="_token"]').attr('content'),--}}
+            {{--        "operate": "search",--}}
+            {{--        "keywords": $('input[name=q]').val()--}}
+            {{--    },--}}
+            {{--    function(data){--}}
+            {{--        layer.close(index);--}}
+            {{--        if(!data.success)--}}
+            {{--        {--}}
+            {{--            layer.msg(data.msg);--}}
+            {{--        }--}}
+            {{--        else--}}
+            {{--        {--}}
+            {{--            $('#datatable_ajax').DataTable().ajax.reload(null,false);--}}
+            {{--        }--}}
+            {{--    },--}}
+            {{--    'json'--}}
+            {{--);--}}
+        });
+
+
     });
 </script>
 

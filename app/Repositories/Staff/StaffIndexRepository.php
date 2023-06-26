@@ -120,6 +120,60 @@ class StaffIndexRepository {
     }
 
 
+    public function view_search($post_data)
+    {
+        $messages = [
+            'operate.required' => 'operate.required.',
+            'keywords.required' => 'keywords.required.',
+        ];
+        $v = Validator::make($post_data, [
+            'operate' => 'required',
+            'keywords' => 'required',
+        ], $messages);
+        if ($v->fails())
+        {
+            $messages = $v->errors();
+            return response_error([],$messages->first());
+        }
+
+        $operate = $post_data["operate"];
+        $keywords = "%{$post_data['keywords']}%";
+
+        $me = Auth::guard("staff")->user();
+
+        $menu_active = 'sidebar_menu_root_active';
+
+        $item_query = YF_Item::with(['owner','creator','updater','completer']);
+//        $item_query->where(['item_status'=>1,'active'=>1]);
+        $item_query->where(['item_category'=>11]);
+        $item_query->withTrashed();
+        $item_query->orderByDesc('updated_at');
+
+
+
+        $condition = request()->all();
+
+        $condition['search-q'] = $post_data['keywords'];
+
+
+
+        $item_query->where(function($query1) use($keywords) { $query1->where('description','like',$keywords)->orWhere('remark','like',$keywords); } );
+
+        $item_list = $item_query->orderByDesc('published_at')->orderByDesc('updated_at')->paginate(20);
+        foreach ($item_list as $item)
+        {
+            $item->custom = json_decode($item->custom);
+        }
+
+        $return['condition'] = $condition;
+        $return[$menu_active] = 'active';
+        $return['item_list'] = $item_list;
+
+        $view_blade = env('TEMPLATE_STAFF_FRONT').'entrance.root';
+        return view($view_blade)->with($return);
+    }
+
+
 
 
     /*

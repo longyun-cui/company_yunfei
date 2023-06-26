@@ -56,6 +56,32 @@
                 {{--@endif--}}
 
                 {{--<!-- Notifications Menu -->--}}
+                <li class="dropdown notifications-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-search" style="width:16px;"></i>
+                        {{--<span class="label label-warning">10</span>--}}
+                    </a>
+                    <ul class="dropdown-menu">
+                        {{--<li class="header">You have 10 notifications</li>--}}
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>
+                                    <div class="input-group">
+                                        <input type="text" name="q" class="form-control" placeholder="关键字查找">
+                                        <span class="input-group-btn">
+                                            <button type="submit" name="search" id="search-btn" class="btn btn-flat" style="background:#111;"><i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        {{--<li class="footer"><a href="#">View all</a></li>--}}
+                    </ul>
+                </li>
+
+                {{--<!-- Notifications Menu -->--}}
                 <li class="dropdown notifications-menu _none">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-list" style="width:16px;"></i>
