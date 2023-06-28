@@ -30,11 +30,13 @@
                         <h4 class="title">联系我们</h4>
                         <ul>
                             <li><i class="fa fa-copyright"></i> {{ config('company.info.name') }} </li>
-                            <li><i class="fa fa-map-marker"></i> {{ config('company.info.address') }} </li>
-                            <li><i class="fa fa-user"></i> {{ config('company.info.linkman') }} </li>
-                            <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile') }}">{{ config('company.info.mobile') }}</a> </li>
+                            <li><i class="fa fa-map-marker"></i> {{ config('company.info.address-1') }} </li>
+                            <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile-1') }}">{{ config('company.info.mobile-1') }}</a> </li>
+                            <li><i class="fa fa-map-marker"></i> {{ config('company.info.address-2') }} </li>
+                            <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile-2') }}">{{ config('company.info.mobile-2') }}</a> </li>
+{{--                            <li><i class="fa fa-user"></i> {{ config('company.info.linkman') }} </li>--}}
                             {{--<li><i class="fa fa-envelope"></i> <a href="mailto:{{ config('company.info.email') }}">{{ config('company.info.email') }}</a> </li>--}}
-                            <li><i class="fa fa-clock-o"></i> 周一 - 周六: 9:00 - 21:00 </li>
+                            <li><i class="fa fa-clock-o"></i> 周一 - 周日: 9:00 - 17:00 </li>
                         </ul>
                     </section>
                 </div>
@@ -44,7 +46,7 @@
     <div class="site-footer-bottom _none">
         <div class="container">
             {{--<p class="copyright pull-left wow slideInRight">Copyright © 2018.{{ config('company、.info.name') }} All rights reserved.</p>--}}
-            <p class="copyright pull-left wow slideInRight">Copyright © 2018.寻觅e家 All rights reserved.</p>
+            <p class="copyright pull-left wow slideInRight">Copyright © 2018.德烨乐器 All rights reserved.</p>
             <nav class="footer-nav pull-right wow slideInLeft">
                 <ul>
                     <li><a href="{{ url('/rent-out') }}">钢琴出租</a></li>
