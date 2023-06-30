@@ -15,8 +15,8 @@
     RewriteRule ^ %1 [L,R=301]
 
 
-    RewriteCond %{HTTP_HOST} ^yunfei-piano.com$ [NC]
-    RewriteRule ^(.*)$ http://www.yunfei-piano.com/$1 [R=301,L]
+    RewriteCond %{HTTP_HOST} ^piano-lai.com$ [NC]
+    RewriteRule ^(.*)$ http://www.piano-lai.com/$1 [R=301,L]
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
