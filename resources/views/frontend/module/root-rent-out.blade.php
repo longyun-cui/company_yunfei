@@ -4,7 +4,10 @@
 
         <header class="module-row module-header-container text-center">
             <div class="wow slideInLeft module-title-row title-with-double-line title-lg"><b>钢琴出租</b></div>
-            <div class="wow slideInRight module-subtitle-row title-sm">十年品质保证</div>
+{{--            <div class="wow slideInRight module-subtitle-row title-sm">十年品质保证</div>--}}
+            <div class="wow slideInRight module-subtitle-row title-sm"style="font-size:14px">免押金高端型号月租256元，包括yamaha，kawai等品牌。免押金中端型号月租100-128元，包括三益，英昌，史蒂夫巴赫，珠江，斯特劳斯，斯托克豪森等品牌。</div>
+            <div class="wow slideInRight module-subtitle-row title-sm"style="font-size:14px">免押金低端型号月租28-60元，包括聂耳品牌和现场所有电钢。</div>
+            <div class="wow slideInRight module-subtitle-row title-sm" style="font-size:14px">中端型号和高端型号享受免费不限次上门维修及调音服务。钢琴一年起租，需要带身份证到店签租琴合同才能免押金。地址根据淘宝描述，到店即送零基础视频教程。（免押金中端型号yamaha P1 M1 NO100 NO200 NO300 kawai k20 k35 k50 ku-1 ku-2 ku-3 ks1)</div>
         </header>
 
         <div class="module-row module-body-container">
