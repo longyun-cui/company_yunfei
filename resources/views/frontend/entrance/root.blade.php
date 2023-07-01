@@ -39,9 +39,9 @@
         {{--@include('frontend.module.root-video')--}}
         @include('frontend.module.root-course')
 
-        @include('frontend.module.root-cooperation', ['items'=>$cooperation_items])
+{{--        @include('frontend.module.root-cooperation', ['items'=>$cooperation_items])--}}
 
-        @include('frontend.module.root-second-wholesale', ['items'=>$wholesale_items])
+{{--        @include('frontend.module.root-second-wholesale', ['items'=>$wholesale_items])--}}
 
         @include('frontend.module.root-recycle')
 
