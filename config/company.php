@@ -26,6 +26,7 @@
             'email' => '',
             'wechat_id' => '',
             'wechat_qrcode' => '/custom/images/yunfei-wechat.jpg',
+            'rent_pic' => '/custom/images/rent.jpeg',
             'weibo_name' => '',
             'weibo_address' => '',
         ],

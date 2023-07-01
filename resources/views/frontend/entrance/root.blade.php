@@ -32,6 +32,8 @@
 
     <div class="page-root">
 
+        @include('frontend.module.root-rent-pic')
+
         @include('frontend.module.root-rent-out', ['items'=>$rent_items])
 
         {{--@include('frontend.module.root-video')--}}
