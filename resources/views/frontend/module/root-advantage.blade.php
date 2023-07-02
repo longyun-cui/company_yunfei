@@ -4,7 +4,7 @@
 
         <header class="module-row module-header-container text-center">
             <div class="wow slideInLeft module-title-row title-with-double-line title-lg _bold">为什么选择我们？</div>
-            <div class="wow slideInRight module-subtitle-row color-5 title-sm">全新钢琴、一线品牌、租金低、押金抵、上门服务</div>
+            <div class="wow slideInRight module-subtitle-row color-5 title-sm">全新钢琴、一线品牌、免押金、损坏不计、上门服务</div>
         </header>
 
         <div class="module-row module-body-container">
@@ -21,7 +21,7 @@
                     <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/2.png') }}" alt="Feature Icon"></i>
                     <h6 class="entry-title title-sm">租金低</h6>
                     {{--<p>租金低，押金更低，让每个家庭都能轻松租琴。 </p>--}}
-                    <p>顶级型号月租128元，试用期间免费不限次维修调音。音色纯正，品质保证，价格更动人，用琴更放心。 </p>
+                    <p>顶级型号月租256元，使用期间免费不限次维修调音。音色纯正，品质保证，价格更动人，用琴更放心。 </p>
                 </div>
             </div>
             <div class="item-col col-md-3 col-sm-6 col-xs-6">
@@ -29,7 +29,7 @@
                     <i class="icon"><img src="{{ url('/templates/moban2030/assets/images/features/3.png') }}" alt="Feature Icon"></i>
                     <h6 class="entry-title title-sm">押金少</h6>
                     {{--<p>免费上门服务，全年无休。</p>--}}
-                    <p>低端款免押金，不需要信用分。真正优质的儿童练习琴并不在于钢琴表面的美观与奢华，更在于高品质的音色和音准。</p>
+                    <p>真正优质的儿童练习琴并不在于钢琴表面的美观与奢华，更在于高品质的音色和音准。</p>
                 </div>
             </div>
             <div class="item-col col-md-3 col-sm-6 col-xs-6">
