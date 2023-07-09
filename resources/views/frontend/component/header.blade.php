@@ -72,7 +72,7 @@
                     <li><a href="{{ url('/recycle/page') }}">钢琴回收</a></li>
                     <li><a href="{{ url('/course/list') }}">钢琴教学</a></li>
                     <li><a href="{{ url('/coverage/list') }}">资讯动态</a></li>
-                    <li><a href="{{ url('/contact') }}">联系我们</a></li>
+{{--                    <li><a href="{{ url('/contact') }}">联系我们</a></li>--}}
 
                     {{--<li class="nav_nohover hlzb"  drop-down='downlist4'>--}}
                         {{--<a href="{{ url('/item/list') }}">下拉框</a>--}}
