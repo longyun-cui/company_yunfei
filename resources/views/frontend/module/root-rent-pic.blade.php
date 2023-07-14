@@ -8,7 +8,7 @@
         </header>
 
         <a class="btn" href="javascript:void(0);"><img src="{{ url(config('company.info.rent_pic')) }}" alt="ISO Button" style="width:480px;"></a>
-        <a class="btn _none" href="javascript:void(0);"><img src="{{ url(config('company.info.rent_pic')) }}" alt="Play Store Button"></a>
+        <a class="btn" href="javascript:void(0);"><img src="{{ url(config('company.info.store')) }}" alt="Play Store Button"></a>
 
     </div>
 </section>
