@@ -26,7 +26,7 @@
             'mobile-z' => '136-6189-0010',
             'email' => '',
             'wechat_id' => '',
-            'wechat_qrcode' => '/custom/images/yunfei-wechat.jpg',
+            'wechat_qrcode' => '/custom/images/yunfei-wechat-1.jpg',
             'rent_pic' => '/custom/images/rent-2.jpg',
             'store' => '/custom/images/store.jpg',
             'weibo_name' => '',
