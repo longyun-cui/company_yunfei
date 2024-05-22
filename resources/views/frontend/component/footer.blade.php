@@ -30,10 +30,10 @@
                         <h4 class="title">联系我们</h4>
                         <ul>
                             <li><i class="fa fa-copyright"></i> {{ config('company.info.name') }} </li>
-                            <li><i class="fa fa-map-marker"></i> {{ config('company.info.address-1') }} </li>
-                            <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile-1') }}">{{ config('company.info.mobile-1') }}</a> </li>
-                            <li><i class="fa fa-map-marker"></i> {{ config('company.info.address-2') }} </li>
-                            <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile-2') }}">{{ config('company.info.mobile-2') }}</a> </li>
+{{--                            <li><i class="fa fa-map-marker"></i> {{ config('company.info.address-1') }} </li>--}}
+                            <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile') }}">{{ config('company.info.mobile') }}</a> </li>
+{{--                            <li><i class="fa fa-map-marker"></i> {{ config('company.info.address-2') }} </li>--}}
+{{--                            <li><i class="fa fa-phone"></i> <a href="tel:{{ config('company.info.mobile-2') }}">{{ config('company.info.mobile-2') }}</a> </li>--}}
 {{--                            <li><i class="fa fa-user"></i> {{ config('company.info.linkman') }} </li>--}}
                             {{--<li><i class="fa fa-envelope"></i> <a href="mailto:{{ config('company.info.email') }}">{{ config('company.info.email') }}</a> </li>--}}
                             <li><i class="fa fa-clock-o"></i> 周一 - 周日: 9:00 - 17:00 </li>
@@ -60,10 +60,11 @@
             <div class="row mt10 mb10">
                 <div class="col-md-12 text-center">
                     <div>
-                        <small> Copyright&copy;2018. {{ config('company.info.english_name') }} 上海德烨乐器有限公司.</small><br>
+                        <small> Copyright&copy;2018. {{ config('company.info.english_name') }} {{ config('company.info.name') }}.</small><br>
                     </div>
                     <div>
                         <small>
+                            <strong>广州钢琴出租</strong> |
                             <strong>上海钢琴出租</strong> |
                             <strong>二手钢琴批发</strong> |
                             <strong>钢琴回收</strong> |

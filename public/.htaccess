@@ -18,15 +18,16 @@
 
 
     RewriteCond %{HTTP_HOST} ^local-yunfei.com$ [NC]
-    RewriteRule ^(.*)$ http://www.local-yunfei.com//$1 [R=301,L]
+    RewriteRule ^(.*)$ http://www.local-yunfei.com/$1 [R=301,L]
 
 
     RewriteCond %{HTTP_HOST} ^local-lai.com$ [NC]
-    RewriteRule ^(.*)$ http://www.local-lai.com//$1 [R=301,L]
+    RewriteRule ^(.*)$ http://www.local-lai.com/$1 [R=301,L]
 
 
     RewriteCond %{HTTP_HOST} ^piano-lai.com$ [NC]
     RewriteRule ^(.*)$ http://www.piano-lai.com/$1 [R=301,L]
+
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

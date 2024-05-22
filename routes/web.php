@@ -37,6 +37,12 @@ Route::group(['prefix' => 'common'], function () {
 
 
 
+/*
+ * lai
+ */
+Route::group(['domain' => 'lai.'.env('DOMAIN_ROOT'), 'namespace' => 'Lai'], function () {
+    require(__DIR__ . '/Lai/route.php');
+});
 
 
 /*
@@ -163,7 +169,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 /*
  * 前台
  */
-Route::group(['namespace' => 'Front'], function () {
+Route::group(['domain' => 'www.'.env('DOMAIN_ROOT'), 'namespace' => 'Front'], function () {
 
     $controller = "IndexController";
 

@@ -105,8 +105,8 @@
                             <i class="fa fa-mobile"></i>
                         </div>
                         <div class="mobile-main-inn">
-                            <a href="tel:{{ config('company.info.telephone') }}">
-                                <b>{{ config('company.info.telephone') }}</b>
+                            <a href="tel:{{ config('company.info.mobile') }}">
+                                <b>{{ config('company.info.mobile') }}</b>
                             </a>
                             {{--<span class="text-row"><b>24Hours</b></span><br>--}}
                             {{--<span class="number-row">--}}
