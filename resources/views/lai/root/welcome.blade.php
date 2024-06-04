@@ -79,15 +79,57 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    chaos01
+                    LAI
                 </div>
 
-                <div class="links">
-                    <a href="{{ env('DOMAIN_LY_GPS') }}">GPS</a>
-                    <a href="{{ env('DOMAIN_GH_WWW') }}">GH</a>
-                    <a href="{{ env('DOMAIN_RZK_WWW') }}">RZK</a>
-                    <a href="{{ env('DOMAIN_ZY_ADMIN') }}">zy.admin</a>
+                {{--左侧--}}
+                <div class="main-body-section main-body-center-section section-wrapper">
+
+                    <div class="container-box pull-left margin-bottom-16px">
+                        <img src="/resource/custom/lai/2019.jpg">
+                        <img src="/resource/custom/lai/2021.jpg">
+                        <img src="/resource/custom/lai/2022.jpg">
+                        <img src="/resource/custom/lai/2023.jpg">
+                        <img src="/resource/custom/lai/2024.jpg">
+                        <img src="/resource/custom/lai/2025.jpg">
+                        <img src="/resource/custom/lai/2026.jpg">
+                        <img src="/resource/custom/lai/2027.jpg">
+                        <img src="/resource/custom/lai/2028.jpg">
+                        <img src="/resource/custom/lai/2029.jpg">
+                        <img src="/resource/custom/lai/2036.jpg">
+                        <img src="/resource/custom/lai/2037.jpg">
+                    </div>
+
+                    <div class="container-box pull-left margin-bottom-16px">
+                        <video width="100%" height="auto" controls="">
+                            <source src="/resource/custom/lai/1.mp4" type="video/mp4"/>
+                        </video>
+                        <video width="100%" height="auto" controls="">
+                            <source src="/resource/custom/lai/2.mp4" type="video/mp4"/>
+                        </video>
+                        <video width="100%" height="auto" controls="">
+                            <source src="/resource/custom/lai/3.mp4" type="video/mp4"/>
+                        </video>
+                        <video width="100%" height="auto" controls="">
+                            <source src="/resource/custom/lai/4.mp4" type="video/mp4"/>
+                        </video>
+                        <video width="100%" height="auto" controls="">
+                            <source src="/resource/custom/lai/5.mp4" type="video/mp4"/>
+                        </video>
+                        <video width="100%" height="auto" controls="">
+                            <source src="/resource/custom/lai/6.mp4" type="video/mp4"/>
+                        </video>
+                    </div>
+
+
                 </div>
+
+{{--                <div class="links">--}}
+{{--                    <a href="{{ env('DOMAIN_LY_GPS') }}">GPS</a>--}}
+{{--                    <a href="{{ env('DOMAIN_GH_WWW') }}">GH</a>--}}
+{{--                    <a href="{{ env('DOMAIN_RZK_WWW') }}">RZK</a>--}}
+{{--                    <a href="{{ env('DOMAIN_ZY_ADMIN') }}">zy.admin</a>--}}
+{{--                </div>--}}
             </div>
         </div>
     </body>
