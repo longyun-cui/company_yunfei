@@ -62,6 +62,31 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .main-body-center-section {
+                position: relative;
+                width: calc(100% - 280px);
+                padding: 0;
+                margin: auto;
+                border-radius: 4px;
+            }
+            .container-box {
+                position: relative;
+                width: 100%;
+                border-radius: 4px;
+                float: left;
+            }
+            .container-box img {
+                width: 100%;
+            }
+            .margin-bottom-16px { margin-bottom:16px; }
+
+            @media (max-width: 767px) {
+                .main-body-section {
+                    width: 100%;
+                    margin-bottom: 12px;
+                    border-radius: 4px;
+                }
+            }
         </style>
     </head>
     <body>
@@ -86,7 +111,7 @@
                 <div class="main-body-section main-body-center-section section-wrapper">
 
                     <div class="container-box pull-left margin-bottom-16px">
-                        <img src="/resource/custom/lai/2019.jpg">
+                        <img src="{{ url('/resource/custom/lai/2019.jpg') }}">
                         <img src="/resource/custom/lai/2021.jpg">
                         <img src="/resource/custom/lai/2022.jpg">
                         <img src="/resource/custom/lai/2023.jpg">
@@ -101,22 +126,32 @@
                     </div>
 
                     <div class="container-box pull-left margin-bottom-16px">
-                        <video width="100%" height="auto" controls="">
-                            <source src="/resource/custom/lai/1.mp4" type="video/mp4"/>
+                        <video width="100%" height="120px" controls="">
+                            <source src="{{ url('/resource/custom/lai/1.mp4') }}" type="video/mp4"/>
                         </video>
-                        <video width="100%" height="auto" controls="">
+                    </div>
+                    <div class="container-box pull-left margin-bottom-16px">
+                        <video width="100%" height="120px" controls="">
                             <source src="/resource/custom/lai/2.mp4" type="video/mp4"/>
                         </video>
-                        <video width="100%" height="auto" controls="">
+                    </div>
+                    <div class="container-box pull-left margin-bottom-16px">
+                        <video width="100%" height="120px" controls="">
                             <source src="/resource/custom/lai/3.mp4" type="video/mp4"/>
                         </video>
-                        <video width="100%" height="auto" controls="">
+                    </div>
+                    <div class="container-box pull-left margin-bottom-16px">
+                        <video width="100%" height="120px" controls="">
                             <source src="/resource/custom/lai/4.mp4" type="video/mp4"/>
                         </video>
-                        <video width="100%" height="auto" controls="">
+                    </div>
+                    <div class="container-box pull-left margin-bottom-16px">
+                        <video width="100%" height="120px" controls="">
                             <source src="/resource/custom/lai/5.mp4" type="video/mp4"/>
                         </video>
-                        <video width="100%" height="auto" controls="">
+                    </div>
+                    <div class="container-box pull-left margin-bottom-16px">
+                        <video width="100%" height="120px" controls="">
                             <source src="/resource/custom/lai/6.mp4" type="video/mp4"/>
                         </video>
                     </div>
