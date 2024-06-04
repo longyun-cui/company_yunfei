@@ -49,7 +49,7 @@
 
         @include('frontend.module.root-coverage', ['items'=>$coverage_items])
 
-        @include('frontend.module.root-qrcode')
+{{--        @include('frontend.module.root-qrcode')--}}
 
         @include('frontend.module.root-client', ['items'=>$client_items])
 
