@@ -30,7 +30,7 @@
             'wechat_id' => '',
             'wechat_qrcode' => '/custom/images/yunfei-wechat-1.jpg',
             'rent_pic' => '/custom/images/rent-2.jpg',
-            'store' => '/custom/images/store.jpg',
+            'store' => '/custom/images/store1.jpg',
             'weibo_name' => '',
             'weibo_address' => '',
         ],
