@@ -24,8 +24,16 @@ class LaiIndexRepository {
     // 返回（后台）主页视图
     public function view_index()
     {
+        return view('lai.entrance.index');
+    }
+
+
+    // 返回（后台）主页视图
+    public function view_welcome()
+    {
         return view('lai.root.welcome');
     }
+
 
 
 }

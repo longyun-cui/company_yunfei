@@ -17,7 +17,8 @@
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
-                height: 100vh;
+                width: 100%;
+                /*height: 100vh;*/
                 margin: 0;
             }
 
@@ -33,6 +34,7 @@
 
             .position-ref {
                 position: relative;
+                width:100%;
             }
 
             .top-right {
@@ -65,18 +67,17 @@
             .main-body-center-section {
                 position: relative;
                 width: calc(100% - 280px);
+                height:auto;
                 padding: 0;
                 margin: auto;
                 border-radius: 4px;
+                float:left;
             }
             .container-box {
                 position: relative;
                 width: 100%;
                 border-radius: 4px;
-                float: left;
-            }
-            .container-box img {
-                width: 100%;
+
             }
             .margin-bottom-16px { margin-bottom:16px; }
 
@@ -107,11 +108,14 @@
                     LAI
                 </div>
 
-                {{--左侧--}}
+
+
+
+                {{--手机1--}}
                 <div class="main-body-section main-body-center-section section-wrapper">
 
                     <div class="container-box pull-left margin-bottom-16px">
-                        <img src="{{ url('/resource/custom/lai/2019.jpg') }}">
+                        <img src="/resource/custom/lai/2019.jpg">
                         <img src="/resource/custom/lai/2021.jpg">
                         <img src="/resource/custom/lai/2022.jpg">
                         <img src="/resource/custom/lai/2023.jpg">
@@ -121,38 +125,12 @@
                         <img src="/resource/custom/lai/2027.jpg">
                         <img src="/resource/custom/lai/2028.jpg">
                         <img src="/resource/custom/lai/2029.jpg">
-                        <img src="/resource/custom/lai/2036.jpg">
                         <img src="/resource/custom/lai/2037.jpg">
                     </div>
 
                     <div class="container-box pull-left margin-bottom-16px">
                         <video width="100%" height="120px" controls="">
                             <source src="{{ url('/resource/custom/lai/1.mp4') }}" type="video/mp4"/>
-                        </video>
-                    </div>
-                    <div class="container-box pull-left margin-bottom-16px">
-                        <video width="100%" height="120px" controls="">
-                            <source src="/resource/custom/lai/2.mp4" type="video/mp4"/>
-                        </video>
-                    </div>
-                    <div class="container-box pull-left margin-bottom-16px">
-                        <video width="100%" height="120px" controls="">
-                            <source src="/resource/custom/lai/3.mp4" type="video/mp4"/>
-                        </video>
-                    </div>
-                    <div class="container-box pull-left margin-bottom-16px">
-                        <video width="100%" height="120px" controls="">
-                            <source src="/resource/custom/lai/4.mp4" type="video/mp4"/>
-                        </video>
-                    </div>
-                    <div class="container-box pull-left margin-bottom-16px">
-                        <video width="100%" height="120px" controls="">
-                            <source src="/resource/custom/lai/5.mp4" type="video/mp4"/>
-                        </video>
-                    </div>
-                    <div class="container-box pull-left margin-bottom-16px">
-                        <video width="100%" height="120px" controls="">
-                            <source src="/resource/custom/lai/6.mp4" type="video/mp4"/>
                         </video>
                     </div>
 

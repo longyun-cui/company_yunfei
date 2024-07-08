@@ -87,6 +87,13 @@ class LaiIndexController extends Controller
 	{
         return $this->repo->view_index();
 	}
+    public function view_welcome()
+    {
+        return $this->repo->view_welcome();
+    }
+
+
+
 
     public function view_search()
     {
